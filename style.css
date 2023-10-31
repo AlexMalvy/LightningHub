@@ -53,21 +53,15 @@ h1 {
 
 @media (min-width: 1020px) {
     nav {
-        top: 0;
+        top: 10px;
         height: 77px;
+        border-radius: 10px;
     }
 
-    main {
-        margin-top: 77px;
-    }
-
-    .mobile {
-        display: none;
+    .first-section {
+        padding-top: 77px;
     }
 }
 
 @media (max-width: 1020px) {
-    .desktop {
-        display: none;
-    }
 }

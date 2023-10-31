@@ -13,7 +13,7 @@
     <!-- Header -->
     <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
         <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
-        <h1 class="m-0 fs-3"><span class="pe-2">Lightning</span><span class="ps-1">Hub</span></h1>
+        <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
     </header>
 
     <!-- Main -->
@@ -21,7 +21,7 @@
 
         <!-- Introduction -->
         <section>
-            <div class="container-fluid first-background-img p-0">
+            <div class="container-fluid first-background-img px-0 first-section">
                 <div class="container py-5">
                     <h2 class="fw-bold fs-1">Entre dans le game</h2>
                     <p>
@@ -40,13 +40,13 @@
             <p class="container py-4">Trouvez facilement des partenaires de jeu partageant vos intérêts, que ce soit pour des sessions compétitives ou simplement pour le fun.</p>
         </section>
 
-        <!-- First Divider -->
-        <div class="container pb-4 mobile">
+        <!-- First Divider (Mobile) -->
+        <div class="container pb-4 d-lg-none">
             <hr>
         </div>
 
         <!-- Games Carousel (Mobile) -->
-        <div class="container pb-4 mobile">
+        <div class="container pb-4 d-lg-none">
             <div id="carouselExampleCaptions" class="carousel slide bg-color-purple-faded">
 
                 <!-- Carousel Title + Arrow -->
@@ -156,7 +156,7 @@
         </div>
 
         <!-- Games Cards (Desktop) -->
-        <div class="container-fluid bg-color-purple-faded pt-4 pb-4 desktop">
+        <div class="container-fluid bg-color-purple-faded pt-4 pb-4 d-none d-lg-block">
 
             <!-- Cards -->
             <div class="container">
@@ -263,8 +263,8 @@
 
         </div>
 
-        <!-- Second Divider -->
-        <div class="container pb-4 mobile">
+        <!-- Second Divider (Mobile) -->
+        <div class="container pb-4 d-lg-none">
             <hr>
         </div>
 
@@ -290,12 +290,21 @@
 
     </main>
 
-    <!-- Bottom Nav -->
-    <nav class="container-fluid navbar bg-color-purple fixed-bottom">
+    <!-- Nav -->
+    <nav class="container-fluid container-lg navbar bg-color-purple fixed-bottom">
         <div class="container-fluid">
-            <div class="row flex-grow-1">
-                <div class="col-3">
-                    <a href="#" class="d-flex flex-column link-light text-decoration-none">
+
+            <!-- Brand Name (Desktop Only) -->
+            <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
+                <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+                <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
+            </a>
+
+            <!-- Navbar -->
+            <div class="row flex-grow-1 flex-lg-grow-0">
+                <!-- Hub link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-1 link-light text-decoration-none">
                         <div class="d-flex justify-content-center">
                             <img src="assets/hub-icon-37x37.png" alt="">
                         </div>
@@ -303,8 +312,9 @@
                     </a>
                 </div>
                 
-                <div class="col-3">
-                    <a href="#" class="d-flex flex-column link-light text-decoration-none">
+                <!-- Socials link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-1  link-light text-decoration-none">
                         <div class="d-flex justify-content-center">
                             <img src="assets/friends-icon-37x37.png" alt="">
                         </div>
@@ -312,8 +322,9 @@
                     </a>
                 </div>
 
-                <div class="col-3">
-                    <a href="#" class="d-flex flex-column link-light text-decoration-none">
+                <!-- Account/Connection link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-1  link-light text-decoration-none">
                         <div class="d-flex justify-content-center">
                             <img src="assets/account_icon_37x37.png" alt="">
                         </div>
@@ -321,52 +332,69 @@
                     </a>
                 </div>
 
-                <div class="col-3">
-                    <a href="#" class="d-flex flex-column link-light text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
+                <!-- Menu Toggler -->
+                <div class="col-3 col-lg-auto">
+
+                    <!-- OffCanvas Toggler (Mobile Only) -->
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
                         <div class="d-flex justify-content-center">
                             <img src="assets/menu-icon-37x37.png" alt="">
                         </div>
                         <p class="m-0 text-center text-white fs-7">Menu</p>
                     </a>
+
+                    <!-- Dropdown Menu (Desktop Only) -->
+                    <div class="dropdown d-none d-lg-block">
+                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="d-flex justify-content-center">
+                                <img src="assets/menu-icon-37x37.png" alt="">
+                            </div>
+                            <p class="m-0 text-center text-white fs-7">Menu</p>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end mt-3">
+    
+                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
+                                <div>
+                                    <img src="assets/support-icon-37x37.png" alt="">
+                                </div>
+                                <a class="nav-link link-light" href="#">Support</a>
+                            </li>
+    
+                            <hr>
+    
+                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
+                                <div>
+                                    <img src="assets/disconnect-icon-37x37.png" alt="">
+                                </div>
+                                <a class="nav-link link-danger" href="#">Déconnexion</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+
+            <!-- OffCanva (Mobile) -->
+            <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     <h5 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h5>
                 </div>
+
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
+
                         <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                             <div>
                                 <img src="assets/home-icon-37x37.png" alt="">
                             </div>
                             <a class="nav-link link-light" aria-current="page" href="home.html">Home</a>
                         </li>
-                        <hr>
 
-                        <!-- 
-                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <div>
-                                <img src="assets/hub-icon-37x37.png" alt="">
-                            </div>
-                            <a class="nav-link link-light" href="#">Hub</a>
-                        </li>
                         <hr>
-                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <div>
-                                <img src="assets/friends-icon-37x37.png" alt="">
-                            </div>
-                            <a class="nav-link link-light" href="#">Socials</a>
-                        </li>
-                        <hr>
-                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <div>
-                                <img src="assets/account_icon_37x37.png" alt="">
-                            </div>
-                            <a class="nav-link link-light" href="#">Compte</a>
-                        </li>
-                        <hr> -->
 
                         <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                             <div>
@@ -374,16 +402,21 @@
                             </div>
                             <a class="nav-link link-light" href="#">Support</a>
                         </li>
+
                         <hr>
+
                         <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                             <div>
                                 <img src="assets/disconnect-icon-37x37.png" alt="">
                             </div>
                             <a class="nav-link link-danger" href="#">Déconnexion</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
+
+
         </div>
     </nav>
 
