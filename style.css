@@ -46,7 +46,12 @@ h1 {
     font-size: 16px;
 }
 
-@media (min-width: 1080px) {
+.desktop-card {
+    background-color: #171F33;
+}
+
+
+@media (min-width: 1020px) {
     nav {
         top: 0;
         height: 77px;
@@ -54,5 +59,15 @@ h1 {
 
     main {
         margin-top: 77px;
+    }
+
+    .mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 1020px) {
+    .desktop {
+        display: none;
     }
 }
