@@ -28,9 +28,19 @@
 
             <!-- Navbar -->
             <div class="row flex-grow-1 flex-lg-grow-0">
+                <!-- Home link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Home</p>
+                    </a>
+                </div>
+
                 <!-- Hub link -->
                 <div class="col-3 col-lg-auto">
-                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                         <div class="d-flex justify-content-center">
                             <img src="assets/hub-icon-37x37.png" alt="" class="d-lg-none">
                         </div>
@@ -40,69 +50,63 @@
                 
                 <!-- Socials link -->
                 <div class="col-3 col-lg-auto">
-                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                         <div class="d-flex justify-content-center">
                             <img src="assets/friends-icon-37x37.png" alt="" class="d-lg-none">
                         </div>
-                        <p class="m-0 text-center fs-7">Socials</p>
+                        <p class="m-0 text-center">Socials</p>
                     </a>
                 </div>
 
                 <!-- Account/Connection link -->
                 <div class="col-3 col-lg-auto">
-                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none">
-                        <div class="d-flex justify-content-center">
-                            <img src="assets/account_icon_37x37.png" alt="" class="d-lg-none">
-                        </div>
-                        <p class="m-0 text-center fs-7">Connexion</p>
-                    </a>
-                </div>
-
-                <!-- Menu Toggler -->
-                <div class="col-3 col-lg-auto">
 
                     <!-- OffCanvas Toggler (Mobile Only) -->
                     <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
                         <div class="d-flex justify-content-center">
-                            <img src="assets/menu-icon-37x37.png" alt="">
+                            <img src="assets/account_icon_37x37.png" alt="" class="d-lg-none">
                         </div>
-                        <p class="m-0 text-center text-white fs-7">Menu</p>
+                        <p class="m-0 text-center text-white">Connexion</p>
                     </a>
 
-                    <!-- Dropdown Menu (Desktop Only) -->
+                    <!-- Account/Connection Dropdown (Desktop Only) -->
                     <div class="dropdown d-none d-lg-block">
-                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <!--                             
                             <div class="d-flex justify-content-center">
                                 <img src="assets/menu-icon-37x37.png" alt="" style="height: 25px; width: auto;">
                             </div>
                              -->
-                            <p class="m-0 text-center text-white fs-7">Menu</p>
+                            <p class="m-0 text-center text-white">Connexion</p>
                         </a>
 
-                        <ul class="dropdown-menu dropdown-menu-end mt-3">
+                        <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
     
-                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
-                                <div>
-                                    <img src="assets/support-icon-37x37.png" alt="">
-                                </div>
-                                <a class="nav-link link-light" href="#">Support</a>
+                            <li class="dropdown-item">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/account_icon_37x37.png" alt="" style="height: 25px; width: auto;">
+                                    </div>
+                                    <p class="align-self-center m-0">Mon Compte</p>
+                                </a>
                             </li>
     
                             <hr>
     
                             <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
-                                <div>
-                                    <img src="assets/disconnect-icon-37x37.png" alt="">
-                                </div>
-                                <a class="nav-link link-danger" href="#">Déconnexion</a>
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" style="height: 25px; width: auto;">
+                                    </div>
+                                    <p class="align-self-center m-0">Déconnexion</p>
+                                </a>
                             </li>
 
                         </ul>
                     </div>
+
                 </div>
             </div>
-
 
             <!-- OffCanva (Mobile) -->
             <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -117,18 +121,9 @@
 
                         <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                             <div>
-                                <img src="assets/home-icon-37x37.png" alt="">
+                                <img src="assets/account_icon_37x37.png" alt="">
                             </div>
-                            <a class="nav-link link-light" aria-current="page" href="home.html">Home</a>
-                        </li>
-
-                        <hr>
-
-                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <div>
-                                <img src="assets/support-icon-37x37.png" alt="">
-                            </div>
-                            <a class="nav-link link-light" href="#">Support</a>
+                            <a class="nav-link link-light" href="#">Mon Compte</a>
                         </li>
 
                         <hr>
@@ -161,7 +156,7 @@
                     <p class="mb-4">
                         Rejoins-nous pour vivre des expériences <br> <strong>gaming inoubliables.</strong>
                     </p>
-                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4">
+                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover">
                         <div class="d-flex justify-content-center align-content-center">
                             <img src="assets/hub-icon-37x37.png" alt="">
                             <span class="align-self-center ps-2 fw-bold">Trouver une Team</span>
@@ -205,7 +200,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex">
+                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
                                         <span class="align-self-center fw-bold">Trouver une Team</span>
                                     </a>
 
@@ -234,7 +229,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Valorant Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex">
+                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
                                         <span class="align-self-center fw-bold">Trouver une Team</span>
                                     </a>
 
@@ -261,7 +256,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- World of Warcraft Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex">
+                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
                                         <span class="align-self-center fw-bold">Trouver une Team</span>
                                     </a>
 
@@ -301,13 +296,22 @@
                             <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">League of Legends</h3>
-                                <p class="card-text">League of Legends is a team-based strategy game where two teams of five powerful champions face off to destroy the other’s base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.</p>
+                                <div class="card-text">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"     aria-controls="flush-collapseOne" style="background-color: rgba(0, 0, 0, 0);">
+                                            League of Legends is a team-based strategy game where two teams of five powerful champions ...
+                                        </span>
+                                        <p id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            face off to destroy the other’s base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- League of Legends Card Footer -->
                             <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
                                 <!-- League of Legends Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3">
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- League of Legends Social Links -->
@@ -324,13 +328,22 @@
                             <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Valorant</h3>
-                                <p class="card-text">This is a first-person shooter in which players compete in team-based multiplayer matches. Players use an assortment of firearms (e.g., pistols, machine guns, sniper rifles) and special abilities (e.g., poison gas attacks, electric arrows, ninja-star throws) to kill opponents to complete mission objectives.</p>
+                                <div class="card-text">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"     aria-controls="flush-collapseTwo" style="background-color: rgba(0, 0, 0, 0);">
+                                            This is a first-person shooter in which players compete in team-based multiplayer matches.
+                                        </span>
+                                        <p id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            Players use an assortment of firearms (e.g., pistols, machine guns, sniper rifles) and special abilities (e.g., poison gas attacks, electric arrows, ninja-star throws) to kill opponents to complete mission objectives.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                                 
                             <!-- Valorant Card Footer -->
                             <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
                                 <!-- Valorant Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3">
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- Valorant Social Links -->
@@ -347,13 +360,22 @@
                             <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">World of Warcaft</h3>
-                                <p class="card-text">Similar to other MMORPGs, the game allows players to create a character avatar and explore an open game world in third- or first-person view, exploring the landscape, fighting various monsters, completing quests, and interacting with non-player characters (NPCs) or other players.</p>
+                                <div class="card-text">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"     aria-controls="flush-collapseThree" style="background-color: rgba(0, 0, 0, 0);">
+                                            Similar to other MMORPGs, the game allows players to create a character avatar ...
+                                        </span>
+                                        <p id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            and explore an open game world in third- or first-person view, exploring the landscape, fighting various monsters, completing quests, and interacting with non-player characters (NPCs) or other players.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                                 
                             <!-- World of Warcaft Card Footer -->
                             <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
                                 <!-- World of Warcaft Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3">
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- World of Warcaft Social Links -->
@@ -370,13 +392,22 @@
                             <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Warzone</h3>
-                                <p class="card-text">Warzone allows online multiplayer combat among 150 players and features both cross-platform play and cross-platform progression between the three aforementioned titles. At launch, the game featured two main game modes: Battle Royale and Plunder.</p>
+                                <div class="card-text">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"     aria-controls="flush-collapseFour" style="background-color: rgba(0, 0, 0, 0);">
+                                            Warzone allows online multiplayer combat among 150 players and features both cross-platform play ...
+                                        </span>
+                                        <p id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                            and cross-platform progression between the three aforementioned titles. At launch, the game featured two main game modes: Battle Royale and Plunder.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                                 
                             <!-- Warzone Card Footer -->
                             <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
                                 <!-- Warzone Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3">
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- Warzone Social Links -->

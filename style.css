@@ -52,12 +52,12 @@ h1 {
     bottom: 10px;
 }
 
-.fs-7 {
-    font-size: 16px;
-}
-
 .desktop-card {
     background-color: #171F33;
+}
+
+.btn-hover:hover {
+    background-color: rgba(104, 79, 163, 0.75);
 }
 
 
