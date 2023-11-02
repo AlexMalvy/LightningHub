@@ -60,6 +60,15 @@ h1 {
     background-color: rgba(104, 79, 163, 0.75);
 }
 
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+    background-color: #ffffff00;
+}
+
+.faq-accordion-button:not(.collapsed) {
+    background-color: rgba(104, 79, 163, 0.75);
+}
+
 
 @media (min-width: 1020px) {
     nav {
