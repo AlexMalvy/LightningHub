@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightning Hub - Support</title>
+    <title>Lightning Hub - Connexion</title>
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -145,111 +145,98 @@
 
 
     <!-- Main -->
-    <main class="pt-lg-5">
+    <main class="mt-lg-5 pt-lg-5">
 
-        <!-- FAQ -->
-        <section class="container-fluid px-0 py-5 mt-lg-5">
-            <div class="container px-lg-0">
-
-                <h2 class="reconstruct pb-4">Faq</h2>
-
-                <div class="row">
-                    <div class="col-lg-7">
-                        <!-- Accordion -->
-                        <div class="accordion" id="accordionExample">
-
-                            <!-- Accordion Item 1 -->
-                            <div class="accordion-item rounded-0">
-                                <!-- Header -->
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        Qu’est-ce que Lightning Hub considère comme un comportement haineux ?
-                                    </button>
-                                </h3>
-                                <!-- Body -->
-                                <div id="collapseOne" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Les comportements haineux, qui désignent tout contenu ou activité qui favorise, encourage ou met en avant la discrimination, le dénigrement, l’objectivation, le harcèlement ou la violence</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Accordion Item 2 -->
-                            <div class="accordion-item mt-3">
-                                <!-- Header -->
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Dans quelle mesure suis-je responsable de ma communauté ?
-                                    </button>
-                                </h3>
-                                <!-- Body -->
-                                <div id="collapseTwo" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Les créateurs de salons et leaders des communautés qu’ils créent ou entretiennent. C’est pourquoi ils doivent tenir compte des conséquences de leurs déclarations et des actions de leur public</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Accordion Item 3 -->
-                            <div class="accordion-item mt-3 rounded-0">
-                                <!-- Header -->
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Que dois-je faire dans le cas où quelqu'un se rendrait coupable de comportements haineux
-                                    </button>
-                                </h3>
-                                <!-- Body -->
-                                <div id="collapseThree" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Nous demandons aux streamers d’agir en toute bonne foi pour modérer leur chat , la mise sur pied d’une équipe de modération et/ou le recours à un des nombreux outils tiers à votre disposition.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <!-- Flavor Img -->
-                    <div class="d-none d-lg-flex align-items-center col-lg-4 offset-lg-1">
-                        <img src="assets/faq-img-1.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h2 class="container text-center pt-5 reconstruct d-lg-none">Connexion/<br>Inscription</h2>
+        <h2 class="container text-center pt-5 reconstruct d-none d-lg-block">Connexion / Inscription</h2>
         
         <!-- First Divider (Mobile) -->
-        <div class="container pb-4 d-lg-none">
+        <div class="container py-2 d-lg-none">
             <hr>
         </div>
 
-        <!-- Contact Form -->
-        <section class="container-fluid bg-color-purple-faded py-4 px-0">
-            <div class="container">
-                <h2 class="reconstruct pb-3">Contact the Support</h2>
+        <!-- Connection / Sign-in -->
+        <div class="container py-4 mt-lg-5">
+            <div class="col-lg-8 offset-lg-2">
 
-                <div class="row">
-                    <div class="d-none d-lg-flex align-items-center col-lg-4">
-                        <img src="assets/faq-img-2.png" alt="" class="img-fluid">
+                <!-- Tabs -->
+                <ul class="nav nav-tabs border-0 justify-content-center justify-content-lg-start ms-lg-5" id="myTab" role="tablist">
+                    <!-- Connection tab head -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white active" id="connexion-tab" data-bs-toggle="tab" data-bs-target="#connexion-tab-pane" type="button" role="tab"aria-controls="connexion-tab-pane" aria-selected="true">Connexion</button>
+                    </li>
+
+                    <!-- Sign-in tab head -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white" id="sign-in-tab" data-bs-toggle="tab" data-bs-target="#sign-in-tab-pane" type="button" role="tab" aria-controls="sign-in-tab-pane"aria-selected="false">Inscription</button>
+                    </li>
+                </ul>
+
+                <!-- Content + Img Window -->
+                <div class="row border">
+                    
+                    <!-- Content -->
+                    <div class="col-lg-6 px-0">
+                        <div class="tab-content bg-dark h-100 px-lg-5 pt-3 d-flex align-items-center justify-content-center" id="myTabContent">
+                            <!-- Connection tab content -->
+                            <div class="tab-pane fade show active flex-fill" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
+                                <div class="container">
+                                    <form action="" class="d-flex flex-column py-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
+
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
+
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="remember me" id="remember me">
+                                            <label for="remember me" class="ps-2">Se souvenir de moi</label>
+                                        </div>
+
+                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je me connecte</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Sign in tab content -->
+                            <div class="tab-pane fade flex-fill" id="sign-in-tab-pane" role="tabpanel" aria-labelledby="sign-in-tab" tabindex="0">
+                                <div class="container">
+                                    <form action="" class="d-flex flex-column py-3">
+                                        <label for="nickname">Pseudo   (Visible)</label>
+                                        <input type="text" name="nickname" id="nickname" class="mb-3 rounded bg-white border text-black">
+
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
+
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
+
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="adult" id="adult">
+                                            <label for="adult" class="ps-2">Je confirme avoir plus de 18 ans.</label>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="cgu" id="cgu">
+                                            <label for="cgu" class="ps-2">J'accepte les conditions d'utilisations.</label>
+                                        </div>
+
+                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je m'inscris</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-lg-7 offset-lg-1 pe-lg-0">
-                        <form action="">
-                            <label for="pseudo" class="d-block mb-2">Pseudo :</label>
-                            <input type="text" name="pseudo" id="pseudo" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true">
 
-                            <label for="email" class="d-block mb-2">Adresse email :</label>
-                            <input type="email" name="email" id="email" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true">
-
-                            <label for="message" class="d-block mb-2">Votre message :</label>
-                            <textarea name="message" id="message" cols="30" rows="10" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true"></textarea>
-
-                            <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Envoyer</button>
-                        </form>
+                    <!-- Flavor Img -->
+                    <div class="col-lg-6 px-0 d-none d-lg-block sign-in-img">
                     </div>
+
                 </div>
+
             </div>
-
-        </section>
-
-        <div class="container-fluid py-5"></div>
+        </div>
 
         <!-- Footer -->
         <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 py-2 mt-5">
