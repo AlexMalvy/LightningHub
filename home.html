@@ -12,7 +12,7 @@
 
     <!-- Header -->
     <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
-        <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+        <img src="assets/logo-lightninghub.png" alt="" class="logo">
         <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
     </header>
 
@@ -22,7 +22,7 @@
 
             <!-- Brand Name (Desktop Only) -->
             <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
-                <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+                <img src="assets/logo-lightninghub.png" alt="" class="logo">
                 <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
             </a>
 
@@ -72,20 +72,14 @@
                     <!-- Account/Connection Dropdown (Desktop Only) -->
                     <div class="dropdown d-none d-lg-block">
                         <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!--                             
-                            <div class="d-flex justify-content-center">
-                                <img src="assets/menu-icon-37x37.png" alt="" style="height: 25px; width: auto;">
-                            </div>
-                             -->
                             <p class="m-0 text-center text-white">Connexion</p>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
-    
                             <li class="dropdown-item">
                                 <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="#">
                                     <div>
-                                        <img src="assets/account_icon_37x37.png" alt="" style="height: 25px; width: auto;">
+                                        <img src="assets/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
                                     </div>
                                     <p class="align-self-center m-0">Mon Compte</p>
                                 </a>
@@ -96,13 +90,13 @@
                             <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
                                 <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
                                     <div>
-                                        <img src="assets/disconnect-icon-37x37.png" alt="" style="height: 25px; width: auto;">
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
                                     </div>
                                     <p class="align-self-center m-0">Déconnexion</p>
                                 </a>
                             </li>
-
                         </ul>
+
                     </div>
 
                 </div>
@@ -151,7 +145,7 @@
         <section>
             <div class="container-fluid d-flex align-items-center first-background-img px-0 first-section">
                 <div class="container py-5">
-                    <h2 class="reconstruct" style="font-size: 20px;">Entre Dans Le Game</h2>
+                    <h2 class="reconstruct">Entre Dans Le Game</h2>
                     <p class="py-2 d-none d-lg-block">Trouvez facilement des partenaires de jeu partageant vos intérêts, que ce soit pour des sessions compétitives ou simplement pour le fun.</p>
                     <p class="mb-4">
                         Rejoins-nous pour vivre des expériences <br> <strong>gaming inoubliables.</strong>
@@ -178,7 +172,7 @@
 
                 <!-- Carousel Title + Arrow -->
                 <div class="d-flex justify-content-between align-items-center ps-3 pt-2">
-                    <h2 class="m-0 reconstruct" style="font-size: 20px;">Nos Univers</h2>
+                    <h2 class="m-0 reconstruct">Nos Univers</h2>
                     <!-- Carousel Left/Right Arrow -->
                     <div>
                         <button class="btn px-1" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"><img src="assets/carousel-left-arrow-37x37.png" alt=""></button>
@@ -294,31 +288,25 @@
                         <!-- League of Legends Card -->
                         <section class="col-3 card border-0 rounded-0 desktop-card">
                             <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                            <!-- League of Legends Card Body -->
                             <div class="card-body">
                                 <h3 class="card-title">League of Legends</h3>
                                 <div class="card-text">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"     aria-controls="flush-collapseOne" style="background-color: rgba(0, 0, 0, 0);">
-                                            League of Legends is a team-based strategy game where two teams of five powerful champions ...
-                                        </span>
-                                        <p id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                            face off to destroy the other’s base. Choose from over 140 champions to make epic plays, secure kills, and take down towers as you battle your way to victory.
-                                        </p>
-                                    </div>
+                                    <p>League of Legends is a team-based strategy game where two teams of five powerful champions.</p>
                                 </div>
                             </div>
 
                             <!-- League of Legends Card Footer -->
-                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- League of Legends Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" style="width: 25px; height: auto;"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" style="width: 25px; height: auto;"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" style="width: 25px; height: auto;"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
                                 </div>
                             </div>
                         </section>
@@ -329,28 +317,21 @@
                             <div class="card-body">
                                 <h3 class="card-title">Valorant</h3>
                                 <div class="card-text">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"     aria-controls="flush-collapseTwo" style="background-color: rgba(0, 0, 0, 0);">
-                                            This is a first-person shooter in which players compete in team-based multiplayer matches.
-                                        </span>
-                                        <p id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                            Players use an assortment of firearms (e.g., pistols, machine guns, sniper rifles) and special abilities (e.g., poison gas attacks, electric arrows, ninja-star throws) to kill opponents to complete mission objectives.
-                                        </p>
-                                    </div>
+                                    <p>This is a first-person shooter in which players compete in team-based multiplayer matches.</p>
                                 </div>
                             </div>
                                 
                             <!-- Valorant Card Footer -->
-                            <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Valorant Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/twitch-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/reddit-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://playvalorant.com/"><img src="assets/outerlink-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
+                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://playvalorant.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
                                 </div>
                             </div>
                         </section>
@@ -361,28 +342,21 @@
                             <div class="card-body">
                                 <h3 class="card-title">World of Warcaft</h3>
                                 <div class="card-text">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"     aria-controls="flush-collapseThree" style="background-color: rgba(0, 0, 0, 0);">
-                                            Similar to other MMORPGs, the game allows players to create a character avatar ...
-                                        </span>
-                                        <p id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                            and explore an open game world in third- or first-person view, exploring the landscape, fighting various monsters, completing quests, and interacting with non-player characters (NPCs) or other players.
-                                        </p>
-                                    </div>
+                                    <p>Similar to other MMORPGs, the game allows players to create a character avatar.</p>
                                 </div>
                             </div>
                                 
                             <!-- World of Warcaft Card Footer -->
-                            <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- World of Warcaft Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- World of Warcaft Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/twitch-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/reddit-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/outerlink-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
                                 </div>
                             </div>
                         </section>
@@ -393,28 +367,21 @@
                             <div class="card-body">
                                 <h3 class="card-title">Warzone</h3>
                                 <div class="card-text">
-                                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                                        <span class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"     aria-controls="flush-collapseFour" style="background-color: rgba(0, 0, 0, 0);">
-                                            Warzone allows online multiplayer combat among 150 players and features both cross-platform play ...
-                                        </span>
-                                        <p id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                            and cross-platform progression between the three aforementioned titles. At launch, the game featured two main game modes: Battle Royale and Plunder.
-                                        </p>
-                                    </div>
+                                    <p>Warzone allows online multiplayer combat among 150 players and features both cross-platform play.</p>
                                 </div>
                             </div>
                                 
                             <!-- Warzone Card Footer -->
-                            <div class="card-footer border-0" style="background-color: rgba(0, 0, 0, 0);">
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Warzone Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex mb-3 btn-hover">
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" style="width: 30px; height: auto;"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
                                 </div>
                             </div>
                         </section>
