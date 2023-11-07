@@ -145,9 +145,10 @@
 
 
     <!-- Main -->
-    <main class="pt-lg-5">
+    <main class="mt-lg-5 pt-lg-5">
 
-        <h2 class="container text-center pt-5 reconstruct">Connexion/<br>Inscription</h2>
+        <h2 class="container text-center pt-5 reconstruct d-lg-none">Connexion/<br>Inscription</h2>
+        <h2 class="container text-center pt-5 reconstruct d-none d-lg-block">Connexion / Inscription</h2>
         
         <!-- First Divider (Mobile) -->
         <div class="container py-2 d-lg-none">
@@ -156,73 +157,82 @@
 
         <!-- Connection / Sign-in -->
         <div class="container py-4 mt-lg-5">
-            <div class="row">
+            <div class="col-lg-8 offset-lg-2">
 
-                <!-- Tabs + Content -->
-                <div class="col-lg-6 px-0">
-                    <!-- Tabs -->
-                    <ul class="nav nav-tabs justify-content-center border-0" id="myTab" role="tablist">
-                        <!-- Connection tab head -->
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-white active" id="connexion-tab" data-bs-toggle="tab" data-bs-target="#connexion-tab-pane" type="button" role="tab" aria-controls="connexion-tab-pane" aria-selected="true">Connexion</button>
-                        </li>
+                <!-- Tabs -->
+                <ul class="nav nav-tabs border-0 justify-content-center justify-content-lg-start ms-lg-5" id="myTab" role="tablist">
+                    <!-- Connection tab head -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white active" id="connexion-tab" data-bs-toggle="tab" data-bs-target="#connexion-tab-pane" type="button" role="tab"aria-controls="connexion-tab-pane" aria-selected="true">Connexion</button>
+                    </li>
 
-                        <!-- Sign-in tab head -->
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link text-white" id="sign-in-tab" data-bs-toggle="tab" data-bs-target="#sign-in-tab-pane" type="button" role="tab" aria-controls="sign-in-tab-pane" aria-selected="false">Inscription</button>
-                        </li>
-                    </ul>
+                    <!-- Sign-in tab head -->
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white" id="sign-in-tab" data-bs-toggle="tab" data-bs-target="#sign-in-tab-pane" type="button" role="tab" aria-controls="sign-in-tab-pane"aria-selected="false">Inscription</button>
+                    </li>
+                </ul>
 
+                <!-- Content + Img Window -->
+                <div class="row border">
+                    
                     <!-- Content -->
-                    <div class="tab-content bg-dark rounded-bottom-2 border border-light-subtle" id="myTabContent">
-                        <!-- Connection tab content -->
-                        <div class="tab-pane fade show active" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
-                            <div class="container">
-                                <form action="" class="d-flex flex-column py-3">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" class="mb-3">
+                    <div class="col-lg-6 px-0">
+                        <div class="tab-content bg-dark h-100 px-lg-5 pt-3 d-flex align-items-center justify-content-center" id="myTabContent">
+                            <!-- Connection tab content -->
+                            <div class="tab-pane fade show active flex-fill" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
+                                <div class="container">
+                                    <form action="" class="d-flex flex-column py-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
 
-                                    <label for="password">Mot de passe</label>
-                                    <input type="text" name="password" id="password" class="mb-3">
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
 
-                                    <div class="mb-3">
-                                        <input type="checkbox" name="remember me" id="remember me">
-                                        <label for="remember me" class="ps-2">Se souvenir de moi</label>
-                                    </div>
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="remember me" id="remember me">
+                                            <label for="remember me" class="ps-2">Se souvenir de moi</label>
+                                        </div>
 
-                                    <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je me connecte</button>
-                                </form>
+                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je me connecte</button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Sign in tab content -->
-                        <div class="tab-pane fade" id="sign-in-tab-pane" role="tabpanel" aria-labelledby="sign-in-tab" tabindex="0">
-                            <div class="container">
-                                <form action="" class="d-flex flex-column py-3">
-                                    <label for="nickname">Pseudo   (Visible)</label>
-                                    <input type="text" name="nickname" id="nickname" class="mb-3">
+                            <!-- Sign in tab content -->
+                            <div class="tab-pane fade flex-fill" id="sign-in-tab-pane" role="tabpanel" aria-labelledby="sign-in-tab" tabindex="0">
+                                <div class="container">
+                                    <form action="" class="d-flex flex-column py-3">
+                                        <label for="nickname">Pseudo   (Visible)</label>
+                                        <input type="text" name="nickname" id="nickname" class="mb-3 rounded bg-white border text-black">
 
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" class="mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
 
-                                    <label for="password">Mot de passe</label>
-                                    <input type="text" name="password" id="password" class="mb-3">
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
 
-                                    <div class="mb-3">
-                                        <input type="checkbox" name="adult" id="adult">
-                                        <label for="adult" class="ps-2">Je confirme avoir plus de 18 ans.</label>
-                                    </div>
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="adult" id="adult">
+                                            <label for="adult" class="ps-2">Je confirme avoir plus de 18 ans.</label>
+                                        </div>
 
-                                    <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je m'inscris</button>
-                                </form>
+                                        <div class="mb-3">
+                                            <input type="checkbox" name="cgu" id="cgu">
+                                            <label for="cgu" class="ps-2">J'accepte les conditions d'utilisations.</label>
+                                        </div>
+
+                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je m'inscris</button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-6 px-0 d-none d-lg-block">
-                    <img src="assets/man-neon-suit-sits-chair-with-neon-sign-that-says-word-it.jpg" alt="" class="img-fluid">
+                    <!-- Flavor Img -->
+                    <div class="col-lg-6 px-0 d-none d-lg-block sign-in-img">
+                    </div>
+
                 </div>
 
             </div>
