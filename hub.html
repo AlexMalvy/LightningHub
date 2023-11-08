@@ -139,9 +139,65 @@
 
 
     <!-- Main -->
-    <main>
+    <main class="mt-lg-5 pt-lg-5">
 
+        <!-- Page Title -->
+        <div class="container my-3">
+            <h2 class="reconstruct">hub</h2>
+        </div>
 
+        <!-- Filtre -->
+        <div class="container mb-3">
+            <!-- Toggle Button -->
+            <button class="btn btn-hover bg-color-purple w-100 d-flex justify-content-between align-items-center py-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
+              Filtres   
+              <i class="fa-solid fa-plus fa-2xl" style="color: #ffffff;"></i>
+            </button>
+
+            <!-- OffCanvas -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFiltre" aria-labelledby="offcanvasFiltreLabel">
+
+                <!-- Header -->
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="offcanvas-body">
+                    <form action="" class="d-flex flex-column py-3">
+                        <label for="game" class="pb-1">Jeu</label>
+                        <select name="game" id="game" class="mb-3 p-1 rounded bg-white border text-black">
+                            <option value="LoL">League Of Legends</option>
+                            <option value="Valorant">Valorant</option>
+                            <option value="WoW">World of Warcraft</option>
+                            <option value="Warzone">Warzone</option>
+                            <option value="Fifa">Fifa</option>
+                        </select>
+
+                        <label for="game_type" class="pb-1">Type de partie</label>
+                        <select name="game_type" id="game_type" class="mb-3 p-1 rounded bg-white border text-black">
+                            <option value="normal">Normal</option>
+                            <option value="ranked">Ranked</option>
+                            <option value="custom">Custom</option>
+                        </select>
+
+                        <label for="search" class="pb-1">Recherche</label>
+                        <input type="search" name="search" id="search" class="mb-5 p-1 rounded bg-white border text-black">
+
+                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Valider</button>
+
+                        <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Annuler</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container mb-3">
+            
+        </div>
         
         <!-- Footer -->
         <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 py-2 mt-5">
