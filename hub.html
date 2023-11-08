@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Hub - Home</title>
+    <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
+        <img src="assets/logo-lightninghub.png" alt="" class="logo">
+        <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
+    </header>
+
+    <!-- Nav -->
+    <nav class="container-fluid container-lg navbar bg-color-purple fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Brand Name (Desktop Only) -->
+            <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
+                <img src="assets/logo-lightninghub.png" alt="" class="logo">
+                <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
+            </a>
+
+            <!-- Navbar -->
+            <div class="row flex-grow-1 flex-lg-grow-0">
+                <!-- Home link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Home</p>
+                    </a>
+                </div>
+
+                <!-- Hub link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/hub-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Hub</p>
+                    </a>
+                </div>
+                
+                <!-- Socials link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/friends-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Socials</p>
+                    </a>
+                </div>
+
+                <!-- Account/Connection link -->
+                <div class="col-3 col-lg-auto">
+
+                    <!-- OffCanvas Toggler (Mobile Only) -->
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/account_icon_37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center text-white">Connexion</p>
+                    </a>
+
+                    <!-- Account/Connection Dropdown (Desktop Only) -->
+                    <div class="dropdown d-none d-lg-block">
+                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <p class="m-0 text-center text-white">Connexion</p>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
+                            <li class="dropdown-item">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Mon Compte</p>
+                                </a>
+                            </li>
+    
+                            <hr>
+    
+                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Déconnexion</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- OffCanva (Mobile) -->
+            <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h2 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h2>
+                </div>
+
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
+
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/account_icon_37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-light" href="#">Mon Compte</a>
+                        </li>
+
+                        <hr>
+
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/disconnect-icon-37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-danger" href="#">Déconnexion</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </nav>
+
+
+    <!-- Main -->
+    <main class="mt-lg-5 pt-lg-5">
+
+        <!-- Page Title -->
+        <div class="container my-3">
+            <h2 class="reconstruct">hub</h2>
+        </div>
+
+        <!-- Filtre -->
+        <div class="container mb-3">
+            <!-- Toggle Button -->
+            <button class="btn btn-hover bg-color-purple w-100 d-flex justify-content-between align-items-center py-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
+              Filtres   
+              <i class="fa-solid fa-plus fa-2xl" style="color: #ffffff;"></i>
+            </button>
+
+            <!-- OffCanvas -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFiltre" aria-labelledby="offcanvasFiltreLabel">
+
+                <!-- Header -->
+                <div class="offcanvas-header">
+                    <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="offcanvas-body">
+                    <form action="" class="d-flex flex-column py-3">
+                        <label for="game" class="pb-1">Jeu</label>
+                        <select name="game" id="game" class="mb-3 p-1 rounded bg-white border text-black">
+                            <option value="LoL">League Of Legends</option>
+                            <option value="Valorant">Valorant</option>
+                            <option value="WoW">World of Warcraft</option>
+                            <option value="Warzone">Warzone</option>
+                            <option value="Fifa">Fifa</option>
+                        </select>
+
+                        <label for="game_type" class="pb-1">Type de partie</label>
+                        <select name="game_type" id="game_type" class="mb-3 p-1 rounded bg-white border text-black">
+                            <option value="normal">Normal</option>
+                            <option value="ranked">Ranked</option>
+                            <option value="custom">Custom</option>
+                        </select>
+
+                        <label for="search" class="pb-1">Recherche</label>
+                        <input type="search" name="search" id="search" class="mb-5 p-1 rounded bg-white border text-black">
+
+                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Valider</button>
+
+                        <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Annuler</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Hub -->
+        <div class="container mb-3 hub">
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+                <!-- Hub tab head -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
+                </li>
+
+                <!-- Friends tab head -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane"aria-selected="false">Mes Amis</button>
+                </li>
+
+                <!-- Pending tab head -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane"aria-selected="false">En attente</button>
+                </li>
+            </ul>
+
+            <!-- Content -->
+            <div class="tab-content bg-color-purple-faded" id="myTabContent">
+
+                <!-- Hub tab content -->
+                <div class="tab-pane fade show active p-1 border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
+
+                    <div class="container py-3">
+                        <div class="row row-cols-1 row-cols-lg-4 g-3">
+
+                            <!-- Room #1 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
+                                        <p class="card-text">Need top and supp.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <p class="m-0">3 min</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Room #2 (Pending demo) -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">2/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">1 ami</div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
+                                        <p class="card-text">LFG strong top</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                            En Attente
+                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                        <p class="m-0">2 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #3 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">4/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Bronze]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 3</p>
+                                        <p class="card-text">Let's have fun !!</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <p class="m-0">7 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #4 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">1/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 4</p>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <p class="m-0">>1 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #5 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 5</p>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <p class="m-0">10 min</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Friends tab content -->
+                <div class="tab-pane fade show p-1 border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
+
+                    <div class="container py-3">
+                        <div class="row row-cols-1 row-cols-lg-4 g-3">
+
+                            <!-- Room #1 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
+                                        <p class="card-text">Need top and supp.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <p class="m-0">3 min</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Room #2 (Pending demo) -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">2/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">1 ami</div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
+                                        <p class="card-text">LFG strong top</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                            En Attente
+                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                        <p class="m-0">2 min</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pending tab content -->
+                <div class="tab-pane fade show p-1 border" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
+
+                    <div class="container py-3">
+                        <div class="row row-cols-1 row-cols-lg-4 g-3">
+
+                            <!-- Room #2 (Pending demo) -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">2/5</p>
+                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">1 ami</div>
+                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
+                                        <p class="card-text">LFG strong top</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                            En Attente
+                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                        <p class="m-0">2 min</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+        
+        <!-- Footer -->
+        <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 py-2 mt-5">
+            <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Contactez-nous</a>
+            <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Mentions légales</a>
+            <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Copyright 2023 LIGHTNINGHUB CORP</a>
+        </footer>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
