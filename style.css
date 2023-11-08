@@ -114,6 +114,9 @@ footer {
 }
 
 /* Hub */
+.hub .nav-tabs .active {
+    background-color: var(--bg-purple-faded);
+}
 
 
 /* Sign In & Connection */
