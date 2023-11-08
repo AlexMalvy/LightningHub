@@ -113,7 +113,10 @@ footer {
     background-color: rgb(255, 255, 255, 0.4);
 }
 
-/* Sign In/Connection */
+/* Hub */
+
+
+/* Sign In & Connection */
 .sign-in-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.5))
     , url(assets/man-neon-suit-sits-chair-with-neon-sign-that-says-word-it.jpg);
