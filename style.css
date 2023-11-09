@@ -34,6 +34,10 @@ h1 {
     background-color: var(--bg-purple-faded);
 }
 
+.bg-color-red {
+    background-color: #B51A1A;
+}
+
 .color-purple {
     color: var(--bg-purple);
 }
@@ -125,6 +129,30 @@ footer {
 
 .game-tag-color {
     color: #EAA928;
+}
+
+.chat-window {
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.chat-window > div > div {
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.chat-window p {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #171F33;
+    border: 1px solid #1E1E1E;
+    border-radius: 10px;
+}
+
+.disclaimer {
+    background-color: #B51A1A;
+    border-radius: 10px;
 }
 
 
