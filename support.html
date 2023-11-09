@@ -17,19 +17,19 @@
     </header>
 
     <!-- Nav -->
-    <nav class="container-fluid container-lg navbar bg-color-purple fixed-bottom">
+    <nav class="container-fluid col-lg-10 offset-lg-1 navbar bg-color-purple fixed-bottom">
         <div class="container-fluid">
 
             <!-- Brand Name (Desktop Only) -->
             <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
-                <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+                <img src="assets/logo-lightninghub.png" alt="" class="logo">
                 <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
             </a>
 
             <!-- Navbar -->
             <div class="row flex-grow-1 flex-lg-grow-0">
                 <!-- Home link -->
-                <div class="col-3 col-lg-auto">
+                <div class="col-3 d-lg-none">
                     <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                         <div class="d-flex justify-content-center">
                             <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
@@ -72,20 +72,14 @@
                     <!-- Account/Connection Dropdown (Desktop Only) -->
                     <div class="dropdown d-none d-lg-block">
                         <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!--                             
-                            <div class="d-flex justify-content-center">
-                                <img src="assets/menu-icon-37x37.png" alt="" style="height: 25px; width: auto;">
-                            </div>
-                             -->
                             <p class="m-0 text-center text-white">Connexion</p>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
-    
                             <li class="dropdown-item">
                                 <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="#">
                                     <div>
-                                        <img src="assets/account_icon_37x37.png" alt="" style="height: 25px; width: auto;">
+                                        <img src="assets/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
                                     </div>
                                     <p class="align-self-center m-0">Mon Compte</p>
                                 </a>
@@ -96,13 +90,13 @@
                             <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
                                 <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
                                     <div>
-                                        <img src="assets/disconnect-icon-37x37.png" alt="" style="height: 25px; width: auto;">
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
                                     </div>
                                     <p class="align-self-center m-0">Déconnexion</p>
                                 </a>
                             </li>
-
                         </ul>
+
                     </div>
 
                 </div>
@@ -113,7 +107,7 @@
 
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    <h5 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h5>
+                    <h2 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h2>
                 </div>
 
                 <div class="offcanvas-body">
