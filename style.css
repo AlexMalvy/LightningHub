@@ -123,6 +123,10 @@ footer {
     background-color: var(--bg-purple-faded);
 }
 
+.game-tag-color {
+    color: #EAA928;
+}
+
 
 /* Sign In & Connection */
 .sign-in-img {
