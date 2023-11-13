@@ -72,11 +72,7 @@
                     <!-- Account/Connection Dropdown (Desktop Only) -->
                     <div class="dropdown d-none d-lg-block">
                         <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!--                             
-                            <div class="d-flex justify-content-center">
-                                <img src="assets/menu-icon-37x37.png" alt="" style="height: 25px; width: auto;">
-                            </div>
-                             -->
+                        
                             <p class="m-0 text-center text-white">Connexion</p>
                         </a>
 
@@ -145,11 +141,11 @@
 
 
     <!-- Main -->
-    <main>
+    <main class="dernierAvantFoot">
 
         <!-- Introduction -->
         <section>
-            <div class="container-fluid d-flex align-items-center px-0">
+            <div class="container-fluid d-flex align-items-center px-0 first-section-social">
                 <div class="container py-5"> 
                     <h2 class="reconstruct" style="font-size: 20px;">Social</h2>
                     
@@ -161,61 +157,124 @@
 
         
 
-        <!-- Games Carousel (Mobile) -->
-        <section class="container">
+       
+        <section class="container ">
 
         
-        <div class=" pb-4 row d-flex justify-content-between">
-            <div id="" class="col-6 bg-color-purple-faded">
+            <div class="pb-4 row d-flex justify-content-between g-3">
 
-                <!-- Disconnected Friends Switch -->
-                <div class="d-flex bd-highlight">
-                    <div class="p-2 w-100 bd-highlight">Voir mes amis déconnectés</div>
-                    <div class="form-check form-switch p-2 flex-shrink-1 bd-highlight ">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
-                    </div>
-                  </div>
-            </div>
+                <section class="col-lg-6 order-3 order-lg-0">
+                    <div id="" class="bg-color-purple-faded">
 
-            <div class="card col-6 bg-color-purple-faded" style="width: 25rem;">
-                <div class="row g-0">
-                    <div class="card-header col-3">
-                    Featured
+                        <!-- Disconnected Friends Switch -->
+                        <div class="d-flex bd-highlight">
+                            <div class="p-2 w-100 bd-highlight">Voir mes amis déconnectés</div>
+                            <div class="form-check form-switch p-2 flex-shrink-1 bd-highlight ">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <!-- <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label> -->
+                            </div>
+                        </div>
                     </div>
-                    
-                    <p class="list-group-item col-3">An item</p>
-                    <p class="list-group-item col-3">Ismael#42069</p>
-                    <a href="#" class="list-group-item col-3">Copy<img src="assets/hub-icon-37x37.png" style="width: 1.5rem;" alt=""></a>
-                    
-                </div>
+                </section>
+
+                <section class="col-lg-4 order-0 order-lg-1">
+                    <div class="card bg-color-purple-faded">
+                        <div class="row g-0 text-center align-items-center">
+                            <div class="card-header col-3 bg-color-purple">
+                                Your id :
+                            </div>
+                            
+                            <p class="list-group-item col-2 m-0">
+                                <a href="#" class="p-2 w-100 bd-highlight"><img src="assets/rick.jpg" style="width: 2.5rem; height: 2.5rem; border-radius: 50%;" alt=""></a>
+                            </p>
+                            <p class="list-group-item col-4 m-0">Ismael#42069</p>
+                            <a href="#" class="list-group-item col-2">Copy</a>
+                            <a href="#" class="list-group-item col-1"><img src="assets/copy-regular.svg" style="width: 1.5rem;" alt=""></a>
+                            
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="col-lg-6 order-2 order-lg-2">
+                    <div class="card">
+                        <div class="card-header bg-color-purple">
+                            <p class=""><img class="me-2" src="assets/friends-icon-37x37.png" style="width: 1.5rem;" alt="">Mes amis</p>
+                            
+                        </div>
+                        <ul class="list-group list-group-flush">
+
+                        
+                            
+                        <li class="list-group-item d-flex">
+                        
+                            <a href="#" class="p-2 w-100 bd-highlight "><img class="me-2" src="assets/goku.png" style="width: 1.5rem; height: 1.5rem; border-radius: 50%;" alt="">Suamel</a>
+                            <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img src="assets/user-minus-solid-white.svg" style="width: 1.5rem;" alt=""></a>
+                            
+                        </li>
+                            
+                        <li class="list-group-item d-flex">
+                        
+                            <a href="#" class="p-2 w-100 bd-highlight"><img class="me-2" src="assets/gon.jpg" style="width: 1.5rem;  height: 1.5rem; border-radius: 50%;" alt="">Suamel</a>
+                            <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img src="assets/user-minus-solid-white.svg" style="width: 1.5rem;" alt=""></a>
+                            
+                        </li>
+
+                        
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ADD A FRIEND // MOBILE -->
+                <section class="col-lg-6 order-1 order-lg-3">
+                    <div class="accordion accordion-flush d-lg-none" id="accordionExample">
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <img src="assets/user-plus-solid.svg" style="width: 1.5rem;" alt="">Ajouter un ami
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body text-center">
+                                <input type="text" class="form-control" id="searchFriend" aria-describedby="Rechercher un ami">
+                                <p class="text-start">User found<img class="ms-2" src="assets/check-solid.svg" style="width: 1.5rem;" alt=""></p>
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover ">
+                                    <div class="">
+                                        <span class="align-self-center ps-2 fw-bold">Add</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="card d-none d-lg-block">
+                        <div class="card-header bg-color-purple">
+                            <p class=""><img src="assets/user-plus-solid.svg" style="width: 1.5rem;" alt="">Ajouter un ami</p>
+                            
+                        </div>
+                        <div class="card-body text-center">
+                        <input type="text" class="form-control" id="searchFriend" aria-describedby="Rechercher un ami">
+                                <p class="text-start">User found<img class="ms-2" src="assets/check-solid.svg" style="width: 1.5rem;" alt=""></p>
+                                <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover ">
+                                    <div class="">
+                                        <span class="align-self-center ps-2 fw-bold">Add</span>
+                                    </div>
+                                </a>
+                        </div>
+                    </div>
+
+                
+                </section>
+                
             </div>
-            
-            <div class="card col-6">
-                <div class="card-header">
-                  Featured
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">An item</li>
-                  <li class="list-group-item">A second item</li>
-                  <li class="list-group-item">A third item</li>
-                </ul>
-              </div>
-            
-        </div>
-    </section>
+        </section>
        
 
-        <!-- Second Divider (Mobile) -->
-        <div class="container pb-4 d-lg-none">
-            <hr>
-        </div>
-
-        <!-- About us -->
+       
         
 
         <!-- Footer -->
-        <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 py-2 mt-5">
+        <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 py-2 mt-5 ">
             <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Contactez-nous</a>
             <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Mentions légales</a>
             <a href="" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Copyright 2023 LIGHTNINGHUB CORP</a>
