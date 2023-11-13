@@ -68,6 +68,11 @@ footer {
     font-size: 14px;
 }
 
+.lg-tiny-margin {
+    margin: 0 10px;
+    width: 100dvw;
+}
+
 /* Accordions */
 
 /* header text color to white */
@@ -116,6 +121,10 @@ footer {
 /* Hub */
 .hub .nav-tabs .active {
     background-color: var(--bg-purple-faded);
+}
+
+.game-tag-color {
+    color: #EAA928;
 }
 
 

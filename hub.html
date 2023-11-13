@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="fr" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightning Hub - Home</title>
+    <title>Lightning Hub - Hub</title>
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
     </header>
 
     <!-- Nav -->
-    <nav class="container-fluid container-lg navbar bg-color-purple fixed-bottom">
+    <nav class="container-fluid col-lg-10 offset-lg-1 navbar bg-color-purple fixed-bottom">
         <div class="container-fluid">
 
             <!-- Brand Name (Desktop Only) -->
@@ -29,7 +29,7 @@
             <!-- Navbar -->
             <div class="row flex-grow-1 flex-lg-grow-0">
                 <!-- Home link -->
-                <div class="col-3 col-lg-auto">
+                <div class="col-3 d-lg-none">
                     <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                         <div class="d-flex justify-content-center">
                             <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
@@ -138,65 +138,76 @@
     </nav>
 
 
+
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
 
         <!-- Page Title -->
-        <div class="container my-3">
+        <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 my-3">
             <h2 class="reconstruct">hub</h2>
         </div>
 
-        <!-- Filtre -->
-        <div class="container">
-            <!-- Toggle Button -->
-            <button class="btn btn-hover bg-color-purple w-100 d-flex justify-content-between align-items-center py-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
-              Filtres   
-              <i class="fa-solid fa-plus fa-2xl" style="color: #ffffff;"></i>
-            </button>
+        <!-- Filters + Create Hub -->
+        <div class="row mx-0 align-items-center">
 
-            <!-- OffCanvas -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFiltre" aria-labelledby="offcanvasFiltreLabel">
+            <!-- Filters -->
+            <div class="col-lg-4 offset-lg-1 px-2 px-md-5 px-lg-0 mb-3">
+                <!-- Toggle Button -->
+                <button class="btn btn-hover bg-color-purple w-100 d-flex justify-content-between align-items-center py-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
+                Filtres   
+                <i class="fa-solid fa-plus fa-2xl" style="color: #ffffff;"></i>
+                </button>
 
-                <!-- Header -->
-                <div class="offcanvas-header">
-                    <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <!-- OffCanvas -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFiltre" aria-labelledby="offcanvasFiltreLabel">
+
+                    <!-- Header -->
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="offcanvas-body">
+                        <form action="" class="d-flex flex-column py-3">
+                            <label for="game" class="pb-1">Jeu</label>
+                            <select name="game" id="game" class="mb-3 p-1 rounded bg-white border text-black">
+                                <option value="LoL">League Of Legends</option>
+                                <option value="Valorant">Valorant</option>
+                                <option value="WoW">World of Warcraft</option>
+                                <option value="Warzone">Warzone</option>
+                                <option value="Fifa">Fifa</option>
+                            </select>
+
+                            <label for="game_type" class="pb-1">Type de partie</label>
+                            <select name="game_type" id="game_type" class="mb-3 p-1 rounded bg-white border text-black">
+                                <option value="normal">Normal</option>
+                                <option value="ranked">Ranked</option>
+                                <option value="custom">Custom</option>
+                            </select>
+
+                            <label for="search" class="pb-1">Recherche</label>
+                            <input type="search" name="search" id="search" class="mb-5 p-1 rounded bg-white border text-black">
+
+                            <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Valider</button>
+
+                            <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Annuler</button>
+                        </form>
+                    </div>
+
                 </div>
 
-                <!-- Body -->
-                <div class="offcanvas-body">
-                    <form action="" class="d-flex flex-column py-3">
-                        <label for="game" class="pb-1">Jeu</label>
-                        <select name="game" id="game" class="mb-3 p-1 rounded bg-white border text-black">
-                            <option value="LoL">League Of Legends</option>
-                            <option value="Valorant">Valorant</option>
-                            <option value="WoW">World of Warcraft</option>
-                            <option value="Warzone">Warzone</option>
-                            <option value="Fifa">Fifa</option>
-                        </select>
+            </div>
 
-                        <label for="game_type" class="pb-1">Type de partie</label>
-                        <select name="game_type" id="game_type" class="mb-3 p-1 rounded bg-white border text-black">
-                            <option value="normal">Normal</option>
-                            <option value="ranked">Ranked</option>
-                            <option value="custom">Custom</option>
-                        </select>
-
-                        <label for="search" class="pb-1">Recherche</label>
-                        <input type="search" name="search" id="search" class="mb-5 p-1 rounded bg-white border text-black">
-
-                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Valider</button>
-
-                        <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Annuler</button>
-                    </form>
-                </div>
-
+            <!-- Create Hub -->
+            <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
+                <button class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Créer un salon</button>
             </div>
 
         </div>
 
         <!-- Hub -->
-        <div class="container mb-3 hub">
+        <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 mb-3 hub">
 
             <!-- Tabs -->
             <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
@@ -231,10 +242,10 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
                                         <div class="px-2 fs-5 rounded bg-success">2 amis</div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Gold]</h3>
@@ -254,10 +265,10 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">2/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
                                         <div class="px-2 fs-5 rounded bg-success">1 ami</div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Diamond]</h3>
@@ -282,9 +293,9 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">4/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Bronze]</h3>
@@ -304,9 +315,9 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">1/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">Title</h3>
@@ -326,9 +337,9 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">Title</h3>
@@ -359,10 +370,10 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
                                         <div class="px-2 fs-5 rounded bg-success">2 amis</div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Gold]</h3>
@@ -382,10 +393,10 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">2/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
                                         <div class="px-2 fs-5 rounded bg-success">1 ami</div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Diamond]</h3>
@@ -421,10 +432,10 @@
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center">
                                             <p class="fs-5 m-0 pe-2">2/5</p>
-                                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
                                         <div class="px-2 fs-5 rounded bg-success">1 ami</div>
-                                        <div class="px-2 fs-5 rounded-5 bg-danger">LoL</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
                                         <h3 class="card-title m-0 pb-1">[Diamond]</h3>
