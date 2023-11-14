@@ -123,6 +123,10 @@ footer {
     background-color: var(--bg-purple-faded);
 }
 
+.game-tag-color {
+    color: #EAA928;
+}
+
 
 /* Sign In & Connection */
 .sign-in-img {
@@ -209,6 +213,9 @@ footer {
         font-size: 1em;
     }
 
+    .first-section-social {
+        padding-top: 77px;
+    }
 }
 
 @media (max-width: 1020px) {
@@ -216,4 +223,27 @@ footer {
     .bottom-nav-margin {
         margin-bottom: 77px;
     }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+ 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.dernierAvantFoot {
+    margin-bottom: 150px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--bg-purple);
+}
+.accordion-button {
+    background-color: var(--bg-purple);
 }
