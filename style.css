@@ -140,6 +140,53 @@ footer {
     background-color: rgba(104, 79, 163, 1);
 }
 
+/* account */
+
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(104, 79, 163, 1);
+    object-fit: cover;
+}
+
+/* form upload Avatar */
+.label-file {
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px dashed rgba(104, 79, 163, 0.75);
+    background-color: #1E1F22;
+    display: block;
+    font-size: 0.8em;
+}
+
+.label-file:hover {
+    background-color: rgba(104, 79, 163, 0.75);
+}
+
+
+/* input */
+#input-pseudo, #input-mail, .input-inGame{
+    width: 60%;
+    background-color: #F8F0FB;
+    border: 1px solid #1E1F22;
+    color: black;
+    border-radius: 5px;
+    text-indent: 5px;
+}
+
+#input-pseudo::placeholder, #input-mail::placeholder, .input-inGame::placeholder{
+    color: black;
+}
+
+
+.btn-delete{
+    background-color: #B51A1A;
+}
+
+.btn-delete:hover{
+    background-color: #B51A1A;
+}
 
 /* Media Query */
 
@@ -156,6 +203,12 @@ footer {
         padding-top: 77px;
         height: 50vh;
     }
+
+    /* label input avatar page account */
+    .label-file {
+        font-size: 1em;
+    }
+
 }
 
 @media (max-width: 1020px) {
