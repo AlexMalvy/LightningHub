@@ -189,9 +189,34 @@ footer {
     margin-bottom: 150px;
 }
 
-.accordion-button:not(.collapsed) {
+/* change default color of Bootstrap accordion */
+
+.accordion-button:not(.collapsed) { 
     background-color: var(--bg-purple);
 }
 .accordion-button {
     background-color: var(--bg-purple);
+}
+
+
+/* change default color of Bootstrap switch  */
+
+.form-switch .form-check-input { /* basic color change  */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:focus { /* change color checked */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+.form-switch .form-check-input:checked { /* change color unchecked */
+    background-color: var(--bg-purple);
+    border-color: var(--bg-purple);
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
 }
