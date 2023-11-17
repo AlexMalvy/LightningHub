@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Lightning Hub - Mon compte</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
+        <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+        <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
+    </header>
+
+
+    <!-- Nav -->
+    <nav class="container-fluid col-lg-10 offset-lg-1 navbar bg-color-purple fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Brand Name (Desktop Only) -->
+            <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
+                <img src="assets/logo-lightninghub.png" alt="" class="logo">
+                <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
+            </a>
+
+            <!-- Navbar -->
+            <div class="row flex-grow-1 flex-lg-grow-0">
+
+                <!-- Home link -->
+                <div class="col-3 d-lg-none">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Home</p>
+                    </a>
+                </div>
+
+                <!-- Hub link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="hub.html" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/hub-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Hub</p>
+                    </a>
+                </div>
+                
+                <!-- Socials link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="socials.html" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/friends-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Socials</p>
+                    </a>
+                </div>
+
+                <!-- Account/Connection link -->
+                <div class="col-3 col-lg-auto">
+
+                    <!-- OffCanvas Toggler (Mobile Only) -->
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas"data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/account_icon_37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center text-white">Connexion</p>
+                    </a>
+
+                    <!-- Account/Connection Dropdown (Desktop Only) -->
+                    <div class="dropdown d-none d-lg-block">
+
+                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown"aria-expanded="false">
+                            <p class="m-0 text-center text-white">Connexion</p>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
+
+                            <li class="dropdown-item">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="Account.html">
+                                    <div>
+                                        <img src="assets/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Mon Compte</p>
+                                </a>
+                            </li>
+
+                            <hr>
+
+                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Déconnexion</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OffCanva (Mobile) -->
+            <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h2 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h2>
+                </div>
+
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/account_icon_37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-light" href="#">Mon Compte</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/disconnect-icon-37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-danger" href="#">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    
+         
+    <main>
+        <!-- Games Cards -->
+        <section class="container-fluid bg-color-purple-faded pt-5 pb-5 px-0 game-margin-top">
+            <!-- Cards -->
+            <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
+            <h2 class="pb-4 reconstruct">Nos Univers</h2>
+                <ul class="row list-unstyled">
+                    <!-- League of Legends Card -->
+                    <li class="col-12 col-lg-6 col-xl-3 mb-3">
+                        <section class="card border-0 rounded-0 desktop-card">
+                            <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <!-- League of Legends Card Body -->
+                            <div class="card-body">
+                                <h3 class="card-title">League of Legends</h3>
+                                <div class="card-text">
+                                    <p>League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse. <br> Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.</p>
+                                </div>
+                            </div>
+                            <!-- League of Legends Card Footer -->
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                <!-- League of Legends Join Team -->
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
+                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                </a>
+                                <!-- League of Legends Social Links -->
+                                <div class="d-flex gap-2">
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+
+                    <!-- Valorant Card -->
+                    <li class="col-12 col-lg-6 col-xl-3 mb-3">
+                        <section class="card border-0 rounded-0 desktop-card">
+                            <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <div class="card-body">
+                                <h3 class="card-title">Valorant</h3>
+                                <div class="card-text">
+                                    <p>Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.<br> Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes.</p>
+                                </div>
+                            </div>
+                                
+                            <!-- Valorant Card Footer -->
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                <!-- Valorant Team -->
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
+                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                </a>
+                                <!-- Valorant Social Links -->
+                                <div class="d-flex gap-2">
+                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://playvalorant.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+    
+                    <!-- World of Warcraft Card -->
+                    <li class="col-12 col-lg-6 col-xl-3 mb-3">
+                        <section class="card border-0 rounded-0 desktop-card">
+                            <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <div class="card-body">
+                                <h3 class="card-title">World of Warcaft</h3>
+                                <div class="card-text">
+                                    <p>World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.</p>
+                                </div>
+                            </div>
+                                
+                            <!-- World of Warcaft Card Footer -->
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                <!-- World of Warcaft Join Team -->
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
+                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                </a>
+                                <!-- World of Warcaft Social Links -->
+                                <div class="d-flex gap-2">
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+    
+                    <!-- Call of duty Warzone Card -->
+                    <li class="col-12 col-lg-6 col-xl-3 mb-3">
+                        <section class="card border-0 rounded-0 desktop-card">
+                            <img src="assets/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <div class="card-body">
+                                <h3 class="card-title">Call of duty : Warzone</h3>
+                                <div class="card-text">
+                                    <p>Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).<br> Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.</p>
+                                </div>
+                            </div>
+                                
+                            <!-- Warzone Card Footer -->
+                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                <!-- Warzone Join Team -->
+                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
+                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                </a>
+                                <!-- Warzone Social Links -->
+                                <div class="d-flex gap-2">
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+          
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
+    <script src="js/scriptAccount.js"></script>
+</body>
+</html>

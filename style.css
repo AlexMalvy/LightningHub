@@ -20,10 +20,17 @@ h1 {
     font-family: "Reconstruct";
 }
 
+button, .drop-shadow{
+    filter: drop-shadow(3px 5px 4px rgba(0, 0, 0, 0.25));
+}
+
+
 /* Variables */
 :root {
     --bg-purple: #684FA3;
     --bg-purple-faded: rgba(104, 79, 163, 0.2);
+    --bg-color-secondary : #1E1E1E;
+    --alert-color : #B51A1A;
 }
 
 .bg-color-purple {
@@ -42,7 +49,7 @@ h1 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    background-color: #1E1E1E;
+    background-color: var(--bg-color-secondary);
 }
 
 .logo {
@@ -185,11 +192,15 @@ footer {
 
 
 .btn-delete{
-    background-color: #B51A1A;
+    background-color: var(--alert-color);
 }
 
 .btn-delete:hover{
-    background-color: #B51A1A;
+    background-color: var(--alert-color);
+}
+
+.modal-background{
+    background-color: var(--bg-color-secondary);
 }
 
 /* Media Query */
@@ -216,6 +227,12 @@ footer {
     .first-section-social {
         padding-top: 77px;
     }
+
+    /* Games.html bloc page margin-top */
+    .game-margin-top {
+        margin-top: 10%;
+    }
+
 }
 
 @media (max-width: 1020px) {
@@ -246,4 +263,26 @@ footer {
 }
 .accordion-button {
     background-color: var(--bg-purple);
+}
+
+/* change default color of Bootstrap switch  */
+
+.form-switch .form-check-input { /* basic color change  */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:focus { /* change color checked */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+.form-switch .form-check-input:checked { /* change color unchecked */
+    background-color: var(--bg-purple);
+    border-color: var(--bg-purple);
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
 }
