@@ -203,6 +203,20 @@ footer {
     background-color: var(--bg-color-secondary);
 }
 
+
+/* Games */
+
+/* block height */
+.card-height{
+    height: 100%;
+}
+
+.box-shadow{
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25)
+}
+
+
+
 /* Media Query */
 
 @media (min-width: 1020px) {
@@ -211,6 +225,7 @@ footer {
         top: 10px;
         height: 77px;
         border-radius: 10px;
+        box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25)
     }
 
     /* Home page specific */
@@ -233,6 +248,10 @@ footer {
         margin-top: 10%;
     }
 
+    a span{
+        font-size: 0.8em;
+    }
+
 }
 
 @media (max-width: 1020px) {
@@ -251,7 +270,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 100px;
 }
 
 .dernierAvantFoot {
