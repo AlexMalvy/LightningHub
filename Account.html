@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Lightning Hub - Mon compte</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
+        <img src="assets/logo-lightninghub.png" alt="" style="height: 50px; width: auto;" class="logo">
+        <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
+    </header>
+
+
+    <!-- Nav -->
+    <nav class="container-fluid col-lg-10 offset-lg-1 navbar bg-color-purple fixed-bottom">
+        <div class="container-fluid">
+
+            <!-- Brand Name (Desktop Only) -->
+            <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="home.html">
+                <img src="assets/logo-lightninghub.png" alt="" class="logo">
+                <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
+            </a>
+
+            <!-- Navbar -->
+            <div class="row flex-grow-1 flex-lg-grow-0">
+
+                <!-- Home link -->
+                <div class="col-3 d-lg-none">
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/home-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Home</p>
+                    </a>
+                </div>
+
+                <!-- Hub link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="hub.html" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/hub-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Hub</p>
+                    </a>
+                </div>
+                
+                <!-- Socials link -->
+                <div class="col-3 col-lg-auto">
+                    <a href="socials.html" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/friends-icon-37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center">Socials</p>
+                    </a>
+                </div>
+
+                <!-- Account/Connection link -->
+                <div class="col-3 col-lg-auto">
+
+                    <!-- OffCanvas Toggler (Mobile Only) -->
+                    <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas"data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/account_icon_37x37.png" alt="" class="d-lg-none">
+                        </div>
+                        <p class="m-0 text-center text-white">Connexion</p>
+                    </a>
+
+                    <!-- Account/Connection Dropdown (Desktop Only) -->
+                    <div class="dropdown d-none d-lg-block">
+
+                        <a class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown"aria-expanded="false">
+                            <p class="m-0 text-center text-white">Connexion</p>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
+
+                            <li class="dropdown-item">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="Account.html">
+                                    <div>
+                                        <img src="assets/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Mon Compte</p>
+                                </a>
+                            </li>
+
+                            <hr>
+
+                            <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
+                                    <div>
+                                        <img src="assets/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    </div>
+                                    <p class="align-self-center m-0">Déconnexion</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OffCanva (Mobile) -->
+            <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <h2 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h2>
+                </div>
+
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/account_icon_37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-light" href="#">Mon Compte</a>
+                        </li>
+                        <hr>
+                        <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                            <div>
+                                <img src="assets/disconnect-icon-37x37.png" alt="">
+                            </div>
+                            <a class="nav-link link-danger" href="#">Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    
+
+    <main>
+
+        <!-- section infos account -->
+        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5">
+            <h2 class="reconstruct mb-5 mt-5">Mon compte</h2>
+                <!-- Divider (Mobile) -->
+                <div class="pb-4 d-lg-none">
+                    <hr>
+                </div>
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Photo de profil
+                    </div>
+                    <div class="col-lg-7 py-4 ps-3 bg-color-purple-faded rounded-0 d-flex justify-content-between align-items-center">
+                        <img src="assets/avatar.png" alt="photo de profil" class="avatar">
+                        <form method="post" action="" enctype="multipart/form-data" class="me-2 d-flex align-items-center">
+                            <label for="file" class="label-file me-2 p-2">Choisir une image</label>
+                            <input id="file" class="d-none" type="file" name="avatarPicture">
+                            <button class="btn bg-color-purple rounded-5 px-4 btn-hover fw-bold">Enregistrer</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-7 px-1 text-center bg-color-purple-faded rounded-0">
+                        <p> l'image doit être au format JPEG, PNG ou GIF et ne doit pas dépasser 10 Mo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Pseudo
+                    </div>
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
+                        <form method="post" action="" class="d-flex justify-content-between align-items-center">
+                            <input id="input-pseudo" type="text" placeholder="Fatality67" name="pseudo"/>
+                            <button id ="btn-pseudo" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2"><i class="fa-solid fa-pen text-white"></i></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container mt-3">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Adresse email
+                    </div>
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
+                        <form method="post" action="" class="d-flex justify-content-between align-items-center">
+                            <input id="input-mail" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
+                            <button id ="btn-mail" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold"><i class="fa-solid fa-pen text-white"></i></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container mt-3">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Identifiants IN GAME
+                    </div>
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
+                       <div class="container ps-0">
+                            <div class="row mb-4">
+                                <div class="col-4 col-lg-5 align-self-center">
+                                    Leagues of legends
+                                </div>
+                                <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
+                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[1]">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-4 col-lg-5 align-self-center">
+                                    World of Warcraft
+                                </div>
+                                <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
+                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[2]">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-4 col-lg-5 align-self-center">
+                                    Valorant
+                                </div>
+                                <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
+                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[3]">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-4 col-lg-5 align-self-center">
+                                    Call of Duty : Warzone
+                                </div>
+                                <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
+                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[4]">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                       </div>
+                    </div> 
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="container mt-3">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Centre de Notifications
+                    </div>
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0 d-flex justify-content-between align-items-center">
+                        <div>Notifications</div>
+                        <form method="post" action="" id="formNotification">
+                            <div class="form-check form-switch form-check-reverse me-3">
+                                <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notificationCheckBox" aria-pressed="false"/>
+                                 <!-- <?php if ($valeur_checkbox == 'On') echo 'checked'; ?> -->
+                                <label class="form-check-label" for="SwitchCheck">On</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container mt-3">
+                    <div class="col-lg-7 py-3 ps-3 bg-color-purple rounded-0">
+                        Cookies et données personnelles
+                    </div>
+                    <div class="col-lg-7 py-2 ps-3 bg-color-purple-faded rounded-0 d-flex flex-column align-items-start flex-lg-row justify-content-between align-items-lg-center">
+                        <p class="m-0 ">Préférences cookies</p>
+                        <a href="#" class="btn bg-color-purple rounded-5 px-4 my-2 mt-lg-0 me-2 btn-hover fw-bold drop-shadow">Changer mes préférences</a>
+                    </div>
+                    <div class="flex-fill divider d-lg-none"></div>
+                    <div class="col-lg-7 py-2 ps-3 bg-color-purple-faded rounded-0 d-flex flex-column align-items-start flex-lg-row justify-content-between align-items-lg-center">
+                        <p class="m-0">Télécharger vos données personnelles</p>
+                        <a href="#" class="btn bg-color-purple rounded-5 px-4 my-2 mt-lg-0 me-2 btn-hover fw-bold drop-shadow">Envoyer une demande</a>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+       <!-- section delete account -->
+        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 mt-5 pt-lg-5 dernierAvantFoot">
+            <div class="row">
+                <div class="container">
+                    <div class="col-lg-7 py-3 rounded-0">
+                        <div class="accordion" id="accordionDelete">
+                            <div class="accordion-item rounded-0">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="Non" aria-controls="Reduire">
+                                        Suppression du compte
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionDelete">
+                                    <div class="accordion-body bg-color-purple-faded">
+                                        <button class="btn btn-delete rounded-5 px-4 py-2 me-2 fw-bold" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" >Supprimer mon compte</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Modal delete Account -->
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="Confirmation supprimer votre compte" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-0">
+                <div class="modal-header bg-color-purple rounded-0">
+                    <h3 class="modal-title fs-5">Confirmation suppression compte</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body modal-background">
+                    Êtes vous sur de vouloir supprimer votre compte ?
+                </div>
+                <div class="modal-footer modal-background">
+                    <a href="Account.html" class="btn bg-color-purple-faded btn-hover" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
+                    <a href="#"  class="btn btn-delete fw-bold rounded-5" aria-label="Confimer">Confirmation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+    </main>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-color-purple-faded bottom-nav-margin d-flex flex-column justify-content-center align-items-center gap-1 ">
+        <a href="support.html" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Support</a>
+        <a href="Legal.html" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Mentions légales</a>
+        <a href="#" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Copyright 2023 LIGHTNINGHUB CORP</a>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
+    <script src="js/scriptAccount.js"></script>
+</body>
+</html>
