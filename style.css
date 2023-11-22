@@ -1,6 +1,8 @@
 /* General */
 
+
 /* Font */
+
 @font-face {
     font-family: "Reconstruct";
     src: url("assets/Reconstruct.ttf");
@@ -12,7 +14,7 @@
 }
 
 .reconstruct {
-    font-family:  "Reconstruct";
+    font-family: "Reconstruct";
     font-size: 20px;
 }
 
@@ -26,6 +28,7 @@ button, .drop-shadow{
 
 
 /* Variables */
+
 :root {
     --bg-purple: #684FA3;
     --bg-purple-faded: rgba(104, 79, 163, 0.2);
@@ -45,7 +48,9 @@ button, .drop-shadow{
     color: var(--bg-purple);
 }
 
+
 /* Global Settings */
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -80,19 +85,26 @@ footer {
     width: 100dvw;
 }
 
+
 /* Accordions */
 
+
 /* header text color to white */
+
 .accordion-button:not(.collapsed) {
     color: #ffffff;
 }
 
+
 /* Remove active blue glow */
+
 .accordion-button:focus {
     box-shadow: none;
 }
 
+
 /* Change arrow color to white */
+
 .accordion-button:after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
 }
@@ -100,7 +112,9 @@ footer {
 
 /* Specific Pages Settings */
 
+
 /* Home Page */
+
 .first-background-img {
     background-image: url(https://picsum.photos/1920/1080?random=1);
     background-size: cover;
@@ -125,7 +139,9 @@ footer {
     background-color: rgb(255, 255, 255, 0.4);
 }
 
+
 /* Hub */
+
 .hub .nav-tabs .active {
     background-color: var(--bg-purple-faded);
 }
@@ -136,17 +152,20 @@ footer {
 
 
 /* Sign In & Connection */
+
 .sign-in-img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.5))
-    , url(assets/man-neon-suit-sits-chair-with-neon-sign-that-says-word-it.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.5)), url(assets/man-neon-suit-sits-chair-with-neon-sign-that-says-word-it.jpg);
     background-size: cover;
     background-position: center;
     height: 50vh;
 }
 
+
 /* FAQ */
 
+
 /* header bg color */
+
 .faq-accordion-button:not(.collapsed) {
     background-color: rgba(104, 79, 163, 1);
 }
@@ -227,7 +246,6 @@ footer {
         border-radius: 10px;
         box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25)
     }
-
     /* Home page specific */
     .first-section {
         padding-top: 77px;
@@ -265,7 +283,7 @@ html {
     position: relative;
     min-height: 100%;
 }
- 
+
 footer {
     position: absolute;
     bottom: 0;
@@ -277,31 +295,47 @@ footer {
     margin-bottom: 150px;
 }
 
+
+/* change default color of Bootstrap accordion */
+
 .accordion-button:not(.collapsed) {
     background-color: var(--bg-purple);
 }
+
 .accordion-button {
     background-color: var(--bg-purple);
 }
 
+
 /* change default color of Bootstrap switch  */
 
-.form-switch .form-check-input { /* basic color change  */
+.form-switch .form-check-input {
+    /* basic color change  */
     border-color: rgba(80, 80, 80, 1);
     outline: 0;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
 }
 
-.form-switch .form-check-input:focus { /* change color checked */
+.form-switch .form-check-input:focus {
+    /* change color checked */
     border-color: rgba(80, 80, 80, 1);
     outline: 0;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
 }
-.form-switch .form-check-input:checked { /* change color unchecked */
+
+.form-switch .form-check-input:checked {
+    /* change color unchecked */
     background-color: var(--bg-purple);
     border-color: var(--bg-purple);
     border: none;
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+
+
+/* Change color of placeholder in a chat between 2 users */
+
+.inputChat .form-control::placeholder {
+    color: rgb(168, 168, 168);
 }
