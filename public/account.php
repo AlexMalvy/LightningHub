@@ -8,7 +8,7 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
-    
+
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <main>
@@ -46,7 +46,7 @@
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
                             <input id="input-pseudo" type="text" placeholder="Fatality67" name="pseudo"/>
-                            <button id ="btn-pseudo" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2"><i class="fa-solid fa-pen text-white"></i></a>
+                            <button id ="btn-pseudo" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
                             <input id="input-mail" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
-                            <button id ="btn-mail" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold"><i class="fa-solid fa-pen text-white"></i></a>
+                            <button id ="btn-mail" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                                     <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[1]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
-                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                        <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -91,7 +91,7 @@
                                     <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[2]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
-                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                        <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -103,7 +103,7 @@
                                     <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[3]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
-                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                        <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -115,7 +115,7 @@
                                     <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[4]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
-                                        <i class="fa-solid fa-pen text-white"></i></a>
+                                        <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -134,7 +134,7 @@
                         <form method="post" action="" id="formNotification">
                             <div class="form-check form-switch form-check-reverse me-3">
                                 <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notificationCheckBox" aria-pressed="false"/>
-                                 <!-- <?php if ($valeur_checkbox == 'On') echo 'checked'; ?> -->
+                                 <!-- if ($valeur_checkbox == 'On') echo 'checked'; -->
                                 <label class="form-check-label" for="SwitchCheck">On</label>
                             </div>
                         </form>
