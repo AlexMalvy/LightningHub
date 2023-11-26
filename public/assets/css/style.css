@@ -154,7 +154,7 @@ footer {
     color: #EAA928;
 }
 
-.chat-window {
+.chat-window, .create-window {
     height: 75vh;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -196,7 +196,6 @@ footer {
     border-radius: 5px;
     text-indent: 5px;
 }
-
 
 /* FAQ */
 

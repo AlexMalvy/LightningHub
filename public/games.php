@@ -80,19 +80,19 @@
                         <section class="card border-0 rounded-0 desktop-card card-height">
                             <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">World of Warcaft</h3>
+                                <h3 class="card-title">World of Warcraft</h3>
                                 <div class="card-text">
                                     <p>World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.</p>
                                 </div>
                             </div>
                                 
-                            <!-- World of Warcaft Card Footer -->
+                            <!-- World of Warcraft Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                <!-- World of Warcaft Join Team -->
+                                <!-- World of Warcraft Join Team -->
                                 <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
                                     <span class="align-self-center fw-bold">Trouver une Team</span>
                                 </a>
-                                <!-- World of Warcaft Social Links -->
+                                <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
                                     <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
                                     <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
@@ -102,12 +102,12 @@
                         </section>
                     </li>
     
-                    <!-- Call of duty Warzone Card -->
+                    <!-- Call of Duty Warzone Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
                             <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">Call of duty : Warzone</h3>
+                                <h3 class="card-title">Call of Duty : Warzone</h3>
                                 <div class="card-text">
                                     <p>Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).<br> Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.</p>
                                 </div>

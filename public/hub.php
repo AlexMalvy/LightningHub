@@ -74,7 +74,7 @@
 
             <!-- Create Hub -->
             <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
-                <button class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Créer un salon</button>
+                <a  id="newRoom" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Créer un salon</a>
             </div>
 
         </div>
@@ -91,17 +91,22 @@
 
                 <!-- Friends tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane"aria-selected="false">Mes Amis</button>
+                    <button class="nav-link text-white" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="false">Mes Amis</button>
                 </li>
 
                 <!-- Pending tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane"aria-selected="false">En attente</button>
+                    <button class="nav-link text-white" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="false">En attente</button>
                 </li>
 
                 <!-- Current hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane"aria-selected="false">"Salon 3"</button>
+                    <button class="nav-link text-white" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">"Salon 3"</button>
+                </li>
+
+                <!-- New Room hub tab head -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
                 </li>
             </ul>
 
@@ -346,7 +351,7 @@
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
                             </div>
                             <div class="col">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodity, delectus.</p>
                             </div>
                             <div class="col">
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
@@ -358,14 +363,69 @@
                     </div>
 
                 </div>
+
+                <!-- New Room hub tab content -->
+                <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
+
+                    <div class="container py-3 create-window position-relative">
+                        <div class="row row-cols-1 px-3">
+                            <div class="col">
+                                <h3 class="reconstruct mt-2">Création d'un salon</h3>
+                            </div>
+                            <div class="col px-2 px-md-5 px-lg-0 pb-4">
+                                <hr>
+                            </div>
+                            <form action="" class="py-lg-3">
+                                <div class="d-lg-flex">
+                                    <div class="col-lg-5">
+                                        <label for="games" class="mb-2">Jeux :</label>
+                                        <select id="games" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="games" required aria-required="true">
+                                            <option selected>Veuillez Choisir un jeux</option>
+                                            <option value="lol">League Of Legends</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5 offset-lg-2">
+                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+                                    </div>
+                                </div>
+                                <div class="d-lg-flex">
+                                    <div class="col-lg-5">
+                                        <label for="type" class="d-block mb-2">Type de partie :</label>
+                                        <select id="type" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="type" required aria-required="true">
+                                            <option selected>Veuillez Choisir un type de partie</option>
+                                            <option value="loisir">Loisir</option>
+                                            <option value="competitif">Compétitif</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5 offset-lg-2">
+                                        <label for="description" class="d-block mb-2">Description :</label>
+                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="mb-4 w-100 rounded bg-white text-black border-0 pt-1 ps-2" required aria-required="true"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <label for="numberofparticipants" class=" mb-2">Nombre de participants :</label>
+                                    <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+                                </div>
+                                <div class="d-lg-flex col-lg-5 offset-lg-7">
+                                    <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
+                                    <a href="#" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
                 
             </div>
 
         </div>
         
-        <?php require_once(__DIR__."/../view/footer.php") ?>
+        <?php  // require_once(__DIR__."/../view/footer.php") ?>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="assets/js/scriptAccount.js"> </script>
 </body>
 </html>
