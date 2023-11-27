@@ -1,5 +1,5 @@
 
-<!-- Header mobil -->
+<!-- Header mobile -->
 <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
     <img src="assets/images/logo-lightninghub.png" class="logo">
     <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
