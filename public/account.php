@@ -194,4 +194,3 @@
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <script src="assets/js/scriptAccount.js"></script>
 </body>
-</html>

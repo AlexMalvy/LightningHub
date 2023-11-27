@@ -74,7 +74,7 @@
 
             <!-- Create Hub -->
             <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
-                <button  id="newRoom" class="btn lh-buttons-purple">Créer un salon</button>
+                <button data-bs-toggle="tab" data-bs-target="#new-room-hub-tab" class="btn lh-buttons-purple">Créer un salon</button>
             </div>
 
         </div>
@@ -466,7 +466,7 @@
 
                             <!-- Modify/Leave Buttons -->
                             <div class="d-flex flex-column gap-3 mt-auto">
-                                <button class="btn bg-color-purple btn-hover">Modifier le salon</button>
+                                <button class="btn bg-color-purple btn-hover" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab">Modifier le salon</button>
                                 <button class="btn btn-danger">Quitter le salon</button>
                             </div>
                         </section>
@@ -520,6 +520,67 @@
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
                                     <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
                                     <a href="#" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Update Room hub tab content -->
+                <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+
+                    <div class="container position-relative">
+                        <div class="row row-cols-1 px-3">
+                            <div class="col">
+                                <h3 class="reconstruct mt-3">Modification du salon</h3>
+                            </div>
+                            <div class="col px-2 px-md-5 px-lg-0 pb-4">
+                                <hr>
+                            </div>
+                            <form action="" class="py-lg-3">
+                                <div class="d-lg-flex">
+                                    <div class="col-lg-5">
+                                        <label for="games" class="mb-2">Jeux :</label>
+                                        <select id="games" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="games" required aria-required="true">
+                                            <option selected>Veuillez Choisir un jeux</option>
+                                            <option value="lol">League Of Legends</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5 offset-lg-2">
+                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+                                    </div>
+                                </div>
+                                <div class="d-lg-flex">
+                                    <div class="col-lg-5">
+                                        <label for="type" class="d-block mb-2">Type de partie :</label>
+                                        <select id="type" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="type" required aria-required="true">
+                                            <option selected>Veuillez Choisir un type de partie</option>
+                                            <option value="loisir">Loisir</option>
+                                            <option value="competitif">Compétitif</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5 offset-lg-2">
+                                        <label for="description" class="d-block mb-2">Description :</label>
+                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="mb-4 w-100 rounded bg-white text-black border-0 pt-1 ps-2" required aria-required="true"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <label for="numberofparticipants" class=" mb-2">Nombre de participants :</label>
+                                    <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="mb-3 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <a href="#" class="btn w-100 btn-delete rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4 align-self-start">Clôturer le salon</a>
+                                    </div>
+                                    <div class="col-lg-3 offset-lg-3">
+                                        <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="#" class="btn w-100 bg-color-purple rounded-5 mt-5 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
+                                    </div>
                                 </div>
                             </form>
 

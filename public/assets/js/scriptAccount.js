@@ -31,9 +31,9 @@ if (btnPseudo && btnMail){
 
     /* Submit form notification
 
-document.querySelector("#SwitchCheck").addEventListener('change', function(){
-    document.querySelector("#formNotification").submit();
-});
+        document.querySelector("#SwitchCheck").addEventListener('change', function(){
+            document.querySelector("#formNotification").submit();
+        });
 
  */
 }
@@ -82,30 +82,4 @@ const chatMembersCollapseExpend = () => {
 
 chatWindowOptions.addEventListener("click", () => chatMembersCollapseExpend());
 membersClose.addEventListener("click", () => chatMembersCollapseExpend());
-
-
-
-/* enable tab create new room */
-
-const newRoom = document.querySelector('#newRoom');
-const newRoomHubTab = document.querySelector('#new-room-hub-tab');
-const newRoomHubTabPane = document.querySelector('#new-room-hub-tab-pane');
-const hubTabPane = document.querySelector('#hub-tab-pane');
-const hubTab = document.querySelector('#hub-tab');
-
-if (newRoom && newRoomHubTab){
-    newRoom.addEventListener("click", () =>{
-        newRoomHubTab.classList.remove('d-none');
-        newRoomHubTab.classList.add('active');
-        newRoomHubTabPane.classList.add('active');
-        hubTab.classList.remove('active');
-        hubTabPane.classList.remove('active');
-
-        // Défiler vers l'élément
-        newRoomHubTab.scrollIntoView({
-            behavior: 'smooth', // Ajoute un effet de défilement fluide
-            block: 'start'      // Aligner l'élément en haut de la fenêtre
-        });
-    });
-}
 
