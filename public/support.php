@@ -78,7 +78,7 @@
                     </div>
                     <!-- Flavor Img -->
                     <div class="d-none d-lg-flex align-items-center col-lg-4 offset-lg-1">
-                        <img src="assets/faq-img-1.png" alt="" class="img-fluid">
+                        <img src="assets/images/faq-img-1.png" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 
                 <div class="row">
                     <div class="d-none d-lg-flex align-items-center col-lg-4">
-                        <img src="assets/faq-img-2.png" alt="" class="img-fluid">
+                        <img src="assets/images/faq-img-2.png" alt="" class="img-fluid">
                     </div>
                     <div class="col-lg-7 offset-lg-1 pe-lg-0">
                         <form action="">

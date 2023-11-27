@@ -154,7 +154,7 @@ footer {
     color: #EAA928;
 }
 
-.chat-window, .create-window {
+.chat-window {
     height: 75vh;
     overflow-y: scroll;
     overflow-x: hidden;
