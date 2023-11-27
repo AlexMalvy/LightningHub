@@ -26,7 +26,7 @@
             <!-- Filters -->
             <div class="col-lg-4 offset-lg-1 px-2 px-md-5 px-lg-0 mb-3">
                 <!-- Toggle Button -->
-                <button class="btn btn-hover bg-color-purple w-100 d-flex justify-content-between align-items-center py-3 fw-bold" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
+                <button class="btn lh-buttons-purple rounded-0 w-100 d-flex justify-content-between align-items-center py-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltre" aria-controls="offcanvasFiltre">
                 Filtres   
                 <i class="fa-solid fa-plus fa-2xl" style="color: #ffffff;"></i>
                 </button>
@@ -44,7 +44,7 @@
                     <div class="offcanvas-body">
                         <form action="" class="d-flex flex-column py-3">
                             <label for="game" class="pb-1">Jeu</label>
-                            <select name="game" id="game" class="mb-3 p-1 rounded bg-white border text-black">
+                            <select name="game" id="game" class="mb-3 input">
                                 <option value="LoL">League Of Legends</option>
                                 <option value="Valorant">Valorant</option>
                                 <option value="WoW">World of Warcraft</option>
@@ -53,18 +53,18 @@
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>
-                            <select name="game_type" id="game_type" class="mb-3 p-1 rounded bg-white border text-black">
+                            <select name="game_type" id="game_type" class="mb-3 input">
                                 <option value="normal">Normal</option>
                                 <option value="ranked">Ranked</option>
                                 <option value="custom">Custom</option>
                             </select>
 
                             <label for="search" class="pb-1">Recherche</label>
-                            <input type="search" name="search" id="search" class="mb-5 p-1 rounded bg-white border text-black">
+                            <input type="search" name="search" id="search" class="mb-5 input">
 
-                            <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Valider</button>
+                            <button type="submit" class="btn lh-buttons-purple w-100 mb-3">Valider</button>
 
-                            <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Annuler</button>
+                            <button type="button" data-bs-dismiss="offcanvas" aria-label="Close" class="btn lh-buttons-purple-faded w-100">Annuler</button>
                         </form>
                     </div>
 
@@ -74,7 +74,7 @@
 
             <!-- Create Hub -->
             <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
-                <button data-bs-toggle="tab" data-bs-target="#new-room-hub-tab" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Créer un salon</button>
+                <button data-bs-toggle="tab" data-bs-target="#new-room-hub-tab" class="btn lh-buttons-purple">Créer un salon</button>
             </div>
 
         </div>
@@ -404,14 +404,16 @@
 
                             <!-- User Message Input -->
                             <div class="input-group px-3 mb-2">
-                                <input type="text" class="input rounded-start flex-grow-1" placeholder="Message">
+                                <input type="text" class="input flex-grow-1" placeholder="Message">
                                 <button class="btn btn-dark border-purple"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
                             </div>
                           
                         </div>
 
                         <!-- Current Members -->
-                        <div class="d-none flex-column bg-color-purple-faded border p-3" id="chat-members-window" aria-selected="false">
+                        <section class="d-none flex-column bg-color-purple-faded border p-3" id="chat-members-window" aria-selected="false">
+
+                            <!-- Section Title -->
                             <div class="d-flex justify-content-between align-items-center">
                                 <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
                                 <h3 class="m-0">Membres</h3>
@@ -419,6 +421,7 @@
                             
                             <hr>
 
+                            <!-- Room Lead -->
                             <div>
                                 <h4>Chef :</h4>
                                 <div>
@@ -427,39 +430,46 @@
                                 </div>
                             </div>
 
+                            <!-- Members -->
                             <div class="d-flex flex-column my-4 gap-3">
                                 <h4 class="mb-0">Equipe :</h4>
+
                                 <div class="d-flex align-items-center gap-2">
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 1</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
+
                                 <div class="d-flex align-items-center gap-2">
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 2</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
+
                                 <div class="d-flex align-items-center gap-2">
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 3</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
+
                                 <div class="d-flex align-items-center gap-2">
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 4</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
+
                             </div>
 
+                            <!-- Modify/Leave Buttons -->
                             <div class="d-flex flex-column gap-3 mt-auto">
                                 <button class="btn bg-color-purple btn-hover" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab">Modifier le salon</button>
                                 <button class="btn btn-danger">Quitter le salon</button>
                             </div>
-                        </div>
+                        </section>
 
                     </div>
                 </div>
@@ -583,6 +593,8 @@
 
         </div>
 
+        <!-- Temporary footer fix -->
+        <div style="margin: 100px 0;"></div>
         
         <?php  // require_once(__DIR__."/../view/footer.php") ?>
 
