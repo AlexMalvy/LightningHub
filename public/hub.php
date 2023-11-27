@@ -74,7 +74,7 @@
 
             <!-- Create Hub -->
             <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
-                <button data-bs-toggle="tab" data-bs-target="#new-room-hub-tab" class="btn lh-buttons-purple">Créer un salon</button>
+                <button id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple">Créer un salon</button>
             </div>
 
         </div>
@@ -84,6 +84,7 @@
 
             <!-- Tabs -->
             <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+
                 <!-- Hub tab head -->
                 <li class="nav-item" role="presentation">
                     <button class="nav-link text-white" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="false">Hub</button>
@@ -107,6 +108,11 @@
                 <!-- New Room hub tab head -->
                 <li class="nav-item" role="presentation">
                     <button class="nav-link text-white d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
+                </li>
+
+                <!-- Update Room hub tab head -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
                 </li>
             </ul>
 
@@ -466,7 +472,7 @@
 
                             <!-- Modify/Leave Buttons -->
                             <div class="d-flex flex-column gap-3 mt-auto">
-                                <button class="btn bg-color-purple btn-hover" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab">Modifier le salon</button>
+                                <button id="update-room" class="btn bg-color-purple btn-hover">Modifier le salon</button>
                                 <button class="btn btn-danger">Quitter le salon</button>
                             </div>
                         </section>

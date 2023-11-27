@@ -83,3 +83,71 @@ const chatMembersCollapseExpend = () => {
 chatWindowOptions.addEventListener("click", () => chatMembersCollapseExpend());
 membersClose.addEventListener("click", () => chatMembersCollapseExpend());
 
+/* PAGE HUB */
+
+/* enable tab create new room */
+
+const newRoom = document.querySelector('#newRoom');
+const newRoomHubTab = document.querySelector('#new-room-hub-tab');
+const newRoomHubTabPane = document.querySelector('#new-room-hub-tab-pane');
+const hubTabPane = document.querySelector('#hub-tab-pane');
+const hubTab = document.querySelector('#hub-tab');
+const hubFriendTab = document.querySelector('#friends-tab');
+const hubFriendTabPane = document.querySelector('#friends-tab-pane');
+const hubPendingTab = document.querySelector('#pending-tab');
+const hubPendingTabPane = document.querySelector('#pending-tab-pane');
+const hubCurrentTab = document.querySelector('#current-hub-tab');
+const hubCurrentTabPane = document.querySelector('#current-hub-tab-pane');
+
+
+const updateRoom = document.querySelector('#update-room');
+
+if (newRoom && newRoomHubTab || updateRoom){
+    newRoom.addEventListener("click", () => {
+        newRoomHubTab.classList.remove('d-none');
+        newRoomHubTab.classList.add('active');
+        newRoomHubTabPane.classList.add('active');
+        hubTab.classList.remove('active');
+        hubTabPane.classList.remove('active');
+        hubFriendTab.classList.remove('active');
+        hubFriendTabPane.classList.remove('active');
+        hubPendingTab.classList.remove('active');
+        hubPendingTabPane.classList.remove('active');
+        hubCurrentTab.classList.remove('active');
+        hubCurrentTabPane.classList.remove('active');
+
+        // Défiler vers l'élément
+        newRoomHubTab.scrollIntoView({
+            behavior: 'smooth', // Ajoute un effet de défilement fluide
+            block: 'start'      // Aligner l'élément en haut de la fenêtre
+        });
+    });
+
+        updateRoom.addEventListener("click", () =>{
+            const updateRoomTab = document.querySelector('#update-room-hub-tab');
+            const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
+
+            updateRoomTab.classList.add('active');
+            updateRoomTabPane.classList.add('active');
+            updateRoomTab.classList.remove('d-none');
+            hubTab.classList.remove('active');
+            hubTabPane.classList.remove('active');
+            hubFriendTab.classList.remove('active');
+            hubFriendTabPane.classList.remove('active');
+            hubPendingTab.classList.remove('active');
+            hubPendingTabPane.classList.remove('active');
+            hubCurrentTab.classList.remove('active');
+            hubCurrentTabPane.classList.remove('active');
+
+            // Défiler vers l'élément
+            newRoomHubTab.scrollIntoView({
+                behavior: 'smooth', // Ajoute un effet de défilement fluide
+                block: 'start'      // Aligner l'élément en haut de la fenêtre
+            });
+        });
+
+
+}
+
+
+
