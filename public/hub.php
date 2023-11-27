@@ -346,7 +346,7 @@
                             <!-- Room Options/Members -->
                             <button class="btn bg-color-purple btn-hover mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between">
                                 <span>#Salon: Random Room</span>
-                                <img src="assets/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
+                                <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                             </button>
 
                             <!-- Chat log -->
@@ -359,14 +359,14 @@
 
                                     <!-- All Messages -->
                                     <article class="col message">
-                                        <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
 
                                         <div class="message-body">
 
                                             <div class="message-header">
                                                 <h3 class="card-title">Random 1</h3>
                                                 <small>14:46</small>
-                                                <img src="assets/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                             </div>
 
                                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, magni.</p>
@@ -374,14 +374,14 @@
 
                                     </article>
                                     <article class="col message">
-                                        <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
 
                                         <div class="message-body">
 
                                             <div class="message-header">
                                                 <h4 class="card-title">Random 2</h4>
                                                 <small>14:46</small>
-                                                <img src="assets/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                             </div>
 
                                             <p class="card-text">Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. CNN was originally created as the "Chuck Norris Network" to update Americans with on-the-spot ass kicking in real-time, Chuck Norris does not get frostbite. Chuck Norris bites frost, In Olde Tribal Celtic language, "Chuck" is the word for "Stone" and "Norris" is the word for "Henge", Chuck Norris is the reason why Waldo is hiding. Chuck Norris doesn't own a stove, water comes to a boil while he watches the pot filling, Chuck Norris doesn't wash his clothes, he disembowels them.
@@ -400,7 +400,7 @@
                             <!-- User Message Input -->
                             <div class="input-group px-3 mb-2">
                                 <input type="text" class="input rounded-start flex-grow-1" placeholder="Message">
-                                <button class="btn btn-dark border-purple"><img src="assets/paper-plane-solid.png" alt="send button"></button>
+                                <button class="btn btn-dark border-purple"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
                             </div>
                         </div>
 
@@ -416,7 +416,7 @@
                             <div>
                                 <h4>Chef :</h4>
                                 <div>
-                                    <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Room Lead</span>
                                 </div>
                             </div>
@@ -424,28 +424,28 @@
                             <div class="d-flex flex-column mt-4 gap-3">
                                 <h4 class="mb-0">Equipe :</h4>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 1</span>
-                                    <img src="assets/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/user-minus-solid.png" alt="profile picture">
+                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
+                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 2</span>
-                                    <img src="assets/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/user-minus-solid.png" alt="profile picture">
+                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
+                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 3</span>
-                                    <img src="assets/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/user-minus-solid.png" alt="profile picture">
+                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
+                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
                                     <span>Random 4</span>
-                                    <img src="assets/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/user-minus-solid.png" alt="profile picture">
+                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
+                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
                             </div>
 
