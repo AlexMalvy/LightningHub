@@ -6,16 +6,16 @@
                     <h3 class="modal-title fs-5">Réinitialiser votre mot de passe</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
-                <div class="modal-body modal-background">
                 <form method="post" action="" class="d-flex flex-column">
+                <div class="modal-body modal-background">
                     <label for="input-mail-forget" type="text"">Saisir votre adresse email</label>
-                    <input id="input-mail-forget" class="mt-1" type="mail" name="mail"/>
+                    <input id="input-mail-forget" class="mt-1 w-100" type="mail" name="mail"/>
                 </div>
                 <div class="modal-footer modal-background">
                     <a href="sign_in.php" class="btn bg-color-purple-faded btn-hover" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
-                    <button aria-label="Envoyer" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2">Envoyer</a>
-                </form>
+                    <a aria-label="Envoyer" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2">Envoyer</a>
                 </div>
+                </form>
             </div>
         </div>
     </div>
