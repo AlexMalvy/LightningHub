@@ -347,9 +347,9 @@
                     <div class="container-fluid p-0 d-flex">
                             
                         <!-- Chat -->
-                        <div class="col-lg-9 d-flex flex-column">
+                        <div class="col d-flex flex-column" id="chat-window">
                             <!-- Room Options/Members -->
-                            <button class="btn bg-color-purple btn-hover mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between">
+                            <button class="btn bg-color-purple btn-hover mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between" id="chat-window-room-options">
                                 <span>#Salon: Random Room</span>
                                 <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                             </button>
@@ -411,9 +411,9 @@
                         </div>
 
                         <!-- Current Members -->
-                        <div class="d-none d-lg-flex flex-column col-lg-3 bg-color-purple-faded border p-3">
+                        <div class="d-none flex-column bg-color-purple-faded border p-3" id="chat-members-window" aria-selected="false">
                             <div class="d-flex justify-content-between align-items-center">
-                                <button type="button" class="btn-close" aria-label="Close"></button>
+                                <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
                                 <h3 class="m-0">Membres</h3>
                             </div>
                             
@@ -427,7 +427,7 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-column mt-4 gap-3">
+                            <div class="d-flex flex-column my-4 gap-3">
                                 <h4 class="mb-0">Equipe :</h4>
                                 <div class="d-flex align-items-center gap-2">
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
