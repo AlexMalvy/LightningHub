@@ -13,12 +13,12 @@
 }
 
 .reconstruct {
-    font-family: "Reconstruct";
+    font-family: "Reconstruct", sans-serif;
     font-size: 20px;
 }
 
 h1 {
-    font-family: "Reconstruct";
+    font-family: "Reconstruct", sans-serif;
 }
 
 button, .drop-shadow{
@@ -73,6 +73,11 @@ body {
 .dropdown-menu-icon-desktop {
     height: 25px;
     width: auto;
+}
+
+.dropdowfixposition{
+    margin-top:20px !important;
+    margin-right:-10px !important;
 }
 
 /* Buttons */
@@ -184,7 +189,7 @@ footer {
 /* Home Page */
 
 .first-background-img {
-    background-image: url(https://picsum.photos/1920/1080?random=1);
+    background-image: url(../images/Test.jpeg);
     background-size: cover;
 }
 
@@ -228,7 +233,7 @@ footer {
 
 /* Track */
 .chat-window::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px gray;
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
@@ -431,7 +436,7 @@ footer {
     /* Home page specific */
     .first-section {
         padding-top: 77px;
-        height: 50vh;
+        height: 70vh;
     }
 
     /* label input avatar page account */

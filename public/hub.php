@@ -483,7 +483,7 @@
                 <!-- New Room hub tab content -->
                 <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
 
-                    <div class="container py-3 create-window position-relative">
+                    <div class="py-3">
                         <div class="row row-cols-1 px-3">
                             <div class="col">
                                 <h3 class="reconstruct mt-2">Création d'un salon</h3>
@@ -537,7 +537,7 @@
                 <!-- Update Room hub tab content -->
                 <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
-                    <div class="container position-relative">
+                    <div class="py-3">
                         <div class="row row-cols-1 px-3">
                             <div class="col">
                                 <h3 class="reconstruct mt-3">Modification du salon</h3>
@@ -599,12 +599,9 @@
 
         </div>
 
-        <!-- Temporary footer fix -->
-        <div style="margin: 100px 0;"></div>
-        
-        <?php  // require_once(__DIR__."/../view/footer.php") ?>
-
     </main>
+
+    <?php require_once(__DIR__."/../view/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="assets/js/scriptAccount.js"> </script>

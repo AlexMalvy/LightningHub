@@ -31,7 +31,7 @@ if (btnPseudo && btnMail){
 
     /* Submit form notification
 
-        document.querySelector("#SwitchCheck").addEventListener('change', function(){
+        document.querySelector("#SwitchCheck").addEventListener('change', () =>{
             document.querySelector("#formNotification").submit();
         });
 
@@ -85,69 +85,46 @@ membersClose.addEventListener("click", () => chatMembersCollapseExpend());
 
 /* PAGE HUB */
 
-/* enable tab create new room */
+/* enable tab create new room / update room */
 
 const newRoom = document.querySelector('#newRoom');
 const newRoomHubTab = document.querySelector('#new-room-hub-tab');
 const newRoomHubTabPane = document.querySelector('#new-room-hub-tab-pane');
-const hubTabPane = document.querySelector('#hub-tab-pane');
 const hubTab = document.querySelector('#hub-tab');
+const hubTabPane = document.querySelector('#hub-tab-pane');
 const hubFriendTab = document.querySelector('#friends-tab');
 const hubFriendTabPane = document.querySelector('#friends-tab-pane');
 const hubPendingTab = document.querySelector('#pending-tab');
 const hubPendingTabPane = document.querySelector('#pending-tab-pane');
 const hubCurrentTab = document.querySelector('#current-hub-tab');
 const hubCurrentTabPane = document.querySelector('#current-hub-tab-pane');
-
-
 const updateRoom = document.querySelector('#update-room');
 
-if (newRoom && newRoomHubTab || updateRoom){
-    newRoom.addEventListener("click", () => {
-        newRoomHubTab.classList.remove('d-none');
-        newRoomHubTab.classList.add('active');
-        newRoomHubTabPane.classList.add('active');
-        hubTab.classList.remove('active');
-        hubTabPane.classList.remove('active');
-        hubFriendTab.classList.remove('active');
-        hubFriendTabPane.classList.remove('active');
-        hubPendingTab.classList.remove('active');
-        hubPendingTabPane.classList.remove('active');
-        hubCurrentTab.classList.remove('active');
-        hubCurrentTabPane.classList.remove('active');
-
-        // Défiler vers l'élément
-        newRoomHubTab.scrollIntoView({
-            behavior: 'smooth', // Ajoute un effet de défilement fluide
-            block: 'start'      // Aligner l'élément en haut de la fenêtre
-        });
-    });
-
-        updateRoom.addEventListener("click", () =>{
-            const updateRoomTab = document.querySelector('#update-room-hub-tab');
-            const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
-
-            updateRoomTab.classList.add('active');
-            updateRoomTabPane.classList.add('active');
-            updateRoomTab.classList.remove('d-none');
-            hubTab.classList.remove('active');
-            hubTabPane.classList.remove('active');
-            hubFriendTab.classList.remove('active');
-            hubFriendTabPane.classList.remove('active');
-            hubPendingTab.classList.remove('active');
-            hubPendingTabPane.classList.remove('active');
-            hubCurrentTab.classList.remove('active');
-            hubCurrentTabPane.classList.remove('active');
-
-            // Défiler vers l'élément
-            newRoomHubTab.scrollIntoView({
-                behavior: 'smooth', // Ajoute un effet de défilement fluide
-                block: 'start'      // Aligner l'élément en haut de la fenêtre
-            });
-        });
-
-
+function displayTabs(tab, tabPane) {
+    tab.classList.add('active');
+    tabPane.classList.add('active');
+    tab.classList.remove('d-none');
 }
 
+function hideTabs() {
+    const tabs = [hubTab, hubFriendTab, hubPendingTab, hubCurrentTab];
+    const tabPanes = [hubTabPane, hubFriendTabPane, hubPendingTabPane, hubCurrentTabPane];
 
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tabPanes.forEach(tabPane => tabPane.classList.remove('active'));
+}
 
+if (newRoom && newRoomHubTab || updateRoom) {
+    newRoom.addEventListener("click", () => {
+        displayTabs(newRoomHubTab, newRoomHubTabPane);
+        hideTabs();
+    });
+
+    updateRoom.addEventListener("click", () => {
+        const updateRoomTab = document.querySelector('#update-room-hub-tab');
+        const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
+
+        displayTabs(updateRoomTab, updateRoomTabPane);
+        hideTabs();
+        });
+    }
