@@ -168,7 +168,7 @@
 
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
-                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <img src="assets/images/Leagues-of-legends.png" alt="images-Leagues-of-legends" class="card-img-top">
                                 <!-- League of Legends Card Body -->
                                 <div class="card-body">
                                     <h3 class="card-title">League of Legends</h3>
@@ -197,7 +197,7 @@
 
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
-                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <img src="assets/images/valorant.png" alt="images-valorant" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Valorant</h3>
                                     <div class="card-text">
@@ -225,7 +225,7 @@
 
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
-                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <img src="assets/images/world-of-warcraft.png" alt="images-world-of-warcraft" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">World of Warcaft</h3>
                                     <div class="card-text">
@@ -253,7 +253,7 @@
 
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
-                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <img src="assets/images/call-of-duty-warzone.png" alt="image-call-of-duty-warzone" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Warzone</h3>
                                     <div class="card-text">
