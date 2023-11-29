@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="77f8ce84-2045-4d85-930d-c1a9d5081f7d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/images/Test.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/gaming-hero-picture-1920-1277.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/Test.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/check-solid-green.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/check-solid-green.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/check-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/check-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/copy-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/copy-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/message-solid-white.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/message-solid-white.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-account-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-account-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-friends-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-friends-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-home-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-home-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-hub-icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/lightninghub-hub-icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/raw_assets/logo-lh-jaune.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/raw_assets/logo-lh-jaune.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/user-minus-solid-white.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/user-minus-solid-white.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/user-plus-solid.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/user-plus-solid.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/xmark-solid-red.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/xmark-solid-red.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/xmark-solid-white.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/xmark-solid-white.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/scriptAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/scriptAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/games.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/games.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/hub.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/hub.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/legal.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/legal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/sign_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/socials.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/socials.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/support.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/support.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/header_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/header_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/modal_forget_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/modal_forget_email.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1701074973" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="social" />
+                    <option name="lastUsedInstant" value="1701074972" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2YkdgmRCeTjrqYB2OHPV4Dzeh3J" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/laragon/www/LightningHub",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.sourceCode.H2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\LightningHub\public" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="77f8ce84-2045-4d85-930d-c1a9d5081f7d" name="Changes" comment="" />
+      <created>1701073625184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701073625184</updated>
+      <workItem from="1701073626193" duration="11104000" />
+      <workItem from="1701158663538" duration="342000" />
+      <workItem from="1701246035371" duration="7399000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
