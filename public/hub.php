@@ -87,7 +87,7 @@
 
                 <!-- Hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="false">Hub</button>
+                    <button class="nav-link text-white active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
                 </li>
 
                 <!-- Friends tab head -->
@@ -102,7 +102,7 @@
 
                 <!-- Current hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white active" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="true">Chat</button>
+                    <button class="nav-link text-white" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
                 </li>
 
                 <!-- New Room hub tab head -->
@@ -142,7 +142,7 @@
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                         <p class="m-0">3 min</p>
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
                                         <p class="card-text">LFG strong top</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                        <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
                                             <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
@@ -192,7 +192,7 @@
                                         <p class="card-text">Let's have fun !!</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                         <p class="m-0">7 min</p>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                         <p class="m-0">>1 min</p>
                                     </div>
                                 </div>
@@ -236,7 +236,7 @@
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                         <p class="m-0">10 min</p>
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@
                 <!-- Friends tab content -->
                 <div class="tab-pane fade show p-1 border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
 
-                    <div class="container py-3">
+                    <div class="container-fluid py-3">
                         <div class="row row-cols-1 row-cols-lg-4 g-3">
 
                             <!-- Room #1 -->
@@ -270,7 +270,7 @@
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple rounded-5 px-4 py-2 fw-bold">Rejoindre</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                         <p class="m-0">3 min</p>
                                     </div>
                                 </div>
@@ -293,7 +293,7 @@
                                         <p class="card-text">LFG strong top</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                        <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
                                             <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
@@ -312,7 +312,7 @@
                 <!-- Pending tab content -->
                 <div class="tab-pane fade show p-1 border" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
 
-                    <div class="container py-3">
+                    <div class="container-fluid py-3">
                         <div class="row row-cols-1 row-cols-lg-4 g-3">
 
                             <!-- Room #2 (Pending demo) -->
@@ -332,7 +332,7 @@
                                         <p class="card-text">LFG strong top</p>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn btn-hover bg-color-purple-faded rounded-5 px-4 py-2 fw-bold">
+                                        <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
                                             <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
@@ -349,7 +349,7 @@
                 </div>
 
                 <!-- Current hub tab content -->
-                <div class="tab-pane fade show active p-1 border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
                     <div class="container-fluid p-0 d-flex">
                             
                         <!-- Chat -->
@@ -485,48 +485,61 @@
 
                     <div class="py-3">
                         <div class="row row-cols-1 px-3">
+
                             <div class="col">
                                 <h3 class="reconstruct mt-2">Création d'un salon</h3>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
                             </div>
-                            <form action="" class="py-lg-3">
-                                <div class="d-lg-flex">
-                                    <div class="col-lg-5">
+
+                            <!-- New Room Form -->
+                            <form action="" class="row py-lg-3">
+
+                                <!-- Left Side -->
+                                <div class="col-lg-5 d-lg-flex flex-column">
+                                    <div>
                                         <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="games" required aria-required="true">
-                                            <option selected>Veuillez Choisir un jeux</option>
+                                        <select id="games" class="input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
+                                            <option selected>Veuillez choisir un jeu</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-5 offset-lg-2">
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
-                                    </div>
-                                </div>
-                                <div class="d-lg-flex">
-                                    <div class="col-lg-5">
-                                        <label for="type" class="d-block mb-2">Type de partie :</label>
-                                        <select id="type" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="type" required aria-required="true">
-                                            <option selected>Veuillez Choisir un type de partie</option>
-                                            <option value="loisir">Loisir</option>
-                                            <option value="competitif">Compétitif</option>
+
+                                    <div>
+                                        <label for="type" class="mb-2">Type de partie :</label>
+                                        <select id="type" class="input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                            <option selected>Veuillez choisir un type de partie</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="ranked">Ranked</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-5 offset-lg-2">
-                                        <label for="description" class="d-block mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="mb-4 w-100 rounded bg-white text-black border-0 pt-1 ps-2" required aria-required="true"></textarea>
+
+                                    <div>
+                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
-                                    <label for="numberofparticipants" class=" mb-2">Nombre de participants :</label>
-                                    <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+
+                                <!-- Right Side -->
+                                <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
+                                    <div>
+                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                    </div>
+
+                                    <div>
+                                        <label for="description" class="mb-2">Description :</label>
+                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                    </div>
                                 </div>
+
+                                <!-- Buttons -->
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
-                                    <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
-                                    <a href="#" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
+                                    <button class="btn w-100 btn lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
+                                    <button class="btn w-100 btn lh-buttons-purple mb-3">Créer un salon</button>
                                 </div>
+
                             </form>
 
                         </div>
@@ -535,58 +548,65 @@
                 </div>
 
                 <!-- Update Room hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 active border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
                     <div class="py-3">
                         <div class="row row-cols-1 px-3">
+
                             <div class="col">
                                 <h3 class="reconstruct mt-3">Modification du salon</h3>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
                             </div>
-                            <form action="" class="py-lg-3">
-                                <div class="d-lg-flex">
-                                    <div class="col-lg-5">
+
+                            <!-- Update Room Form -->
+                            <form action="" class="row py-lg-3">
+
+                                <!-- Left Side -->
+                                <div class="col-lg-5 d-lg-flex flex-column">
+                                    <div>
                                         <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="games" required aria-required="true">
-                                            <option selected>Veuillez Choisir un jeux</option>
+                                        <select id="games" class="form-select input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
+                                            <option selected>Veuillez choisir un jeux</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-5 offset-lg-2">
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
-                                    </div>
-                                </div>
-                                <div class="d-lg-flex">
-                                    <div class="col-lg-5">
-                                        <label for="type" class="d-block mb-2">Type de partie :</label>
-                                        <select id="type" class="form-select mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" aria-label="Select" name="type" required aria-required="true">
-                                            <option selected>Veuillez Choisir un type de partie</option>
-                                            <option value="loisir">Loisir</option>
-                                            <option value="competitif">Compétitif</option>
+
+                                    <div>
+                                        <label for="type" class="mb-2">Type de partie :</label>
+                                        <select id="type" class="form-select input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                            <option selected>Veuillez choisir un type de partie</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="ranked">Ranked</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-5 offset-lg-2">
-                                        <label for="description" class="d-block mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="mb-4 w-100 rounded bg-white text-black border-0 pt-1 ps-2" required aria-required="true"></textarea>
+
+                                    <div>
+                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-3 w-100" required aria-required="true">
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
-                                    <label for="numberofparticipants" class=" mb-2">Nombre de participants :</label>
-                                    <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="mb-3 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
+
+                                <!-- Right Side -->
+                                <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
+                                    <div>
+                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                    </div>
+
+                                    <div>
+                                        <label for="description" class="mb-2">Description :</label>
+                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <a href="#" class="btn w-100 btn-delete rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4 align-self-start">Clôturer le salon</a>
-                                    </div>
-                                    <div class="col-lg-3 offset-lg-3">
-                                        <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <a href="#" class="btn w-100 bg-color-purple rounded-5 mt-5 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
-                                    </div>
+
+
+                                <!-- Buttons -->
+                                <div class="col d-lg-flex">
+                                    <button class="btn lh-buttons-purple w-100 mt-3 order-lg-3">Créer un salon</button>
+                                    <button class="btn lh-buttons-purple-faded w-100 mt-3 ms-lg-auto me-lg-4 order-lg-2">Annuler</button>
+                                    <button class="btn lh-buttons-red w-100 mt-4 me-lg-4 order-lg-1">Clôturer le salon</button>
                                 </div>
                             </form>
 
@@ -601,7 +621,7 @@
 
     </main>
 
-    <?php require_once(__DIR__."/../view/footer.php") ?>
+    <?php //require_once(__DIR__."/../view/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="assets/js/scriptAccount.js"> </script>
