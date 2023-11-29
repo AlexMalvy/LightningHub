@@ -24,11 +24,9 @@
                     <p class="mb-4">
                         Rejoins-nous pour vivre des expériences <br> <strong>gaming inoubliables.</strong>
                     </p>
-                    <a href="hub.php" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover">
-                        <div class="d-flex justify-content-center align-content-center">
-                            <img src="assets/images/hub-icon-37x37.png" alt="">
-                            <span class="align-self-center ps-2 fw-bold">Trouver une Team</span>
-                        </div>
+                    <a href="hub.php" class="btn lh-buttons-purple">
+                        <img src="assets/images/hub-icon-37x37.png" alt="">
+                        <span class="ps-2">Trouver une Team</span>
                     </a>
                 </div>
             </div>
@@ -68,8 +66,8 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
-                                        <span class="align-self-center fw-bold">Trouver une Team</span>
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
                                     </a>
 
                                     <!-- League of Legends Social Links -->
@@ -97,8 +95,8 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Valorant Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
-                                        <span class="align-self-center fw-bold">Trouver une Team</span>
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
                                     </a>
 
                                     <!-- Valorant Social Links -->
@@ -124,8 +122,8 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- World of Warcraft Join Team -->
-                                    <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex btn-hover">
-                                        <span class="align-self-center fw-bold">Trouver une Team</span>
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
                                     </a>
 
                                     <!-- World of Warcraft Social Links -->
@@ -161,116 +159,124 @@
         <div class="container-fluid bg-color-purple-faded pt-5 pb-5 px-0 d-none d-lg-block">
 
             <!-- Cards -->
-            <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
+            <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
                 <h2 class="pb-4 reconstruct">Nos Univers</h2>
-                <div class="row">
-                    <div class="card-group gap-4">
-                            
+                <div class="container-fluid px-0">
+                    <div class="row row-cols-2 row-cols-xl-4 g-3">
+                        
                         <!-- League of Legends Card -->
-                        <section class="col-3 card border-0 rounded-0 desktop-card">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
-                            <!-- League of Legends Card Body -->
-                            <div class="card-body">
-                                <h3 class="card-title">League of Legends</h3>
-                                <div class="card-text">
-                                    <p>League of Legends is a team-based strategy game where two teams of five powerful champions.</p>
+                        <section class="col">
+                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <!-- League of Legends Card Body -->
+                                <div class="card-body">
+                                    <h3 class="card-title">League of Legends</h3>
+                                    <div class="card-text">
+                                        <p>League of Legends is a team-based strategy game where two teams of five powerful champions.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- League of Legends Card Footer -->
-                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                <!-- League of Legends Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
-                                </a>
-                                <!-- League of Legends Social Links -->
-                                <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                <!-- League of Legends Card Footer -->
+                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                    <!-- League of Legends Join Team -->
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
+                                    </a>
+                                    <!-- League of Legends Social Links -->
+                                    <div class="d-flex gap-2">
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- Valorant Card -->
-                        <section class="col-3 card border-0 rounded-0 desktop-card">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="card-title">Valorant</h3>
-                                <div class="card-text">
-                                    <p>This is a first-person shooter in which players compete in team-based multiplayer matches.</p>
+                        <section class="col">
+                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">Valorant</h3>
+                                    <div class="card-text">
+                                        <p>This is a first-person shooter in which players compete in team-based multiplayer matches.</p>
+                                    </div>
                                 </div>
-                            </div>
-                                
-                            <!-- Valorant Card Footer -->
-                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                <!-- Valorant Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
-                                </a>
-                                <!-- Valorant Social Links -->
-                                <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    
+                                <!-- Valorant Card Footer -->
+                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                    <!-- Valorant Team -->
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
+                                    </a>
+                                    <!-- Valorant Social Links -->
+                                    <div class="d-flex gap-2">
+                                        <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- World of Warcaft Card -->
-                        <section class="col-3 card border-0 rounded-0 desktop-card">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="card-title">World of Warcaft</h3>
-                                <div class="card-text">
-                                    <p>Similar to other MMORPGs, the game allows players to create a character avatar.</p>
+                        <section class="col">
+                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">World of Warcaft</h3>
+                                    <div class="card-text">
+                                        <p>Similar to other MMORPGs, the game allows players to create a character avatar.</p>
+                                    </div>
                                 </div>
-                            </div>
-                                
-                            <!-- World of Warcaft Card Footer -->
-                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                <!-- World of Warcaft Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
-                                </a>
-                                <!-- World of Warcaft Social Links -->
-                                <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    
+                                <!-- World of Warcaft Card Footer -->
+                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                    <!-- World of Warcaft Join Team -->
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
+                                    </a>
+                                    <!-- World of Warcaft Social Links -->
+                                    <div class="d-flex gap-2">
+                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- Call of Duty Warzone Card -->
-                        <section class="col-3 card border-0 rounded-0 desktop-card">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="card-title">Warzone</h3>
-                                <div class="card-text">
-                                    <p>Warzone allows online multiplayer combat among 150 players and features both cross-platform play.</p>
+                        <section class="col">
+                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                                <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
+                                <div class="card-body">
+                                    <h3 class="card-title">Warzone</h3>
+                                    <div class="card-text">
+                                        <p>Warzone allows online multiplayer combat among 150 players and features both cross-platform play.</p>
+                                    </div>
                                 </div>
-                            </div>
-                                
-                            <!-- Warzone Card Footer -->
-                            <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                <!-- Warzone Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
-                                </a>
-                                <!-- Warzone Social Links -->
-                                <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    
+                                <!-- Warzone Card Footer -->
+                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+                                    <!-- Warzone Join Team -->
+                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                        <span>Rejoindre</span>
+                                    </a>
+                                    <!-- Warzone Social Links -->
+                                    <div class="d-flex gap-2">
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
-                    </div>
 
+                    </div>
                 </div>
 
-            </div>
+            </section>
 
             <!-- Show more games -->
             <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 d-flex justify-content-between align-items-center gap-3 mt-4">
