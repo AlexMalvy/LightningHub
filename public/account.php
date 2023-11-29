@@ -173,7 +173,7 @@
                                 </h3>
                                 <div id="collapseOne" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionDelete">
                                     <div class="accordion-body bg-color-purple-faded">
-                                        <button class="btn btn-delete rounded-5 px-4 py-2 me-2 fw-bold" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" >Supprimer mon compte</button>
+                                        <button class="lh-buttons-red" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" >Supprimer mon compte</button>
                                     </div>
                                 </div>
                             </div>

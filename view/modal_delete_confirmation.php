@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-footer modal-background">
                     <a href="Account.html" class="btn bg-color-purple-faded btn-hover" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
-                    <a href="#"  class="btn btn-delete fw-bold rounded-5" aria-label="Confimer">Confirmation</a>
+                    <button href="#"  class="lh-buttons-red" aria-label="Confirmer">Confirmation</button>
                 </div>
             </div>
         </div>

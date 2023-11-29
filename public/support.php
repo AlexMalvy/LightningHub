@@ -92,7 +92,7 @@
         <!-- Contact Form -->
         <section class="container-fluid bg-color-purple-faded py-4 px-0">
             <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
-                <h2 class="reconstruct pb-3">Contact the Support</h2>
+                <h2 class="reconstruct pb-3">Contacter le Support</h2>
 
                 <div class="row">
                     <div class="d-none d-lg-flex align-items-center col-lg-4">

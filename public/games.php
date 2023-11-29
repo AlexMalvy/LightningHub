@@ -35,8 +35,8 @@
                             <!-- League of Legends Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- League of Legends Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
@@ -62,8 +62,8 @@
                             <!-- Valorant Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Valorant Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
@@ -89,8 +89,8 @@
                             <!-- World of Warcraft Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- World of Warcraft Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
@@ -116,8 +116,8 @@
                             <!-- Warzone Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Warzone Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
