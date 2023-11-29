@@ -52,6 +52,10 @@ button, .drop-shadow{
     color: var(--bg-purple);
 }
 
+.border-purple {
+    border: solid var(--bg-purple) 1px;
+}
+
 
 /* Global Settings */
 
@@ -89,6 +93,20 @@ footer {
     width: 100dvw;
 }
 
+.profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: solid black 1px;
+}
+
+.input {
+    background-color: #F8F0FB;
+    color: black;
+    border: solid black 1px;
+    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+    padding: 4px;
+}
 
 /* Accordions */
 
@@ -154,28 +172,89 @@ footer {
     color: #EAA928;
 }
 
+/* Hub Chat */
+
+/* Scrollbar */
+/* width */
+.chat-window::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+.chat-window::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px gray;
+  border-radius: 10px;
+}
+
+/* Handle */
+.chat-window::-webkit-scrollbar-thumb {
+  background: var(--bg-color-secondary);
+  border-radius: 10px;
+}
+
+/* Chat Window */
+
 .chat-window {
-    height: 75vh;
+    height: 70vh;
+    padding: 16px 12px 8px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.chat-window > div > div {
-    margin-bottom: 5px;
-    padding: 0;
-}
-
 .chat-window p {
     margin: 0;
-    padding: 5px 10px;
-    background-color: #171F33;
-    border: 1px solid #1E1E1E;
-    border-radius: 10px;
 }
 
-.disclaimer {
+.chat-window article {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+.chat-window .message {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    border-radius: 5px;
+}
+
+.chat-window .message:hover {
+    background-color: var(--bg-color-secondary);
+}
+
+.chat-window .message-body {
+    flex-grow: 1;
+}
+
+.report {
+    visibility: hidden;
+    width: 25px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.chat-window .message:hover .report {
+    visibility: visible;
+}
+
+.chat-window article.disclaimer {
     background-color: #B51A1A;
     border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.chat-window .message .message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 1rem;
+}
+
+.chat-window .message .card-title {
+    font-size: 20px;
+    margin: 0;
 }
 
 
@@ -196,7 +275,6 @@ footer {
     border-radius: 5px;
     text-indent: 5px;
 }
-
 
 /* FAQ */
 
@@ -241,7 +319,6 @@ footer {
     border-radius: 5px;
     text-indent: 5px;
 }
-
 
 #input-pseudo::placeholder, #input-mail::placeholder, .input-inGame::placeholder{
     color: black;
@@ -376,4 +453,12 @@ footer {
 
 .inputChat .form-control::placeholder {
     color: rgb(168, 168, 168);
+}
+
+.dernierAvantInputChat {
+    margin-bottom: 55px;
+}
+
+.symbol {
+    width: 20px;
 }
