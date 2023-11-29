@@ -41,11 +41,12 @@
 
                 <p class="list-group-item col-4 m-0">
                     <a href="#" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt=""> Ismael#42069
+                        <img class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
+                        Ismael#42069
                     </a>
                 </p>
                 <a href="#" class="list-group-item col-3 text-end me-2 ">Copy <img class="symbol"
-                                                                                   src="assets/images/copy-regular.svg"  alt=""></a>
+                                                                                   src="assets/images/copy-regular.svg"  alt="copy icon"></a>
 
 
             </div>
@@ -101,12 +102,15 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none "><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png" alt="">Suamel1</a>
+                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
+                                            alt="avatar player">Suamel1</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="offcanvas"
-                                   data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img class="symbol" src="assets/images/message-solid-white.svg"  alt=""></a>
+                                   data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img
+                                            class="symbol" src="assets/images/message-solid-white.svg"
+                                            alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
                                    data-bs-target="#deleteFriendModal""><img class="symbol"
-                                                                             src="assets/images/user-minus-solid-white.svg"  alt=""></a>
+                                                                             src="assets/images/user-minus-solid-white.svg"  alt="delete icon"></a>
 
                                 <!-- Delete Friend Modal -->
                                 <div class="modal fade" id="deleteFriendModal" tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
@@ -263,14 +267,15 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none "><img
-                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"  alt="">Suamel</a>
+                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
+                                            alt="player avatar">Suamel</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="offcanvas"
                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img
                                             class="symbol"
-                                            src="assets/images/message-solid-white.svg" alt=""></a>
+                                            src="assets/images/message-solid-white.svg" alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
                                    data-bs-target="#deleteFriendModal"><img class="symbol"
-                                                                            src="assets/images/user-minus-solid-white.svg" alt=""></a>
+                                                                            src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
 
                             </li>
@@ -282,23 +287,27 @@
 
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img class="me-2 profile-thumbnail" src="assets/images/goku.png" alt="">Disconnect 1</a>
+                                <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
+                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
+                                            alt="player avatar">Disconnect 1</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/message-solid-white.svg"  alt=""></a>
+                                                                                        src="assets/images/message-solid-white.svg"  alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
                                    data-bs-target="#deleteFriendModal"><img class="symbol"
-                                                                            src="assets/images/user-minus-solid-white.svg"  alt=""></a>
+                                                                            src="assets/images/user-minus-solid-white.svg"  alt="delete icon"></a>
 
                             </li>
 
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img class="me-2 profile-thumbnail" src="assets/images/gon.jpg" alt="">Disc 2</a>
+                                <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
+                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
+                                            alt="player avatar">Disc 2</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/message-solid-white.svg" alt=""></a>
+                                                                                        src="assets/images/message-solid-white.svg" alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
                                    data-bs-target="#deleteFriendModal"><img class="symbol"
-                                                                            src="assets/images/user-minus-solid-white.svg" alt=""></a>
+                                                                            src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
                             </li>
                         </ul>
@@ -326,11 +335,12 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"  alt="">Suamel1</a>
+                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
+                                            alt="player avatar">Suamel1</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/check-solid-green.svg" alt=""></a>
+                                                                                        src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/xmark-solid-red.svg" alt=""></a>
+                                                                                        src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
 
@@ -338,11 +348,11 @@
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
                                             class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="">Suamel1</a>
+                                            alt="player avatar">Suamel1</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/check-solid-green.svg" alt=""></a>
+                                                                                        src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/xmark-solid-red.svg" alt=""></a>
+                                                                                        src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
 
@@ -350,11 +360,11 @@
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
                                             class="me-2 profile-thumbnail" src="assets/images/goku.png"
-                                            alt="">Kilua</a>
+                                            alt="player avatar">Kilua</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/check-solid-green.svg" alt=""></a>
+                                                                                        src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/xmark-solid-red.svg" alt=""></a>
+                                                                                        src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
 
@@ -362,11 +372,11 @@
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
                                             class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="">Kira</a>
+                                            alt="player avatar">Kira</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/check-solid-green.svg" alt=""></a>
+                                                                                        src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
-                                                                                        src="assets/images/xmark-solid-red.svg" alt=""></a>
+                                                                                        src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
 
@@ -386,13 +396,13 @@
 
 
                         <p class=""><img class="me-1 symbol" src="assets/images/user-plus-solid.svg"
-                                         alt="">Ajouter un ami</p>
+                                         alt="add icon">Ajouter un ami</p>
 
 
                         <!--  <div class="card-body text-center bg-color-purple-faded"> -->
                         <input type="text" class="" id="searchFriend" aria-describedby="Rechercher un ami">
                         <p class="">User found<img class="ms-2 symbol" src="assets/images/check-solid.svg"
-                                                   alt=""></p>
+                                                   alt="verification icon"></p>
                         <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover fw-bold text-center ">Ajouter
                         </a>
 

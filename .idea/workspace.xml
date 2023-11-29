@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77f8ce84-2045-4d85-930d-c1a9d5081f7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/crown-solid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/crown-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/paper-plane-solid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/paper-plane-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/pen-solid-20x20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/the_last_of_us_profile_picture_500x500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/triangle-exclamation-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/images/user-minus-solid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/socials.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/scriptAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/scriptAccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/games.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/games.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/hub.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/hub.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/socials.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/socials.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging social",
+    "git-widget-placeholder": "social",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/laragon/www/LightningHub - archive",
     "node.js.detected.package.eslint": "true",
