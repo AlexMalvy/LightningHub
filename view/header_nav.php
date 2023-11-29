@@ -67,7 +67,7 @@
                         <p class="m-0 text-center text-white">Connexion</p>
                     </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end mt-3 py-3">
+                    <ul class="dropdown-menu dropdown-menu-end py-3 dropdowfixposition">
 
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="account.php">
