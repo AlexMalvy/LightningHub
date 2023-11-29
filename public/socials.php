@@ -52,7 +52,7 @@
 
 
         <!-- SECTION Onglets -->
-        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1">
+        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1 hub">
 
             <!-- Tabs -->
             <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
@@ -337,7 +337,7 @@
                 <div class="tab-pane fade show border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
 
                     <div class="container-fluid">
-                        <div class="row  ">
+                        <div class="row">
                             <!-- row-cols-1 row-cols-md-2 row-cols-lg -->
                             <!-- Disconnected Friends Switch -->
 
