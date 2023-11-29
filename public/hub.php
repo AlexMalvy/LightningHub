@@ -536,8 +536,10 @@
 
                                 <!-- Buttons -->
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
+
                                     <button class="btn w-100 btn lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
                                     <button class="btn w-100 btn lh-buttons-purple mb-3">Créer un salon</button>
+
                                 </div>
 
                             </form>
@@ -588,11 +590,13 @@
                                     </div>
                                 </div>
 
+
                                 <!-- Right Side -->
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
                                         <label for="titleroom" class="mb-2">Titre du salon :</label>
                                         <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+
                                     </div>
 
                                     <div>

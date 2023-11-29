@@ -58,7 +58,7 @@
                     <!-- League of Legends Card -->
                     <div class="carousel-item active">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" class="card-img-top" alt="...">
+                            <img src="assets/images/leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
                             <div class="card-body px-0">
                                 <h3 class="card-title">League of Legends</h3>
                                 <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
@@ -85,7 +85,7 @@
                     <div class="carousel-item">
                         <section class="card bg-transparent border-0 m-2 px-2">
 
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" class="card-img-top" alt="...">
+                            <img src="assets/images/valorant.png" class="card-img-top" alt="images-valorant">
 
                             <div class="card-body px-0">
                                 <h3 class="card-title">Valorant</h3>
@@ -114,9 +114,9 @@
                     <!-- World of Warcraft Card -->
                     <div class="carousel-item">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" class="card-img-top" alt="...">
+                            <img src="assets/images/world-of-warcraft.png" class="card-img-top" alt="images-warcraft">
                             <div class="card-body px-0">
-                                <h3 class="card-title">World of Warcraft</h3>
+                                <h3 class="card-title">World-of-Warcraft</h3>
                                 <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
                                 <p class="card-text mb-4">Coopérez avec vos coéquipiers pour atteindre la victoire dans des parties palpitantes. Relevez le défi et devenez une légende dans l'arène de League of Legends !</p>
                                 <div class="d-flex justify-content-between">
@@ -151,7 +151,7 @@
         <!-- Show more games (Mobile) -->
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 d-flex justify-content-center align-items-center d-lg-none gap-3 pb-4">
             <div class="flex-fill divider"></div>
-            <a href="game.php" class="btn btn-hover bg-color-purple">Voir plus</a>
+            <a href="games.php" class="btn btn-hover bg-color-purple">Voir plus</a>
             <div class="flex-fill divider"></div>
         </div>
 
@@ -165,6 +165,7 @@
                     <div class="row row-cols-2 row-cols-xl-4 g-3">
                         
                         <!-- League of Legends Card -->
+
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
                                 <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
@@ -172,7 +173,7 @@
                                 <div class="card-body">
                                     <h3 class="card-title">League of Legends</h3>
                                     <div class="card-text">
-                                        <p>League of Legends is a team-based strategy game where two teams of five powerful champions.</p>
+                                        <p>League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.</p>
                                     </div>
                                 </div>
 
@@ -193,13 +194,14 @@
                         </section>
 
                         <!-- Valorant Card -->
+
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
                                 <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Valorant</h3>
                                     <div class="card-text">
-                                        <p>This is a first-person shooter in which players compete in team-based multiplayer matches.</p>
+                                        <p>Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.</p>
                                     </div>
                                 </div>
                                     
@@ -220,13 +222,14 @@
                         </section>
 
                         <!-- World of Warcaft Card -->
+
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
                                 <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">World of Warcaft</h3>
                                     <div class="card-text">
-                                        <p>Similar to other MMORPGs, the game allows players to create a character avatar.</p>
+                                        <p>World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft.</p>
                                     </div>
                                 </div>
                                     
@@ -247,13 +250,14 @@
                         </section>
 
                         <!-- Call of Duty Warzone Card -->
+
                         <section class="col">
                             <div class="card h-100 border-0 rounded-0 desktop-card">
                                 <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Warzone</h3>
                                     <div class="card-text">
-                                        <p>Warzone allows online multiplayer combat among 150 players and features both cross-platform play.</p>
+                                        <p>Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie</p>
                                     </div>
                                 </div>
                                     
@@ -294,13 +298,13 @@
         </div>
 
         <!-- About us -->
-        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-4 pt-lg-5 dernierAvantFoot">
+        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-4 pt-lg-5">
             <div class="row">
                 <h2 class="pb-4 reconstruct">Qui Sommes-Nous</h2>
                 <div class="col-lg-9">
                     <p>Nous sommes passionnés par les jeux vidéo, tout comme vous. Nous sommes bien plus qu'un simple réseau social - nous sommes la destination incontournable pour tous les gamers, quels que soient vos jeux préférés, votre style de jeu ou votre niveau d'expérience.</p>
                     <h3 class="my-4">LIGHTNINGHUB a été créé par des gamers, pour les gamers. </h3>
-                    <p>Notre mission est de connecter les joueurs , de célébrer leur passion commune pour les jeux vidéo et de créer une communauté où le partage de connaissances, l'échange d'expériences et la création de liens solides sont à l'honneur.</p>
+                    <p>Notre mission est de connecter les joueurs, de célébrer leur passion commune pour les jeux vidéo et de créer une communauté où le partage de connaissances, l'échange d'expériences et la création de liens solides sont à l'honneur.</p>
                     <p>Nous croyons que les jeux vidéo sont bien plus qu'un simple passe-temps, ce sont une culture à part entière. Nous célébrons la diversité des jeux, des joueurs et des expériences qu'ils offrent. Notre communauté est ouverte à tous, quels que soient votre niveau d'expertise ou votre bagage dans l'univers des jeux vidéo.</p>
                     <p>Rejoignez-nous aujourd'hui et faites partie d'une communauté vibrante où le jeu est au cœur de tout. Que vous soyez un passionné de jeux rétro, un fan de jeux en ligne compétitifs ou simplement quelqu'un qui cherche à se détendre avec des jeux occasionnels.
                         <br>

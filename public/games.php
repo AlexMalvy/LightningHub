@@ -24,7 +24,7 @@
                     <!-- League of Legends Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
                                 <h3 class="card-title">League of Legends</h3>
@@ -51,7 +51,7 @@
                     <!-- Valorant Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/valorant.png" alt="Image-valorant" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Valorant</h3>
                                 <div class="card-text">
@@ -78,7 +78,7 @@
                     <!-- World of Warcraft Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/world-of-warcraft.png" alt="Image-world-of-warcraft" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">World of Warcraft</h3>
                                 <div class="card-text">
@@ -105,7 +105,7 @@
                     <!-- Call of Duty Warzone Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/call-of-duty-warzone.png" alt="Image-call-of-duty-warzone" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Call of Duty : Warzone</h3>
                                 <div class="card-text">
