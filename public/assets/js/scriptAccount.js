@@ -99,6 +99,11 @@ const hubPendingTabPane = document.querySelector('#pending-tab-pane');
 const hubCurrentTab = document.querySelector('#current-hub-tab');
 const hubCurrentTabPane = document.querySelector('#current-hub-tab-pane');
 const updateRoom = document.querySelector('#update-room');
+const updateRoomTab = document.querySelector('#update-room-hub-tab');
+const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
+
+let newRoomTabOpen = false;
+let updateRoomTabOpen = false;
 
 function displayTabs(tab, tabPane) {
     tab.classList.add('active');
@@ -115,16 +120,43 @@ function hideTabs() {
 }
 
 if (newRoom && newRoomHubTab || updateRoom) {
+
     newRoom.addEventListener("click", () => {
-        displayTabs(newRoomHubTab, newRoomHubTabPane);
-        hideTabs();
+        if(!newRoomTabOpen){
+            displayTabs(newRoomHubTab, newRoomHubTabPane);
+            hideTabs();
+            updateRoomTab.classList.remove('active');
+            updateRoomTabPane.classList.remove('active');
+            newRoomTabOpen = true;
+        } else{
+            newRoomHubTab.classList.add("active");
+            newRoomHubTabPane.classList.add("active");
+            newRoomHubTabPane.classList.add("show");
+            updateRoomTab.classList.remove('active');
+            updateRoomTabPane.classList.remove('active');
+            hideTabs();
+        }
     });
 
     updateRoom.addEventListener("click", () => {
         const updateRoomTab = document.querySelector('#update-room-hub-tab');
         const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
 
-        displayTabs(updateRoomTab, updateRoomTabPane);
-        hideTabs();
+        if (!updateRoomTabOpen){
+            displayTabs(updateRoomTab, updateRoomTabPane);
+            hideTabs();
+            updateRoomTabOpen = true;
+        } else{
+            updateRoomTab.classList.add("active");
+            updateRoomTabPane.classList.add("active");
+            updateRoomTabPane.classList.add("show");
+            newRoomHubTab.classList.remove('active');
+            newRoomHubTabPane.classList.remove('active');
+            hideTabs();
+        }
+
+
+
+
         });
     }

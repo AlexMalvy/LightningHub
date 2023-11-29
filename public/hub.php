@@ -524,7 +524,7 @@
                                     <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="mb-4 w-100 rounded bg-white text-black border-0 py-1 ps-2" required aria-required="true">
                                 </div>
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
-                                    <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
+                                    <a href="hub.php" class="btn w-100 bg-color-purple-faded rounded-5 mb-3 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
                                     <a href="#" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
                                 </div>
                             </form>
@@ -579,10 +579,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3">
-                                        <a href="#" class="btn w-100 btn-delete rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4 align-self-start">Clôturer le salon</a>
+                                        <a href="hub.php" class="btn w-100 btn-delete rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4 align-self-start">Clôturer le salon</a>
                                     </div>
                                     <div class="col-lg-3 offset-lg-3">
-                                        <a href="#" class="btn w-100 bg-color-purple-faded rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
+                                        <a href="hub.php" class="btn w-100 bg-color-purple-faded rounded-5 mt-5 px-4 py-2 btn-hover fw-bold me-lg-4">Annuler</a>
                                     </div>
                                     <div class="col-lg-3">
                                         <a href="#" class="btn w-100 bg-color-purple rounded-5 mt-5 px-4 py-2 btn-hover fw-bold">Créer un salon</a>
