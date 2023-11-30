@@ -24,7 +24,7 @@
                     <!-- League of Legends Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
                                 <h3 class="card-title">League of Legends</h3>
@@ -35,8 +35,8 @@
                             <!-- League of Legends Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- League of Legends Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
@@ -51,7 +51,7 @@
                     <!-- Valorant Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/valorant.png" alt="Image-valorant" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Valorant</h3>
                                 <div class="card-text">
@@ -62,8 +62,8 @@
                             <!-- Valorant Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Valorant Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
@@ -78,7 +78,7 @@
                     <!-- World of Warcraft Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/world-of-warcraft.png" alt="Image-world-of-warcraft" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">World of Warcraft</h3>
                                 <div class="card-text">
@@ -89,8 +89,8 @@
                             <!-- World of Warcraft Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- World of Warcraft Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
@@ -105,7 +105,7 @@
                     <!-- Call of Duty Warzone Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card border-0 rounded-0 desktop-card card-height">
-                            <img src="assets/images/view-illuminated-neon-gaming-keyboard-setup-controller.jpg" alt="Image du jeux ...." class="card-img-top">
+                            <img src="assets/images/call-of-duty-warzone.png" alt="Image-call-of-duty-warzone" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Call of Duty : Warzone</h3>
                                 <div class="card-text">
@@ -116,8 +116,8 @@
                             <!-- Warzone Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                 <!-- Warzone Join Team -->
-                                <a href="#" class="btn bg-color-purple rounded-5 btn-hover box-shadow">
-                                    <span class="align-self-center fw-bold">Trouver une Team</span>
+                                <a href="#" class="btn lh-buttons-purple px-3">
+                                    <span>Rejoindre</span>
                                 </a>
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
@@ -141,4 +141,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
 </body>
-</html>

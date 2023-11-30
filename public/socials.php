@@ -428,6 +428,4 @@
 <script src="assets/js/socials.js"> </script>
 </body>
 
-
-
 </html>
