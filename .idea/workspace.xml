@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77f8ce84-2045-4d85-930d-c1a9d5081f7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/js/socials.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/hub.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/hub.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/socials.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/socials.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +58,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "social",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/laragon/www/LightningHub - archive",
+    "last_opened_file_path": "C:/laragon/www/dips-php-demo-2023-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,7 +83,8 @@
       <workItem from="1701073626193" duration="11104000" />
       <workItem from="1701158663538" duration="342000" />
       <workItem from="1701246035371" duration="7399000" />
-      <workItem from="1701256190469" duration="1086000" />
+      <workItem from="1701256190469" duration="1191000" />
+      <workItem from="1701331830045" duration="110000" />
     </task>
     <servers />
   </component>
