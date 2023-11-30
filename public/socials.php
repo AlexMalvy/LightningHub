@@ -40,12 +40,13 @@
                 </div>
 
                 <p class="list-group-item col-4 m-0">
-                    <a href="#" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
-                        Ismael#42069
+                    <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex
+                    align-items-center" >
+                        <img id="" class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
+                        <span id="myProfile">Ismael#42069</span>
                     </a>
                 </p>
-                <a href="#" class="list-group-item col-3 text-end me-2 ">Copy <img class="symbol"
+                <a href="#" class="list-group-item col-3 text-end me-2" onclick="copyId()">Copy <img class="symbol"
                                                                                    src="assets/images/copy-regular.svg"  alt="copy icon"></a>
 
 
