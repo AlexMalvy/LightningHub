@@ -120,7 +120,7 @@
             <div class="tab-content bg-color-purple-faded" id="myTabContent">
 
                 <!-- Hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 active border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
 
                     <div class="container-fluid p-3">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -499,16 +499,16 @@
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
+                                        <label for="game_new_room" class="mb-2">Jeux :</label>
+                                        <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
                                             <option selected>Veuillez choisir un jeu</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label for="type" class="mb-2">Type de partie :</label>
-                                        <select id="type" class="input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                        <label for="game_type_new_room" class="mb-2">Type de partie :</label>
+                                        <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
                                             <option value="normal">Normal</option>
                                             <option value="ranked">Ranked</option>
@@ -516,16 +516,16 @@
                                     </div>
 
                                     <div>
-                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
+                                        <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
 
                                 <!-- Right Side -->
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                        <label for="title_new_room" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="room_title" id="title_new_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                                     </div>
 
                                     <div>
@@ -536,10 +536,8 @@
 
                                 <!-- Buttons -->
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
-
-                                    <button class="btn w-100 btn lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
-                                    <button class="btn w-100 btn lh-buttons-purple mb-3">Créer un salon</button>
-
+                                    <button class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
+                                    <button class="btn w-100 lh-buttons-purple mb-3">Créer un salon</button>
                                 </div>
 
                             </form>
@@ -550,13 +548,13 @@
                 </div>
 
                 <!-- Update Room hub tab content -->
-                <div class="tab-pane fade show p-1 active border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
                     <div class="py-3">
                         <div class="row row-cols-1 px-3">
 
                             <div class="col">
-                                <h3 class="reconstruct mt-3">Modification du salon</h3>
+                                <h3 class="reconstruct mt-2">Modification d'un salon</h3>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
@@ -568,16 +566,16 @@
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="form-select input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
-                                            <option selected>Veuillez choisir un jeux</option>
+                                        <label for="game_update_room" class="mb-2">Jeux :</label>
+                                        <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
+                                            <option selected>Veuillez choisir un jeu</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label for="type" class="mb-2">Type de partie :</label>
-                                        <select id="type" class="form-select input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                        <label for="game_type_update_room" class="mb-2">Type de partie :</label>
+                                        <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
                                             <option value="normal">Normal</option>
                                             <option value="ranked">Ranked</option>
@@ -585,18 +583,16 @@
                                     </div>
 
                                     <div>
-                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-3 w-100" required aria-required="true">
+                                        <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
-
 
                                 <!-- Right Side -->
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
-
+                                        <label for="title_update_room" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                                     </div>
 
                                     <div>
@@ -605,13 +601,15 @@
                                     </div>
                                 </div>
 
-
                                 <!-- Buttons -->
-                                <div class="col d-lg-flex">
-                                    <button class="btn lh-buttons-purple w-100 mt-3 order-lg-3">Créer un salon</button>
-                                    <button class="btn lh-buttons-purple-faded w-100 mt-3 ms-lg-auto me-lg-4 order-lg-2">Annuler</button>
-                                    <button class="btn lh-buttons-red w-100 mt-4 me-lg-4 order-lg-1">Clôturer le salon</button>
+                                <div class="d-lg-flex col-lg-5 offset-lg-2 order-lg-2 flex-lg-row-reverse">
+                                    <button class="btn w-100 lh-buttons-purple mb-3">Modifier le salon</button>
+                                    <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
                                 </div>
+                                <div class="d-lg-flex col-lg-5 order-lg-1">
+                                    <button class="btn w-100 lh-buttons-red mb-3">Clôturer le salon</button>
+                                </div>
+
                             </form>
 
                         </div>
@@ -625,7 +623,7 @@
 
     </main>
 
-    <?php //require_once(__DIR__."/../view/footer.php") ?>
+    <?php require_once(__DIR__."/../view/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
