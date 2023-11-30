@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="77f8ce84-2045-4d85-930d-c1a9d5081f7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/public/socials.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/socials.php" afterDir="false" />
+>>>>>>> d3f15f24c1e51396348dc3985d2b9de492950b3b
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
