@@ -520,3 +520,11 @@ footer {
 .inputChat .form-control::placeholder {
     color: rgb(168, 168, 168);
 }
+
+.dernierAvantInputChat {
+    margin-bottom: 55px;
+}
+
+.symbol {
+    width: 20px;
+}
