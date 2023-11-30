@@ -1,3 +1,4 @@
+// Diplay or hide the list of disconnected users
 function displayDisconnected(){
     const listDisconnected = document.querySelector('#list-disconnected');
     if (listDisconnected.classList.contains('d-none')){
@@ -8,6 +9,7 @@ function displayDisconnected(){
     }
 }
 
+// Copy the id
 function copyId(){
 
     const textToCopy = document.querySelector('#myProfile');
@@ -28,4 +30,40 @@ function copyId(){
     document.body.removeChild(tempTextArea);
 
 
+}
+
+// Find the user in the list of friends
+
+function findUser(){
+    const nameUser = "ismaelel67";
+    let tabUsers = ["ismaelel67","ismaelel68","ismaelel69","ismaelel70"];
+    const verifGood = document.querySelector('#verificationUserGood');
+    const verifNotGood = document.querySelector('#verificationUserNotGood');
+    const bouttonSearch = document.querySelector('#btnAddFriend');
+
+
+    if (tabUsers.includes(document.querySelector('#searchFriend').value)){
+        //alert("trouvé");
+
+        verifGood.classList.remove('d-none');
+        if (!verifNotGood.classList.contains('d-none')){
+            verifNotGood.classList.add('d-none');
+        }
+        bouttonSearch.disabled = false;
+    }
+    else{
+        if (!verifGood.classList.contains('d-none')){
+            verifGood.classList.add('d-none');
+        }
+
+        if (verifNotGood.classList.contains('d-none')){
+            verifNotGood.classList.remove('d-none');
+        }
+
+        if (!bouttonSearch.disabled){
+            bouttonSearch.disabled = true;
+        }
+
+
+    }
 }
