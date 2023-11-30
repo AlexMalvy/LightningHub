@@ -68,6 +68,9 @@ body {
     background-color: var(--bg-color-secondary);
 }
 
+main {
+    min-height: 100vh;
+}
 
 .logo {
     width: 50px;
