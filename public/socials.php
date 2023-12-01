@@ -40,12 +40,13 @@
                 </div>
 
                 <p class="list-group-item col-4 m-0">
-                    <a href="#" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
-                        Ismael#42069
+                    <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex
+                    align-items-center" >
+                        <img id="" class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
+                        <span id="myProfile">Ismael#42069</span>
                     </a>
                 </p>
-                <a href="#" class="list-group-item col-3 text-end me-2 ">Copy <img class="symbol"
+                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copy <img class="symbol"
                                                                                    src="assets/images/copy-regular.svg"  alt="copy icon"></a>
 
 
@@ -389,25 +390,36 @@
             </div>
 
             <!-- ADD FRIEND tab content -->
-            <div class="tab-pane fade show p-1 border" id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab" tabindex="0">
+            <div class="tab-pane fade show p-1 border " id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab"
+                 tabindex="0">
 
-                <div class="px-5 py-3 text-lg-start text-center g-lg-5">
+                <div class="px-5 py-3 text-lg-start text-center g-lg-5 ">
                     <div class="g-3">
-
+                        <form method="POST" enctype="multipart/form-data" >
 
                         <p class=""><img class="me-1 symbol" src="assets/images/user-plus-solid.svg"
                                          alt="add icon">Ajouter un ami</p>
 
 
                         <!--  <div class="card-body text-center bg-color-purple-faded"> -->
-                        <input type="text" class="" id="searchFriend" aria-describedby="Rechercher un ami">
-                        <p class="">User found<img class="ms-2 symbol" src="assets/images/check-solid.svg"
+                        <input type="text" onkeyup="findUser()"  class=""
+                               id="searchFriend"
+                        aria-describedby="Rechercher
+                         un ami">
+
+                        <button disabled type="submit" class="btn bg-color-purple rounded-5 d-inline-flex px-4
+                        btn-hover fw-bold text-center m-3" id="btnAddFriend" >Ajouter
+                        </button>
+                        <p class="d-none" id="verificationUserGood">User found<img class="ms-2 symbol"
+                                                                       src="assets/images/check-solid.svg"
                                                    alt="verification icon"></p>
-                        <a href="#" class="btn bg-color-purple rounded-5 d-inline-flex px-4 btn-hover fw-bold text-center ">Ajouter
-                        </a>
+                        <p class="d-none" id="verificationUserNotGood">User not found<img class="ms-2 symbol"
+                                                                                   src="assets/images/xmark-solid-white.svg"
+                                                                                   alt="verification not good icon"></p>
 
 
 
+                        </form>
                     </div>
                 </div>
 
