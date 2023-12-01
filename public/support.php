@@ -30,7 +30,7 @@
                             <div class="accordion-item rounded-0">
                                 <!-- Header -->
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <button class="accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         Qu’est-ce que Lightning Hub considère comme un comportement haineux ?
                                     </button>
                                 </h3>
@@ -46,7 +46,7 @@
                             <div class="accordion-item mt-3">
                                 <!-- Header -->
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button collapsed bg-color-purple" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         Dans quelle mesure suis-je responsable de ma communauté ?
                                     </button>
                                 </h3>
@@ -62,7 +62,7 @@
                             <div class="accordion-item mt-3 rounded-0">
                                 <!-- Header -->
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Que dois-je faire dans le cas où quelqu'un se rendrait coupable de comportements haineux
                                     </button>
                                 </h3>

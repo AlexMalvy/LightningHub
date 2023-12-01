@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                            <input id="input-pseudo" type="text" placeholder="Fatality67" name="pseudo"/>
+                            <input id="input-pseudo" class="input" type="text" placeholder="Fatality67" name="pseudo"/>
                             <button id ="btn-pseudo" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                            <input id="input-mail" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
+                            <input id="input-mail" class="input" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
                             <button id ="btn-mail" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
@@ -76,7 +76,7 @@
                                     Leagues of legends
                                 </div>
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
-                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[1]">
+                                    <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[1]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
@@ -88,7 +88,7 @@
                                     World of Warcraft
                                 </div>
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
-                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[2]">
+                                    <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[2]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
@@ -100,7 +100,7 @@
                                     Valorant
                                 </div>
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
-                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[3]">
+                                    <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[3]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
@@ -112,7 +112,7 @@
                                     Call of Duty : Warzone
                                 </div>
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
-                                    <input class="input-inGame" type="text" placeholder="RedMorgane" name="game[4]">
+                                    <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[4]">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
@@ -167,7 +167,7 @@
                         <div class="accordion" id="accordionDelete">
                             <div class="accordion-item rounded-0">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button faq-accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="Non" aria-controls="Reduire">
+                                    <button class="accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="Non" aria-controls="Reduire">
                                         Suppression du compte
                                     </button>
                                 </h3>
