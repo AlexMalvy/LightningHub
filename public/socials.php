@@ -93,8 +93,8 @@
                             <div class="p-2 w-100 bd-highlight">Voir mes amis
                                 déconnectés</div>
                             <div class="form-check form-switch p-2 flex-shrink-1 bd-highlight ">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
-                                       onclick="displayDisconnected()">
+                                <label for="flexSwitchCheckDefault"></label><input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                                                                   onclick="displayDisconnected()">
                             </div>
                         </div>
                         <ul class="list-group list-group-flush p-0">
@@ -404,11 +404,10 @@
                         <!--  <div class="card-body text-center bg-color-purple-faded"> -->
                         <input type="text" onkeyup="findUser()"  class=""
                                id="searchFriend"
-                        aria-describedby="Rechercher
-                         un ami">
+                        aria-describedby="Rechercher un ami">
 
-                        <button disabled type="submit" class="btn bg-color-purple rounded-5 d-inline-flex px-4
-                        btn-hover fw-bold text-center m-3" id="btnAddFriend" >Ajouter
+                        <button disabled type="submit" class="btn d-inline-flex
+                        fw-bold text-center m-3 lh-buttons-purple" id="btnAddFriend" >Envoyer une demande
                         </button>
                         <p class="d-none" id="verificationUserGood">User found<img class="ms-2 symbol"
                                                                        src="assets/images/check-solid.svg"
