@@ -42,11 +42,11 @@
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex
                     align-items-center" >
-                        <img id="" class="mx-2 profile-thumbnail" src="assets/images/rick.jpg"  alt="connected user avatar">
+                        <img id="" class="mx-2 avatar-50x50" src="assets/images/rick.jpg"  alt="connected user avatar-70x70">
                         <span id="myProfile">Ismael#42069</span>
                     </a>
                 </p>
-                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copy <img class="symbol"
+                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copy <img class="icon-20x20"
                                                                                    src="assets/images/copy-regular.svg"  alt="copy icon"></a>
 
 
@@ -103,14 +103,14 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none "><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
+                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
                                             alt="avatar player">Suamel1</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="offcanvas"
                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img
-                                            class="symbol" src="assets/images/message-solid-white.svg"
+                                            class="icon-20x20" src="assets/images/message-solid-white.svg"
                                             alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
-                                   data-bs-target="#deleteFriendModal""><img class="symbol"
+                                   data-bs-target="#deleteFriendModal""><img class="icon-20x20"
                                                                              src="assets/images/user-minus-solid-white.svg"  alt="delete icon"></a>
 
                                 <!-- Delete Friend Modal -->
@@ -142,7 +142,7 @@
                                     <div class="offcanvas-body chat-window dernierAvantInputChat">
                                         <!-- All Messages -->
                                         <article class="col message">
-                                            <img src="assets/images/goku.png" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/goku.png" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -152,12 +152,12 @@
                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                                 </div>
 
-                                                <p class="card-text">Hé mec, tu étais en ligne hier soir?</p>
+                                                <p class="card-text">Hé mec, tu étais en ligne hier soir ?</p>
                                             </div>
 
                                         </article>
                                         <article class="col message">
-                                            <img src="assets/images/rick.jpg" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/rick.jpg" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -174,7 +174,7 @@
 
                                         </article>
                                         <article class="col message">
-                                            <img src="assets/images/goku.png" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/goku.png" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -184,12 +184,13 @@
                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                                 </div>
 
-                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu solo. C'était dingue, des graphismes de malade!</p>
+                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu
+                                                    solo. C'était dingue, des graphismes de malade !</p>
                                             </div>
 
                                         </article>
                                         <article class="col message">
-                                            <img src="assets/images/goku.png" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/goku.png" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -199,13 +200,14 @@
                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                                 </div>
 
-                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu solo. C'était dingue, des graphismes de malade!</p>
+                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu
+                                                    solo. C'était dingue, des graphismes de malade !</p>
                                             </div>
 
                                         </article>
 
                                         <article class="col message">
-                                            <img src="assets/images/goku.png" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/goku.png" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -215,13 +217,14 @@
                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                                 </div>
 
-                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu solo. C'était dingue, des graphismes de malade!</p>
+                                                <p class="card-text">Ah zut, j'ai fini par jouer à ce nouveau jeu
+                                                    solo. C'était dingue, des graphismes de malade !</p>
                                             </div>
 
                                         </article>
 
                                         <article class="col message">
-                                            <img src="assets/images/rick.jpg" alt="profile picture" class="profile-thumbnail">
+                                            <img src="assets/images/rick.jpg" alt="profile picture" class="avatar-50x50">
 
                                             <div class="message-body">
 
@@ -235,7 +238,8 @@
                                                     Mais, vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous,
                                                     je dirais que c’est d’abord des rencontres, des gens qui m’ont tendu la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez moi.
                                                     Et c’est assez curieux de se dire que les hasards, les rencontres forgent une destinée… Parce que quand on a le goût de la chose, quand on a le goût de
-                                                    la chose bien faite, le beau geste, parfois on ne trouve pas l’interlocuteur en face, je dirais, le miroir qui vous aide à avancer. Alors ce n’est pas mon cas,
+                                                    la chose bien faite, le beau geste, parfois, on ne trouve pas
+                                                    l’interlocuteur en face, je dirais, le miroir qui vous aide à avancer. Alors ce n’est pas mon cas,
                                                     comme je le disais là, puisque moi au contraire, j’ai pu ; et je dis merci à la vie, je lui dis merci, je chante la vie, je danse la vie… Je ne suis qu’amour !
                                                     Et finalement, quand beaucoup de gens aujourd’hui me disent : « Mais comment fais-tu pour avoir cette humanité ? » Eh bien je leur réponds très simplement,
                                                     je leur dis que c’est ce goût de l’amour, ce goût donc qui m’a poussé aujourd’hui à entreprendre une construction mécanique, mais demain, qui sait,
@@ -268,14 +272,14 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none "><img
-                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="player avatar">Suamel</a>
+                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
+                                            alt="player avatar-70x70">Suamel</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="offcanvas"
                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img
-                                            class="symbol"
+                                            class="icon-20x20"
                                             src="assets/images/message-solid-white.svg" alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
-                                   data-bs-target="#deleteFriendModal"><img class="symbol"
+                                   data-bs-target="#deleteFriendModal"><img class="icon-20x20"
                                                                             src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
 
@@ -289,12 +293,12 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
-                                            alt="player avatar">Disconnect 1</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
+                                            alt="player avatar-70x70">Disconnect 1</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/message-solid-white.svg"  alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
-                                   data-bs-target="#deleteFriendModal"><img class="symbol"
+                                   data-bs-target="#deleteFriendModal"><img class="icon-20x20"
                                                                             src="assets/images/user-minus-solid-white.svg"  alt="delete icon"></a>
 
                             </li>
@@ -302,12 +306,12 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="player avatar">Disc 2</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
+                                            alt="player avatar-70x70">Disc 2</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/message-solid-white.svg" alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
-                                   data-bs-target="#deleteFriendModal"><img class="symbol"
+                                   data-bs-target="#deleteFriendModal"><img class="icon-20x20"
                                                                             src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
                             </li>
@@ -336,11 +340,11 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
-                                            alt="player avatar">Suamel1</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
+                                            alt="player avatar-70x70">Suamel1</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
@@ -348,11 +352,11 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="player avatar">Suamel1</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
+                                            alt="player avatar-70x70">Suamel1</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
@@ -360,11 +364,11 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/goku.png"
-                                            alt="player avatar">Kilua</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
+                                            alt="player avatar-70x70">Kilua</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
@@ -372,11 +376,11 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 profile-thumbnail" src="assets/images/gon.jpg"
-                                            alt="player avatar">Kira</a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
+                                            alt="player avatar-70x70">Kira</a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
-                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="symbol"
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/xmark-solid-red.svg" alt="refusal icon"></a>
 
                             </li>
@@ -397,7 +401,7 @@
                     <div class="g-3">
                         <form method="POST" enctype="multipart/form-data" >
 
-                        <p class=""><img class="me-1 symbol" src="assets/images/user-plus-solid.svg"
+                        <p class=""><img class="me-1 icon-20x20" src="assets/images/user-plus-solid.svg"
                                          alt="add icon">Ajouter un ami</p>
 
 
@@ -409,10 +413,10 @@
                         <button disabled type="submit" class="btn d-inline-flex
                         fw-bold text-center m-3 lh-buttons-purple" id="btnAddFriend" >Envoyer une demande
                         </button>
-                        <p class="d-none" id="verificationUserGood">User found<img class="ms-2 symbol"
+                        <p class="d-none" id="verificationUserGood">User found<img class="ms-2 icon-20x20"
                                                                        src="assets/images/check-solid.svg"
                                                    alt="verification icon"></p>
-                        <p class="d-none" id="verificationUserNotGood">User not found<img class="ms-2 symbol"
+                        <p class="d-none" id="verificationUserNotGood">User not found<img class="ms-2 icon-20x20"
                                                                                    src="assets/images/xmark-solid-white.svg"
                                                                                    alt="verification not good icon"></p>
 
