@@ -30,7 +30,7 @@
                             <div class="accordion-item rounded-0">
                                 <!-- Header -->
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <button class="accordion-button collapsed bg-color-purple rounded-0 focus-accent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         Qu’est-ce que Lightning Hub considère comme un comportement haineux ?
                                     </button>
                                 </h3>
@@ -100,16 +100,16 @@
                     </div>
                     <div class="col-lg-7 offset-lg-1 pe-lg-0">
                         <form action="">
-                            <label for="pseudo" class="d-block mb-2">Pseudo :</label>
-                            <input type="text" name="pseudo" id="pseudo" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true">
+                            <label for="pseudo" class="mb-2">Pseudo :</label>
+                            <input type="text" name="pseudo" id="pseudo" class="mb-4 w-100 input" required aria-required="true">
 
-                            <label for="email" class="d-block mb-2">Adresse email :</label>
-                            <input type="email" name="email" id="email" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true">
+                            <label for="email" class="mb-2">Adresse email :</label>
+                            <input type="email" name="email" id="email" class="mb-4 w-100 input" required aria-required="true">
 
-                            <label for="message" class="d-block mb-2">Votre message :</label>
-                            <textarea name="message" id="message" cols="30" rows="10" class="d-block mb-4 w-100 rounded bg-white border-0" required aria-required="true"></textarea>
+                            <label for="message" class="mb-2">Votre message :</label>
+                            <textarea name="message" id="message" cols="30" rows="10" class="mb-4 w-100 input" required aria-required="true"></textarea>
 
-                            <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Envoyer</button>
+                            <button type="submit" class="btn lh-buttons-purple w-100 mb-3 ">Envoyer</button>
                         </form>
                     </div>
                 </div>
