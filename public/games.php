@@ -23,7 +23,7 @@
 
                     <!-- League of Legends Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
-                        <section class="card border-0 rounded-0 desktop-card card-height">
+                        <section class="card desktop-card">
                             <img src="assets/images/leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
@@ -40,9 +40,9 @@
                                 </a>
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
                                 </div>
                             </div>
                         </section>
@@ -50,7 +50,7 @@
 
                     <!-- Valorant Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
-                        <section class="card border-0 rounded-0 desktop-card card-height">
+                        <section class="card desktop-card">
                             <img src="assets/images/valorant.png" alt="Image-valorant" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Valorant</h3>
@@ -67,9 +67,9 @@
                                 </a>
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
                                 </div>
                             </div>
                         </section>
@@ -77,7 +77,7 @@
     
                     <!-- World of Warcraft Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
-                        <section class="card border-0 rounded-0 desktop-card card-height">
+                        <section class="card desktop-card">
                             <img src="assets/images/world-of-warcraft.png" alt="Image-world-of-warcraft" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">World of Warcraft</h3>
@@ -94,9 +94,9 @@
                                 </a>
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
                                 </div>
                             </div>
                         </section>
@@ -104,7 +104,7 @@
     
                     <!-- Call of Duty Warzone Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
-                        <section class="card border-0 rounded-0 desktop-card card-height">
+                        <section class="card desktop-card">
                             <img src="assets/images/call-of-duty-warzone.png" alt="Image-call-of-duty-warzone" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Call of Duty : Warzone</h3>
@@ -121,9 +121,9 @@
                                 </a>
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
                                 </div>
                             </div>
                         </section>

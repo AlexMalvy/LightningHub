@@ -1,3 +1,4 @@
+/* #### */
 /* Font */
 
 @font-face {
@@ -20,6 +21,7 @@ h1 {
 }
 
 
+/* ######### */
 /* Variables */
 
 :root {
@@ -37,6 +39,10 @@ h1 {
     background-color: var(--bg-purple-faded);
 }
 
+.bg-color-secondary {
+    background-color: var(--bg-color-secondary);
+}
+
 .bg-color-red {
     background-color: var(--alert-color);
 }
@@ -50,7 +56,9 @@ h1 {
 }
 
 
+/* ############### */
 /* Global Settings */
+
 html {
     all: unset;
 }
@@ -65,19 +73,13 @@ main {
     min-height: 100vh;
 }
 
-.logo {
-    width: 50px;
-    height: auto;
-    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
-}
-
-.dropdown-menu-icon-desktop {
-    height: 25px;
-    width: auto;
-}
 
 .drop-down-fix-position{
     margin-right:-13px !important;
+}
+
+footer {
+    font-size: 14px;
 }
 
 /* Buttons */
@@ -142,16 +144,8 @@ main {
     background-color: rgba(183, 26, 26, 0.5);
 }
 
-footer {
-    font-size: 14px;
-}
 
-.profile-thumbnail {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    border: solid black 1px;
-}
+/* Input fields */
 
 .input {
     background-color: #F8F0FB;
@@ -164,6 +158,44 @@ footer {
 
 .input::placeholder {
     color: black;
+}
+
+
+/* Img sizing */
+
+.logo {
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+.dropdown-menu-icon-desktop {
+    height: 25px;
+    width: auto;
+}
+
+.profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: solid black 1px;
+}
+
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(104, 79, 163, 1);
+    object-fit: cover;
+}
+
+.symbol {
+    width: 20px;
+}
+
+.icon-sizing-30xauto {
+    width: 30px;
+    height: auto;
 }
 
 /* Accordions */
@@ -197,13 +229,40 @@ footer {
 }
 
 
+/* change default color of Bootstrap switch  */
 
+.form-switch .form-check-input {
+    /* basic color change  */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:focus {
+    /* change color checked */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:checked {
+    /* change color unchecked */
+    background-color: var(--bg-purple);
+    border-color: var(--bg-purple);
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+
+
+/* ####################### */
 /* Specific Pages Settings */
 
 /* Index Page */
 
 .first-background-img {
-    background-image: url(../images/27376.jpg);
+    background-image: url(../images/gaming-desk-complete-setup.jpg);
     background-size: cover;
 }
 
@@ -213,12 +272,14 @@ footer {
 }
 
 .desktop-card {
+    height: 100%;
     background-color: #171F33;
+    border-radius: 0;
+    border: none;
 }
 
-.social-icon-desktop {
-    width: 30px;
-    height: auto;
+.desktop-card > img {
+    border-radius: 0;
 }
 
 .divider {
@@ -354,15 +415,7 @@ footer {
 }
 
 
-/* account */
-
-.avatar{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid rgba(104, 79, 163, 1);
-    object-fit: cover;
-}
+/* Account */
 
 /* form upload Avatar */
 .label-file {
@@ -382,13 +435,17 @@ footer {
     background-color: var(--bg-color-secondary);
 }
 
+/* Socials */
+/* Change color of placeholder in a chat between 2 users */
 
-/* Games */
-
-/* block height */
-.card-height{
-    height: 100%;
+.inputChat .form-control::placeholder {
+    color: rgb(168, 168, 168);
 }
+
+.dernierAvantInputChat {
+    margin-bottom: 55px;
+}
+
 
 /* Media Query */
 
@@ -431,44 +488,3 @@ footer {
 }
 
 
-
-/* change default color of Bootstrap switch  */
-
-.form-switch .form-check-input {
-    /* basic color change  */
-    border-color: rgba(80, 80, 80, 1);
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
-}
-
-.form-switch .form-check-input:focus {
-    /* change color checked */
-    border-color: rgba(80, 80, 80, 1);
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
-}
-
-.form-switch .form-check-input:checked {
-    /* change color unchecked */
-    background-color: var(--bg-purple);
-    border-color: var(--bg-purple);
-    border: none;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
-}
-
-
-/* Change color of placeholder in a chat between 2 users */
-
-.inputChat .form-control::placeholder {
-    color: rgb(168, 168, 168);
-}
-
-.dernierAvantInputChat {
-    margin-bottom: 55px;
-}
-
-.symbol {
-    width: 20px;
-}
