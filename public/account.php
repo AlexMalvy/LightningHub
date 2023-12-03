@@ -30,7 +30,7 @@
                         <form method="post" action="" enctype="multipart/form-data" class="me-2 d-flex align-items-center">
                             <label for="file" class="label-file me-2 p-2">Choisir une image</label>
                             <input id="file" class="d-none" type="file" name="avatarPicture">
-                            <button class="btn bg-color-purple rounded-5 px-4 btn-hover fw-bold">Enregistrer</button>
+                            <button class="btn lh-buttons-purple">Enregistrer</button>
                         </form>
                     </div>
                     <div class="col-lg-7 px-1 text-center bg-color-purple-faded rounded-0">
@@ -46,7 +46,7 @@
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
                             <input id="input-pseudo" class="input" type="text" placeholder="Fatality67" name="pseudo"/>
-                            <button id ="btn-pseudo" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2"><i class="fa-solid fa-pen text-white"></i></button>
+                            <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="col-lg-7 py-3 ps-3 bg-color-purple-faded rounded-0">
                         <form method="post" action="" class="d-flex justify-content-between align-items-center">
                             <input id="input-mail" class="input" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
-                            <button id ="btn-mail" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold"><i class="fa-solid fa-pen text-white"></i></button>
+                            <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                         </form>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
                                     <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[1]">
                                     <div>
-                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
@@ -90,7 +90,7 @@
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
                                     <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[2]">
                                     <div>
-                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
@@ -102,7 +102,7 @@
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
                                     <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[3]">
                                     <div>
-                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
@@ -114,7 +114,7 @@
                                 <form method="post" action="" class="col-8 col-lg-7 d-flex justify-content-between pe-0">
                                     <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[4]">
                                     <div>
-                                        <button aria-pressed="false" class="button-inGame btn bg-color-purple rounded-5 px-4 btn-hover fw-bold ms-2 me-2">
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
                                         <i class="fa-solid fa-pen text-white"></i></button>
                                     </div>
                                 </form>
@@ -148,19 +148,19 @@
                     </div>
                     <div class="col-lg-7 py-2 ps-3 bg-color-purple-faded rounded-0 d-flex flex-column align-items-start flex-lg-row justify-content-between align-items-lg-center">
                         <p class="m-0 ">Préférences cookies</p>
-                        <a href="#" class="btn bg-color-purple rounded-5 px-4 my-2 mt-lg-0 me-2 btn-hover fw-bold drop-shadow">Changer mes préférences</a>
+                        <a href="#" class="btn lh-buttons-purple my-2 mt-lg-0 me-2">Changer mes préférences</a>
                     </div>
                     <div class="flex-fill divider d-lg-none"></div>
                     <div class="col-lg-7 py-2 ps-3 bg-color-purple-faded rounded-0 d-flex flex-column align-items-start flex-lg-row justify-content-between align-items-lg-center">
                         <p class="m-0">Télécharger vos données personnelles</p>
-                        <a href="#" class="btn bg-color-purple rounded-5 px-4 my-2 mt-lg-0 me-2 btn-hover fw-bold drop-shadow">Envoyer une demande</a>
+                        <a href="#" class="btn lh-buttons-purple my-2 mt-lg-0 me-2">Envoyer une demande</a>
                     </div> 
                 </div>
             </div>
         </section>
 
        <!-- section delete account -->
-        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 mt-5 pt-lg-5 dernierAvantFoot">
+        <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 mt-5 pt-lg-5">
             <div class="row">
                 <div class="container">
                     <div class="col-lg-7 py-3 rounded-0">
@@ -173,7 +173,7 @@
                                 </h3>
                                 <div id="collapseOne" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionDelete">
                                     <div class="accordion-body bg-color-purple-faded">
-                                        <button class="lh-buttons-red" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" >Supprimer mon compte</button>
+                                        <button class="btn lh-buttons-red" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" >Supprimer mon compte</button>
                                     </div>
                                 </div>
                             </div>
