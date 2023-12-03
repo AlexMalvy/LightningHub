@@ -11,6 +11,12 @@
     src: url("Roboto-Regular.ttf");
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg-color-secondary);
+}
+
 .reconstruct {
     font-family: "Reconstruct", sans-serif;
     font-size: 20px;
@@ -20,6 +26,9 @@ h1 {
     font-family: "Reconstruct", sans-serif;
 }
 
+footer {
+    font-size: 14px;
+}
 
 /* ######### */
 /* Variables */
@@ -63,32 +72,62 @@ html {
     all: unset;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    background-color: var(--bg-color-secondary);
-}
-
 main {
     min-height: 100vh;
 }
-
 
 .drop-down-fix-position{
     margin-right:-13px !important;
 }
 
-footer {
-    font-size: 14px;
+.hover-accent:hover {
+    background-color: var(--bg-purple);
+    box-shadow: 0 0 10px var(--bg-purple);
+    border-radius: 3px;
+}
+
+.focus-accent:focus-visible {
+    background-color: var(--bg-purple);
+    box-shadow: 0 0 10px var(--bg-purple);
+    border-radius: 3px;
+}
+
+.hover-accent-shadow:hover {
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px white;
+}
+
+.focus-accent-shadow:focus-visible {
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px white;
+}
+
+.hover-accent-outline:hover {
+    outline: solid white;
+    border-radius: 3px;
+}
+
+.focus-accent-outline:focus-visible {
+    outline: solid white;
+    border-radius: 3px;
 }
 
 /* Buttons */
 /* Base */
+
 .lh-buttons {
     font-weight: 700;
     padding: 8px 24px;
     border-radius: 2rem;
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lh-buttons:hover {
+    box-shadow: inset 0 0 5px white;
+}
+
+.lh-buttons:focus {
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Purple */
@@ -106,6 +145,7 @@ footer {
 
 .lh-buttons-purple:focus {
     background-color: rgba(104, 79, 163, 0.75);
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Purple Faded */
@@ -124,6 +164,7 @@ footer {
 
 .lh-buttons-purple-faded:focus {
     background-color: rgba(104, 79, 163, 0.5);
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Red */
@@ -142,6 +183,7 @@ footer {
 
 .lh-buttons-red:focus {
     background-color: rgba(183, 26, 26, 0.5);
+    box-shadow: inset 0 0 5px white;
 }
 
 
@@ -221,7 +263,7 @@ footer {
 /* Remove active blue glow */
 
 .accordion-button:focus {
-    box-shadow: none;
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Change arrow color to white */
@@ -393,27 +435,6 @@ footer {
     background-size: cover;
     background-position: center;
     height: 50vh;
-}
-
-.password-reset {
-    border: solid rgba(255, 255, 255, 0) 1px;
-}
-
-.password-reset:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    border: solid white 1px;
-}
-
-.password-reset-link {
-    color: var(--bg-purple);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.password-reset-link:hover {
-    color: black;
-    font-weight: 700;
-    text-decoration: none;
 }
 
 
