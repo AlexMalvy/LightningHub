@@ -66,7 +66,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
@@ -95,7 +95,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Valorant Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
@@ -122,7 +122,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- World of Warcraft Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
@@ -165,7 +165,6 @@
                     <div class="row row-cols-2 row-cols-xl-4 g-3">
                         
                         <!-- League of Legends Card -->
-
                         <section class="col">
                             <div class="card desktop-card">
                                 <img src="assets/images/Leagues-of-legends.png" alt="images-Leagues-of-legends" class="card-img-top">
@@ -180,7 +179,7 @@
                                 <!-- League of Legends Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- League of Legends Social Links -->
@@ -194,7 +193,6 @@
                         </section>
 
                         <!-- Valorant Card -->
-
                         <section class="col">
                             <div class="card desktop-card">
                                 <img src="assets/images/valorant.png" alt="images-valorant" class="card-img-top">
@@ -208,7 +206,7 @@
                                 <!-- Valorant Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- Valorant Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- Valorant Social Links -->
@@ -222,7 +220,6 @@
                         </section>
 
                         <!-- World of Warcaft Card -->
-
                         <section class="col">
                             <div class="card desktop-card">
                                 <img src="assets/images/world-of-warcraft.png" alt="images-world-of-warcraft" class="card-img-top">
@@ -236,7 +233,7 @@
                                 <!-- World of Warcaft Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- World of Warcaft Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- World of Warcaft Social Links -->
@@ -250,7 +247,6 @@
                         </section>
 
                         <!-- Call of Duty Warzone Card -->
-
                         <section class="col">
                             <div class="card desktop-card">
                                 <img src="assets/images/call-of-duty-warzone.png" alt="image-call-of-duty-warzone" class="card-img-top">
@@ -264,7 +260,7 @@
                                 <!-- Warzone Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- Warzone Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- Warzone Social Links -->
