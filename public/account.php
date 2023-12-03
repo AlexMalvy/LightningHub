@@ -26,7 +26,7 @@
                         Photo de profil
                     </div>
                     <div class="col-lg-7 py-4 ps-3 bg-color-purple-faded rounded-0 d-flex justify-content-between align-items-center">
-                        <img src="assets/images/avatar.png" alt="photo de profil" class="avatar">
+                        <img src="assets/images/avatar.png" alt="photo de profil" class="avatar-70x70">
                         <form method="post" action="" enctype="multipart/form-data" class="me-2 d-flex align-items-center">
                             <label for="file" class="label-file me-2 p-2">Choisir une image</label>
                             <input id="file" class="d-none" type="file" name="avatarPicture">

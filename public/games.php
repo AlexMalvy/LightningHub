@@ -40,9 +40,9 @@
                                 </a>
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -67,9 +67,9 @@
                                 </a>
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -94,9 +94,9 @@
                                 </a>
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -121,9 +121,9 @@
                                 </a>
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-sizing-30xauto"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>

@@ -72,7 +72,7 @@
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="account.php">
                                 <div>
-                                    <img src="assets/images/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    <img src="assets/images/account_icon_37x37.png" alt="" class="icon-25x25">
                                 </div>
                                 <p class="align-self-center m-0">Mon Compte</p>
                             </a>
@@ -83,7 +83,7 @@
                         <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
                                 <div>
-                                    <img src="assets/images/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    <img src="assets/images/disconnect-icon-37x37.png" alt="" class="icon-25x25">
                                 </div>
                                 <p class="align-self-center m-0">Déconnexion</p>
                             </a>

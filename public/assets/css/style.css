@@ -169,34 +169,36 @@ footer {
     filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
 }
 
-.dropdown-menu-icon-desktop {
-    height: 25px;
-    width: auto;
-}
-
-.profile-thumbnail {
+.avatar-50x50 {
     width: 50px;
     height: 50px;
-    border-radius: 25px;
-    border: solid black 1px;
-}
-
-.avatar{
-    width: 70px;
-    height: 70px;
     border-radius: 50%;
-    border: 2px solid rgba(104, 79, 163, 1);
+    border: solid var(--bg-purple) 2px;
     object-fit: cover;
 }
 
-.symbol {
-    width: 20px;
+.avatar-70x70{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: solid var(--bg-purple) 2px;
+    object-fit: cover;
 }
 
-.icon-sizing-30xauto {
-    width: 30px;
-    height: auto;
+.icon-20x20 {
+    width: 20px;
+    height: 20px;
 }
+
+.icon-25x25 {
+    height: 25px;
+    width: 25px;
+}
+.icon-30x30 {
+    width: 30px;
+    height: 30px;
+}
+
 
 /* Accordions */
 
@@ -486,5 +488,3 @@ footer {
         margin-bottom: 77px;
     }
 }
-
-
