@@ -370,7 +370,7 @@
 
                                     <!-- All Messages -->
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
@@ -385,7 +385,7 @@
 
                                     </article>
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
@@ -431,7 +431,7 @@
                             <div>
                                 <h4>Chef :</h4>
                                 <div>
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Room Lead</span>
                                 </div>
                             </div>
@@ -441,28 +441,28 @@
                                 <h4 class="mb-0">Equipe :</h4>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 1</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 2</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 3</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 4</span>
                                     <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
                                     <img src="assets/images/user-minus-solid.png" alt="profile picture">
