@@ -25,6 +25,7 @@
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card desktop-card">
                             <img src="assets/images/leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
+
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
                                 <h3 class="card-title">League of Legends</h3>
@@ -32,17 +33,20 @@
                                     <p>League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse. <br> Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.</p>
                                 </div>
                             </div>
+
                             <!-- League of Legends Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+
                                 <!-- League of Legends Join Team -->
                                 <a href="#" class="btn lh-buttons-purple px-3">
                                     <span>Rejoindre</span>
                                 </a>
+
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -65,11 +69,12 @@
                                 <a href="#" class="btn lh-buttons-purple px-3">
                                     <span>Rejoindre</span>
                                 </a>
+
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -92,11 +97,12 @@
                                 <a href="#" class="btn lh-buttons-purple px-3">
                                     <span>Rejoindre</span>
                                 </a>
+
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -115,15 +121,17 @@
                                 
                             <!-- Warzone Card Footer -->
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
+
                                 <!-- Warzone Join Team -->
                                 <a href="#" class="btn lh-buttons-purple px-3">
                                     <span>Rejoindre</span>
                                 </a>
+
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
