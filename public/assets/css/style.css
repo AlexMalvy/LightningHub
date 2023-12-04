@@ -64,6 +64,11 @@ footer {
     border: solid var(--bg-purple) 1px;
 }
 
+.limit-width {
+    width: 800px;
+    max-width: 100%;
+}
+
 
 /* ############### */
 /* Global Settings */
@@ -74,6 +79,11 @@ html {
 
 main {
     min-height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    font-family: 'Reconstruct', cursive;
 }
 
 .drop-down-fix-position{
@@ -441,6 +451,41 @@ main {
 
 /* Account */
 
+main.account-fields h2 {
+    font-size: 1rem;
+    flex: 100%;
+}
+
+main.account-fields section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    background-color: var(--bg-purple-faded);
+}
+
+main.account-fields form, section#profile-picture p, section#cookies div, section#delete-account div.accordion-total {
+    flex: 100%;
+    padding: 1em;
+}
+
+section#profile-picture form {
+    flex: calc(100% - 70px);
+}
+
+main.account-fields form > label {
+    flex: 25%;
+    max-width: 25%;
+}
+
+main.account-fields form:not(#formNotification) {
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.input::placeholder {
+    color: grey;
+}
+
 /* form upload Avatar */
 .label-file {
     cursor: pointer;
@@ -466,12 +511,13 @@ main {
     color: rgb(168, 168, 168);
 }
 
-.dernierAvantInputChat {
+.space-before-input-chat {
     margin-bottom: 55px;
 }
 
 
 /* Media Query */
+
 
 @media (min-width: 1020px) {
     /* Global */
@@ -508,5 +554,26 @@ main {
     /* Global */
     .bottom-nav-margin {
         margin-bottom: 77px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    main.account-fields form > label {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    section#profile-picture, section#profile-picture form{
+        justify-content: center;
+    }
+
+    section#cookies div {
+        flex-wrap: wrap;
+    }
+
+    section#cookies span.label {
+        flex: 100%;
+        max-width: 100%;
     }
 }
