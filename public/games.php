@@ -14,7 +14,7 @@
         
     <main>
         <!-- Games Cards -->
-        <section class="container-fluid bg-color-purple-faded pt-5 pb-5 px-0 game-margin-top dernierAvantFoot">
+        <section class="container-fluid bg-color-purple-faded pt-5 pb-5 px-0 game-margin-top">
 
             <!-- Cards -->
             <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
