@@ -25,7 +25,7 @@
 
             <section id="profile-picture">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Photo de profil</h2>
-                <img src="assets/images/avatar.png" alt="photo de profil" class="avatar-70x70">
+                <img src="assets/images/goku.png" alt="photo de profil" class="avatar-70x70">
                 <form method="post" action="" enctype="multipart/form-data" class="d-flex align-items-center">
                     <label for="file" class="label-file me-2 p-2 text-center" >Choisir une image</label>
                     <input id="file" type="file" name="avatarPicture">

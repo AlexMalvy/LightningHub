@@ -227,7 +227,6 @@ main {
     height: 50px;
     border-radius: 50%;
     border: solid var(--bg-purple) 2px;
-    object-fit: cover;
 }
 
 .avatar-70x70{
@@ -235,7 +234,6 @@ main {
     height: 70px;
     border-radius: 50%;
     border: solid var(--bg-purple) 2px;
-    object-fit: cover;
 }
 
 .icon-20x20 {
