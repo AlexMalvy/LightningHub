@@ -10,7 +10,7 @@
                 Êtes vous sur de vouloir supprimer votre compte ?
             </div>
             <div class="modal-footer modal-background">
-                <a href="Account.html" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
+                <a href="account.php" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
                 <button href="#"  class="btn lh-buttons-red" aria-label="Confirmer">Confirmation</button>
             </div>
         </div>

@@ -319,7 +319,9 @@ main {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../images/gaming-desk-complete-setup.jpg);
     background-size: cover;
+
 }
+
 
 .carousel-indicators {
     position: relative;
@@ -482,9 +484,6 @@ main.account-fields form:not(#formNotification) {
     gap: 1em;
 }
 
-.input::placeholder {
-    color: grey;
-}
 
 /* form upload Avatar */
 .label-file {

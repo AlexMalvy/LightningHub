@@ -16,7 +16,7 @@
     <main>
         <section class="col-lg-10 offset-lg-1 px-3 px-lg-0 mt-5 pt-lg-5">
 
-            <h2 class="mt-lg-5"><strong>Mentions Légales</strong></h2>
+            <h1>Mentions Légales</h1>
 
             <!-- Introduction -->
             <p>Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages.<br>En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.</p>
@@ -52,7 +52,7 @@
             
             Lightninghub met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de son site internet.</p>
             
-            <p>Toutefois, des erreurs ou omissions peuvent survenir. L’internaute devra donc s’assurer de l’exactitude des informations auprès de LightningHub , et signaler toutes modifications du site qu’il jugerait utile. Lightninghub n’est en aucun cas responsable de l’utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.</p>
+            <p>Toutefois, des erreurs ou omissions peuvent survenir. L’internaute devra donc s’assurer de l’exactitude des informations auprès de LightningHub, et signaler toutes modifications du site qu’il jugerait utile. Lightninghub n’est en aucun cas responsable de l’utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.</p>
             
             <!-- Cookies -->
             <p><strong>Cookies :</strong> Le site www.lightninghub.fr peut-être amené à vous demander l’acceptation des cookies pour des besoins de statistiques et d’affichage. Un cookie est une information déposée sur votre disque dur par le serveur du site que vous visitez.</p>
@@ -60,11 +60,11 @@
             <p>Il contient plusieurs données qui sont stockées sur votre ordinateur dans un simple fichier texte auquel un serveur accède pour lire et enregistrer des informations . Certaines parties de ce site ne peuvent être fonctionnelles sans l’acceptation de cookies.</p>
             
             <!-- Hyperlink -->
-            <p><strong>Liens hypertextes :</strong> Les sites internet de peuvent offrir des liens vers d’autres sites internet ou d’autres ressources disponibles sur Internet. SARL LIGHTNINGHUB ne dispose d’aucun moyen pour contrôler les sites en connexion avec ses sites internet.</p>
+            <p><strong>Liens hypertextes :</strong> Les sites internet peuvent offrir des liens vers d’autres sites internet ou d’autres ressources disponibles sur Internet. SARL LIGHTNINGHUB ne dispose d’aucun moyen pour contrôler les sites en connexion avec ses sites internet.</p>
             
             <p>Lightninghub ne répond pas de la disponibilité de tels sites et sources externes, ni ne la garantit. Elle ne peut être tenue pour responsable de tout dommage, de quelque nature que ce soit, résultant du contenu de ces sites ou sources externes, et notamment des informations, produits ou services qu’ils proposent, ou de tout usage qui peut être fait de ces éléments. Les risques liés à cette utilisation incombent pleinement à l’internaute, qui doit se conformer à leurs conditions d’utilisation.</p>
             
-            <p>Les utilisateurs, les abonnés et les visiteurs des sites internet  ne peuvent pas mettre en place un hyperlien en direction de ce site sans l’autorisation expresse et préalable de SARL LIGHTNINGHUB.</p>
+            <p>Les utilisateurs, les abonnés et les visiteurs des sites internet ne peuvent pas mettre en place un hyperlien en direction de ce site sans l’autorisation expresse et préalable de SARL LIGHTNINGHUB.</p>
             
             <p>Dans l’hypothèse où un utilisateur ou visiteur souhaiterait mettre en place un hyperlien en direction d’un des sites internet de SARL LIGHTNINGHUB, il lui appartiendra d’adresser un email accessible sur le site afin de formuler sa demande de mise en place d’un hyperlien.</p>
             
@@ -77,7 +77,7 @@
             
             <p>SARL LIGHTNINGHUB s’efforce de fournir sur le site www.lightninghub.fr des informations aussi précises que possible. Les renseignements figurant sur le site www.lightninghub.fr ne sont pas exhaustifs et les photos non contractuelles.
             
-            Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne. Par ailleurs, tous les informations indiquées sur le site www.lightninghub.fr sont données à titre indicatif, et sont susceptibles de changer ou d’évoluer sans préavis.</p>
+            Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne. Par ailleurs, toutes les informations indiquées sur le site www.lightninghub.fr sont données à titre indicatif, et sont susceptibles de changer ou d’évoluer sans préavis.</p>
             
             <!-- Data -->
             <p><strong>Limitation contractuelles sur les données :</strong>
