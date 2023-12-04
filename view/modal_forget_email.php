@@ -12,8 +12,8 @@
                     <input id="input-mail-forget" class="mt-1 w-100 input" type="mail" name="mail"/>
                 </div>
                 <div class="modal-footer modal-background">
-                    <a href="login.php" class="btn bg-color-purple-faded btn-hover" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
-                    <button aria-label="Envoyer" aria-pressed="false" class="btn bg-color-purple rounded-5 px-4 me-2 btn-hover fw-bold me-2">Envoyer</button>
+                    <a href="login.php" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
+                    <button aria-label="Envoyer" aria-pressed="false" class="btn lh-buttons-purple me-2">Envoyer</button>
                 </div>
             </form>
         </div>
