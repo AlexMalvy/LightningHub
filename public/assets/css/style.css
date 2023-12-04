@@ -24,6 +24,7 @@ body {
 
 h1 {
     font-family: "Reconstruct", sans-serif;
+    font-size: 20px;
 }
 
 footer {
@@ -209,7 +210,7 @@ main {
 }
 
 .input::placeholder {
-    color: black;
+    color: grey;
 }
 
 
@@ -483,7 +484,6 @@ main.account-fields form:not(#formNotification) {
     flex-wrap: wrap;
     gap: 1em;
 }
-
 
 /* form upload Avatar */
 .label-file {
