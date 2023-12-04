@@ -1,5 +1,5 @@
 
-<!-- Header mobil -->
+<!-- Header mobile -->
 <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
     <img src="assets/images/logo-lightninghub.png" class="logo">
     <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
@@ -12,7 +12,7 @@
 
         <!-- Brand Name (Desktop Only) -->
         <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="index.php">
-            <img src="assets/images/logo-lightninghub.png" alt="" class="logo">
+            <img src="assets/images/logo-lightninghub.png" alt="logo Lightning Hub" class="logo">
             <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
         </a>
 
@@ -67,12 +67,12 @@
                         <p class="m-0 text-center text-white">Connexion</p>
                     </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end py-3 dropdowfixposition">
+                    <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 
                         <li class="dropdown-item">
-                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover" href="account.php">
+                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="account.php">
                                 <div>
-                                    <img src="assets/images/account_icon_37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    <img src="assets/images/account_icon_37x37.png" alt="" class="icon-25x25">
                                 </div>
                                 <p class="align-self-center m-0">Mon Compte</p>
                             </a>
@@ -81,9 +81,9 @@
                         <hr>
 
                         <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover" href="#">
+                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="login.php">
                                 <div>
-                                    <img src="assets/images/disconnect-icon-37x37.png" alt="" class="dropdown-menu-icon-desktop">
+                                    <img src="assets/images/disconnect-icon-37x37.png" alt="" class="icon-25x25">
                                 </div>
                                 <p class="align-self-center m-0">Déconnexion</p>
                             </a>
@@ -97,25 +97,27 @@
         <!-- OffCanva (Mobile) -->
         <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             
+            <!-- Header -->
             <div class="offcanvas-header">
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 <h2 class="offcanvas-title w-100 text-center" id="offcanvasNavbarLabel">Menu</h2>
             </div>
 
+            <!-- Body -->
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
                             <img src="assets/images/account_icon_37x37.png" alt="">
                         </div>
-                        <a class="nav-link link-light" href="account.php">Mon Compte</a>
+                        <a class="nav-link link-light  hover-accent-outline focus-accent-outline" href="account.php">Mon Compte</a>
                     </li>
                     <hr>
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
                             <img src="assets/images/disconnect-icon-37x37.png" alt="">
                         </div>
-                        <a class="nav-link link-danger" href="#">Déconnexion</a>
+                        <a class="nav-link link-danger  hover-accent-outline focus-accent-outline" href="login.php">Déconnexion</a>
                     </li>
                 </ul>
             </div>

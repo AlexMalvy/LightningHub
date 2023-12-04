@@ -1,9 +1,4 @@
-/* General */
-html{
-    all: unset;
-}
-
-
+/* #### */
 /* Font */
 
 @font-face {
@@ -16,6 +11,12 @@ html{
     src: url("Roboto-Regular.ttf");
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg-color-secondary);
+}
+
 .reconstruct {
     font-family: "Reconstruct", sans-serif;
     font-size: 20px;
@@ -25,11 +26,11 @@ h1 {
     font-family: "Reconstruct", sans-serif;
 }
 
-button, .drop-shadow{
-    filter: drop-shadow(3px 5px 4px rgba(0, 0, 0, 0.25));
+footer {
+    font-size: 14px;
 }
 
-
+/* ######### */
 /* Variables */
 
 :root {
@@ -47,6 +48,10 @@ button, .drop-shadow{
     background-color: var(--bg-purple-faded);
 }
 
+.bg-color-secondary {
+    background-color: var(--bg-color-secondary);
+}
+
 .bg-color-red {
     background-color: var(--alert-color);
 }
@@ -60,40 +65,69 @@ button, .drop-shadow{
 }
 
 
+/* ############### */
 /* Global Settings */
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    background-color: var(--bg-color-secondary);
+html {
+    all: unset;
 }
 
 main {
     min-height: 100vh;
 }
 
-.logo {
-    width: 50px;
-    height: auto;
-    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
-}
-
-.dropdown-menu-icon-desktop {
-    height: 25px;
-    width: auto;
-}
-
-.dropdowfixposition{
+.drop-down-fix-position{
     margin-right:-13px !important;
+}
+
+.hover-accent:hover {
+    background-color: var(--bg-purple);
+    box-shadow: 0 0 10px var(--bg-purple);
+    border-radius: 3px;
+}
+
+.focus-accent:focus-visible {
+    background-color: var(--bg-purple);
+    box-shadow: 0 0 10px var(--bg-purple);
+    border-radius: 3px;
+}
+
+.hover-accent-shadow:hover {
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px white;
+}
+
+.focus-accent-shadow:focus-visible {
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px white;
+}
+
+.hover-accent-outline:hover {
+    outline: solid white;
+    border-radius: 3px;
+}
+
+.focus-accent-outline:focus-visible {
+    outline: solid white;
+    border-radius: 3px;
 }
 
 /* Buttons */
 /* Base */
+
 .lh-buttons {
     font-weight: 700;
     padding: 8px 24px;
     border-radius: 2rem;
     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lh-buttons:hover {
+    box-shadow: inset 0 0 5px white;
+}
+
+.lh-buttons:focus {
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Purple */
@@ -111,6 +145,7 @@ main {
 
 .lh-buttons-purple:focus {
     background-color: rgba(104, 79, 163, 0.75);
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Purple Faded */
@@ -129,6 +164,7 @@ main {
 
 .lh-buttons-purple-faded:focus {
     background-color: rgba(104, 79, 163, 0.5);
+    box-shadow: inset 0 0 5px white;
 }
 
 /* Red */
@@ -147,33 +183,11 @@ main {
 
 .lh-buttons-red:focus {
     background-color: rgba(183, 26, 26, 0.5);
+    box-shadow: inset 0 0 5px white;
 }
 
-/* Legacy */
 
-.btn-hover:hover {
-    background-color: rgba(104, 79, 163, 0.75);
-}
-
-.btn-hover:focus {
-    background-color: rgba(104, 79, 163, 0.75);
-}
-
-footer {
-    font-size: 14px;
-}
-
-.lg-tiny-margin {
-    margin: 0 10px;
-    width: 100dvw;
-}
-
-.profile-thumbnail {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    border: solid black 1px;
-}
+/* Input fields */
 
 .input {
     background-color: #F8F0FB;
@@ -184,8 +198,61 @@ footer {
     border-radius: 0.375rem;
 }
 
+.input::placeholder {
+    color: black;
+}
+
+
+/* Img sizing */
+
+.logo {
+    width: 50px;
+    height: auto;
+    filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.5));
+}
+
+.avatar-50x50 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid var(--bg-purple) 2px;
+    object-fit: cover;
+}
+
+.avatar-70x70{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: solid var(--bg-purple) 2px;
+    object-fit: cover;
+}
+
+.icon-20x20 {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-25x25 {
+    height: 25px;
+    width: 25px;
+}
+.icon-30x30 {
+    width: 30px;
+    height: 30px;
+}
+
+
 /* Accordions */
 
+/* change default color of Bootstrap accordion */
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--bg-purple);
+}
+
+.accordion-button {
+    background-color: var(--bg-purple);
+}
 
 /* header text color to white */
 
@@ -193,13 +260,11 @@ footer {
     color: #ffffff;
 }
 
-
 /* Remove active blue glow */
 
 .accordion-button:focus {
-    box-shadow: none;
+    box-shadow: inset 0 0 5px white;
 }
-
 
 /* Change arrow color to white */
 
@@ -208,15 +273,42 @@ footer {
 }
 
 
+/* change default color of Bootstrap switch  */
+
+.form-switch .form-check-input {
+    /* basic color change  */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:focus {
+    /* change color checked */
+    border-color: rgba(80, 80, 80, 1);
+    outline: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
+}
+
+.form-switch .form-check-input:checked {
+    /* change color unchecked */
+    background-color: var(--bg-purple);
+    border-color: var(--bg-purple);
+    border: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
+}
+
+
+/* ####################### */
 /* Specific Pages Settings */
 
-
-/* Home Page */
+/* Index Page */
 
 .first-background-img {
-    background-image: url(../images/Test.png);
+    background-image: url(../images/gaming-desk-complete-setup.jpg);
     background-size: cover;
-}git status
+}
 
 
 .carousel-indicators {
@@ -225,12 +317,14 @@ footer {
 }
 
 .desktop-card {
+    height: 100%;
     background-color: #171F33;
+    border-radius: 0;
+    border: none;
 }
 
-.social-icon-desktop {
-    width: 30px;
-    height: auto;
+.desktop-card > img {
+    border-radius: 0;
 }
 
 .divider {
@@ -344,54 +438,8 @@ footer {
     height: 50vh;
 }
 
-.password-reset {
-    border: solid rgba(255, 255, 255, 0) 1px;
-}
 
-.password-reset:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    border: solid white 1px;
-}
-
-.password-reset-link {
-    color: var(--bg-purple);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.password-reset-link:hover {
-    color: black;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* Modal forget mail */
-#input-mail-forget{
-    background-color: #F8F0FB;
-    border: 1px solid #1E1F22;
-    color: black;
-    border-radius: 5px;
-    text-indent: 5px;
-}
-
-/* FAQ */
-
-
-/* header bg color */
-
-.faq-accordion-button:not(.collapsed) {
-    background-color: rgba(104, 79, 163, 1);
-}
-
-/* account */
-
-.avatar{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid rgba(104, 79, 163, 1);
-    object-fit: cover;
-}
+/* Account */
 
 /* form upload Avatar */
 .label-file {
@@ -407,37 +455,20 @@ footer {
     background-color: rgba(104, 79, 163, 0.75);
 }
 
-
-/* input */
-#input-pseudo, #input-mail, .input-inGame{
-    width: 60%;
-    background-color: #F8F0FB;
-    border: 1px solid #1E1F22;
-    color: black;
-    border-radius: 5px;
-    text-indent: 5px;
-}
-
-#input-pseudo::placeholder, #input-mail::placeholder, .input-inGame::placeholder{
-    color: black;
-}
-
 .modal-background{
     background-color: var(--bg-color-secondary);
 }
 
+/* Socials */
+/* Change color of placeholder in a chat between 2 users */
 
-/* Games */
-
-/* block height */
-.card-height{
-    height: 100%;
+.inputChat .form-control::placeholder {
+    color: rgb(168, 168, 168);
 }
 
-.box-shadow{
-    box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.25)
+.dernierAvantInputChat {
+    margin-bottom: 55px;
 }
-
 
 
 /* Media Query */
@@ -478,57 +509,4 @@ footer {
     .bottom-nav-margin {
         margin-bottom: 77px;
     }
-}
-
-
-/* change default color of Bootstrap accordion */
-
-.accordion-button:not(.collapsed) {
-    background-color: var(--bg-purple);
-}
-
-.accordion-button {
-    background-color: var(--bg-purple);
-}
-
-
-/* change default color of Bootstrap switch  */
-
-.form-switch .form-check-input {
-    /* basic color change  */
-    border-color: rgba(80, 80, 80, 1);
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
-}
-
-.form-switch .form-check-input:focus {
-    /* change color checked */
-    border-color: rgba(80, 80, 80, 1);
-    outline: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(80,80,80,1)'/></svg>");
-}
-
-.form-switch .form-check-input:checked {
-    /* change color unchecked */
-    background-color: var(--bg-purple);
-    border-color: var(--bg-purple);
-    border: none;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba(255,255,255,1.0)'/></svg>");
-}
-
-
-/* Change color of placeholder in a chat between 2 users */
-
-.inputChat .form-control::placeholder {
-    color: rgb(168, 168, 168);
-}
-
-.dernierAvantInputChat {
-    margin-bottom: 55px;
-}
-
-.symbol {
-    width: 20px;
 }

@@ -31,12 +31,12 @@
                 <ul class="nav nav-underline border-0 justify-content-center justify-content-lg-start ms-lg-5 mb-3" id="myTab" role="tablist">
                     <!-- Connection tab head -->
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-white active" id="connexion-tab" data-bs-toggle="tab" data-bs-target="#connexion-tab-pane" type="button" role="tab"aria-controls="connexion-tab-pane" aria-selected="true">Connexion</button>
+                        <button class="nav-link text-white focus-accent-shadow active" id="connexion-tab" data-bs-toggle="tab" data-bs-target="#connexion-tab-pane" type="button" role="tab"aria-controls="connexion-tab-pane" aria-selected="true">Connexion</button>
                     </li>
 
                     <!-- Login tab head -->
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-white" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab" aria-controls="login-tab-pane"aria-selected="false">Inscription</button>
+                        <button class="nav-link text-white focus-accent-shadow" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane" type="button" role="tab" aria-controls="login-tab-pane"aria-selected="false">Inscription</button>
                     </li>
                 </ul>
 
@@ -61,10 +61,10 @@
                                             <label for="remember me" class="ps-2">Se souvenir de moi</label>
                                         </div>
 
-                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je me connecte</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Je me connecte</button>
                                     </form>
-                                    <p class="password-reset">Mot de passe oublié ?<br>
-                                    <a href="#" class="password-reset-link" data-bs-toggle="modal" data-bs-target="#forgetMail" >Réinitialiser mon mot de passe</a>
+                                    <p>Mot de passe oublié ?<br>
+                                    <a href="#" class="text-decoration-none link-light fw-bold" data-bs-toggle="modal" data-bs-target="#forgetMail" >Réinitialiser mon mot de passe</a>
                                     </p>
                                 </div>
                             </div>
@@ -89,10 +89,10 @@
 
                                         <div class="mb-3">
                                             <input type="checkbox" name="cgu" id="cgu">
-                                            <label for="cgu" class="ps-2">J'accepte les <a href="legal.php">conditions d'utilisations</a></label>
+                                            <label for="cgu" class="ps-2">J'accepte les <a href="legal.php" class="text-decoration-none link-light fw-bold">conditions d'utilisations</a></label>
                                         </div>
 
-                                        <button type="submit" class="btn w-100 bg-color-purple rounded-5 mb-3 px-4 py-2 btn-hover fw-bold">Je m'inscris</button>
+                                        <button type="submit" class="btn lh-buttons-purple">Je m'inscris</button>
                                     </form>
                                 </div>
                             </div>

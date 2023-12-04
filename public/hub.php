@@ -87,32 +87,32 @@
 
                 <!-- Hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
                 </li>
 
                 <!-- Friends tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="false">Mes Amis</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="false">Mes Amis</button>
                 </li>
 
                 <!-- Pending tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="false">En attente</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="false">En attente</button>
                 </li>
 
                 <!-- Current hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
                 </li>
 
                 <!-- New Room hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
                 </li>
 
                 <!-- Update Room hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
                 </li>
             </ul>
 
@@ -355,7 +355,7 @@
                         <!-- Chat -->
                         <div class="col d-flex flex-column" id="chat-window">
                             <!-- Room Options/Members -->
-                            <button class="btn bg-color-purple btn-hover mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between" id="chat-window-room-options">
+                            <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
                                 <span>#Salon: Random Room</span>
                                 <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                             </button>
@@ -370,7 +370,7 @@
 
                                     <!-- All Messages -->
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
@@ -385,7 +385,7 @@
 
                                     </article>
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
@@ -411,7 +411,7 @@
                             <!-- User Message Input -->
                             <div class="input-group px-3 mb-2">
                                 <input type="text" class="input flex-grow-1" placeholder="Message">
-                                <button class="btn btn-dark border-purple"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
+                                <button class="btn btn-dark border-purple hover-accent focus-accent"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
                             </div>
                           
                         </div>
@@ -431,7 +431,7 @@
                             <div>
                                 <h4>Chef :</h4>
                                 <div>
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Room Lead</span>
                                 </div>
                             </div>
@@ -441,39 +441,55 @@
                                 <h4 class="mb-0">Equipe :</h4>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 1</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 2</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 3</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 4</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                             </div>
 
                             <!-- Modify/Leave Buttons -->
                             <div class="d-flex flex-column gap-3 mt-auto">
-                                <button id="update-room" class="btn bg-color-purple btn-hover">Modifier le salon</button>
-                                <button class="btn btn-danger">Quitter le salon</button>
+                                <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
+                                <button class="btn lh-buttons-red">Quitter le salon</button>
                             </div>
                         </section>
 
