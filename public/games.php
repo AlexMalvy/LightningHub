@@ -18,7 +18,7 @@
 
             <!-- Cards -->
             <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0">
-            <h2 class="pb-4 reconstruct">Nos Univers</h2>
+            <h1>Nos Univers</h1>
                 <ul class="row list-unstyled">
 
                     <!-- League of Legends Card -->
@@ -28,7 +28,7 @@
 
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
-                                <h3 class="card-title">League of Legends</h3>
+                                <h2 class="card-title">League of Legends</h2>
                                 <div class="card-text">
                                     <p>League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse. <br> Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.</p>
                                 </div>
@@ -57,7 +57,7 @@
                         <section class="card desktop-card">
                             <img src="assets/images/valorant.png" alt="Image-valorant" class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">Valorant</h3>
+                                <h2 class="card-title">Valorant</h2>
                                 <div class="card-text">
                                     <p>Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.<br> Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes.</p>
                                 </div>
@@ -85,7 +85,7 @@
                         <section class="card desktop-card">
                             <img src="assets/images/world-of-warcraft.png" alt="Image-world-of-warcraft" class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">World of Warcraft</h3>
+                                <h2 class="card-title">World of Warcraft</h2>
                                 <div class="card-text">
                                     <p>World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.</p>
                                 </div>
@@ -113,7 +113,7 @@
                         <section class="card desktop-card">
                             <img src="assets/images/call-of-duty-warzone.png" alt="Image-call-of-duty-warzone" class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">Call of Duty : Warzone</h3>
+                                <h2 class="card-title">Call of Duty : Warzone</h2>
                                 <div class="card-text">
                                     <p>Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).<br> Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.</p>
                                 </div>

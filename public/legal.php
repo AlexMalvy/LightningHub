@@ -16,7 +16,7 @@
     <main>
         <section class="col-lg-10 offset-lg-1 px-3 px-lg-0 mt-5 pt-lg-5">
 
-            <h2 class="mt-lg-5"><strong>Mentions Légales</strong></h2>
+            <h1>Mentions Légales</h1>
 
             <!-- Introduction -->
             <p>Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages.<br>En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.</p>

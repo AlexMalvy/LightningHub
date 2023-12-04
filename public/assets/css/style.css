@@ -484,9 +484,6 @@ main.account-fields form:not(#formNotification) {
     gap: 1em;
 }
 
-.input::placeholder {
-    color: grey;
-}
 
 /* form upload Avatar */
 .label-file {

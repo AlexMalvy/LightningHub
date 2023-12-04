@@ -13,85 +13,94 @@
 
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
         <h1>Mon compte</h1>
+
+        <!-- Divider (Mobile) -->
+        <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-4 d-lg-none">
+            <hr>
+        </div>
+
         <div class="limit-width">
 
-            <!-- PHOTO DE PROFIL -->
+            <!-- Picture Profil -->
 
             <section id="profile-picture">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Photo de profil</h2>
                 <img src="assets/images/avatar.png" alt="photo de profil" class="avatar-70x70">
                 <form method="post" action="" enctype="multipart/form-data" class="d-flex align-items-center">
-                    <label for="file" class="label-file me-2 p-2" tabindex="0">Choisir une image</label>
-                    <input id="file" class="" type="file" name="avatarPicture">
+                    <label for="file" class="label-file me-2 p-2 text-center" >Choisir une image</label>
+                    <input id="file" type="file" name="avatarPicture">
                     <button class="btn lh-buttons-purple">Enregistrer</button>
                 </form>
                 <p class="text-center"> l'image doit être au format JPEG, PNG ou GIF et ne doit pas dépasser 10 Mo.</p>
             </section>
 
-            <!-- PSEUDO -->
+            <!-- Pseudo -->
 
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
                 <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                    <input id="input-pseudo" class="input" type="text" placeholder="Fatality67" name="pseudo"/>
-                    <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
+                    <input id="input-pseudo" class="input" type="text" value="Fatality67" name="pseudo"/>
+                    <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2 "><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
 
-            <!-- EMAIL -->
+            <!-- email -->
 
             <section id="email">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Adresse email</h2>
                 <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                    <input id="input-mail" class="input" type="email" placeholder="Fatality67@ccicampus.fr" name="email">
+                    <input id="input-mail" class="input" type="email" value="Fatality67@ccicampus.fr" name="email">
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
 
-            <!-- IDENTIFIANTS INGAME -->
+            <!-- Identifiants INGAME -->
 
             <section id="identifiants">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Identifiants IN GAME</h2>
-                    
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between pe-0 gy-2">
+
+                    <!-- Identifiants INGAME League of Legends -->
+                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
                         <label>Leagues of legends</label>
-                        <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[1]">
+                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[1]">
                         <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
+                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                             <i class="fa-solid fa-pen text-white"></i></button>
                         </div>
                     </form>
-                          
-                    
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between pe-0 gy-2">
+
+                    <!-- Identifiants INGAME World of Warcraft -->
+                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
                         <label>World of Warcraft</label>
-                        <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[2]">
+                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[2]">
                         <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
+                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                             <i class="fa-solid fa-pen text-white"></i></button>
                         </div>
                     </form>
-                    
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between pe-0 gy-2">
+
+                    <!-- Identifiants INGAME Valorant -->
+                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
                         <label>Valorant</label>
-                        <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[3]">
+                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[3]">
                         <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
+                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                             <i class="fa-solid fa-pen text-white"></i></button>
                         </div>
                     </form>
-                                         
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between pe-0">
+
+                    <!-- Identifiants INGAME Call of duty Warzone -->
+                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
                         <label>Call of Duty : Warzone</label>
-                        <input class="input-inGame input" type="text" placeholder="RedMorgane" name="game[4]">
+                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[4]">
                         <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple ms-2 me-2">
+                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                             <i class="fa-solid fa-pen text-white"></i></button>
                         </div>
                     </form>
             </section>
 
-            <!-- CENTRE DES NOTIFICATIONS -->
+            <!-- Notifications -->
 
             <section id="notification-center">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Centre de Notifications</h2>
@@ -105,7 +114,7 @@
                 </form>
             </section>
 
-            <!-- COOKIES -->
+            <!-- Cookies -->
 
             <section id="cookies">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Cookies et données personnelles</h2>
@@ -122,7 +131,7 @@
 
        <!-- section delete account -->
         <section id="delete-account">
-            <div class="accordion-total col-lg-7 py-3 rounded-0">
+            <div class="accordion-total col-lg-7 p-0 rounded-0">
                 <div class="accordion" id="accordionDelete">
                     <div class="accordion-item rounded-0">
                         <h3 class="accordion-header">
