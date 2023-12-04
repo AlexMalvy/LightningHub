@@ -49,7 +49,6 @@
                                 <option value="Valorant">Valorant</option>
                                 <option value="WoW">World of Warcraft</option>
                                 <option value="Warzone">Warzone</option>
-                                <option value="Fifa">Fifa</option>
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>

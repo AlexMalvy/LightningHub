@@ -72,9 +72,9 @@
 
                                     <!-- League of Legends Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="league of legends twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="league of legends reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="league of legends official website link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="league of legends twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="league of legends reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="league of legends official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -101,9 +101,9 @@
 
                                     <!-- Valorant Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                     
                                 </div>
@@ -128,9 +128,9 @@
 
                                     <!-- World of Warcraft Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -184,9 +184,9 @@
                                     </a>
                                     <!-- League of Legends Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="League of legends twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="League of legends reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="League of legends official website link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="League of legends twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="League of legends reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="League of legends official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -211,9 +211,9 @@
                                     </a>
                                     <!-- Valorant Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -238,9 +238,9 @@
                                     </a>
                                     <!-- World of Warcaft Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -265,9 +265,9 @@
                                     </a>
                                     <!-- Warzone Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/call-of-duty-warzone"><img src="assets/images/twitch-icon-37x37.png" alt="Call of Duty Warzone twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/CODWarzone/"><img src="assets/images/reddit-icon-37x37.png" alt="Call of Duty Warzone reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.callofduty.com/fr/playnow/warzone"><img src="assets/images/outerlink-icon-37x37.png" alt="Call of Duty Warzone official website link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.twitch.tv/directory/category/call-of-duty-warzone" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Call of Duty Warzone twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/CODWarzone/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Call of Duty Warzone reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.callofduty.com/fr/playnow/warzone" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Call of Duty Warzone official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
