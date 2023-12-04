@@ -8,8 +8,8 @@
             </div>
             <form method="post" action="" class="d-flex flex-column">
                 <div class="modal-body modal-background">
-                    <label for="input-mail-forget" type="text">Saisir votre adresse email</label>
-                    <input id="input-mail-forget" class="mt-1 w-100 input" type="mail" name="mail"/>
+                    <label for="input-mail-forget">Saisir votre adresse email</label>
+                    <input id="input-mail-forget" class="mt-1 w-100 input" type="email" name="mail"/>
                 </div>
                 <div class="modal-footer modal-background">
                     <a href="login.php" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>

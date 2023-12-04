@@ -44,9 +44,9 @@
 
                                 <!-- League of Legends Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="twitch-League of Legends" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="reddit-League of Legends" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="site-League of Legends" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -72,9 +72,9 @@
 
                                 <!-- Valorant Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="twitch-Valorant" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="reddit-Valorant" class="icon-30x30"></a>
+                                    <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="site-Valorant" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -100,9 +100,9 @@
 
                                 <!-- World of Warcraft Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="twitch-World of Warcraft" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="reddit-World of Warcraft" class="icon-30x30"></a>
+                                    <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="site-World of Warcraft" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
@@ -129,9 +129,9 @@
 
                                 <!-- Warzone Social Links -->
                                 <div class="d-flex gap-2">
-                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="" class="icon-30x30"></a>
-                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="icon-30x30"></a>
+                                    <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="twitch-Call of Duty : Warzone" class="icon-30x30"></a>
+                                    <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="reddit-Call of Duty : Warzone" class="icon-30x30"></a>
+                                    <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="site-Call of Duty : Warzone" class="icon-30x30"></a>
                                 </div>
                             </div>
                         </section>
