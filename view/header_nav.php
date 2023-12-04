@@ -13,7 +13,12 @@
         <!-- Brand Name (Desktop Only) -->
         <a class="navbar-brand d-none d-lg-flex justify-content-between align-items-center gap-3" href="index.php">
             <img src="assets/images/logo-lightninghub.png" alt="logo Lightning Hub" class="logo">
-            <h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>
+
+            <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
+                echo '<h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
+            else :
+                echo '<span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span>';
+            endif; ?>
         </a>
 
         <!-- Navbar -->
