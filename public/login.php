@@ -15,8 +15,8 @@
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
 
-        <h2 class="container text-center pt-5 reconstruct d-lg-none">Connexion/<br>Inscription</h2>
-        <h2 class="container text-center pt-5 reconstruct d-none d-lg-block">Connexion / Inscription</h2>
+        <h1 class="container text-center pt-5 reconstruct d-lg-none">Connexion/<br>Inscription</h1>
+        <h1 class="container text-center pt-5 reconstruct d-none d-lg-block">Connexion / Inscription</h1>
         
         <!-- First Divider (Mobile) -->
         <div class="container py-2 d-lg-none">

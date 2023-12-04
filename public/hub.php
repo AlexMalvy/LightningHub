@@ -17,7 +17,7 @@
 
         <!-- Page Title -->
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 my-3">
-            <h2 class="reconstruct">hub</h2>
+            <h1 class="reconstruct">hub</h1>
         </div>
 
         <!-- Filters + Create Hub -->
@@ -36,7 +36,7 @@
 
                     <!-- Header -->
                     <div class="offcanvas-header">
-                        <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
+                        <h2 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
 
@@ -137,7 +137,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
@@ -160,7 +160,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -187,7 +187,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Bronze]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Bronze]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 3</p>
                                         <p class="card-text">Let's have fun !!</p>
                                     </div>
@@ -209,7 +209,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 4</p>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
@@ -231,7 +231,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 5</p>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
@@ -265,7 +265,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
@@ -288,7 +288,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -327,7 +327,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -375,7 +375,7 @@
                                         <div class="message-body">
 
                                             <div class="message-header">
-                                                <h3 class="card-title">Random 1</h3>
+                                                <h2 class="card-title">Random 1</h2>
                                                 <small>14:46</small>
                                                 <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                             </div>
@@ -422,7 +422,7 @@
                             <!-- Section Title -->
                             <div class="d-flex justify-content-between align-items-center">
                                 <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
-                                <h3 class="m-0">Membres</h3>
+                                <h2 class="m-0">Membres</h2>
                             </div>
                             
                             <hr>
@@ -503,7 +503,7 @@
                         <div class="row row-cols-1 px-3">
 
                             <div class="col">
-                                <h3 class="reconstruct mt-2">Création d'un salon</h3>
+                                <h2 class="reconstruct mt-2">Création d'un salon</h2>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
@@ -570,7 +570,7 @@
                         <div class="row row-cols-1 px-3">
 
                             <div class="col">
-                                <h3 class="reconstruct mt-2">Modification d'un salon</h3>
+                                <h2 class="reconstruct mt-2">Modification d'un salon</h2>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
