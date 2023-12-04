@@ -21,7 +21,7 @@
     <!-- Introduction -->
 
             <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 my-3">
-                <h2 class="reconstruct">Social</h2>
+                <h1>Social</h1>
 
                 <!-- Divider (Mobile) -->
                 <hr class="d-lg-none">
@@ -43,7 +43,8 @@
                     </a>
                 </p>
                 <!-- Copy my id -->
-                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copy <img class="icon-20x20"
+                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copier <img
+                            class="icon-20x20"
                                                                                    src="assets/images/copy-regular.svg"  alt="copy icon"></a>
 
 
@@ -138,10 +139,10 @@
                                 <div class="offcanvas offcanvas-bottom h-75 col-lg-6 md-col-5"
                                      tabindex="-1"
                                      id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-                                    <div class="offcanvas-header">
+                                    <header class="offcanvas-header bg-color-purple">
                                         <h5 id="offcanvasBottomLabel">Suamel1</h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                    </div>
+                                    </header>
                                     <div class="offcanvas-body chat-window space-before-input-chat">
                                         <!-- All Messages -->
                                         <article class="col message">
@@ -276,7 +277,7 @@
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none "><img
                                             class="me-2 avatar-50x50" src="assets/images/gon.jpg"
-                                            alt="player avatar-70x70">Suamel</a>
+                                            alt="player avatar-70x70">SpongeBob</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="offcanvas"
                                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><img
                                             class="icon-20x20"
@@ -300,8 +301,8 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
-                                            alt="player avatar-70x70">Disconnect 1</a>
+                                            class="me-2 avatar-50x50" src="assets/images/hello-kitty.jpeg"
+                                            alt="player avatar-70x70">FouinyBaby</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/message-solid-white.svg"  alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
@@ -313,8 +314,8 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
-                                            alt="player avatar-70x70">Disc 2</a>
+                                            class="me-2 avatar-50x50" src="assets/images/jul.jpg"
+                                            alt="player avatar-70x70">Gazo</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/message-solid-white.svg" alt="message icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight" data-bs-toggle="modal"
@@ -331,18 +332,15 @@
             <!-- LIST DEMANDS tab content -->
             <div class="tab-pane fade show border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
 
-                <div class="container-fluid">
-                    <div class="row ">
-                        <!-- row-cols-1 row-cols-md-2 row-cols-lg -->
-                        <!-- Disconnected Friends Switch -->
+                <div class="container-fluid p-0">
 
                         <ul class="list-group list-group-flush p-0">
 
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
-                                            alt="player avatar-70x70">Suamel1</a>
+                                            class="me-2 avatar-50x50" src="assets/images/rcsa.png"
+                                            alt="player avatar-70x70">Si2ie67</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
@@ -353,8 +351,8 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
-                                            alt="player avatar-70x70">Suamel1</a>
+                                            class="me-2 avatar-50x50" src="assets/images/messi.jpg"
+                                            alt="player avatar-70x70">Kopp</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
@@ -365,7 +363,7 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/goku.png"
+                                            class="me-2 avatar-50x50" src="assets/images/fortnite.jpg"
                                             alt="player avatar-70x70">Kilua</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
@@ -377,7 +375,7 @@
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                 <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none"><img
-                                            class="me-2 avatar-50x50" src="assets/images/gon.jpg"
+                                            class="me-2 avatar-50x50" src="assets/images/south%20park.jpg"
                                             alt="player avatar-70x70">Kira</a>
                                 <a href="#" class="p-2 flex-shrink-1 bd-highlight"><img class="icon-20x20"
                                                                                         src="assets/images/check-solid-green.svg" alt="acceptance icon"></a>
@@ -387,7 +385,6 @@
                             </li>
                         </ul>
 
-                    </div>
                 </div>
 
             </div>
@@ -404,17 +401,17 @@
                                      alt="add icon">Ajouter un ami</label>
 
                     <!--  <div class="card-body text-center bg-color-purple-faded"> -->
-                    <input type="text" onkeyup="findUser()"  class=""
+                    <input type="text" onkeyup="findUser()"  class="input"
                            id="searchFriend"
                     aria-describedby="Rechercher un ami">
 
                     <button disabled type="submit" class="btn d-inline-flex
                     fw-bold text-center m-3 lh-buttons-purple" id="btnAddFriend" >Envoyer une demande
                     </button>
-                    <p class="d-none" id="verificationUserGood">User found<img class="ms-2 icon-20x20"
+                    <p class="d-none" id="verificationUserGood">Utilisateur non trouvé<img class="ms-2 icon-20x20"
                                                                    src="assets/images/check-solid.svg"
                                                alt="verification icon"></p>
-                    <p class="d-none" id="verificationUserNotGood">User not found<img class="ms-2 icon-20x20"
+                    <p class="d-none" id="verificationUserNotGood">Utilisateur trouvé<img class="ms-2 icon-20x20"
                                                                                src="assets/images/xmark-solid-white.svg"
                                                                                alt="verification not good icon"></p>
 
