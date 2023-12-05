@@ -58,7 +58,7 @@
                     <!-- League of Legends Card -->
                     <div class="carousel-item active">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
+                            <img src="assets/images/Leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
                             <div class="card-body px-0">
                                 <h3 class="card-title">League of Legends</h3>
                                 <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
