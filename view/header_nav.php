@@ -21,7 +21,7 @@
             <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
                 echo '<h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
             else :
-                echo '<span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span>';
+                echo '<div><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></div>';
             endif; ?>
         </a>
 
