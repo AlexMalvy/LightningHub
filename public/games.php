@@ -24,7 +24,7 @@
                     <!-- League of Legends Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
                         <section class="card desktop-card">
-                            <img src="assets/images/leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
+                            <img src="assets/images/Leagues-of-legends.png" alt="images-leagues-of-legends" class="card-img-top">
 
                             <!-- League of Legends Card Body -->
                             <div class="card-body">
