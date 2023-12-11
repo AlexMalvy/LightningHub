@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lightning Hub - Home</title>
+    <link rel="icon" type="image/png" href="assets/images/logo-lightninghub.png">
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -47,8 +48,8 @@
                     <h2 class="m-0 reconstruct">Nos Univers</h2>
                     <!-- Carousel Left/Right Arrow -->
                     <div>
-                        <button class="btn px-1" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"><img src="assets/images/carousel-left-arrow-37x37.png" alt=""></button>
-                        <button class="btn px-1" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next"><img src="assets/images/carousel-right-arrow-37x37.png" alt=""></button>
+                        <button class="btn px-1 focus-accent" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev"><img src="assets/images/carousel-left-arrow-37x37.png" alt="previous slide"></button>
+                        <button class="btn px-1 focus-accent" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next"><img src="assets/images/carousel-right-arrow-37x37.png" alt="next slide"></button>
                     </div>
                 </div>
 
@@ -58,7 +59,7 @@
                     <!-- League of Legends Card -->
                     <div class="carousel-item active">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
+                            <img src="assets/images/Leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
                             <div class="card-body px-0">
                                 <h3 class="card-title">League of Legends</h3>
                                 <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
@@ -66,15 +67,15 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
                                     <!-- League of Legends Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt=""></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt=""></a>
-                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt=""></a>
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="league of legends twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="league of legends reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="league of legends official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -95,15 +96,15 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Valorant Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
                                     <!-- Valorant Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt=""></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt=""></a>
-                                        <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt=""></a>
+                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                     
                                 </div>
@@ -122,15 +123,15 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- World of Warcraft Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
 
                                     <!-- World of Warcraft Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt=""></a>
-                                        <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt=""></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt=""></a>
+                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +152,7 @@
         <!-- Show more games (Mobile) -->
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 d-flex justify-content-center align-items-center d-lg-none gap-3 pb-4">
             <div class="flex-fill divider"></div>
-            <a href="games.php" class="btn btn-hover bg-color-purple">Voir plus</a>
+            <a href="games.php" class="btn lh-buttons-purple rounded-2 px-2">Voir plus</a>
             <div class="flex-fill divider"></div>
         </div>
 
@@ -165,9 +166,8 @@
                     <div class="row row-cols-2 row-cols-xl-4 g-3">
                         
                         <!-- League of Legends Card -->
-
                         <section class="col">
-                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                            <div class="card desktop-card">
                                 <img src="assets/images/Leagues-of-legends.png" alt="images-Leagues-of-legends" class="card-img-top">
                                 <!-- League of Legends Card Body -->
                                 <div class="card-body">
@@ -180,23 +180,22 @@
                                 <!-- League of Legends Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- League of Legends Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- League of Legends Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="League of legends twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="League of legends reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="League of legends official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- Valorant Card -->
-
                         <section class="col">
-                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                            <div class="card desktop-card">
                                 <img src="assets/images/valorant.png" alt="images-valorant" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Valorant</h3>
@@ -208,23 +207,22 @@
                                 <!-- Valorant Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- Valorant Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- Valorant Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://playvalorant.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- World of Warcaft Card -->
-
                         <section class="col">
-                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                            <div class="card desktop-card">
                                 <img src="assets/images/world-of-warcraft.png" alt="images-world-of-warcraft" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">World of Warcaft</h3>
@@ -236,23 +234,22 @@
                                 <!-- World of Warcaft Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- World of Warcaft Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- World of Warcaft Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.reddit.com/r/wow/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
                         <!-- Call of Duty Warzone Card -->
-
                         <section class="col">
-                            <div class="card h-100 border-0 rounded-0 desktop-card">
+                            <div class="card desktop-card">
                                 <img src="assets/images/call-of-duty-warzone.png" alt="image-call-of-duty-warzone" class="card-img-top">
                                 <div class="card-body">
                                     <h3 class="card-title">Warzone</h3>
@@ -264,14 +261,14 @@
                                 <!-- Warzone Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- Warzone Join Team -->
-                                    <a href="#" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- Warzone Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends"><img src="assets/images/twitch-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/"><img src="assets/images/reddit-icon-37x37.png" alt="" class="social-icon-desktop"></a>
-                                        <a href="https://www.leagueoflegends.com/"><img src="assets/images/outerlink-icon-37x37.png" alt="" class="social-icon-desktop"></a>
+                                        <a href="https://www.twitch.tv/directory/category/call-of-duty-warzone" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Call of Duty Warzone twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.reddit.com/r/CODWarzone/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Call of Duty Warzone reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="https://www.callofduty.com/fr/playnow/warzone" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Call of Duty Warzone official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
@@ -285,7 +282,7 @@
             <!-- Show more games -->
             <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 d-flex justify-content-between align-items-center gap-3 mt-4">
                 <div class="flex-fill divider"></div>
-                <a href="games.php" class="btn btn-hover bg-color-purple">Voir plus</a>
+                <a href="games.php" class="btn lh-buttons-purple rounded-2 px-2">Voir plus</a>
                 <div class="flex-fill divider"></div>
             </div>
 

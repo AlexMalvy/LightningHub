@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lightning Hub - Hub</title>
+    <link rel="icon" type="image/png" href="assets/images/logo-lightninghub.png">
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +18,7 @@
 
         <!-- Page Title -->
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 my-3">
-            <h2 class="reconstruct">hub</h2>
+            <h1 class="reconstruct">hub</h1>
         </div>
 
         <!-- Filters + Create Hub -->
@@ -36,7 +37,7 @@
 
                     <!-- Header -->
                     <div class="offcanvas-header">
-                        <h3 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h3>
+                        <h2 class="offcanvas-title" id="offcanvasFiltreLabel">Filtres</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
 
@@ -49,7 +50,6 @@
                                 <option value="Valorant">Valorant</option>
                                 <option value="WoW">World of Warcraft</option>
                                 <option value="Warzone">Warzone</option>
-                                <option value="Fifa">Fifa</option>
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>
@@ -87,32 +87,32 @@
 
                 <!-- Hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
                 </li>
 
                 <!-- Friends tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="false">Mes Amis</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="false">Mes Amis</button>
                 </li>
 
                 <!-- Pending tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="false">En attente</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending-tab-pane" type="button" role="tab" aria-controls="pending-tab-pane" aria-selected="false">En attente</button>
                 </li>
 
                 <!-- Current hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
                 </li>
 
                 <!-- New Room hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="new-room-hub-tab" data-bs-toggle="tab" data-bs-target="#new-room-hub-tab-pane" type="button" role="tab" aria-controls="new-room-hub-tab-pane" aria-selected="false">Nouveau salon</button>
                 </li>
 
                 <!-- Update Room hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
                 </li>
             </ul>
 
@@ -120,7 +120,7 @@
             <div class="tab-content bg-color-purple-faded" id="myTabContent">
 
                 <!-- Hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 active border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
 
                     <div class="container-fluid p-3">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -137,7 +137,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
@@ -160,7 +160,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -187,7 +187,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Bronze]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Bronze]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 3</p>
                                         <p class="card-text">Let's have fun !!</p>
                                     </div>
@@ -209,7 +209,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 4</p>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
@@ -231,7 +231,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">Title</h3>
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 5</p>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
@@ -265,7 +265,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Gold]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
                                         <p class="card-text">Need top and supp.</p>
                                     </div>
@@ -288,7 +288,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -327,7 +327,7 @@
                                         <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="card-title m-0 pb-1">[Diamond]</h3>
+                                        <h2 class="card-title m-0 pb-1">[Diamond]</h2>
                                         <p class="card-subtitle fst-italic pb-2">Créer par Random 2</p>
                                         <p class="card-text">LFG strong top</p>
                                     </div>
@@ -355,7 +355,7 @@
                         <!-- Chat -->
                         <div class="col d-flex flex-column" id="chat-window">
                             <!-- Room Options/Members -->
-                            <button class="btn bg-color-purple btn-hover mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between" id="chat-window-room-options">
+                            <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
                                 <span>#Salon: Random Room</span>
                                 <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                             </button>
@@ -370,12 +370,12 @@
 
                                     <!-- All Messages -->
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
                                             <div class="message-header">
-                                                <h3 class="card-title">Random 1</h3>
+                                                <h2 class="card-title">Random 1</h2>
                                                 <small>14:46</small>
                                                 <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
                                             </div>
@@ -385,7 +385,7 @@
 
                                     </article>
                                     <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
 
                                         <div class="message-body">
 
@@ -411,7 +411,7 @@
                             <!-- User Message Input -->
                             <div class="input-group px-3 mb-2">
                                 <input type="text" class="input flex-grow-1" placeholder="Message">
-                                <button class="btn btn-dark border-purple"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
+                                <button class="btn btn-dark border-purple hover-accent focus-accent"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
                             </div>
                           
                         </div>
@@ -422,7 +422,7 @@
                             <!-- Section Title -->
                             <div class="d-flex justify-content-between align-items-center">
                                 <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
-                                <h3 class="m-0">Membres</h3>
+                                <h2 class="m-0">Membres</h2>
                             </div>
                             
                             <hr>
@@ -431,7 +431,7 @@
                             <div>
                                 <h4>Chef :</h4>
                                 <div>
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Room Lead</span>
                                 </div>
                             </div>
@@ -441,39 +441,55 @@
                                 <h4 class="mb-0">Equipe :</h4>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 1</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 2</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 3</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="profile-thumbnail">
+                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                     <span>Random 4</span>
-                                    <img src="assets/images/crown-solid.png" alt="profile picture" class="ms-auto">
-                                    <img src="assets/images/user-minus-solid.png" alt="profile picture">
+                                    <button class="btn hover-accent focus-accent ms-auto px-1">
+                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                    </button>
+                                    <button class="btn hover-accent focus-accent px-1">
+                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                    </button>
                                 </div>
 
                             </div>
 
                             <!-- Modify/Leave Buttons -->
                             <div class="d-flex flex-column gap-3 mt-auto">
-                                <button id="update-room" class="btn bg-color-purple btn-hover">Modifier le salon</button>
-                                <button class="btn btn-danger">Quitter le salon</button>
+                                <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
+                                <button class="btn lh-buttons-red">Quitter le salon</button>
                             </div>
                         </section>
 
@@ -487,7 +503,7 @@
                         <div class="row row-cols-1 px-3">
 
                             <div class="col">
-                                <h3 class="reconstruct mt-2">Création d'un salon</h3>
+                                <h2 class="reconstruct mt-2">Création d'un salon</h2>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
@@ -499,16 +515,16 @@
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
+                                        <label for="game_new_room" class="mb-2">Jeux :</label>
+                                        <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
                                             <option selected>Veuillez choisir un jeu</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label for="type" class="mb-2">Type de partie :</label>
-                                        <select id="type" class="input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                        <label for="game_type_new_room" class="mb-2">Type de partie :</label>
+                                        <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
                                             <option value="normal">Normal</option>
                                             <option value="ranked">Ranked</option>
@@ -516,16 +532,16 @@
                                     </div>
 
                                     <div>
-                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
+                                        <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
 
                                 <!-- Right Side -->
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                        <label for="title_new_room" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="room_title" id="title_new_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                                     </div>
 
                                     <div>
@@ -536,10 +552,8 @@
 
                                 <!-- Buttons -->
                                 <div class="d-lg-flex col-lg-5 offset-lg-7">
-
-                                    <button class="btn w-100 btn lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
-                                    <button class="btn w-100 btn lh-buttons-purple mb-3">Créer un salon</button>
-
+                                    <button class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
+                                    <button class="btn w-100 lh-buttons-purple mb-3">Créer un salon</button>
                                 </div>
 
                             </form>
@@ -550,13 +564,13 @@
                 </div>
 
                 <!-- Update Room hub tab content -->
-                <div class="tab-pane fade show p-1 active border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
                     <div class="py-3">
                         <div class="row row-cols-1 px-3">
 
                             <div class="col">
-                                <h3 class="reconstruct mt-3">Modification du salon</h3>
+                                <h2 class="reconstruct mt-2">Modification d'un salon</h2>
                             </div>
                             <div class="col px-2 px-md-5 px-lg-0 pb-4">
                                 <hr>
@@ -568,16 +582,16 @@
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="games" class="mb-2">Jeux :</label>
-                                        <select id="games" class="form-select input mb-4 w-100" aria-label="Select" name="games" required aria-required="true">
-                                            <option selected>Veuillez choisir un jeux</option>
+                                        <label for="game_update_room" class="mb-2">Jeux :</label>
+                                        <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
+                                            <option selected>Veuillez choisir un jeu</option>
                                             <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label for="type" class="mb-2">Type de partie :</label>
-                                        <select id="type" class="form-select input mb-4 w-100" aria-label="Select" name="type" required aria-required="true">
+                                        <label for="game_type_update_room" class="mb-2">Type de partie :</label>
+                                        <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
                                             <option value="normal">Normal</option>
                                             <option value="ranked">Ranked</option>
@@ -585,18 +599,16 @@
                                     </div>
 
                                     <div>
-                                        <label for="numberofparticipants" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="numberofparticipants" id="numberofparticipants" min="1" max="10" class="input mb-3 w-100" required aria-required="true">
+                                        <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
+                                        <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
-
 
                                 <!-- Right Side -->
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
-                                        <label for="titleroom" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="titleroom" id="titleroom" maxlength="40" class="input mb-4 w-100" required aria-required="true">
-
+                                        <label for="title_update_room" class="mb-2">Titre du salon :</label>
+                                        <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                                     </div>
 
                                     <div>
@@ -605,13 +617,15 @@
                                     </div>
                                 </div>
 
-
                                 <!-- Buttons -->
-                                <div class="col d-lg-flex">
-                                    <button class="btn lh-buttons-purple w-100 mt-3 order-lg-3">Créer un salon</button>
-                                    <button class="btn lh-buttons-purple-faded w-100 mt-3 ms-lg-auto me-lg-4 order-lg-2">Annuler</button>
-                                    <button class="btn lh-buttons-red w-100 mt-4 me-lg-4 order-lg-1">Clôturer le salon</button>
+                                <div class="d-lg-flex col-lg-5 offset-lg-2 order-lg-2 flex-lg-row-reverse">
+                                    <button class="btn w-100 lh-buttons-purple mb-3">Modifier le salon</button>
+                                    <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
                                 </div>
+                                <div class="d-lg-flex col-lg-5 order-lg-1">
+                                    <button class="btn w-100 lh-buttons-red mb-3">Clôturer le salon</button>
+                                </div>
+
                             </form>
 
                         </div>
@@ -625,9 +639,9 @@
 
     </main>
 
-    <?php //require_once(__DIR__."/../view/footer.php") ?>
+    <?php require_once(__DIR__."/../view/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="assets/js/scriptAccount.js"> </script>
+    <script src="assets/js/scriptAccount.js"></script>
 </body>
 </html>
