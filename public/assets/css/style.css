@@ -512,7 +512,13 @@ main.account-fields form:not(#formNotification) {
     margin-bottom: 55px;
 }
 
+/* Admin - dashboard */
 
+.nav-dashboard-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+
+}
 /* Media Query */
 
 
