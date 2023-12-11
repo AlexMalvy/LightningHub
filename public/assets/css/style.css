@@ -519,6 +519,14 @@ main.account-fields form:not(#formNotification) {
     font-weight: bold;
 
 }
+
+.dashboard-title{
+    margin-right: 9.5rem;
+}
+
+
+
+
 /* Media Query */
 
 

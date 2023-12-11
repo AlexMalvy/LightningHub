@@ -13,7 +13,28 @@
 
 
 <main>
-    <?php require_once(__DIR__."/header_nav_admin.php") ?>
+
+    <div class="navbar-brand my-lg-3 ps-lg-3 d-none d-lg-block">Tableau de bord</div>
+
+    <div class="d-lg-flex">
+
+        <?php require_once(__DIR__ . "/nav_admin.php") ?>
+
+        <section class="bg-color-purple-faded ms-lg-5">
+            <p class="nav-dashboard-title ps-3 my-4 py-4">Accueil</p>
+            <ul class="list-unstyled d-lg-flex">
+                <li class="dashboard-title ps-3">Nombre d'utilisateurs</li>
+                <li class="dashboard-title ps-3">Nombre de salons</li>
+                <li class="dashboard-title ps-3">Nombre de jeux</li>
+                <li class="dashboard-title ps-3">Nombre de FAQ</li>
+            </ul>
+            <hr class="mx-3 d-none d-lg-block"/>
+
+        </section>
+
+    </div>
+
+
 </main>
 
 
