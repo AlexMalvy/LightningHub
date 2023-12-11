@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo-lightninghub.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Lightning Hub - Mon compte</title>
@@ -25,13 +26,13 @@
 
             <section id="profile-picture">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Photo de profil</h2>
-                <img src="assets/images/goku.png" alt="photo de profil" class="avatar-70x70">
-                <form method="post" action="" enctype="multipart/form-data" class="d-flex align-items-center">
-                    <label for="file" class="label-file me-2 p-2 text-center" >Choisir une image</label>
+                <img src="assets/images/avatar.png" alt="photo de profil" class="avatar-70x70">
+                <form method="post" action="" enctype="multipart/form-data" class="d-flex justify-content-end align-items-center">
+                    <label for="file" class="label-file me-2 p-2 text-center">Choisir une image</label>
                     <input id="file" type="file" name="avatarPicture">
                     <button class="btn lh-buttons-purple">Enregistrer</button>
                 </form>
-                <p class="text-center"> l'image doit être au format JPEG, PNG ou GIF et ne doit pas dépasser 10 Mo.</p>
+                <p class="text-center">l'image doit être au format JPEG, PNG ou GIF et ne doit pas dépasser 2 Mo.</p>
             </section>
 
             <!-- Pseudo -->
