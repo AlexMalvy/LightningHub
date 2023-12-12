@@ -17,6 +17,7 @@ CREATE TABLE Games (
    idGame INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
    -- Table Content
    nameGame VARCHAR(50) NOT NULL,
+   tag VARCHAR(5) NOT NULL DEFAULT "",
    descriptionShort VARCHAR(255) NOT NULL DEFAULT "",
    description VARCHAR(2000) NOT NULL DEFAULT "",
    twitch VARCHAR(255) NOT NULL DEFAULT "",
@@ -78,7 +79,7 @@ CREATE TABLE Users (
    idUser INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
    -- Table Content
    username VARCHAR(50) NOT NULL,
-   password VARCHAR(50) NOT NULL,
+   password VARCHAR(300) NOT NULL,
    mail VARCHAR(50) UNIQUE NOT NULL,
    profilePicture VARCHAR(255) DEFAULT "",
    SignUpDate DATETIME NOT NULL DEFAULT NOW(),
@@ -87,7 +88,7 @@ CREATE TABLE Users (
    isAdmin BOOLEAN NOT NULL DEFAULT FALSE,
    isRoomOwner BOOLEAN NOT NULL DEFAULT FALSE,
    -- Constraints / Foreign key(s)
-   idRoom INT(11) UNSIGNED NOT NULL
+   idRoom INT(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
@@ -209,6 +210,117 @@ ALTER TABLE isFriend
 ALTER TABLE sendPrivateMessages
    ADD CONSTRAINT privateMessage_user1_fk FOREIGN KEY (idUser1) REFERENCES Users (idUser),
    ADD CONSTRAINT privateMessage_user2_fk FOREIGN KEY (idUser2) REFERENCES Users (idUser);
+
+
+-- Insert Data
+INSERT INTO Games (idGame, nameGame, tag, descriptionShort, description, twitch, reddit, officialWebsite)
+VALUES
+   (1, "League Of Legends", "LoL", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.
+Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.", "https://www.twitch.tv/directory/category/league-of-legends", "https://www.reddit.com/r/leagueoflegends/", "https://www.leagueoflegends.com/fr-fr/"),
+   (2, "World Of Warcraft", "WoW", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft.", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.", "https://www.twitch.tv/directory/category/world-of-warcraft", "https://www.reddit.com/r/wow/", "https://worldofwarcraft.blizzard.com/fr-fr/"),
+   (3, "Valorant", "Valo", "Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.", "Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.
+Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes.", "https://www.twitch.tv/directory/category/valorant", "https://www.reddit.com/r/VALORANT/", "https://playvalorant.com/fr-fr/"),
+   (4, "Warzone", "WZ", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie.", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).
+Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.", "https://www.twitch.tv/directory/category/call-of-duty-warzone", "https://www.reddit.com/r/CODWarzone/", "https://www.callofduty.com/fr/playnow/warzone"),
+   (5, "FC 24", "FC24", "", "", "https://www.twitch.tv/directory/category/ea-sports-fc-24", "https://www.reddit.com/r/EASportsFC", "https://www.ea.com/fr-fr/games/ea-sports-fc/fc-24?setLocale=fr-fr");
+
+INSERT INTO Gamemodes (nameGamemode, idGame)
+VALUES
+   -- League Of Legends Modes
+   ("Normal", 1),
+   ("Ranked", 1),
+   ("Custom", 1),
+   -- World Of Warcraft Modes
+   ("Dungeon", 2),
+   ("Mythic +", 2),
+   ("Raid", 2),
+   ("Arena", 2),
+   ("Battlegrounds", 2),
+   ("Custom", 2),
+   -- Valorant Modes
+   ("Deathmatch", 3),
+   ("Normal", 3),
+   ("Ranked", 3),
+   -- Warzone Modes
+   ("Battle Royal", 4),
+   ("Online", 4),
+   ("Custom", 4),
+   -- FC 24
+   ("All", 5);
+
+INSERT INTO Faq (question, answer)
+VALUES
+   ("Qu’est-ce que Lightning Hub considère comme un comportement haineux ?", "Les comportements haineux, qui désignent tout contenu ou activité qui favorise, encourage ou met en avant la discrimination, le dénigrement, l’objectivation, le harcèlement ou la violence."),
+   ("Dans quelle mesure suis-je responsable de ma communauté ?", "Les créateurs de salons et leaders des communautés qu’ils créent ou entretiennent. C’est pourquoi ils doivent tenir compte des conséquences de leurs déclarations et des actions de leur public"),
+   ("Que dois-je faire dans le cas où quelqu'un se rendrait coupable de comportements haineux", "Nous demandons aux streamers d’agir en toute bonne foi pour modérer leur chat , la mise sur pied d’une équipe de modération et/ou le recours à un des nombreux outils tiers à votre disposition.");
+
+INSERT INTO Users (username, password, mail, isRoomOwner)
+VALUES
+   ("Fatality67", "azerty", "fatality67@lh.com", TRUE),
+   ("IsmaGod", "aqwzsxedc", "ismagod@lh.com", FALSE),
+   ("ChadSteph", "oklm", "chadsteph@lh.com", TRUE),
+   ("RedMorgane", "azertyuiop", "redmorgane@lh.com", FALSE),
+   ("Kevin92", "azerqsdf", "kevin92@banme.com", FALSE);
+
+INSERT INTO Rooms (idRoom, title, idGamemode)
+VALUES
+   (1, "Fatality67's Room", 2),
+   (2, "ChadSteph gang", 12);
+
+INSERT INTO Messages (message, idRoom, idUser)
+VALUES
+   ("Hello", 1, 4),
+   ("is this live ?", 1, 1);
+
+INSERT INTO BanTypes (nameBan)
+VALUES
+   ("Avertissement 1"),
+   ("Avertissement 2"),
+   ("Ban Temporaire"),
+   ("Ban Permanent");
+
+INSERT INTO Moderations (description, duration, idBanType, idUser)
+VALUES
+   ("Must be ban because I am the Law", 60*60*24*365, 3, 5);
+
+INSERT INTO requestToJoin (idUser, idRoom)
+VALUES
+   (2, 1);
+
+INSERT INTO plays (idUser, idGame, inGameUsername)
+VALUES
+   (1, 1, "Fatality67"),
+   (1, 2, "Raylian"),
+   (2, 1, "IsmaGod"),
+   (3, 1, "ChadSteph"),
+   (4, 4, "RedMorgane");
+
+INSERT INTO isFriend (idUser1, idUser2, accepted)
+VALUES
+   (1, 2, FALSE),
+   (1, 3, TRUE),
+   (1, 4, TRUE),
+   (4, 3, FALSE),
+   (4, 2, TRUE);
+
+INSERT INTO sendPrivateMessages (idUser1, idUser2, message)
+VALUES
+   (1, 2, "Yo"),
+   (1, 4, "Ayo"),
+   (2, 1, "Salutation !");
+
+UPDATE Users
+SET idRoom = 1
+WHERE idUser = 1;
+
+UPDATE Users
+SET idRoom = 2
+WHERE idUser = 3;
+
+UPDATE Users
+SET idRoom = 1
+WHERE idUser = 4;
+
 
 COMMIT;
 SET AUTOCOMMIT = 1;
