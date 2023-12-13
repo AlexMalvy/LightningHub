@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+    <?php require_once(__DIR__."/../controller/functions.php"); ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->
@@ -56,94 +56,53 @@
                 <!-- Carousel content -->
                 <div class="carousel-inner">
 
-                    <!-- League of Legends Card -->
-                    <div class="carousel-item active">
+                    <!-- Display Games -->
+                    <?php
+                    $games = display_games(4);
+                    $counter = 0;
+                    foreach($games as $game): ?>
+
+                    <!-- Game Card -->
+                    <div class="carousel-item <?php if ($counter === 0) print("active"); ?>">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/Leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
+                            <img src="<?php print($game["image"]) ?>" class="card-img-top" alt="images-<?php print($game["nameGame"]) ?>">
                             <div class="card-body px-0">
-                                <h3 class="card-title">League of Legends</h3>
-                                <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
-                                <p class="card-text mb-4">Coopérez avec vos coéquipiers pour atteindre la victoire dans des parties palpitantes. Relevez le défi et devenez une légende dans l'arène de League of Legends !</p>
+                                <h3 class="card-title"><?php print($game["nameGame"]) ?></h3>
+                                <p class="card-text"><?php print($game["description"]) ?></p>
                                 <div class="d-flex justify-content-between">
 
-                                    <!-- League of Legends Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
+                                    <!-- Join Team -->
+                                    <a href="hub.php" class="btn lh-buttons-purple">
                                         <span>Rejoindre</span>
                                     </a>
 
-                                    <!-- League of Legends Social Links -->
+                                    <!-- Game's Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="league of legends twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="league of legends reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="league of legends official website link" class="hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["twitch"]) ?>" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> twitch link" class="hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["reddit"]) ?>" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> reddit link" class="hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["officialWebsite"]) ?>" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> official website link" class="hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
                         </section>
                     </div>
+                    <?php $counter += 1; ?>
+                    <?php endforeach; ?>
 
-                    <!-- Valorant Card -->
-                    <div class="carousel-item">
-                        <section class="card bg-transparent border-0 m-2 px-2">
-
-                            <img src="assets/images/valorant.png" class="card-img-top" alt="images-valorant">
-
-                            <div class="card-body px-0">
-                                <h3 class="card-title">Valorant</h3>
-
-                                <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
-                                <p class="card-text mb-4">Coopérez avec vos coéquipiers pour atteindre la victoire dans des parties palpitantes. Relevez le défi et devenez une légende dans l'arène de League of Legends !</p>
-                                <div class="d-flex justify-content-between">
-
-                                    <!-- Valorant Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
-                                        <span>Rejoindre</span>
-                                    </a>
-
-                                    <!-- Valorant Social Links -->
-                                    <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="hover-accent focus-accent"></a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- World of Warcraft Card -->
-                    <div class="carousel-item">
-                        <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/world-of-warcraft.png" class="card-img-top" alt="images-warcraft">
-                            <div class="card-body px-0">
-                                <h3 class="card-title">World-of-Warcraft</h3>
-                                <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>
-                                <p class="card-text mb-4">Coopérez avec vos coéquipiers pour atteindre la victoire dans des parties palpitantes. Relevez le défi et devenez une légende dans l'arène de League of Legends !</p>
-                                <div class="d-flex justify-content-between">
-
-                                    <!-- World of Warcraft Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
-                                        <span>Rejoindre</span>
-                                    </a>
-
-                                    <!-- World of Warcraft Social Links -->
-                                    <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="hover-accent focus-accent"></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="hover-accent focus-accent"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
                 </div>
 
                 <!-- Carousel bottom dots -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active bg-white" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" class="bg-white" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" class="bg-white" aria-label="Slide 3"></button>
+                <div class="carousel-indicators py-2">
+                    <?php
+                    $slide_counter = 0;
+                    while ($slide_counter < $counter) :
+                    ?>
+
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php print($slide_counter) ?>" class="<?php if ($slide_counter === 0) print("active"); ?> bg-white" <?php if ($slide_counter === 0) print('aria-current="true"') ?> aria-label="Slide <?php print($slide_counter + 1) ?>"></button>
+
+                    <?php
+                    $slide_counter += 1;
+                    endwhile; ?>
                 </div>
 
             </div>
@@ -164,115 +123,41 @@
                 <h2 class="pb-4 reconstruct">Nos Univers</h2>
                 <div class="container-fluid px-0">
                     <div class="row row-cols-2 row-cols-xl-4 g-3">
+
+                        <!-- Display first 4 games -->
+                        <?php
+                        $games = display_games(4);
+                        foreach($games as $game): ?>
                         
-                        <!-- League of Legends Card -->
+                        <!-- Game Card -->
                         <section class="col">
                             <div class="card desktop-card">
-                                <img src="assets/images/Leagues-of-legends.png" alt="images-Leagues-of-legends" class="card-img-top">
-                                <!-- League of Legends Card Body -->
+                                <img src="<?php print($game["image"]) ?>" alt="images-<?php print($game["nameGame"]) ?>" class="card-img-top">
+                                <!-- Card Body -->
                                 <div class="card-body">
-                                    <h3 class="card-title">League of Legends</h3>
+                                    <h3 class="card-title"><?php print($game["nameGame"]) ?></h3>
                                     <div class="card-text">
-                                        <p>League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.</p>
+                                        <p><?php print($game["descriptionShort"]) ?></p>
                                     </div>
                                 </div>
 
-                                <!-- League of Legends Card Footer -->
+                                <!-- Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                    <!-- League of Legends Join Team -->
+                                    <!-- Join Team -->
                                     <a href="hub.php" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
-                                    <!-- League of Legends Social Links -->
+                                    <!-- Game's Social Links -->
                                     <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/league-of-legends" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="League of legends twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/leagueoflegends/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="League of legends reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.leagueoflegends.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="League of legends official website link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["twitch"]) ?>" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> twitch link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["reddit"]) ?>" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> reddit link" class="icon-30x30 hover-accent focus-accent"></a>
+                                        <a href="<?php print($game["officialWebsite"]) ?>" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="<?php print($game["nameGame"]) ?> official website link" class="icon-30x30 hover-accent focus-accent"></a>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
-                        <!-- Valorant Card -->
-                        <section class="col">
-                            <div class="card desktop-card">
-                                <img src="assets/images/valorant.png" alt="images-valorant" class="card-img-top">
-                                <div class="card-body">
-                                    <h3 class="card-title">Valorant</h3>
-                                    <div class="card-text">
-                                        <p>Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.</p>
-                                    </div>
-                                </div>
-                                    
-                                <!-- Valorant Card Footer -->
-                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                    <!-- Valorant Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
-                                        <span>Rejoindre</span>
-                                    </a>
-                                    <!-- Valorant Social Links -->
-                                    <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/valorant" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Valorant twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/VALORANT/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Valorant reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://playvalorant.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Valorant official website link" class="icon-30x30 hover-accent focus-accent"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- World of Warcaft Card -->
-                        <section class="col">
-                            <div class="card desktop-card">
-                                <img src="assets/images/world-of-warcraft.png" alt="images-world-of-warcraft" class="card-img-top">
-                                <div class="card-body">
-                                    <h3 class="card-title">World of Warcaft</h3>
-                                    <div class="card-text">
-                                        <p>World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft.</p>
-                                    </div>
-                                </div>
-                                    
-                                <!-- World of Warcaft Card Footer -->
-                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                    <!-- World of Warcaft Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
-                                        <span>Rejoindre</span>
-                                    </a>
-                                    <!-- World of Warcaft Social Links -->
-                                    <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/world-of-warcraft" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="World of Warcraft twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/wow/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="World of Warcraft reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://worldofwarcraft.blizzard.com/" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="World of Warcraft official website link" class="icon-30x30 hover-accent focus-accent"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Call of Duty Warzone Card -->
-                        <section class="col">
-                            <div class="card desktop-card">
-                                <img src="assets/images/call-of-duty-warzone.png" alt="image-call-of-duty-warzone" class="card-img-top">
-                                <div class="card-body">
-                                    <h3 class="card-title">Warzone</h3>
-                                    <div class="card-text">
-                                        <p>Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie</p>
-                                    </div>
-                                </div>
-                                    
-                                <!-- Warzone Card Footer -->
-                                <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
-                                    <!-- Warzone Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
-                                        <span>Rejoindre</span>
-                                    </a>
-                                    <!-- Warzone Social Links -->
-                                    <div class="d-flex gap-2">
-                                        <a href="https://www.twitch.tv/directory/category/call-of-duty-warzone" target="_blank"><img src="assets/images/twitch-icon-37x37.png" alt="Call of Duty Warzone twitch link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.reddit.com/r/CODWarzone/" target="_blank"><img src="assets/images/reddit-icon-37x37.png" alt="Call of Duty Warzone reddit link" class="icon-30x30 hover-accent focus-accent"></a>
-                                        <a href="https://www.callofduty.com/fr/playnow/warzone" target="_blank"><img src="assets/images/outerlink-icon-37x37.png" alt="Call of Duty Warzone official website link" class="icon-30x30 hover-accent focus-accent"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        <?php endforeach; ?>
 
                     </div>
                 </div>
