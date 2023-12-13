@@ -26,7 +26,7 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active mt-4" aria-current="page" href="#"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+                        <a id="nav-welcome" class="nav-link active mt-4" aria-current="page" href="#"><i class="fa-solid fa-house me-2"></i>Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.php"><i class="fa-solid fa-reply-all me-2"></i>Site Lightning Hub</a>

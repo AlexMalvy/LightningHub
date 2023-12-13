@@ -521,8 +521,9 @@ main.account-fields form:not(#formNotification) {
 }
 
 .dashboard-title{
-    margin-right: 9.5rem;
+    margin-right: 8rem;
 }
+
 
 
 
@@ -558,6 +559,7 @@ main.account-fields form:not(#formNotification) {
         margin-top: 10%;
     }
 
+
 }
 
 
@@ -565,6 +567,10 @@ main.account-fields form:not(#formNotification) {
     /* Global */
     .bottom-nav-margin {
         margin-bottom: 77px;
+    }
+
+    .dashboard-title{
+        margin-right: 0rem;
     }
 }
 
@@ -586,5 +592,9 @@ main.account-fields form:not(#formNotification) {
     section#cookies span.label {
         flex: 100%;
         max-width: 100%;
+    }
+
+    .dashboard-title{
+        margin-right: 0rem;
     }
 }
