@@ -1,5 +1,5 @@
 <!-- Nav -->
-<nav class="navbar-expand-lg bg-color-purple-faded rounded-0 h-100">
+<nav id="nav-dashboard" class="navbar-expand-lg bg-color-purple-faded rounded-0 h-100">
     <div class="container-fluid d-flex justify-content-between flex-lg-column align-items-lg-start ms-lg-3">
 
         <!-- Nav title (Desktop) -->
@@ -55,7 +55,7 @@
                     <hr/>
                     <li class="nav-dashboard-title">FAQ</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
+                        <a id="nav-faq" class="nav-link" href="#"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mb-5" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>

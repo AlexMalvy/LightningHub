@@ -521,7 +521,11 @@ main.account-fields form:not(#formNotification) {
 }
 
 .dashboard-title{
-    margin-right: 8rem;
+    margin-right: 7.3rem;
+}
+
+#nav-dashboard{
+    min-width:250px;
 }
 
 

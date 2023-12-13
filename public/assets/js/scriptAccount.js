@@ -159,14 +159,3 @@ if (newRoom && newRoomHubTab || updateRoom) {
         });
     }
 
-
-/* PAGE DASHBOARD ADMIN */
-
-const welcomeHome = document.querySelector('#nav-welcome');
-
-welcomeHome.addEventListener('click', () => {
-
-    const home = document.querySelector('#dashboard-welcome');
-    home.style.display = 'block';
-    console.log("Welcome");
-})
