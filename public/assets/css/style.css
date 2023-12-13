@@ -598,3 +598,9 @@ main.account-fields form:not(#formNotification) {
         margin-right: 0rem;
     }
 }
+
+/* TEST TABLES*/
+
+table tr td, table tr th{
+    background-color: rgba(0,0,0, 0) !important;
+}
