@@ -213,16 +213,16 @@ ALTER TABLE sendPrivateMessages
 
 
 -- Insert Data
-INSERT INTO Games (idGame, nameGame, tag, descriptionShort, description, twitch, reddit, officialWebsite)
+INSERT INTO Games (idGame, nameGame, tag, descriptionShort, description, twitch, reddit, officialWebsite, image)
 VALUES
-   (1, "League Of Legends", "LoL", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.
-Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.", "https://www.twitch.tv/directory/category/league-of-legends", "https://www.reddit.com/r/leagueoflegends/", "https://www.leagueoflegends.com/fr-fr/"),
-   (2, "World Of Warcraft", "WoW", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft.", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.", "https://www.twitch.tv/directory/category/world-of-warcraft", "https://www.reddit.com/r/wow/", "https://worldofwarcraft.blizzard.com/fr-fr/"),
+   (1, "League Of Legends", "LoL", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.", "League of Legends est un jeu de stratégie en équipe dans lequel deux équipes de cinq champions s'affrontent pour détruire la base adverse.<br>
+Faites votre choix parmi plus de 140 champions disponibles, partez au combat, éliminez vos adversaires avec adresse et abattez les tourelles ennemies pour décrocher la victoire.", "https://www.twitch.tv/directory/category/league-of-legends", "https://www.reddit.com/r/leagueoflegends/", "https://www.leagueoflegends.com/fr-fr/", "assets/images/Leagues-of-legends.png"),
+   (2, "World Of Warcraft", "WoW", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft.", "World of Warcraft est un jeu vidéo de rôle massivement multijoueur se déroulant dans l'univers développé dans les trois premiers Warcraft. Le joueur y incarne un personnage, dont il peut choisir la race et la classe, devant explorer des donjons et des environnements peuplés de monstres.", "https://www.twitch.tv/directory/category/world-of-warcraft", "https://www.reddit.com/r/wow/", "https://worldofwarcraft.blizzard.com/fr-fr/", "assets/images/world-of-warcraft.png"),
    (3, "Valorant", "Valo", "Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.", "Dans Valorant, chaque joueur joue le rôle d'un « agent » aux compétences uniques.
-Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes.", "https://www.twitch.tv/directory/category/valorant", "https://www.reddit.com/r/VALORANT/", "https://playvalorant.com/fr-fr/"),
-   (4, "Warzone", "WZ", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie.", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).
-Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.", "https://www.twitch.tv/directory/category/call-of-duty-warzone", "https://www.reddit.com/r/CODWarzone/", "https://www.callofduty.com/fr/playnow/warzone"),
-   (5, "FC 24", "FC24", "", "", "https://www.twitch.tv/directory/category/ea-sports-fc-24", "https://www.reddit.com/r/EASportsFC", "https://www.ea.com/fr-fr/games/ea-sports-fc/fc-24?setLocale=fr-fr");
+Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes.", "https://www.twitch.tv/directory/category/valorant", "https://www.reddit.com/r/VALORANT/", "https://playvalorant.com/fr-fr/", "assets/images/valorant.png"),
+   (4, "Warzone", "WZ", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie.", "Call of Duty: Warzone est un jeu vidéo de battle royale mettant en scène jusqu'à 150 joueurs par partie (et jusqu'à 200 joueurs dans certains modes).<br>
+Le jeu propose plusieurs armes, certaines sont issues du jeu Modern Warfare, d'autres de la série Black Ops.", "https://www.twitch.tv/directory/category/call-of-duty-warzone", "https://www.reddit.com/r/CODWarzone/", "https://www.callofduty.com/fr/playnow/warzone", "assets/images/call-of-duty-warzone.png"),
+   (5, "FC 24", "FC24", "", "", "https://www.twitch.tv/directory/category/ea-sports-fc-24", "https://www.reddit.com/r/EASportsFC", "https://www.ea.com/fr-fr/games/ea-sports-fc/fc-24?setLocale=fr-fr", "");
 
 INSERT INTO Gamemodes (nameGamemode, idGame)
 VALUES
@@ -320,6 +320,11 @@ WHERE idUser = 3;
 UPDATE Users
 SET idRoom = 1
 WHERE idUser = 4;
+
+-- CREATE OR REPLACE USER lightninghubadmin@localhost
+-- IDENTIFIED BY "lightninghubcorporation";
+
+-- GRANT ALL PRIVILEGES ON lightninghub.* TO lightninghubadmin@localhost;
 
 
 COMMIT;
