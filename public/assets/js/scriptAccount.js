@@ -156,7 +156,5 @@ if (newRoom && newRoomHubTab || updateRoom) {
         }
 
 
-
-
         });
     }

@@ -15,6 +15,8 @@
 
         <!-- OffCanva (Mobile) -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
+
+            <!-- Header -->
             <div class="offcanvas-header">
                 <a type="button" data-bs-dismiss="offcanvas" aria-label="Close"> <i class="fa-solid fa-xmark fa-2xl"></i></a>
                 <p class="mb-0 fs-3">Menu</p>
