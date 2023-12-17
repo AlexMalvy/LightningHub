@@ -47,7 +47,7 @@
                     <hr/>
                     <li class="nav-dashboard-title">Salons</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="hub.php"><i class="fa-solid fa-comments me-2"></i>Voir les
+                        <a id="nav-hub" class="nav-link" href="#"><i class="fa-solid fa-comments me-2"></i>Voir les
                             salons</a>
                     </li>
                     <li class="nav-item">
