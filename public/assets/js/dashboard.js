@@ -6,6 +6,10 @@ const navFaq = document.querySelector('#nav-faq');
 const dashboardFaq = document.querySelector('#dashboard-faq');
 const navHub = document.querySelector('#nav-hub');
 const dashboardHub = document.querySelector('#dashboard-hub');
+const navCreateHub = document.querySelector('#nav-create-hub');
+const dashboardCreateHub = document.querySelector('#dashboard-create-hub');
+const navUpdateHub = document.querySelector('#nav-update-hub');
+const dashboardUpdateHub = document.querySelector('#dashboard-update-hub');
 const sections = document.querySelectorAll('section');
 
 navHome.addEventListener('click', () => {
@@ -29,6 +33,17 @@ navHub.addEventListener('click', () => {
     dashboardHub.classList.remove('d-none');
     //home.classList.add('d-none');
 
+})
+
+
+navCreateHub.addEventListener('click', () => {
+    dismissAll();
+    dashboardCreateHub.classList.remove('d-none');
+})
+
+navUpdateHub.addEventListener('click', () => {
+    dismissAll();
+    dashboardUpdateHub.classList.remove('d-none');
 })
 
 function dismissAll(){

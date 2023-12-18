@@ -51,7 +51,8 @@
                             salons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter un salon</a>
+                        <a id="nav-create-hub" class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter
+                            un salon</a>
                     </li>
                     <hr/>
                     <li class="nav-dashboard-title">FAQ</li>
