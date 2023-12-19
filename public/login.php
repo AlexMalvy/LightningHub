@@ -49,7 +49,9 @@
                             <!-- Connection tab content -->
                             <div class="tab-pane fade show active flex-fill" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
                                 <div class="container">
-                                    <form action="" class="d-flex flex-column py-3">
+                                    <form action="../controller/loginController.php" method="POST" class="d-flex
+                                    flex-column
+                                    py-3">
                                         <label for="email">Email</label>
                                         <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
 
@@ -72,7 +74,9 @@
                             <!-- Login tab content -->
                             <div class="tab-pane fade flex-fill" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
                                 <div class="container">
-                                    <form action="" class="d-flex flex-column py-3">
+                                    <form action="../controller/registerController.php" method="POST" class="d-flex
+                                    flex-column
+                                    py-3">
                                         <label for="nickname">Pseudo   (Visible)</label>
                                         <input type="text" name="nickname" id="nickname" class="mb-3 rounded bg-white border text-black">
 
@@ -83,7 +87,7 @@
                                         <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
 
                                         <div class="mb-3">
-                                            <input type="checkbox" name="adult" id="adult">
+                                            <input type="checkbox" name="adult" id="adult" required>
                                             <label for="adult" class="ps-2">Je confirme avoir plus de 18 ans.</label>
                                         </div>
 

@@ -7,13 +7,17 @@
     <title>Lightning Hub - Home</title>
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
 
 </head>
 
 <body>
 
-<?php require_once(__DIR__."/../view/header_nav.php") ?>
+<?php require_once(__DIR__."/../view/header_nav.php");
+ //require_once(__DIR__."/../controller/socialsController.php");
+
+
+?>
 
 <!-- Main -->
 <main class="mt-lg-5 pt-lg-5">
@@ -37,13 +41,15 @@
 
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img id="" class="mx-2 avatar-50x50" src="assets/images/rick.jpg"  alt="connected user avatar-70x70">
-                        <span id="myProfile">Ismael#42069</span>
+                        <img id="" class="mx-2 avatar-50x50" src="../public/assets/images/<?php echo
+                        $current_user['profilePicture']?>"  alt="connected user avatar-70x70">
+                        <span id="myProfile"><?php echo $current_user['username'] . "#" .
+                                $current_user['idUser'];?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
                 <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copier
-                    <img class="icon-20x20" src="assets/images/copy-regular.svg"  alt="copy icon">
+                    <img class="icon-20x20" src="../public/assets/images/copy-regular.svg"  alt="copy icon">
                 </a>
 
             </div>
@@ -95,6 +101,30 @@
                         <!-- Friends List -->
                         <ul class="list-group list-group-flush p-0">
 
+<!--                            TEST BDD-->
+                        <?php
+                        foreach ($friends_connected as $friend_connected) {?>
+                            <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+
+                                <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
+                                    <img class="me-2 avatar-50x50" src="../public/assets/images/<?php echo
+                                    $friend_connected['profilePicture']?>" alt="player
+                                    avatar-70x70"><?php echo $friend_connected['username']?></a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                   data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+                                    <img class="icon-20x20" src="../public/assets/images/message-solid-white.svg"
+                                         alt="message icon"></a>
+                                <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                   data-bs-toggle="modal" data-bs-target="#deleteFriendModal">
+                                    <img class="icon-20x20" src="../public/assets/images/user-minus-solid-white.svg"
+                                         alt="delete icon"></a>
+
+
+                            </li>
+                           <?php } ?>
+
+
+<!--                          FIN  TEST BDD-->
 
                             <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
@@ -319,6 +349,41 @@
 
                             </li>
                         </ul>
+
+<!--                        TEST BDD -->
+                        <ul class="list-group list-group-flush p-0"
+                            id="list-disconnected2">
+
+
+                            <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
+                            friends -->
+                            <?php
+
+                            foreach ($friends_disconnected as $friend){?>
+
+                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+
+                                    <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
+                                        <img class="me-2 avatar-50x50" src="../public/assets/images/<?php echo $friend['profilePicture']?>"
+                                             alt="player
+                                        avatar-70x70"><?php echo $friend['username']?></a>
+                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight">
+                                        <img class="icon-20x20" src="../public/assets/images/message-solid-white.svg"
+                                             alt="message icon"></a>
+                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                       data-bs-toggle="modal" data-bs-target="#deleteFriendModal">
+                                        <img class="icon-20x20" src="../public/assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
+
+                                </li>
+                            <?php
+                            }
+
+
+                            ?>
+
+
+
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -416,7 +481,7 @@
 <?php require_once(__DIR__."/../view/footer.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="assets/js/socials.js"> </script>
+<script src="../public/assets/js/socials.js"> </script>
 </body>
 
 </html>
