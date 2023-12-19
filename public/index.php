@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lightning Hub - Home</title>
+    <link rel="icon" type="image/png" href="assets/images/logo-lightninghub.png">
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -58,7 +59,7 @@
                     <!-- League of Legends Card -->
                     <div class="carousel-item active">
                         <section class="card bg-transparent border-0 m-2 px-2">
-                            <img src="assets/images/leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
+                            <img src="assets/images/Leagues-of-legends.png" class="card-img-top" alt="images-leagues-of-legends">
                             <div class="card-body px-0">
                                 <h3 class="card-title">League of Legends</h3>
                                 <p class="card-text">Plongez dans un univers fantastique où des champions aux pouvoirs uniques s'affrontent pour la suprématie.</p>

@@ -2,7 +2,11 @@
 <!-- Header mobile -->
 <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
     <img src="assets/images/logo-lightninghub.png" class="logo">
-    <h1 class="m-0 fs-3 d-flex flex-column justify-content-center"><span class="pe-2">Lightning</span><span class="ps-1 text-center">Hub</span></h1>
+    <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
+        echo '<h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
+    else :
+        echo '<div class="m-0 fs-3 d-flex justify-content-center reconstruct"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></div>';
+    endif; ?>
 </header>
 
 
@@ -17,7 +21,7 @@
             <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
                 echo '<h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
             else :
-                echo '<span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span>';
+                echo '<div><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></div>';
             endif; ?>
         </a>
 

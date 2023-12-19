@@ -227,7 +227,6 @@ main {
     height: 50px;
     border-radius: 50%;
     border: solid var(--bg-purple) 2px;
-    object-fit: cover;
 }
 
 .avatar-70x70{
@@ -235,7 +234,6 @@ main {
     height: 70px;
     border-radius: 50%;
     border: solid var(--bg-purple) 2px;
-    object-fit: cover;
 }
 
 .icon-20x20 {
@@ -514,6 +512,25 @@ main.account-fields form:not(#formNotification) {
     margin-bottom: 55px;
 }
 
+/* Admin - dashboard */
+
+.nav-dashboard-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+
+}
+
+.dashboard-title{
+    margin-right: 7.3rem;
+}
+
+#nav-dashboard{
+    min-width:250px;
+}
+
+
+
+
 
 /* Media Query */
 
@@ -546,6 +563,7 @@ main.account-fields form:not(#formNotification) {
         margin-top: 10%;
     }
 
+
 }
 
 
@@ -553,6 +571,10 @@ main.account-fields form:not(#formNotification) {
     /* Global */
     .bottom-nav-margin {
         margin-bottom: 77px;
+    }
+
+    .dashboard-title{
+        margin-right: 0rem;
     }
 }
 
@@ -575,4 +597,14 @@ main.account-fields form:not(#formNotification) {
         flex: 100%;
         max-width: 100%;
     }
+
+    .dashboard-title{
+        margin-right: 0rem;
+    }
+}
+
+/* TEST TABLES*/
+
+table tr td, table tr th{
+    background-color: rgba(0,0,0, 0) !important;
 }
