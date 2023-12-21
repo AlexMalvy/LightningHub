@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+    <?php require_once(__DIR__."/../controller/functions.php") ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->
@@ -125,28 +125,44 @@
                     <div class="container-fluid p-3">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
 
-                            <!-- Room #1 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                            <?php
+                            $rooms = display_rooms();
+                            $current_room = NULL;
+                            $current_date = date_create();
+                            foreach($rooms as $room):
+                            ?>
+                                <?php if ($current_room !== $room["idRoom"]): ?>
+
+                                    <?php
+                                        $current_room = $room["idRoom"];
+                                        $room_date = date_create_from_format("Y-m-d H:i:s", $room["dateCreation"]);
+                                        $minutes_since_creation = get_time_since_room_creation($room_date, $current_date);
+                                    ?>
+                                    <!-- Room -->
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <p class="fs-5 m-0 pe-2">3/5</p>
+                                                    <i class="fa-solid fa-user fa-xl text-white"></i>
+                                                </div>
+                                                <div class="px-2 fs-5 rounded bg-success">2 amis</div>
+                                                <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room["tag"]) ?></div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h2 class="card-title m-0 pb-1"><?php print($room["title"]) ?></h2>
+                                                <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
+                                                <p class="card-text"><?php print($room["description"]) ?></p>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                <p class="m-0"><?php print($minutes_since_creation); ?></p>
+                                            </div>
                                         </div>
-                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
-                                        <p class="card-text">Need top and supp.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">3 min</p>
-                                    </div>
-                                </div>
-                            </div>
+                                
+                                <?php endif; ?>
+                            <?php endforeach; ?>
 
                             <!-- Room #2 (Pending demo) -->
                             <div class="col">
