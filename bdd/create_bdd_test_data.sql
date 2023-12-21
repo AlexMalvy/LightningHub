@@ -322,10 +322,10 @@ UPDATE Users
 SET idRoom = 1
 WHERE idUser = 4;
 
--- CREATE OR REPLACE USER lightninghubadmin@localhost
--- IDENTIFIED BY "lightninghubcorporation";
+CREATE USER IF NOT EXISTS "lightninghubadmin"@"localhost"
+IDENTIFIED BY "lightninghubcorporation";
 
--- GRANT ALL PRIVILEGES ON lightninghub.* TO lightninghubadmin@localhost;
+GRANT ALL PRIVILEGES ON lightninghub.* TO "lightninghubadmin"@"localhost";
 
 
 COMMIT;
