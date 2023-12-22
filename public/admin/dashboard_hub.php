@@ -56,7 +56,7 @@
          aria-labelledby="new-room-hub-tab" tabindex="0">
 
         <div class="py-3">
-            <div class="row row-cols-1 px-3">
+            <div class="row-cols-1 px-3">
 
                 <div class="col">
                     <h2 class="reconstruct mt-2">Création d'un salon</h2>
@@ -124,10 +124,11 @@
     <h2 class="p-2 bd-highlight">SALONS</h2>
 
     <!-- Update Room hub tab content -->
-    <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+    <div class="tab-pane fade show p-1 border bg-color-purple-faded" id="update-room-hub-tab-pane" role="tabpanel"
+         aria-labelledby="update-room-hub-tab" tabindex="0">
 
         <div class="py-3">
-            <div class="row row-cols-1 px-3">
+            <div class=" row-cols-1 px-3">
 
                 <div class="col">
                     <h2 class="reconstruct mt-2">Modification d'un salon</h2>

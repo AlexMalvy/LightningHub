@@ -17,7 +17,7 @@
 <?php require_once(__DIR__."/../view/header_nav.php");
  //require_once(__DIR__."/../controller/socialsController.php");
 
-
+//var_dump($_SESSION);
 ?>
 
 <!-- Main -->
