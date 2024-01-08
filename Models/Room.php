@@ -33,7 +33,6 @@ class Room
     public string $owner;
     public int $OwnerId;
 
-    public $numberOfFriends;
     public $friendList;
 
     // Construct Get Room Members
@@ -55,10 +54,6 @@ class Room
     }
 
     public function getNumberOfFriend($userId) {
-        // $this->numberOfFriends = count(DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
-        // FROM isfriend
-        // WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", ["connectedUserId" => $userId]));
-        
         $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
         FROM isfriend
         WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", ["connectedUserId" => $userId]);
@@ -72,10 +67,7 @@ class Room
             }
         }
 
-        // $this->friendList = $tempFriendList;
-
         $tempFriendList = "'".implode("', '", $tempFriendList)."'";
-        // $this->friendList = $tempFriendList;
 
         $this->friendList = DB::fetch("SELECT users.idUser, users.username
         FROM users
