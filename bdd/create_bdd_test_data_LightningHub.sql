@@ -261,12 +261,23 @@ VALUES
    ("IsmaGod", "aqwzsxedc", "ismagod@lh.com", FALSE),
    ("ChadSteph", "oklm", "chadsteph@lh.com", TRUE),
    ("RedMorgane", "azertyuiop", "redmorgane@lh.com", FALSE),
-   ("Kevin92", "azerqsdf", "kevin92@banme.com", FALSE);
+   ("Kevin92", "azerqsdf", "kevin92@banme.com", FALSE),
 
-INSERT INTO Rooms (idRoom, title, idGamemode)
+   ("NickyLarson", "azertyuiop", "nickyls@lh.com", TRUE),
+   ("Vegeta", "azertyuiop", "vgtaDBZ@lh.com", TRUE),
+   ("Azir", "azertyuiop", "pigeon.king@lh.com", TRUE),
+   ("Pantheon", "azertyuiop", "pantheon@targon.com", FALSE),
+   ("Chad", "azertyuiop", "chad@lh.com", FALSE),
+
+   ("Naruto", "azertyuiop", "sasukelover@lh.com", FALSE);
+
+INSERT INTO Rooms (idRoom, title, description ,idGamemode)
 VALUES
-   (1, "Fatality67's Room", 2),
-   (2, "ChadSteph gang", 12);
+   (1, "Fatality67's Room", "Chuck Norris can see at least 3 extra colors. Chuck Norris doesn't read books. He stares them down until he gets the information he wants.", 2),
+   (2, "ChadSteph gang", "Chuck Norris wears contacts. Not to see better mind you, but so he won't burn a hole through whatever it is he is looking at.", 12),
+   (3, "Larson", "Chuck Norris designed and created two series of cars. These are now known as Autobots and Decepticons.", 5),
+   (4, "DBZ lovers", "Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV.", 4),
+   (5, "Champions", "Chuck Norris doesn't wear a watch. HE decides what time it is.", 2);
 
 INSERT INTO Messages (message, idRoom, idUser)
 VALUES
@@ -310,17 +321,51 @@ VALUES
    (1, 4, "Ayo"),
    (2, 1, "Salutation !");
 
+-- Adds Fatality67 to his room
 UPDATE Users
 SET idRoom = 1
 WHERE idUser = 1;
 
+-- Adds ChadSteph to his room
 UPDATE Users
 SET idRoom = 2
 WHERE idUser = 3;
 
+-- Adds RedMorgane to Fatality67's room
 UPDATE Users
 SET idRoom = 1
 WHERE idUser = 4;
+
+-- Adds NickyLarson to his room
+UPDATE Users
+SET idRoom = 3
+WHERE idUser = 6;
+
+-- Adds Vegeta to his room
+UPDATE Users
+SET idRoom = 4
+WHERE idUser = 7;
+
+-- Adds Azir to his room
+UPDATE Users
+SET idRoom = 5
+WHERE idUser = 8;
+
+-- Adds Pantheon to Azir's room
+UPDATE Users
+SET idRoom = 5
+WHERE idUser = 9;
+
+-- Adds Chad to Azir's room
+UPDATE Users
+SET idRoom = 5
+WHERE idUser = 10;
+
+-- Adds Naruto to Azir's room
+UPDATE Users
+SET idRoom = 5
+WHERE idUser = 11;
+
 
 CREATE USER IF NOT EXISTS "lightninghubadmin"@"localhost"
 IDENTIFIED BY "lightninghubcorporation";

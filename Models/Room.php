@@ -33,8 +33,7 @@ class Room
     public string $owner;
     public int $OwnerId;
 
-    public $numberOfFriends;
-    public $friendList;
+    public $friendList = [];
 
     // Construct Get Room Members
     protected function getRoomMembers()
@@ -54,32 +53,12 @@ class Room
         }
     }
 
-    public function getNumberOfFriend($userId) {
-        // $this->numberOfFriends = count(DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
-        // FROM isfriend
-        // WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", ["connectedUserId" => $userId]));
-        
-        $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
-        FROM isfriend
-        WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", ["connectedUserId" => $userId]);
-
-        $tempFriendList = [];
-        foreach ($result as $line) {
-            if ($line["idUser1"] === $userId) {
-                array_push($tempFriendList, $line["idUser2"]);
-            } else {
-                array_push($tempFriendList, $line["idUser1"]);
+    public function getNumberOfFriend($allRoomsFriendlist) {
+        foreach ($allRoomsFriendlist as $friend) {
+            if ($friend["idRoom"] === $this->roomId) {
+                array_push($this->friendList, $friend);
             }
         }
-
-        // $this->friendList = $tempFriendList;
-
-        $tempFriendList = "'".implode("', '", $tempFriendList)."'";
-        // $this->friendList = $tempFriendList;
-
-        $this->friendList = DB::fetch("SELECT users.idUser, users.username
-        FROM users
-        WHERE users.idUser IN (".$tempFriendList.")");
     }
     
     // Display Room creation time
