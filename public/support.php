@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <?php
+
+    use Models\Faq;
+
+    require_once(__DIR__."/../bootstrap/app.php");
+
+    $faq = new Faq();
+    ?>
 
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
@@ -27,53 +35,23 @@
                         <!-- Accordion -->
                         <div class="accordion" id="accordionExample">
 
-                            <!-- Accordion Item 1 -->
-                            <div class="accordion-item rounded-0">
-                                <!-- Header -->
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-color-purple rounded-0 focus-accent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        Qu’est-ce que Lightning Hub considère comme un comportement haineux ?
-                                    </button>
-                                </h2>
-                                <!-- Body -->
-                                <div id="collapseOne" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Les comportements haineux, qui désignent tout contenu ou activité qui favorise, encourage ou met en avant la discrimination, le dénigrement, l’objectivation, le harcèlement ou la violence</p>
+                            <?php foreach ($faq->allFaqList as $key => $item): ?>
+                                <!-- Accordion Item 1 -->
+                                <div class="accordion-item mt-3 rounded-0">
+                                    <!-- Header -->
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed bg-color-purple rounded-0 focus-accent" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php print($key); ?>" aria-expanded="false" aria-controls="collapse<?php print($key); ?>">
+                                            <?php print($item["question"]) ?>
+                                        </button>
+                                    </h2>
+                                    <!-- Body -->
+                                    <div id="collapse<?php print($key); ?>" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body bg-color-purple-faded">
+                                            <p><?php print($item["answer"]) ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Accordion Item 2 -->
-                            <div class="accordion-item mt-3">
-                                <!-- Header -->
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-color-purple" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Dans quelle mesure suis-je responsable de ma communauté ?
-                                    </button>
-                                </h2>
-                                <!-- Body -->
-                                <div id="collapseTwo" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Les créateurs de salons et leaders des communautés qu’ils créent ou entretiennent. C’est pourquoi ils doivent tenir compte des conséquences de leurs déclarations et des actions de leur public</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Accordion Item 3 -->
-                            <div class="accordion-item mt-3 rounded-0">
-                                <!-- Header -->
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-color-purple rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Que dois-je faire dans le cas où quelqu'un se rendrait coupable de comportements haineux
-                                    </button>
-                                </h2>
-                                <!-- Body -->
-                                <div id="collapseThree" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body bg-color-purple-faded">
-                                        <p>Nous demandons aux streamers d’agir en toute bonne foi pour modérer leur chat , la mise sur pied d’une équipe de modération et/ou le recours à un des nombreux outils tiers à votre disposition.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                             
                         </div>
                     </div>

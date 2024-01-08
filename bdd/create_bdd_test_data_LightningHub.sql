@@ -271,13 +271,13 @@ VALUES
 
    ("Naruto", "azertyuiop", "sasukelover@lh.com", FALSE);
 
-INSERT INTO Rooms (idRoom, title, idGamemode)
+INSERT INTO Rooms (idRoom, title, description ,idGamemode)
 VALUES
-   (1, "Fatality67's Room", 2),
-   (2, "ChadSteph gang", 12),
-   (3, "Larson", 5),
-   (4, "DBZ lovers", 4),
-   (5, "Champions", 2);
+   (1, "Fatality67's Room", "Chuck Norris can see at least 3 extra colors. Chuck Norris doesn't read books. He stares them down until he gets the information he wants.", 2),
+   (2, "ChadSteph gang", "Chuck Norris wears contacts. Not to see better mind you, but so he won't burn a hole through whatever it is he is looking at.", 12),
+   (3, "Larson", "Chuck Norris designed and created two series of cars. These are now known as Autobots and Decepticons.", 5),
+   (4, "DBZ lovers", "Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV.", 4),
+   (5, "Champions", "Chuck Norris doesn't wear a watch. HE decides what time it is.", 2);
 
 INSERT INTO Messages (message, idRoom, idUser)
 VALUES

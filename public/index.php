@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <?php require_once(__DIR__."/../controller/functions.php"); ?>
+    <?php
+
+    use Models\Games;
+
+    require_once(__DIR__."/../bootstrap/app.php");
+
+    $games = new Games();
+    ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->
@@ -58,9 +65,8 @@
 
                     <!-- Display Games -->
                     <?php
-                    $games = display_games(4);
                     $counter = 0;
-                    foreach($games as $game): ?>
+                    foreach($games->getOnlyXGames(4) as $game): ?>
 
                     <!-- Game Card -->
                     <div class="carousel-item <?php if ($counter === 0) print("active"); ?>">
@@ -126,8 +132,7 @@
 
                         <!-- Display first 4 games -->
                         <?php
-                        $games = display_games(4);
-                        foreach($games as $game): ?>
+                        foreach($games->getOnlyXGames(4) as $game): ?>
                         
                         <!-- Game Card -->
                         <section class="col">
