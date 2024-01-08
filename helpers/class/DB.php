@@ -63,10 +63,18 @@ class DB {
                 $req->bindValue(':offset', $offset, PDO::PARAM_INT);
             }
 
-            // Bind params
+             // Bind params
             foreach ($params as $key => $value) {
+            // Check if the value is a DateTimeImmutable object
+            if ($value instanceof DateTimeImmutable) {
+                // Extract the formatted date string
+                $formattedDate = $value->format('Y-m-d H:i:s');
+                $req->bindValue($key, $formattedDate);
+            } else {
+                // For other types, bind as usual
                 $req->bindValue($key, $value);
             }
+        }
 
             // Execute query
             $result = $req->execute();

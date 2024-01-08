@@ -519,6 +519,19 @@ main.account-fields form:not(#formNotification) {
     font-weight: bold;
 
 }
+
+.dashboard-title{
+    margin-right: 7.3rem;
+}
+
+#nav-dashboard{
+    min-width:250px;
+}
+
+
+
+
+
 /* Media Query */
 
 
@@ -550,6 +563,7 @@ main.account-fields form:not(#formNotification) {
         margin-top: 10%;
     }
 
+
 }
 
 
@@ -557,6 +571,10 @@ main.account-fields form:not(#formNotification) {
     /* Global */
     .bottom-nav-margin {
         margin-bottom: 77px;
+    }
+
+    .dashboard-title{
+        margin-right: 0rem;
     }
 }
 
@@ -578,5 +596,9 @@ main.account-fields form:not(#formNotification) {
     section#cookies span.label {
         flex: 100%;
         max-width: 100%;
+    }
+
+    .dashboard-title{
+        margin-right: 0rem;
     }
 }
