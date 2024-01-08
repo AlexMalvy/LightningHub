@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <?php
 
+    use Models\Hub;
+
+    require_once(__DIR__."/../bootstrap/app.php")
+    ?>
+    
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->
@@ -123,30 +129,43 @@
                 <div class="tab-pane fade show p-1 active border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
 
                     <div class="container-fluid p-3">
+
+                        <?php
+                        $currentHub = new Hub;
+                        $_SESSION["id"] = 1;
+                        ?>
+
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
 
-                            <!-- Room #1 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                            <?php foreach($currentHub->allRoomsList as $room): ?>
+                                <!-- Room -->
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
+                                                <i class="fa-solid fa-user fa-xl text-white"></i>
+                                            </div>
+                                            <?php 
+                                            if (!empty($_SESSION["id"])) {
+                                                $room->getNumberOfFriend($_SESSION["id"]);
+                                                print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                            }
+                                            ?>
+                                            <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
                                         </div>
-                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
-                                        <p class="card-text">Need top and supp.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">3 min</p>
+                                        <div class="card-body">
+                                            <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+                                            <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+                                            <p class="card-text"><?php print($room->description) ?></p>
+                                        </div>
+                                        <div class="card-footer d-flex justify-content-between align-items-center">
+                                            <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                            <p class="m-0"><?php print($room->CreatedSince()); ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
 
                             <!-- Room #2 (Pending demo) -->
                             <div class="col">
