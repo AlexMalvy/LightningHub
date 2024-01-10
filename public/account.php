@@ -9,7 +9,8 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
-
+    
+    <?php require_once(__DIR__."/../bootstrap/app.php") ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
