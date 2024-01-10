@@ -6,11 +6,29 @@ namespace controller;
 require_once __DIR__.'/../bootstrap/app.php';
 
 use Models\User;
+use DB;
 
 class UserController
 {
     const URL_LOGIN = '/login.php';
     const URL_INDEX = '/index.php';
+
+
+    public function index(int $id)
+    {
+        $users = DB::fetch(
+            // SQL
+            "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
+
+
+        // Hydrate user
+        foreach ($users as $key => $value) {
+            $users[$key] = User::hydrate($value);
+        }
+
+        return $users;
+
+    }
 
 
     public function store(): void
@@ -73,6 +91,19 @@ class UserController
             exit();
         }   
 
+    }
+
+    public function delete()
+    {
+        $id = $_SESSION['user'];
+
+        // Delete account
+        User::deleteAccount($id);
+        $_SESSION['message'] = "Votre compte a bien été supprimé";
+        $_SESSION['isConnected'] = false;
+
+        header('Location: ' . self::URL_INDEX);
+        exit();
     }
 
     private function validateCredentials(string $userName, string $password) : bool

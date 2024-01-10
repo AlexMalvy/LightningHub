@@ -12,6 +12,9 @@ if (!empty($_POST['action'])) {
     } elseif ($_POST['action'] === 'logout') {
         $controller = new controller\AuthController();
         $controller->logout();
+    } elseif ($_POST['action'] === 'deleteaccount') {
+        $controller = new controller\UserController();
+        $controller->delete();
     }
 
 }
