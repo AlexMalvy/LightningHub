@@ -93,6 +93,19 @@ class UserController
 
     }
 
+    public function delete()
+    {
+        $id = $_SESSION['user'];
+
+        // Delete account
+        User::deleteAccount($id);
+        $_SESSION['message'] = "Votre compte a bien été supprimé";
+        $_SESSION['isConnected'] = false;
+
+        header('Location: ' . self::URL_INDEX);
+        exit();
+    }
+
     private function validateCredentials(string $userName, string $password) : bool
     {
         // Validation

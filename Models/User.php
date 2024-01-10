@@ -103,6 +103,15 @@ class User
     }
 
 
+    public static function deleteAccount(int $id): int|false
+    {
+        return DB::statement(
+            "DELETE FROM Users WHERE idUser = :id",
+            ['id' => $id],
+        );
+    }
+
+
      /**
      * Get the value of id
      */ 
