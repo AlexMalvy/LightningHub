@@ -61,21 +61,34 @@
             <!-- Account/Connection link -->
             <div class="col-3 col-lg-auto">
 
-                <!-- OffCanvas Toggler (Mobile Only) -->
+            <!-- OffCanvas Toggler (Mobile Only) -->
+            <?php if(isset($_SESSION['isConnected']) and ($_SESSION['isConnected'])) : ?>
+
                 <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas"data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
                     <div class="d-flex justify-content-center">
-                        <img src="assets/images/account_icon_37x37.png" alt="" class="d-lg-none">
+                        <img src="assets/images/account_icon_37x37.png" alt="account" class="d-lg-none">
+                    </div>
+                    <p class="m-0 text-center text-white">Connexion</p>
+                </a>
+            <?php else : ?>
+
+                <a href="login.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" aria-label="Connexion">
+                    <div class="d-flex justify-content-center">
+                        <img src="assets/images/account_icon_37x37.png" alt="account" class="d-lg-none">
                     </div>
                     <p class="m-0 text-center text-white">Connexion</p>
                 </a>
 
+            <?php endif; ?>
+
                 <!-- Account/Connection Dropdown (Desktop Only) -->
+                <?php if(isset($_SESSION['isConnected']) and ($_SESSION['isConnected'])) : ?>
+
                 <div class="dropdown d-none d-lg-block">
 
-                    <a href="sign_in.php" class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown"aria-expanded="false">
+                    <a href="#" class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown"aria-expanded="false">
                         <p class="m-0 text-center text-white">Connexion</p>
                     </a>
-
                     <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 
                         <li class="dropdown-item">
@@ -90,20 +103,28 @@
                         <hr>
 
                         <li class="dropdown-item d-flex flex-row justify-content-start align-items-center gap-2">
-                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="login.php">
-                                <div>
-                                    <img src="assets/images/disconnect-icon-37x37.png" alt="" class="icon-25x25">
-                                </div>
-                                <p class="align-self-center m-0">Déconnexion</p>
-                            </a>
+                            <form action="../handlers/User-handler.php" method="POST" class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-danger link-opacity-100 link-opacity-75-hover hover-accent-outline focus-accent-outline">
+                                <input type="text" name="action" value="logout" hidden>
+                                    <div>
+                                        <img src="assets/images/disconnect-icon-37x37.png" alt="" class="icon-25x25">
+                                    </div>
+                                    <button class="align-self-center m-0 remove-style-default">Déconnexion</button>
+                            </form>
                         </li>
 
                     </ul>
                 </div>
+
+                <?php else : ?>
+                    <a href="login.php" class="d-flex align-items-center gap-1 link-light text-decoration-none link-opacity-100 link-opacity-75-hover d-none d-lg-block">Connexion</a>
+                <?php endif; ?>
+
             </div>
         </div>
 
         <!-- OffCanva (Mobile) -->
+        <?php if(isset($_SESSION['isConnected']) and ($_SESSION['isConnected'])) : ?>
+
         <div class="offcanvas offcanvas-bottom h-auto bottom-nav-margin d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             
             <!-- Header -->
@@ -126,11 +147,15 @@
                         <div>
                             <img src="assets/images/disconnect-icon-37x37.png" alt="">
                         </div>
-                        <a class="nav-link link-danger  hover-accent-outline focus-accent-outline" href="login.php">Déconnexion</a>
+                        <form action="../handlers/User-handler.php" method="POST">
+                            <input type="text" name="action" value="logout" hidden>
+                            <button class="nav-link link-danger hover-accent-outline focus-accent-outline">Déconnexion</button>
+                        </form>
                     </li>
                 </ul>
             </div>
 
         </div>
+        <?php endif; ?>
     </div>
 </nav>

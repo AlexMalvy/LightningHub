@@ -13,5 +13,6 @@ require_once(__DIR__."/../Models/User.php");
 
 // Import class Controllers
 require_once(__DIR__."/../controller/UserController.php");
+require_once(__DIR__."/../controller/AuthController.php");
 
 session_start();

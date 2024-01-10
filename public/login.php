@@ -63,7 +63,8 @@
                             <!-- Connection tab content -->
                             <div class="tab-pane fade show active flex-fill" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
                                 <div class="container">
-                                    <form action="" class="d-flex flex-column py-3">
+                                    <form action="handlers/User-handler.php" method="POST" class="d-flex flex-column py-3">
+                                        <input type="text" name="action" value="login" hidden>
                                         <label for="email">Email</label>
                                         <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
 

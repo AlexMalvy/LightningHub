@@ -59,6 +59,19 @@ class User
     }
 
 
+    public function updateDateLastConnection(): int|false
+    {
+        return DB::statement(
+            "UPDATE Users SET lastConnection = :lastConnection WHERE mail = :email",
+            [
+                'lastConnection' => $this->dateLastConnection,
+                 'email' => $this->mail,
+            ],
+        );
+
+    }
+
+
      /**
      * Get the value of id
      */ 
@@ -192,9 +205,10 @@ class User
      *
      * @return  self
      */ 
-    public function setDateLastConnection($dateLastConnection):  dateTimeImmutable
+    public function setDateLastConnection($dateLastConnection): dateTimeImmutable|User
     {
         $this->dateLastConnection = $dateLastConnection;
+
 
         return $this;
     }
