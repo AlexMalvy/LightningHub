@@ -18,11 +18,43 @@ class User
     protected ?bool $isRoomOwner;
 
 
-    public function __construct(string $userName, string $email, string $password)
+    public function __construct(?string $userName, ?string $email, ?string $password)
     {
         $this->userName = $userName;
         $this->mail = $email;
         $this->password = $password;
+    }
+
+    /**
+     * Hydrate User to dispaly
+     */ 
+    public static function hydrate(array $data): User
+    {
+        $user = new User(
+            $data['IdUser'] ?? null,
+            $data['username'] ?? null,
+            $data['password'] ?? null,
+            $data['mail'] ?? null,
+            $data['profilPicture'] ?? null,
+            $data['SignUpDate'] ?? null,
+            $data['lastConnection'] ?? null,
+            $data['notificationEnabled'] ?? null,
+            $data['isAdmin'] ?? null,
+            $data['isRoomOwner'] ?? null,
+        );
+
+        $user->id = $data['IdUser'] ?? null;
+        $user->userName = $data['username'] ?? null;
+        $user->password = $data['password'] ?? null;
+        $user->mail = $data['mail'] ?? null;
+        $user->profilPicture = $data['profilPicture'] ?? null;
+        //$user->dateSignUp = $data['SignUpDate'];
+        //$user->dateLastConnection = $data['lastConnection'];
+        $user->notificationEnabled = $data['notificationEnabled'] ?? null;
+        $user->isAdmin = $data['isAdmin'] ?? null;
+        $user->isRoomOwner = $data['isRoomOwner'] ?? null;
+
+        return $user;
     }
     
 
@@ -68,7 +100,6 @@ class User
                  'email' => $this->mail,
             ],
         );
-
     }
 
 
@@ -137,7 +168,7 @@ class User
      */ 
     public function getEmail(): string
     {
-        return $this->email;
+        return $this->mail;
     }
 
     /**
@@ -147,7 +178,7 @@ class User
      */ 
     public function setEmail($email): string
     {
-        $this->email = $email;
+        $this->mail = $email;
 
         return $this;
     }

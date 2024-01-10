@@ -6,11 +6,29 @@ namespace controller;
 require_once __DIR__.'/../bootstrap/app.php';
 
 use Models\User;
+use DB;
 
 class UserController
 {
     const URL_LOGIN = '/login.php';
     const URL_INDEX = '/index.php';
+
+
+    public function index(int $id)
+    {
+        $users = DB::fetch(
+            // SQL
+            "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
+
+
+        // Hydrate user
+        foreach ($users as $key => $value) {
+            $users[$key] = User::hydrate($value);
+        }
+
+        return $users;
+
+    }
 
 
     public function store(): void
