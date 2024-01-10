@@ -10,8 +10,14 @@
 </head>
 <body>
 
-    <?php require_once(__DIR__."/../bootstrap/app.php") ?>
     <?php require_once(__DIR__."/../controller/functions.php"); ?>
+
+    <?php
+
+    use Models\Games;
+
+    require_once(__DIR__."/../bootstrap/app.php")
+    ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
         
     <main>
@@ -25,8 +31,8 @@
 
                     <!-- Test Start -->
                     <?php
-                    $games = display_games(4);
-                    foreach($games as $game): ?>
+                    $games = new Games();
+                    foreach($games->allGamesList as $game): ?>
 
                     <!-- Game Card -->
                     <li class="col-12 col-md-6 col-xl-3 mb-3">
@@ -65,9 +71,6 @@
             </div>
         </section>
 
-        <section>
-            <?php display_games() ?>
-        </section>
     </main>
 
 

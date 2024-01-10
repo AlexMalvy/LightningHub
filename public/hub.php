@@ -12,12 +12,21 @@
 <body>
     <?php
 
+    use Models\Filters;
     use Models\Hub;
 
     require_once(__DIR__."/../bootstrap/app.php")
     ?>
     
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
+    
+    <?php
+    $currentHub = new Hub;
+    $_SESSION["id"] = 3;
+    $currentHub->getFriendRooms($_SESSION["id"]);
+
+    $filters = new Filters;
+    ?>
 
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
@@ -52,13 +61,16 @@
                         <form action="" class="d-flex flex-column py-3">
                             <label for="game" class="pb-1">Jeu</label>
                             <select name="game" id="game" class="mb-3 input">
-                                <option value="LoL">League Of Legends</option>
-                                <option value="Valorant">Valorant</option>
-                                <option value="WoW">World of Warcraft</option>
-                                <option value="Warzone">Warzone</option>
+                                <?php foreach ($filters->filtersList as $game => $mode): ?>
+                                <option value="<?php print($game) ?>"><?php print($game) ?></option>
+                                <?php endforeach; ?>
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>
+                            <!-- Passing gamemodes value to js -->
+                            <script>
+                                const gamemodes = <?php print(json_encode($filters->filtersList)) ?>;
+                            </script>
                             <select name="game_type" id="game_type" class="mb-3 input">
                                 <option value="normal">Normal</option>
                                 <option value="ranked">Ranked</option>
@@ -131,8 +143,11 @@
                     <div class="container-fluid p-3">
 
                         <?php
-                        $currentHub = new Hub;
-                        $_SESSION["id"] = 1;
+                        // $filters = new Filters;
+                        // print_r($filters->filtersList);
+
+                        // print_r($currentHub->friendRoomsList);
+
                         ?>
 
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -148,8 +163,10 @@
                                             </div>
                                             <?php 
                                             if (!empty($_SESSION["id"])) {
-                                                $room->getNumberOfFriend($_SESSION["id"]);
-                                                print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                $room->getNumberOfFriend($currentHub->friendRoomsList);
+                                                if (count($room->friendList)) {
+                                                    print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                }
                                             }
                                             ?>
                                             <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
@@ -186,77 +203,11 @@
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
-                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                            <!-- <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
-                                            </div>
+                                            </div> -->
                                         </button>
                                         <p class="m-0">2 min</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Room #3 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">4/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
-                                        </div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">[Bronze]</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 3</p>
-                                        <p class="card-text">Let's have fun !!</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">7 min</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Room #4 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">1/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
-                                        </div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">Title</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 4</p>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">>1 min</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Room #5 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
-                                        </div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">Title</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 5</p>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">10 min</p>
                                     </div>
                                 </div>
                             </div>
@@ -271,29 +222,35 @@
 
                     <div class="container-fluid py-3">
                         <div class="row row-cols-1 row-cols-lg-4 g-3">
-
-                            <!-- Room #1 -->
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <p class="fs-5 m-0 pe-2">3/5</p>
-                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                            
+                            <?php foreach($currentHub->allRoomsList as $room): ?>
+                                <?php if(count($room->friendList) > 0): ?>
+                                    <!-- Room -->
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
+                                                    <i class="fa-solid fa-user fa-xl text-white"></i>
+                                                </div>
+                                                <?php 
+                                                print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                ?>
+                                                <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+                                                <p class="card-text"><?php print($room->description) ?></p>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                <p class="m-0"><?php print($room->CreatedSince()); ?></p>
+                                            </div>
                                         </div>
-                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
-                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
-                                    <div class="card-body">
-                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
-                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
-                                        <p class="card-text">Need top and supp.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                        <p class="m-0">3 min</p>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
 
                             <!-- Room #2 (Pending demo) -->
                             <div class="col">
@@ -314,9 +271,9 @@
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
-                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                            <!-- <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
-                                            </div>
+                                            </div> -->
                                         </button>
                                         <p class="m-0">2 min</p>
                                     </div>
