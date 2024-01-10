@@ -68,7 +68,7 @@
                     <div class="d-flex justify-content-center">
                         <img src="assets/images/account_icon_37x37.png" alt="account" class="d-lg-none">
                     </div>
-                    <p class="m-0 text-center text-white">Connexion</p>
+                    <p class="m-0 text-center text-white">Menu</p>
                 </a>
             <?php else : ?>
 
@@ -87,7 +87,7 @@
                 <div class="dropdown d-none d-lg-block">
 
                     <a href="#" class="d-flex align-items-center gap-1 link-light text-decoration-none dropdown-toggle link-opacity-100 link-opacity-75-hover" type="button" data-bs-toggle="dropdown"aria-expanded="false">
-                        <p class="m-0 text-center text-white">Connexion</p>
+                        <p class="m-0 text-center text-white">Menu</p>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 

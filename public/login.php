@@ -72,7 +72,7 @@
                                         <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
 
                                         <div class="mb-3">
-                                            <input type="checkbox" name="remember me" id="remember me">
+                                            <input type="checkbox" name="rememberme" id="remember me">
                                             <label for="remember me" class="ps-2">Se souvenir de moi</label>
                                         </div>
 

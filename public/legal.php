@@ -11,6 +11,7 @@
 </head>
 <body>
      
+    <?php require_once(__DIR__."/../bootstrap/app.php") ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
     
 

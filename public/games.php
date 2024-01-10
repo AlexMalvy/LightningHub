@@ -9,6 +9,8 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
+
+    <?php require_once(__DIR__."/../bootstrap/app.php") ?>
     <?php require_once(__DIR__."/../controller/functions.php"); ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
         
