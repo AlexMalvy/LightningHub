@@ -361,11 +361,6 @@ UPDATE Users
 SET idRoom = 5
 WHERE idUser = 10;
 
--- Adds Naruto to Azir's room
-UPDATE Users
-SET idRoom = 5
-WHERE idUser = 11;
-
 
 CREATE USER IF NOT EXISTS "lightninghubadmin"@"localhost"
 IDENTIFIED BY "lightninghubcorporation";
