@@ -5,7 +5,7 @@ require_once __DIR__."/../../src/Controller/RoomsController.php";
 
 
 if (!empty($_POST['action'])) {
-    $controller = new App\Controllers\RoomsController();
+    $controller = new App\Controller\RoomsController();
 
     if ($_POST['action'] === 'create') {
         $controller->create();
@@ -13,6 +13,6 @@ if (!empty($_POST['action'])) {
 }
 
 // Unknown action
-$url = App\Controllers\RoomsController::URL_INDEX;
+$url = App\Controller\RoomsController::URL_INDEX;
 header("Location: $url");
 exit();
