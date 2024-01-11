@@ -9,8 +9,16 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
+    
+    <?php 
+    require_once(__DIR__."/../bootstrap/app.php");
+    require_once(__DIR__."/../view/header_nav.php");
+    use controller\UserController;
+    use Models\User;
 
-    <?php require_once(__DIR__."/../view/header_nav.php") ?>
+    $userController = new UserController();
+    $users = $userController->index($_SESSION['user']);
+    ?>
 
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
         <h1>Mon compte</h1>
@@ -37,24 +45,25 @@
 
             <!-- Pseudo -->
 
+        <?php foreach($users as $user): ?>
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
-                <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                    <input id="input-pseudo" class="input" type="text" value="Fatality67" name="pseudo"/>
+                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
+                    <input id="input-pseudo" class="input" type="text" value="<?php echo $user->getUserName(); ?>" name="pseudo"/>
                     <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2 "><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
-
+      
             <!-- email -->
 
             <section id="email">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Adresse email</h2>
-                <form method="post" action="" class="d-flex justify-content-between align-items-center">
-                    <input id="input-mail" class="input" type="email" value="Fatality67@ccicampus.fr" name="email">
+                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
+                    <input id="input-mail" class="input" type="email" value="<?php echo $user->getEmail(); ?>" name="email">
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
-
+        <?php endforeach; ?>
             <!-- Identifiants INGAME -->
 
             <section id="identifiants">

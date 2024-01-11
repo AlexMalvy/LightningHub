@@ -9,6 +9,9 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
+
+    <?php require_once(__DIR__."/../controller/functions.php"); ?>
+
     <?php
 
     use App\Models\Games;

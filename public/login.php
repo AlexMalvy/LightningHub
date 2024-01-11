@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
 <head>
@@ -12,12 +13,24 @@
 <body>
 
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
-
+   
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
 
         <h1 class="container text-center pt-5 reconstruct d-lg-none">Connexion/<br>Inscription</h1>
         <h1 class="container text-center pt-5 reconstruct d-none d-lg-block">Connexion / Inscription</h1>
+
+        <?php if (!empty($_SESSION['message'])): ?>
+            <div class="container">
+                <div class="col-lg-8 offset-lg-2 alert alert-<?=$_SESSION['type']?>" role="alert">
+                    <?php echo '<span class="text-white">' . $_SESSION['message'] . '</span>'?>
+                </div>
+            </div>
+        <?php unset($_SESSION['message']);
+              unset($_SESSION['type']);
+        ?>
+        <?php endif; ?>
+
         
         <!-- First Divider (Mobile) -->
         <div class="container py-2 d-lg-none">
@@ -50,7 +63,8 @@
                             <!-- Connection tab content -->
                             <div class="tab-pane fade show active flex-fill" id="connexion-tab-pane" role="tabpanel" aria-labelledby="connexion-tab" tabindex="0">
                                 <div class="container">
-                                    <form action="" class="d-flex flex-column py-3">
+                                    <form action="handlers/User-handler.php" method="POST" class="d-flex flex-column py-3">
+                                        <input type="text" name="action" value="login" hidden>
                                         <label for="email">Email</label>
                                         <input type="email" name="email" id="email" class="mb-3 rounded bg-white border text-black">
 
@@ -58,7 +72,7 @@
                                         <input type="password" name="password" id="password" class="mb-3 rounded bg-white border text-black">
 
                                         <div class="mb-3">
-                                            <input type="checkbox" name="remember me" id="remember me">
+                                            <input type="checkbox" name="rememberme" id="remember me">
                                             <label for="remember me" class="ps-2">Se souvenir de moi</label>
                                         </div>
 
@@ -73,7 +87,8 @@
                             <!-- Login tab content -->
                             <div class="tab-pane fade flex-fill" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
                                 <div class="container">
-                                    <form action="" class="d-flex flex-column py-3">
+                                    <form action="handlers/User-handler.php" method="POST" class="d-flex flex-column py-3">
+                                        <input type="text" name="action" value="store" hidden>
                                         <label for="nickname">Pseudo   (Visible)</label>
                                         <input type="text" name="nickname" id="nickname" class="mb-3 rounded bg-white border text-black">
 
