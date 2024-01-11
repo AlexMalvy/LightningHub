@@ -14,7 +14,7 @@
 
     <?php
 
-    use Models\Games;
+    use App\Models\Games;
 
     require_once(__DIR__."/../bootstrap/app.php")
     ?>

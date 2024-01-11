@@ -12,7 +12,7 @@
 <body>
     <?php
 
-    use Models\Faq;
+    use App\Models\Faq;
 
     require_once(__DIR__."/../bootstrap/app.php");
 

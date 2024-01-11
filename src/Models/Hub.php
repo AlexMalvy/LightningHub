@@ -1,11 +1,11 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
 require("Room.php");
 
 use DB;
-use Models\Room;
+use App\Models\Room;
 
 class Hub
 {

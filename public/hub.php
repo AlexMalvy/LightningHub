@@ -12,8 +12,8 @@
 <body>
     <?php
 
-    use Models\Filters;
-    use Models\Hub;
+    use App\Models\Filters;
+    use App\Models\Hub;
 
     require_once(__DIR__."/../bootstrap/app.php")
     ?>
@@ -24,9 +24,13 @@
     $currentHub = new Hub;
     $_SESSION["id"] = 3;
     $currentHub->getFriendRooms($_SESSION["id"]);
-
+    $counter = 0;
     $filters = new Filters;
     ?>
+    <!-- Passing gamemodes value to js -->
+    <script>
+        const gamemodes = <?php print(json_encode($filters->filtersList)) ?>;
+    </script>
 
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
@@ -61,20 +65,24 @@
                         <form action="" class="d-flex flex-column py-3">
                             <label for="game" class="pb-1">Jeu</label>
                             <select name="game" id="game" class="mb-3 input">
-                                <?php foreach ($filters->filtersList as $game => $mode): ?>
-                                <option value="<?php print($game) ?>"><?php print($game) ?></option>
+                                <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                    <?php foreach ($allGames as $game => $mode): ?>
+                                        <?php
+                                        if ($counter === 0) {
+                                            $firstGamemodes = $mode;
+                                            $counter += 1;
+                                        }
+                                        ?>
+                                        <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
+                                    <?php endforeach; ?>
                                 <?php endforeach; ?>
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>
-                            <!-- Passing gamemodes value to js -->
-                            <script>
-                                const gamemodes = <?php print(json_encode($filters->filtersList)) ?>;
-                            </script>
                             <select name="game_type" id="game_type" class="mb-3 input">
-                                <option value="normal">Normal</option>
-                                <option value="ranked">Ranked</option>
-                                <option value="custom">Custom</option>
+                                <?php foreach ($firstGamemodes as $gamemodeId => $gamemodeName): ?>
+                                    <option value="<?php print($gamemodeName) ?>" gamemode_id="<?php print($gamemodeId) ?>"><?php print($gamemodeName) ?></option>
+                                <?php endforeach; ?>
                             </select>
 
                             <label for="search" class="pb-1">Recherche</label>
@@ -486,15 +494,21 @@
                             </div>
 
                             <!-- New Room Form -->
-                            <form action="" class="row py-lg-3">
+                            <form action="handlers/room-handler.php" method="POST" class="row py-lg-3">
+                            
+                                <input type="text" name="action" value="create" hidden>
 
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="game_new_room" class="mb-2">Jeux :</label>
+                                        <label for="game_new_room" class="mb-2">Jeu :</label>
                                         <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
                                             <option selected>Veuillez choisir un jeu</option>
-                                            <option value="lol">League Of Legends</option>
+                                            <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                                <?php foreach ($allGames as $game => $mode): ?>
+                                                    <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
+                                                <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
 
@@ -502,14 +516,12 @@
                                         <label for="game_type_new_room" class="mb-2">Type de partie :</label>
                                         <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
-                                            <option value="normal">Normal</option>
-                                            <option value="ranked">Ranked</option>
                                         </select>
                                     </div>
 
                                     <div>
                                         <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
+                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" placeholder="5" class="input mb-4 w-100">
                                     </div>
                                 </div>
 
@@ -522,7 +534,7 @@
 
                                     <div>
                                         <label for="description" class="mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                        <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"></textarea>
                                     </div>
                                 </div>
 
@@ -618,6 +630,6 @@
     <?php require_once(__DIR__."/../view/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="assets/js/scriptAccount.js"></script>
+    <script src="assets/js/hub.js"></script>
 </body>
 </html>

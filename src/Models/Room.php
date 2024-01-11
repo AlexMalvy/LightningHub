@@ -1,13 +1,13 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
 use DateTimeImmutable;
 use DB;
 
 class Room
 {
-    public function __construct($roomId, $title, $description, $maxMembers, $dateDB, $gameTag, $gamemode)
+    public function __construct(int $roomId, string $title, string $description, int $maxMembers, $dateDB, string $gameTag, string $gamemode)
     {
         $this->roomId = $roomId;
         $this->title = $title;
@@ -33,7 +33,7 @@ class Room
     public string $owner;
     public int $OwnerId;
 
-    public $friendList = [];
+    public array $friendList = [];
 
     // Construct Get Room Members
     protected function getRoomMembers()
@@ -74,6 +74,20 @@ class Room
             $minutes_since_creation = $minutes_since_creation . " min";
         }
         return $minutes_since_creation;
+    }
+
+    public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode,)
+    {
+        DB::statement("
+        INSERT INTO rooms (title, description, maxMembers, idGamemode)
+        VALUES
+            (:title, :description, :maxMembers, :idGamemode);", ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
+
+        $connection = DB::getDB();
+
+        DB::statement("UPDATE Users
+        SET idRoom = :idRoom, isRoomOwner = 1
+        WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
     }
 
 }
