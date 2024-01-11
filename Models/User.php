@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace Models;
 
 use DB;
 
-class User 
+class User
 {
     protected ?int $id;
     protected ?string $userName;
@@ -27,9 +27,10 @@ class User
 
     /**
      * Hydrate User to dispaly
-     */ 
+     */
     public static function hydrate(array $data): User
     {
+        dd($data);
         $user = new User(
             $data['IdUser'] ?? null,
             $data['username'] ?? null,
@@ -56,11 +57,11 @@ class User
 
         return $user;
     }
-    
+
 
     /**
      * Create New User
-     */ 
+     */
     public function save() : int|false
     {
         /**
@@ -97,7 +98,7 @@ class User
             "UPDATE Users SET lastConnection = :lastConnection WHERE mail = :email",
             [
                 'lastConnection' => $this->dateLastConnection,
-                 'email' => $this->mail,
+                'email' => $this->mail,
             ],
         );
     }
@@ -112,9 +113,9 @@ class User
     }
 
 
-     /**
+    /**
      * Get the value of id
-     */ 
+     */
     public function getId(): int
     {
         return $this->id;
@@ -124,15 +125,17 @@ class User
      * Set the value of id
      *
      * @return  self
-     */ 
-    public function setId($id)
+     */
+    public function setId($id): int
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
      * Get the value of userName
-     */ 
+     */
     public function getUserName(): string
     {
         return $this->userName;
@@ -142,15 +145,17 @@ class User
      * Set the value of userName
      *
      * @return  self
-     */ 
-    public function setUserName($userName)
+     */
+    public function setUserName($userName): string
     {
         $this->userName = $userName;
+
+        return $this;
     }
 
     /**
      * Get the value of password
-     */ 
+     */
     public function getPassword(): string
     {
         return $this->password;
@@ -160,15 +165,17 @@ class User
      * Set the value of password
      *
      * @return  self
-     */ 
-    public function setPassword($password)
+     */
+    public function setPassword($password): string
     {
         $this->password = $password;
+
+        return $this;
     }
 
     /**
      * Get the value of email
-     */ 
+     */
     public function getEmail(): string
     {
         return $this->mail;
@@ -178,15 +185,17 @@ class User
      * Set the value of email
      *
      * @return  self
-     */ 
-    public function setEmail($email)
+     */
+    public function setEmail($email): string
     {
         $this->mail = $email;
+
+        return $this;
     }
 
     /**
      * Get the value of profilPicture
-     */ 
+     */
     public function getProfilPicture(): string
     {
         return $this->profilPicture;
@@ -196,16 +205,18 @@ class User
      * Set the value of profilPicture
      *
      * @return  self
-     */ 
-    public function setProfilPicture($profilPicture)
+     */
+    public function setProfilPicture($profilPicture): string
     {
         $this->profilPicture = $profilPicture;
+
+        return $this;
     }
 
     /**
      * Get the value of dateSignUp
-     */ 
-    public function getDateSignUp(): \dateTimeImmutable
+     */
+    public function getDateSignUp(): dateTimeImmutable
     {
         return $this->dateSignUp;
     }
@@ -214,16 +225,18 @@ class User
      * Set the value of dateSignUp
      *
      * @return  self
-     */ 
-    public function setDateSignUp($dateSignUp)
+     */
+    public function setDateSignUp($dateSignUp): dateTimeImmutable
     {
         $this->dateSignUp = $dateSignUp;
+
+        return $this;
     }
 
     /**
      * Get the value of dateLastConnection
-     */ 
-    public function getDateLastConnection(): \dateTimeImmutable
+     */
+    public function getDateLastConnection(): dateTimeImmutable
     {
         return $this->dateLastConnection;
     }
@@ -232,15 +245,18 @@ class User
      * Set the value of dateLastConnection
      *
      * @return  self
-     */ 
-    public function setDateLastConnection($dateLastConnection)
+     */
+    public function setDateLastConnection($dateLastConnection): dateTimeImmutable|User
     {
         $this->dateLastConnection = $dateLastConnection;
+
+
+        return $this;
     }
 
     /**
      * Get the value of notificationEnabled
-     */ 
+     */
     public function getNotificationEnabled(): bool
     {
         return $this->notificationEnabled;
@@ -250,15 +266,17 @@ class User
      * Set the value of notificationEnabled
      *
      * @return  self
-     */ 
-    public function setNotificationEnabled($notificationEnabled)
+     */
+    public function setNotificationEnabled($notificationEnabled): bool
     {
         $this->notificationEnabled = $notificationEnabled;
+
+        return $this;
     }
 
     /**
      * Get the value of isAdmin
-     */ 
+     */
     public function getIsAdmin(): bool
     {
         return $this->isAdmin;
@@ -268,15 +286,17 @@ class User
      * Set the value of isAdmin
      *
      * @return  self
-     */ 
-    public function setIsAdmin($isAdmin)
+     */
+    public function setIsAdmin($isAdmin): bool
     {
         $this->isAdmin = $isAdmin;
+
+        return $this;
     }
 
     /**
      * Get the value of isRoomOwner
-     */ 
+     */
     public function getIsRoomOwner(): bool
     {
         return $this->isRoomOwner;
@@ -286,10 +306,12 @@ class User
      * Set the value of isRoomOwner
      *
      * @return  self
-     */ 
-    public function setIsRoomOwner($isRoomOwner)
+     */
+    public function setIsRoomOwner($isRoomOwner): bool
     {
         $this->isRoomOwner = $isRoomOwner;
+
+        return $this;
     }
 
 }

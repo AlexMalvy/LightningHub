@@ -1,10 +1,11 @@
-<?php 
+<?php
 
-namespace App\Controllers;
+namespace controller;
+
 
 require_once __DIR__.'/../bootstrap/app.php';
 
-use App\Models\User;
+use Models\User;
 use DB;
 
 class UserController
@@ -16,7 +17,7 @@ class UserController
     public function index(int $id)
     {
         $users = DB::fetch(
-            // SQL
+        // SQL
             "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
 
 
@@ -39,7 +40,7 @@ class UserController
         $adult = $_POST['adult'] ?? '';
         $cgu = $_POST['cgu'] ?? '';
 
-    
+
         // Validation
         if (!$this->validateCredentials($userName, $password)) {
             $_SESSION['message'] = "Votre nom d'utilisateur doit avoir au moins 2 charactères,<br>
@@ -64,14 +65,14 @@ class UserController
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
             $_SESSION['type'] = 'danger';
-            
+
             header('Location: ' . self::URL_LOGIN);
             exit();
         }
 
         $user = new User(
             $_POST['nickname'],
-            $_POST['email'], 
+            $_POST['email'],
             $_POST['password']
         );
 
@@ -88,7 +89,7 @@ class UserController
 
             header('Location: ' . self::URL_LOGIN);
             exit();
-        }   
+        }
 
     }
 

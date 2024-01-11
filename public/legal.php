@@ -11,8 +11,7 @@
 </head>
 <body>
      
-    <?php require_once(__DIR__."/../bootstrap/app.php") ?>
-    <?php require_once(__DIR__."/../view/header_nav.php") ?>
+    <?php require_once(__DIR__ . "/../views/header_nav.php") ?>
     
 
     <main>
@@ -126,7 +125,7 @@
         </section>
 
 
-        <?php require_once(__DIR__."/../view/footer.php") ?>
+        <?php require_once(__DIR__ . "/../views/footer.php") ?>
 
     </main>
     

@@ -47,10 +47,12 @@
                     <hr/>
                     <li class="nav-dashboard-title">Salons</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-comments me-2"></i>Voir les salons</a>
+                        <a id="nav-hub" class="nav-link" href="#"><i class="fa-solid fa-comments me-2"></i>Voir les
+                            salons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter un salon</a>
+                        <a id="nav-create-hub" class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter
+                            un salon</a>
                     </li>
                     <hr/>
                     <li class="nav-dashboard-title">FAQ</li>

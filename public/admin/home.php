@@ -21,7 +21,7 @@
         <?php require_once(__DIR__ . "/nav_admin.php") ?>
         <?php include_once(__DIR__ . "/dashboard_welcome.php") ?>
         <?php include_once(__DIR__ . "/dashboard_faq.php") ?>
-
+        <?php include_once(__DIR__ . "/dashboard_hub.php") ?>
 
 
     </div>

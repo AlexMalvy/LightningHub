@@ -9,16 +9,8 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
-    
-    <?php 
-    require_once(__DIR__."/../bootstrap/app.php");
-    require_once(__DIR__."/../view/header_nav.php");
-    use controller\UserController;
-    use Models\User;
 
-    $userController = new UserController();
-    $users = $userController->index($_SESSION['user']);
-    ?>
+    <?php require_once(__DIR__ . "/../views/header_nav.php") ?>
 
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
         <h1>Mon compte</h1>
@@ -45,25 +37,24 @@
 
             <!-- Pseudo -->
 
-        <?php foreach($users as $user): ?>
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
-                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
-                    <input id="input-pseudo" class="input" type="text" value="<?php echo $user->getUserName(); ?>" name="pseudo"/>
+                <form method="post" action="" class="d-flex justify-content-between align-items-center">
+                    <input id="input-pseudo" class="input" type="text" value="Fatality67" name="pseudo"/>
                     <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2 "><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
-      
+
             <!-- email -->
 
             <section id="email">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Adresse email</h2>
-                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
-                    <input id="input-mail" class="input" type="email" value="<?php echo $user->getEmail(); ?>" name="email">
+                <form method="post" action="" class="d-flex justify-content-between align-items-center">
+                    <input id="input-mail" class="input" type="email" value="Fatality67@ccicampus.fr" name="email">
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
-        <?php endforeach; ?>
+
             <!-- Identifiants INGAME -->
 
             <section id="identifiants">
@@ -159,11 +150,11 @@
             </div>
         </section>
 
-        <?php include(__DIR__."/../view/modal_delete_confirmation.php") ?> 
+        <?php include(__DIR__ . "/../views/modal_delete_confirmation.php") ?>
     </div>
     </main>
 
-    <?php require_once(__DIR__."/../view/footer.php") ?>
+    <?php require_once(__DIR__ . "/../views/footer.php") ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

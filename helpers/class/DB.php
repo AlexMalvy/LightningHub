@@ -63,18 +63,10 @@ class DB {
                 $req->bindValue(':offset', $offset, PDO::PARAM_INT);
             }
 
-             // Bind params
+            // Bind params
             foreach ($params as $key => $value) {
-            // Check if the value is a DateTimeImmutable object
-            if ($value instanceof DateTimeImmutable) {
-                // Extract the formatted date string
-                $formattedDate = $value->format('Y-m-d H:i:s');
-                $req->bindValue($key, $formattedDate);
-            } else {
-                // For other types, bind as usual
                 $req->bindValue($key, $value);
             }
-        }
 
             // Execute query
             $result = $req->execute();
@@ -97,9 +89,9 @@ class DB {
     {
         try {
             return new PDO(
-            "mysql:host=localhost;port=3306;dbname=lightninghub",
-            "lightninghubadmin",
-            "lightninghubcorporation",
+                'mysql:host=localhost;port=3306;dbname=lightninghub',
+                'root',
+                '',
                 [
                     // Options
                     PDO::ATTR_PERSISTENT => true,
@@ -111,5 +103,58 @@ class DB {
         }
     
         return null;
+    }
+
+    public static function update(
+        string $table,
+        array $data,
+        int|string|null $identifier = null,
+        $identifierName = 'id'
+    ): bool {
+        // Check identifier and remove it from data
+        $identifier = $identifier ?? $data[$identifierName] ?? null;
+        unset($data[$identifierName]);
+        if (empty($identifier)) {
+            return false;
+        }
+
+        // Generate updates part of sql query
+
+        // only keys: ['enable', 'label', 'description', 'brand', 'price_ttc', 'price_ht', 'vat', 'quantity', 'created_at']
+        $keys = array_keys($data);
+
+        // "enable = :enable, label = :label, description = :description, brand = :brand, price_ttc = :price_ttc, price_ht = :price_ht, vat = :vat, quantity = :quantity, created_at = :created_at"
+        $updates = [];
+        foreach ($keys as $key) {
+            $updates[] = "$key = :$key";
+        }
+        $updates = implode(', ', $updates);
+
+        // Inject identifier in data
+        $data[$identifierName] = $identifier;
+
+        return DB::statement(
+            "UPDATE $table SET $updates"
+            ." WHERE $identifierName = :$identifierName",
+            $data,
+        );
+    }
+
+    public static function insert(string $table, array $data): bool
+    {
+        // only keys: ['enable', 'label', 'description', 'brand', 'price_ttc', 'price_ht', 'vat', 'quantity', 'created_at']
+        $keys = array_keys($data);
+
+        // enable, label, description, brand, price_ttc, price_ht, vat, quantity, created_at
+        $cols = implode(', ', $keys);
+
+        // :enable, :label, :description, :brand, :price_ttc, :price_ht, :vat, :quantity, :created_at
+        $params = ':'.implode(', :', $keys);
+
+        return DB::statement(
+            "INSERT INTO $table ($cols)"
+            ." VALUES ($params)",
+            $data,
+        );
     }
 }

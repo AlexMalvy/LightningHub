@@ -10,27 +10,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <?php
 
-    use App\Models\Filters;
-    use App\Models\Hub;
-
-    require_once(__DIR__."/../bootstrap/app.php")
-    ?>
-    
-    <?php require_once(__DIR__."/../view/header_nav.php") ?>
-    
-    <?php
-    $currentHub = new Hub;
-    $_SESSION["id"] = 3;
-    $currentHub->getFriendRooms($_SESSION["id"]);
-    $counter = 0;
-    $filters = new Filters;
-    ?>
-    <!-- Passing gamemodes value to js -->
-    <script>
-        const gamemodes = <?php print(json_encode($filters->filtersList)) ?>;
-    </script>
+    <?php require_once(__DIR__ . "/../Viewss/header_nav.php") ?>
 
     <!-- Main -->
     <main class="mt-lg-5 pt-lg-5">
@@ -65,24 +46,17 @@
                         <form action="" class="d-flex flex-column py-3">
                             <label for="game" class="pb-1">Jeu</label>
                             <select name="game" id="game" class="mb-3 input">
-                                <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
-                                    <?php foreach ($allGames as $game => $mode): ?>
-                                        <?php
-                                        if ($counter === 0) {
-                                            $firstGamemodes = $mode;
-                                            $counter += 1;
-                                        }
-                                        ?>
-                                        <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
-                                    <?php endforeach; ?>
-                                <?php endforeach; ?>
+                                <option value="LoL">League Of Legends</option>
+                                <option value="Valorant">Valorant</option>
+                                <option value="WoW">World of Warcraft</option>
+                                <option value="Warzone">Warzone</option>
                             </select>
 
                             <label for="game_type" class="pb-1">Type de partie</label>
                             <select name="game_type" id="game_type" class="mb-3 input">
-                                <?php foreach ($firstGamemodes as $gamemodeId => $gamemodeName): ?>
-                                    <option value="<?php print($gamemodeName) ?>" gamemode_id="<?php print($gamemodeId) ?>"><?php print($gamemodeName) ?></option>
-                                <?php endforeach; ?>
+                                <option value="normal">Normal</option>
+                                <option value="ranked">Ranked</option>
+                                <option value="custom">Custom</option>
                             </select>
 
                             <label for="search" class="pb-1">Recherche</label>
@@ -149,48 +123,30 @@
                 <div class="tab-pane fade show p-1 active border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
 
                     <div class="container-fluid p-3">
-
-                        <?php
-                        // $filters = new Filters;
-                        // print_r($filters->filtersList);
-
-                        // print_r($currentHub->friendRoomsList);
-
-                        ?>
-
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
 
-                            <?php foreach($currentHub->allRoomsList as $room): ?>
-                                <!-- Room -->
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <div class="card-header d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
-                                                <i class="fa-solid fa-user fa-xl text-white"></i>
-                                            </div>
-                                            <?php 
-                                            if (!empty($_SESSION["id"])) {
-                                                $room->getNumberOfFriend($currentHub->friendRoomsList);
-                                                if (count($room->friendList)) {
-                                                    print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
-                                                }
-                                            }
-                                            ?>
-                                            <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
+                            <!-- Room #1 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
-                                        <div class="card-body">
-                                            <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
-                                            <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
-                                            <p class="card-text"><?php print($room->description) ?></p>
-                                        </div>
-                                        <div class="card-footer d-flex justify-content-between align-items-center">
-                                            <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                            <p class="m-0"><?php print($room->CreatedSince()); ?></p>
-                                        </div>
+                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
+                                        <p class="card-text">Need top and supp.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                        <p class="m-0">3 min</p>
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
+                            </div>
 
                             <!-- Room #2 (Pending demo) -->
                             <div class="col">
@@ -211,11 +167,77 @@
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
-                                            <!-- <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
-                                            </div> -->
+                                            </div>
                                         </button>
                                         <p class="m-0">2 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #3 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">4/5</p>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class="card-title m-0 pb-1">[Bronze]</h2>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 3</p>
+                                        <p class="card-text">Let's have fun !!</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                        <p class="m-0">7 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #4 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">1/5</p>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 4</p>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                        <p class="m-0">>1 min</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Room #5 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
+                                        </div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h2 class="card-title m-0 pb-1">Title</h2>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 5</p>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                        <p class="m-0">10 min</p>
                                     </div>
                                 </div>
                             </div>
@@ -230,35 +252,29 @@
 
                     <div class="container-fluid py-3">
                         <div class="row row-cols-1 row-cols-lg-4 g-3">
-                            
-                            <?php foreach($currentHub->allRoomsList as $room): ?>
-                                <?php if(count($room->friendList) > 0): ?>
-                                    <!-- Room -->
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
-                                                    <i class="fa-solid fa-user fa-xl text-white"></i>
-                                                </div>
-                                                <?php 
-                                                print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
-                                                ?>
-                                                <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
-                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
-                                                <p class="card-text"><?php print($room->description) ?></p>
-                                            </div>
-                                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                                <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                                <p class="m-0"><?php print($room->CreatedSince()); ?></p>
-                                            </div>
+
+                            <!-- Room #1 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <p class="fs-5 m-0 pe-2">3/5</p>
+                                            <i class="fa-solid fa-user fa-xl text-white"></i>
                                         </div>
+                                        <div class="px-2 fs-5 rounded bg-success">2 amis</div>
+                                        <div class="px-2 fs-5 rounded-5 game-tag-color">LoL</div>
                                     </div>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                                    <div class="card-body">
+                                        <h2 class="card-title m-0 pb-1">[Gold]</h2>
+                                        <p class="card-subtitle fst-italic pb-2">Créer par Random 1</p>
+                                        <p class="card-text">Need top and supp.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                        <p class="m-0">3 min</p>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- Room #2 (Pending demo) -->
                             <div class="col">
@@ -279,9 +295,9 @@
                                     <div class="card-footer d-flex justify-content-between align-items-center">
                                         <button type="submit" class="btn lh-buttons-purple-faded">
                                             En Attente
-                                            <!-- <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
+                                            <div class="spinner-border text-success spinner-border-sm ms-2" role="status">
                                               <span class="visually-hidden">Loading...</span>
-                                            </div> -->
+                                            </div>
                                         </button>
                                         <p class="m-0">2 min</p>
                                     </div>
@@ -494,21 +510,15 @@
                             </div>
 
                             <!-- New Room Form -->
-                            <form action="handlers/room-handler.php" method="POST" class="row py-lg-3">
-                            
-                                <input type="text" name="action" value="create" hidden>
+                            <form action="" class="row py-lg-3">
 
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
-                                        <label for="game_new_room" class="mb-2">Jeu :</label>
+                                        <label for="game_new_room" class="mb-2">Jeux :</label>
                                         <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
                                             <option selected>Veuillez choisir un jeu</option>
-                                            <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
-                                                <?php foreach ($allGames as $game => $mode): ?>
-                                                    <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
-                                                <?php endforeach; ?>
-                                            <?php endforeach; ?>
+                                            <option value="lol">League Of Legends</option>
                                         </select>
                                     </div>
 
@@ -516,12 +526,14 @@
                                         <label for="game_type_new_room" class="mb-2">Type de partie :</label>
                                         <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                             <option selected>Veuillez choisir un type de partie</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="ranked">Ranked</option>
                                         </select>
                                     </div>
 
                                     <div>
                                         <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" placeholder="5" class="input mb-4 w-100">
+                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
                                     </div>
                                 </div>
 
@@ -534,7 +546,7 @@
 
                                     <div>
                                         <label for="description" class="mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"></textarea>
+                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
                                     </div>
                                 </div>
 
@@ -627,9 +639,9 @@
 
     </main>
 
-    <?php require_once(__DIR__."/../view/footer.php") ?>
+    <?php require_once(__DIR__ . "/../views/footer.php") ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="assets/js/hub.js"></script>
+    <script src="assets/js/scriptAccount.js"></script>
 </body>
 </html>

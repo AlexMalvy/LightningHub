@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LightningHub.iml" filepath="$PROJECT_DIR$/.idea/LightningHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lh.iml" filepath="$PROJECT_DIR$/.idea/lh.iml" />
     </modules>
   </component>
 </project>
