@@ -82,9 +82,11 @@ class Room
         INSERT INTO rooms (title, description, maxMembers, idGamemode)
         VALUES
             (:title, :description, :maxMembers, :idGamemode);", ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
+
         $connection = DB::getDB();
+
         DB::statement("UPDATE Users
-        SET idRoom = :idRoom
+        SET idRoom = :idRoom, isRoomOwner = 1
         WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
     }
 
