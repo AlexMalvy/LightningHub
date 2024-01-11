@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-require_once __DIR__.'/../bootstrap/app.php';
 
 use App\Models\User;
 use DB;

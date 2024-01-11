@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/../../bootstrap/app.php';
 
-require_once __DIR__."/../../src/Controller/RoomsController.php";
+require_once __DIR__ . "/../../src/Controllers/RoomsController.php";
 
 
 if (!empty($_POST['action'])) {

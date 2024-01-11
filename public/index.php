@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
 <head>
@@ -20,6 +19,8 @@
     $games = new Games();
     ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
+
+
 
     <!-- Main -->
     <main>
