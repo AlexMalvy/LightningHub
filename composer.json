@@ -6,8 +6,20 @@
         "psr-4": {
             "App\\": "src/"
         },
+        "files": [
+          "helpers/html_functions.php",
+          "helpers/path_functions.php",
+          "helpers/redirect_functions.php",
+          "helpers/session_functions.php"
+        ],
         "classmap": [
-            "helpers/class/DB.php"
+            "helpers/class/DB.php",
+            "helpers/class/Auth.php",
+            "helpers/class/App.php"
+
         ]
-    }
+    },
+  "require": {
+    "ext-pdo": "*"
+  }
 }
