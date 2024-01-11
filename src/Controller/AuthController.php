@@ -1,11 +1,11 @@
 <?php
 
-namespace controller;
+namespace App\Controllers;
 
 require_once __DIR__.'/../bootstrap/app.php';
 
+use App\Models\User;
 use DB;
-use Models\User;
 
 class AuthController
 {
@@ -20,10 +20,12 @@ class AuthController
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $remember = $_POST['rememberme'] ?? false;
-        } else {
-            $email = $email;
-            $password = $password;
-        }
+        } 
+        // TODO Cookies
+        // else {
+        //     $email = $email;
+        //     $password = $password;
+        // }
     
         // Check DB
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $email]);

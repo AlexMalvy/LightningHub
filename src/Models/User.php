@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
 use DB;
 
@@ -125,11 +125,9 @@ class User
      *
      * @return  self
      */ 
-    public function setId($id): int
+    public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
     }
 
     /**
@@ -145,11 +143,9 @@ class User
      *
      * @return  self
      */ 
-    public function setUserName($userName): string
+    public function setUserName($userName)
     {
         $this->userName = $userName;
-
-        return $this;
     }
 
     /**
@@ -165,11 +161,9 @@ class User
      *
      * @return  self
      */ 
-    public function setPassword($password): string
+    public function setPassword($password)
     {
         $this->password = $password;
-
-        return $this;
     }
 
     /**
@@ -185,11 +179,9 @@ class User
      *
      * @return  self
      */ 
-    public function setEmail($email): string
+    public function setEmail($email)
     {
         $this->mail = $email;
-
-        return $this;
     }
 
     /**
@@ -205,17 +197,15 @@ class User
      *
      * @return  self
      */ 
-    public function setProfilPicture($profilPicture): string
+    public function setProfilPicture($profilPicture)
     {
         $this->profilPicture = $profilPicture;
-
-        return $this;
     }
 
     /**
      * Get the value of dateSignUp
      */ 
-    public function getDateSignUp(): dateTimeImmutable
+    public function getDateSignUp(): \dateTimeImmutable
     {
         return $this->dateSignUp;
     }
@@ -225,17 +215,15 @@ class User
      *
      * @return  self
      */ 
-    public function setDateSignUp($dateSignUp): dateTimeImmutable
+    public function setDateSignUp($dateSignUp)
     {
         $this->dateSignUp = $dateSignUp;
-
-        return $this;
     }
 
     /**
      * Get the value of dateLastConnection
      */ 
-    public function getDateLastConnection(): dateTimeImmutable
+    public function getDateLastConnection(): \dateTimeImmutable
     {
         return $this->dateLastConnection;
     }
@@ -245,12 +233,9 @@ class User
      *
      * @return  self
      */ 
-    public function setDateLastConnection($dateLastConnection): dateTimeImmutable|User
+    public function setDateLastConnection($dateLastConnection)
     {
         $this->dateLastConnection = $dateLastConnection;
-
-
-        return $this;
     }
 
     /**
@@ -266,11 +251,9 @@ class User
      *
      * @return  self
      */ 
-    public function setNotificationEnabled($notificationEnabled): bool
+    public function setNotificationEnabled($notificationEnabled)
     {
         $this->notificationEnabled = $notificationEnabled;
-
-        return $this;
     }
 
     /**
@@ -286,11 +269,9 @@ class User
      *
      * @return  self
      */ 
-    public function setIsAdmin($isAdmin): bool
+    public function setIsAdmin($isAdmin)
     {
         $this->isAdmin = $isAdmin;
-
-        return $this;
     }
 
     /**
@@ -306,11 +287,9 @@ class User
      *
      * @return  self
      */ 
-    public function setIsRoomOwner($isRoomOwner): bool
+    public function setIsRoomOwner($isRoomOwner)
     {
         $this->isRoomOwner = $isRoomOwner;
-
-        return $this;
     }
 
 }
