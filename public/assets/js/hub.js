@@ -161,26 +161,3 @@ filterGame.addEventListener("change", () => {
 createNewRoomGame.addEventListener("change", () => {
     loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
 });
-
-
-// Form Submit get gamemode id
-
-function get_gamemode_id(id_game, id_gamemode) {
-    const fieldGame = document.querySelector("#"+id_game);
-    const fieldToChangeGamemode = document.querySelector("#"+id_gamemode);
-    
-    for (let gameId in gamemodes) {
-        for (let gameName in gamemodes[gameId]) {
-            if (fieldGame.value == gameName) {
-                for (let gamemodeId in gamemodes[gameId][gameName]) {
-                    if (fieldToChangeGamemode.value == gamemodes[gameId][gameName][gamemodeId]) {
-                        console.log(fieldToChangeGamemode.value);
-                        fieldToChangeGamemode.value = gamemodeId;
-                        console.log(fieldToChangeGamemode.value);
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-}

@@ -33,7 +33,7 @@ class Room
     public string $owner;
     public int $OwnerId;
 
-    public $friendList = [];
+    public array $friendList = [];
 
     // Construct Get Room Members
     protected function getRoomMembers()
