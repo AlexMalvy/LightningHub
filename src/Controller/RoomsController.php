@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-require_once(__DIR__."/../Models/Room.php");
 
 use App\Models\Filters;
 use App\Models\Room;
