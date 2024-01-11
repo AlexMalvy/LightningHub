@@ -16,10 +16,9 @@
             "helpers/class/DB.php",
             "helpers/class/Auth.php",
             "helpers/class/App.php"
-
         ]
     },
-  "require": {
+    "require": {
     "ext-pdo": "*"
-  }
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use DateTime;
 use DB;
 

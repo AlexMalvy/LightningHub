@@ -5,7 +5,7 @@ require_once __DIR__.'/../bootstrap/app.php';
 //Auth::isAuthOrRedirect();
 
 //require_once base_path('App/Controller/SocialsController.php');
-$controller = new App\Controller\SocialsController();
+$controller = new App\Controllers\SocialsController();
 $controller->index();
 
 // Remove errors, success and old data

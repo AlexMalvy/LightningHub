@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 use DB;
 use model\Social;
 
-require_once(__DIR__ . '/../Models/Social.php');
 class PrivateMessageController
 {
     const URL_INDEX = '/socials.php';

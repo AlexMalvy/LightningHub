@@ -6,7 +6,7 @@ require_once base_path('Controller/PrivateMessageController.php');
 Auth::isAuthOrRedirect();
 
 if (!empty($_POST['action'])) {
-    $controller = new App\Controller\PrivateMessageController();
+    $controller = new App\Controllers\PrivateMessageController();
 
     if ($_POST['action'] === 'store') {
         $controller->store();
@@ -19,4 +19,4 @@ if (!empty($_POST['action'])) {
 App::terminate();
 
 // Unknown action
-redirectAndExit(App\Controller\PrivateMessageController::URL_INDEX);
+redirectAndExit(App\Controllers\PrivateMessageController::URL_INDEX);

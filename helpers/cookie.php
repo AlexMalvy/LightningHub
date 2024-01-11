@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../bootstrap/app.php';
 
-use controller\AuthController;
+use App\Controllers\AuthController;
 
 if( isset($_COOKIE['autoconnection']) && is_string($_COOKIE['autoconnection']) ) {
     $delimiter = "//";

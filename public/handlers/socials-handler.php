@@ -6,7 +6,7 @@ require_once __DIR__.'/../../bootstrap/app.php';
 Auth::isAuthOrRedirect();
 
 if (!empty($_POST['action'])) {
-    $controller = new App\Controller\SocialsController();
+    $controller = new App\Controllers\SocialsController();
 
     if ($_POST['action'] === 'update') {
         $controller->update();
@@ -21,4 +21,4 @@ if (!empty($_POST['action'])) {
 App::terminate();
 
 // Unknown action
-redirectAndExit(App\Controller\SocialsController::URL_INDEX);
+redirectAndExit(App\Controllers\SocialsController::URL_INDEX);

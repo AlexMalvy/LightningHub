@@ -13,10 +13,8 @@
     <?php 
     require_once(__DIR__."/../bootstrap/app.php");
     require_once(__DIR__."/../view/header_nav.php");
-    use controller\UserController;
-    use Models\User;
 
-    $userController = new UserController();
+    $userController = new App\Controllers\UserController();
     $users = $userController->index($_SESSION['user']);
     ?>
 

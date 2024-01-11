@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controllers;
 
 
 require_once __DIR__ . '/../Models/Social.php';

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-require("Room.php");
-
 use DB;
 use App\Models\Room;
 
