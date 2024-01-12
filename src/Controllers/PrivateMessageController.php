@@ -100,6 +100,11 @@ class PrivateMessageController
 
         $pvMsg = $this->getPrivateMessageByIds($idUser1, $idUser2, $timeMessage);
 
+        if ($pvMsg->getIsReported() == 1){
+            echo '<script>alert("Opération réussie!");</script>';
+            errors('Déjà signalé');
+            redirectAndExit(self::URL_INDEX);
+        }
         $pvMsg->setIsReported(1);
 
         $result = $pvMsg->save();

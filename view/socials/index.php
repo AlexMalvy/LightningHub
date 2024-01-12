@@ -171,7 +171,7 @@
                                                                     <input  type="text" name="timeMessage" value="<?php echo($tab_msgs[$i]->getTimeMessage())?>" hidden>
                                                                     <?php echo($tab_users[$i]->getUsername())?></h3>
                                                                 <small><?php echo($tab_msgs[$i]->getTimeMessage())?></small>
-                                                                <button type="submit" class="p-2 flex-shrink-1 bd-highlight bg-transparent report">
+                                                                <button type="submit" class="hidden-button">
                                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report"></button>
 
                                                             </div>
@@ -182,6 +182,8 @@
                                                     </div>
 
                                                 </article>
+
+
                                                <?php }
                                         }
                                         ?>

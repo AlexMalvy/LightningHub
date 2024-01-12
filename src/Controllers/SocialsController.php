@@ -7,7 +7,7 @@ use DB;
 use App\Models\Social;
 use App\Models\User;
 
-// TODO: signaler les messages,
+
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: séparer ce qui utilise des autres controllers
 // TODO: utiliser les #id partout
