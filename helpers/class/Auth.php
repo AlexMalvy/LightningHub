@@ -1,14 +1,15 @@
 <?php
 
 class Auth {
-    const SESSION_KEY = 'current_user_id';
+    const SESSION_KEY = 'user';
 
     private static ?array $user = null;
 
     public static function getCurrentUser() : ?array
     {
-        //$id = self::getSessionUserId();
-        $id = 1;
+        $id = self::getSessionUserId();
+        //$id = 1;
+
         if (self::$user === null and $id) {
             self::$user = DB::fetch(
                 "SELECT * FROM users WHERE idUser = :id LIMIT 1",

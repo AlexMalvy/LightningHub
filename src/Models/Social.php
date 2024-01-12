@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Auth;
 use DateTime;
 use DB;
 
@@ -46,7 +47,7 @@ class Social
     public static function staticDelete(int $idFriend) : int|false
     {
 
-        $myId = 1; // a changer
+        $myId = Auth::getSessionUserId();
         return DB::statement(
             "DELETE FROM isfriend".
             " WHERE idUser1 = :idUser1 AND idUser2 = :idUser2".

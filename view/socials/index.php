@@ -105,33 +105,35 @@
                         <!-- Friends List -->
                         <ul class="list-group list-group-flush p-0">
 
-                            <!--                            TEST BDD-->
                             <?php
-                             foreach ($friends_connected as $friend_connected) {?>
-                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+                            if (count($friends_connected) == 0) {
+                                echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami connecté !</div>";
+                            } else {
 
-                                    <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
-                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $friend_connected->getProfilPicture()?>" alt="player
-                                        avatar-70x70"><?php echo $friend_connected->getUsername()?></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friend_connected->getId()?>" aria-controls="offcanvasBottom">
-                                        <img class="icon-20x20" src="assets/images/message-solid-white.svg"
-                                             alt="message icon"></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_connected->getId()?>">
-                                        <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
-                                             alt="delete icon"></a>
+                                 foreach ($friends_connected as $friend_connected) {?>
+                                    <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-
-                                </li>
-
-
-
-                             <?php } ?>
+                                        <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
+                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            $friend_connected->getProfilPicture()?>" alt="player
+                                            avatar-70x70"><?php echo $friend_connected->getUsername()?></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friend_connected->getId()?>" aria-controls="offcanvasBottom">
+                                            <img class="icon-20x20" src="assets/images/message-solid-white.svg"
+                                                 alt="message icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_connected->getId()?>">
+                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
+                                                 alt="delete icon"></a>
 
 
-                            <!--                          FIN  TEST BDD-->
+                                    </li>
+
+
+
+                                 <?php }
+                            }
+                                 ?>
 
                                 <?php
 
@@ -232,46 +234,43 @@
 
 
                         <!--                        TEST BDD -->
-                        <?php
-                        //dd($friends_disconnected);
-                        //var_dump($friends_connected);
-                            if ($friends_connected && $friends_disconnected){
-                                ?>
+
+
                                 <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
                             friends -->
-                        <?php
-                            }
 
-                        ?>
                         <ul  id="list-disconnected" class="list-group list-group-flush p-0 d-none">
 
 
 
 
                             <?php
+                            if (count($friends_disconnected) == 0) {
+                                echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami déconnecté !</div>";
+                            } else {
 
-                            foreach ($friends_disconnected as $friend_disconnected){
-                                //dd($friends_disconnected);
-                                ?>
+                                foreach ($friends_disconnected as $friend_disconnected){
+                                    ?>
 
-                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+                                    <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                    <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
-                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $friend_disconnected->getProfilPicture()?>"
-                                             alt="player
-                                        avatar-70x70"><?php echo $friend_disconnected->getUserName()?></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
-                                    $friend_disconnected->getId()?>" aria-controls="offcanvasBottom">
-                                        <img class="icon-20x20" src="assets/images/message-solid-white.svg"
-                                             alt="message icon"></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_disconnected->getId()?>">
-                                        <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
+                                        <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
+                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            $friend_disconnected->getProfilPicture()?>"
+                                                 alt="player
+                                            avatar-70x70"><?php echo $friend_disconnected->getUserName()?></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
+                                        $friend_disconnected->getId()?>" aria-controls="offcanvasBottom">
+                                            <img class="icon-20x20" src="assets/images/message-solid-white.svg"
+                                                 alt="message icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_disconnected->getId()?>">
+                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
-                                </li>
-                                <?php
+                                    </li>
+                                    <?php
+                                }
                             }?>
 
 
@@ -289,29 +288,33 @@
                     <ul class="list-group list-group-flush p-0">
 
                         <?php
-
-                        foreach ($requests as $request) { ?>
-                            <form method="POST" action="<?php echo($actionUrlSoc) ?>">
-
-
-                                <input type="text" name="id" value="<?php echo($request->getId()) ?>" hidden>
-
-                            <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
-
-                                <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
-                                    <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                    $request->getProfilPicture()?>" alt="player avatar-70x70"><?php echo
-                                    $request->getUsername()?></a>
-                                <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                    <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
-                                <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                    <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
+                        if (count($requests) == 0) {
+                            echo "<div class=' p-5'>Vous n'avez aucune demande d'ami !</div>";
+                        }
+                        else {
+                            foreach ($requests as $request) { ?>
+                                <form method="POST" action="<?php echo($actionUrlSoc) ?>">
 
 
+                                    <input type="text" name="id" value="<?php echo($request->getId()) ?>" hidden>
 
-                            </li>
-                            </form>
-                        <?php } ?>
+                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+
+                                    <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
+                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                        $request->getProfilPicture()?>" alt="player avatar-70x70"><?php echo
+                                        $request->getUsername()?></a>
+                                    <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                        <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
+                                    <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                        <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
+
+
+
+                                </li>
+                                </form>
+                            <?php }
+                        }?>
 
 
                     </ul>

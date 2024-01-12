@@ -7,10 +7,13 @@ use DB;
 use App\Models\Social;
 use App\Models\User;
 
-// TODO: l'heure est décalée d'une heure dans les messages
 // TODO: signaler les messages,
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal
-
+// TODO: séparer ce qui utilise des autres controllers
+// TODO: utiliser les CURRENT_USER
+// TODO: utiliser les #id partout
+// TODO: gérer chaque action met a jour le "last connection"
+// TODO: gérer quand y a pas de user ni connecté ni disc, ni de demandes d'ajout
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -48,7 +51,7 @@ class SocialsController
 
     public function store()
     {
-        $myId = 1;// Auth::getSessionUserId();
+        $myId = Auth::getSessionUserId();
         if (!$_POST['searchFriend']) {
             errors('Veuillez entrer un nom');
             redirectAndExit(self::URL_CREATE);
@@ -101,7 +104,7 @@ class SocialsController
             errors('404. Page introuvable');
             redirectAndExit(self::URL_INDEX);
         }
-        $myId = 1; // A changer
+        $myId = Auth::getSessionUserId();
         $product = DB::fetch(
             "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idFriend]
@@ -162,8 +165,8 @@ class SocialsController
 
     public function getFriendRequests()
     {
-        //$userId = Auth::getSessionUserId();
-        $userId = 1;
+        $userId = Auth::getSessionUserId();
+        //$userId = 1;
 
         $requests = DB::fetch(
         // SQL
@@ -185,8 +188,8 @@ class SocialsController
 
     public static function getFriendsId(): string
     {
-        //$userId = Auth::getSessionUserId();
-        $userId = 1;
+        $userId = Auth::getSessionUserId();
+        //$userId = 1;
 
         $friendsId = DB::fetch(
         // SQL
@@ -217,8 +220,8 @@ class SocialsController
 
     public static function getFriendsAndRequestsId(): string
     {
-        //$userId = Auth::getSessionUserId();
-        $userId = 1;
+        $userId = Auth::getSessionUserId();
+        //$userId = 1;
 
         $friendsId = DB::fetch(
         // SQL
@@ -266,7 +269,7 @@ class SocialsController
 
     public function getNonFriends()
     {
-        $userId = 1; // TODO check
+        $userId = Auth::getSessionUserId();
 
         $friendsId = $this->getFriendsAndRequestsId();
         //  dd($friendsId);
@@ -288,8 +291,8 @@ class SocialsController
 
     public function getMyMsgs()
     {
-        //$userId = Auth::getSessionUserId();
-        $userId = 1;
+        $userId = Auth::getSessionUserId();
+        //$userId = 1;
 
         $myMsgs = DB::fetch(
         // SQL

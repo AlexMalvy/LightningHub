@@ -30,6 +30,7 @@ class PrivateMessageController
             redirectAndExit(self::URL_INDEX);
         }
 
+        date_default_timezone_set('Europe/Paris');
         // Create new private message
         $result = DB::statement(
             "INSERT INTO sendprivatemessages(idUser1, idUser2, timeMessage, message, isReported)"
