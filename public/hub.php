@@ -24,6 +24,7 @@
     $currentHub = new Hub;
     $_SESSION["id"] = 3;
     $currentHub->getFriendRooms($_SESSION["id"]);
+    $currentHub->getConnectedUserRoom(10);
     $counter = 0;
     $filters = new Filters;
     ?>
@@ -155,7 +156,14 @@
                         // print_r($filters->filtersList);
 
                         // print_r($currentHub->friendRoomsList);
+                        // print_r($currentHub->connectedUserRoom);
 
+                        // dd($_SESSION);
+
+                        if (!empty($_SESSION["message"])) {
+                            print_r($_SESSION["message"]);
+                            unset($_SESSION["message"]);
+                        }
                         ?>
 
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -340,7 +348,7 @@
                         <div class="col d-flex flex-column" id="chat-window">
                             <!-- Room Options/Members -->
                             <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
-                                <span>#Salon: Random Room</span>
+                                <span>#Salon: <?php print($currentHub->connectedUserRoom->title) ?></span>
                                 <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                             </button>
 
@@ -416,7 +424,7 @@
                                 <h4>Chef :</h4>
                                 <div>
                                     <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span>Room Lead</span>
+                                    <span><?php print($currentHub->connectedUserRoom->owner) ?></span>
                                 </div>
                             </div>
 
@@ -424,49 +432,20 @@
                             <div class="d-flex flex-column my-4 gap-3">
                                 <h4 class="mb-0">Equipe :</h4>
 
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span>Random 1</span>
-                                    <button class="btn hover-accent focus-accent ms-auto px-1">
-                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                    </button>
-                                    <button class="btn hover-accent focus-accent px-1">
-                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                    </button>
-                                </div>
-
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span>Random 2</span>
-                                    <button class="btn hover-accent focus-accent ms-auto px-1">
-                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                    </button>
-                                    <button class="btn hover-accent focus-accent px-1">
-                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                    </button>
-                                </div>
-
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span>Random 3</span>
-                                    <button class="btn hover-accent focus-accent ms-auto px-1">
-                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                    </button>
-                                    <button class="btn hover-accent focus-accent px-1">
-                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                    </button>
-                                </div>
-
-                                <div class="d-flex align-items-center gap-2">
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span>Random 4</span>
-                                    <button class="btn hover-accent focus-accent ms-auto px-1">
-                                        <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                    </button>
-                                    <button class="btn hover-accent focus-accent px-1">
-                                        <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                    </button>
-                                </div>
+                                <?php foreach($currentHub->connectedUserRoom->members as $member): ?>
+                                    <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->OwnerId): ?>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
+                                            <span><?php print($member["username"]) ?></span>
+                                            <button class="btn hover-accent focus-accent ms-auto px-1">
+                                                <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                            </button>
+                                            <button class="btn hover-accent focus-accent px-1">
+                                                <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                            </button>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
 
                             </div>
 
@@ -521,7 +500,7 @@
 
                                     <div>
                                         <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" placeholder="5" class="input mb-4 w-100">
+                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" value="5" class="input mb-4 w-100">
                                     </div>
                                 </div>
 
@@ -565,30 +544,51 @@
                             </div>
 
                             <!-- Update Room Form -->
-                            <form action="" class="row py-lg-3">
+                            <form action="handlers/room-handler.php" method="POST" class="row py-lg-3" onsubmit="changeValues('#room_game_type')">
+
+                                <input type="text" name="action" value="modify" id="update-action-field" hidden>
+
+                                <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
 
                                 <!-- Left Side -->
                                 <div class="col-lg-5 d-lg-flex flex-column">
                                     <div>
                                         <label for="game_update_room" class="mb-2">Jeux :</label>
                                         <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
-                                            <option selected>Veuillez choisir un jeu</option>
-                                            <option value="lol">League Of Legends</option>
+                                            <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                                <?php foreach ($allGames as $game => $mode): ?>
+                                                    <option
+                                                        value="<?php print($game) ?>"
+                                                        game_id="<?php print($gameId) ?>"
+                                                        <?php if ($currentHub->connectedUserRoom->gameId === $gameId) {print("selected");} ?>
+                                                    >
+                                                        <?php print($game) ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
 
                                     <div>
                                         <label for="game_type_update_room" class="mb-2">Type de partie :</label>
-                                        <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
-                                            <option selected>Veuillez choisir un type de partie</option>
-                                            <option value="normal">Normal</option>
-                                            <option value="ranked">Ranked</option>
+                                        <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true" onchange="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
+                                            <?php foreach ($filters->getGamemodesFromGameId($currentHub->connectedUserRoom->gameId) as $gamemodeId => $gamemodeName): ?>
+                                                <option
+                                                    value="<?php print($gamemodeName) ?>"
+                                                    gamemode_id="<?php print($gamemodeId) ?>"
+                                                    <?php if ($currentHub->connectedUserRoom->gamemodeId === $gamemodeId) {print("selected"); $currentGamemodeId = $gamemodeId;} ?>
+                                                >
+                                                    <?php print($gamemodeName) ?>
+                                                </option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
 
+                                    <input type="text" name="room_game_type_id" value="<?php print($currentGamemodeId) ?>" id="game_type_update_room_id" hidden>
+
                                     <div>
                                         <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
+                                        <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" value="<?php print($currentHub->connectedUserRoom->maxMembers) ?>" class="input mb-4 w-100">
                                     </div>
                                 </div>
 
@@ -596,12 +596,12 @@
                                 <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                                     <div>
                                         <label for="title_update_room" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                        <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true" value="<?php print($currentHub->connectedUserRoom->title) ?>">
                                     </div>
 
                                     <div>
                                         <label for="description" class="mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                        <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"><?php print($currentHub->connectedUserRoom->description) ?></textarea>
                                     </div>
                                 </div>
 
@@ -611,7 +611,7 @@
                                     <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
                                 </div>
                                 <div class="d-lg-flex col-lg-5 order-lg-1">
-                                    <button class="btn w-100 lh-buttons-red mb-3">Clôturer le salon</button>
+                                    <button class="btn w-100 lh-buttons-red mb-3" onclick="deleteRoom('#update-action-field')">Clôturer le salon</button>
                                 </div>
 
                             </form>

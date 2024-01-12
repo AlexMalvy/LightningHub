@@ -7,14 +7,18 @@ use DB;
 
 class Room
 {
-    public function __construct(int $roomId, string $title, string $description, int $maxMembers, $dateDB, string $gameTag, string $gamemode)
+    public function __construct(int $roomId, string $title, string $description, int $maxMembers, $dateDB, int $gameId, string $gameName, string $gameTag, int $gamemodeId, string $gamemode)
     {
         $this->roomId = $roomId;
         $this->title = $title;
         $this->description = $description;
         $this->maxMembers = $maxMembers;
         $this->dateOfCreation = new DateTimeImmutable($dateDB);
+        $this->gameId = $gameId;
+        $this->gameName = $gameName;
         $this->gameTag = $gameTag;
+        
+        $this->gamemodeId = $gamemodeId;
         $this->gamemode = $gamemode;
 
         $this->getRoomMembers();
@@ -26,7 +30,11 @@ class Room
     public int $maxMembers;
     public DateTimeImmutable $dateOfCreation;
 
+    public int $gameId;
+    public string $gameName;
     public string $gameTag;
+
+    public int $gamemodeId;
     public string $gamemode;
 
     public array $members;
@@ -78,8 +86,7 @@ class Room
 
     public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode,)
     {
-        DB::statement("
-        INSERT INTO rooms (title, description, maxMembers, idGamemode)
+        DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
         VALUES
             (:title, :description, :maxMembers, :idGamemode);", ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
 
@@ -88,6 +95,14 @@ class Room
         DB::statement("UPDATE Users
         SET idRoom = :idRoom, isRoomOwner = 1
         WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
+    }
+
+    public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode,)
+    {
+        DB::statement("UPDATE rooms
+        SET title = :title, description = :description, maxMembers = :maxMembers, idGamemode = :idGamemode
+        WHERE rooms.idRoom = :idRoom",
+        ["idRoom" => $idRoom, "title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
     }
 
 }

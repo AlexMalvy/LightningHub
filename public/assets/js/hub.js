@@ -122,6 +122,9 @@ const filterGamemode = document.querySelector("#game_type");
 const createNewRoomGame = document.querySelector("#game_new_room");
 const createNewRoomGamemode = document.querySelector("#game_type_new_room");
 
+const modifyRoomGame = document.querySelector("#game_update_room");
+const modifyRoomGamemode = document.querySelector("#game_type_update_room");
+
 // How to get to each elements
 // for (let gameId in gamemodes) {
 //     for (let gameName in gamemodes[gameId]) {
@@ -161,3 +164,31 @@ filterGame.addEventListener("change", () => {
 createNewRoomGame.addEventListener("change", () => {
     loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
 });
+
+modifyRoomGame.addEventListener("change", () => {
+    loadGamemodeOptions(modifyRoomGame, modifyRoomGamemode);
+});
+
+
+function deleteRoom($fieldId) {
+    const fieldToChange = document.querySelector($fieldId);
+    fieldToChange.setAttribute("value", "delete");
+}
+
+
+function changeValueToGamemodeId($selectFieldId, $hiddenInputFieldId) {
+    // Get select html element
+    const selectField = document.querySelector($selectFieldId);
+    // Get input html element that will carry the gamemode id
+    const hiddenInputField = document.querySelector($hiddenInputFieldId);
+
+    // Retrieve currently selected (not the attribute) option
+    let currentlySelectedIndex = selectField.options.selectedIndex;
+    // Get the currently selected option via it's index
+    let currentlySelectedOption = selectField.options.item(currentlySelectedIndex);
+    // Retrieve the gamemode id value through it's attribute
+    let currentlySelectedGamemodeId = currentlySelectedOption.getAttribute("gamemode_id")
+
+    // Replace the attribute "value" to the new gamemode id
+    hiddenInputField.setAttribute("value", currentlySelectedGamemodeId);
+}
