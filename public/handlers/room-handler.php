@@ -12,7 +12,7 @@ if (!empty($_POST['action'])) {
         $controller->modify();
     }
     if ($_POST['action'] === 'delete') {
-        // $controller->create();
+        $controller->delete();
     }
     if ($_POST['action'] === 'leave') {
         // $controller->create();

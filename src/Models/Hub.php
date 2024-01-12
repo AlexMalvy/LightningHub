@@ -27,9 +27,9 @@ class Hub
     public array $allRoomsList;
     public array $friendRoomsList;
     public array $pendingRoomsList;
-    public $connectedUserRoom;
+    public Room $connectedUserRoom;
     
-    public function getFriendRooms($userId)
+    public function getFriendRooms(int $userId)
     {
         $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
         FROM isfriend
@@ -51,7 +51,7 @@ class Hub
         WHERE users.idUser IN (".$tempFriendList.")");
     }
 
-    public function getConnectedUserRoom($userId)
+    public function getConnectedUserRoom(int $userId)
     {
         foreach ($this->allRoomsList as $room) {
             foreach ($room->members as $member) {

@@ -22,9 +22,9 @@
     
     <?php
     $currentHub = new Hub;
-    $_SESSION["id"] = 3;
+    $_SESSION["id"] = 8;
     $currentHub->getFriendRooms($_SESSION["id"]);
-    $currentHub->getConnectedUserRoom(10);
+    $currentHub->getConnectedUserRoom($_SESSION["id"]);
     $counter = 0;
     $filters = new Filters;
     ?>
@@ -128,9 +128,11 @@
                 </li>
 
                 <!-- Current hub tab head -->
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
-                </li>
+                <?php if (!empty($currentHub->connectedUserRoom)): ?>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
+                    </li>
+                <?php endif ?>
 
                 <!-- New Room hub tab head -->
                 <li class="nav-item" role="presentation">
@@ -138,9 +140,11 @@
                 </li>
 
                 <!-- Update Room hub tab head -->
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
-                </li>
+                <?php if (!empty($currentHub->connectedUserRoom)): ?>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link text-white hover-accent-shadow focus-accent-shadow d-none" id="update-room-hub-tab" data-bs-toggle="tab" data-bs-target="#update-room-hub-tab-pane" type="button" role="tab" aria-controls="update-room-hub-tab-pane" aria-selected="false">Modifier le salon</button>
+                    </li>
+                <?php endif ?>
             </ul>
 
             <!-- Content -->
@@ -341,123 +345,125 @@
                 </div>
 
                 <!-- Current hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
-                    <div class="container-fluid p-0 d-flex">
-                            
-                        <!-- Chat -->
-                        <div class="col d-flex flex-column" id="chat-window">
-                            <!-- Room Options/Members -->
-                            <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
-                                <span>#Salon: <?php print($currentHub->connectedUserRoom->title) ?></span>
-                                <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
-                            </button>
+                <?php if (!empty($currentHub->connectedUserRoom)): ?>
+                    <div class="tab-pane fade show p-1 border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
+                        <div class="container-fluid p-0 d-flex">
+                                
+                            <!-- Chat -->
+                            <div class="col d-flex flex-column" id="chat-window">
+                                <!-- Room Options/Members -->
+                                <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
+                                    <span>#Salon: <?php print($currentHub->connectedUserRoom->title) ?></span>
+                                    <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
+                                </button>
 
-                            <!-- Chat log -->
-                            <div class="container-fluid chat-window">
-                                <div class="row row-cols-1 px-1 px-md-2 px-xl-3">
-                                    <!-- Disclaimer -->
-                                    <article class="col disclaimer">
-                                        <p>System : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
-                                    </article>
+                                <!-- Chat log -->
+                                <div class="container-fluid chat-window">
+                                    <div class="row row-cols-1 px-1 px-md-2 px-xl-3">
+                                        <!-- Disclaimer -->
+                                        <article class="col disclaimer">
+                                            <p>System : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
+                                        </article>
 
-                                    <!-- All Messages -->
-                                    <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-
-                                        <div class="message-body">
-
-                                            <div class="message-header">
-                                                <h2 class="card-title">Random 1</h2>
-                                                <small>14:46</small>
-                                                <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                            </div>
-
-                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, magni.</p>
-                                        </div>
-
-                                    </article>
-                                    <article class="col message">
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-
-                                        <div class="message-body">
-
-                                            <div class="message-header">
-                                                <h4 class="card-title">Random 2</h4>
-                                                <small>14:46</small>
-                                                <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                            </div>
-
-                                            <p class="card-text">Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. CNN was originally created as the "Chuck Norris Network" to update Americans with on-the-spot ass kicking in real-time, Chuck Norris does not get frostbite. Chuck Norris bites frost, In Olde Tribal Celtic language, "Chuck" is the word for "Stone" and "Norris" is the word for "Henge", Chuck Norris is the reason why Waldo is hiding. Chuck Norris doesn't own a stove, water comes to a boil while he watches the pot filling, Chuck Norris doesn't wash his clothes, he disembowels them.
-
-                                            Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris does not get frostbite. Chuck Norris bites frost.
-                                                
-                                            There is no theory of evolution. Just a list of creatures Chuck Norris has allowed to live Chuck Norris has two speeds. Walk, and Kill. Chuck Norris uses pepper spray to spice up his steaks, Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris can eat a puffer fish whole Chuck Norris taught Yoda what the force was Chuck Norris played baseball once. He went 4 for 3 Chuck Norris uses pepper spray to spice up his steaks Chuck Norris once roundhouse kicked someone so hard that his foot broke the speed of light, went back in time, and killed Amelia Earhart while she was flying over the Pacific Ocean When the Boogeyman goes to sleep every night, he checks his closet for Chuck Norris. Chuck Norris can lead a horse to water AND make it drink The quickest way to a man's heart is with Chuck Norris' fist Chuck Norris' hand is the only hand that can beat a Royal Flush. Chuck Norris doesn't churn butter. He roundhouse kicks the cows and the butter comes straight out. When Chuck Norris does a pushup, he isn't lifting himself up, he's pushing the Earth down.
-                                                
-                                            The government calls water boarding torture. Chuck calls it a facial. Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris has a website, is called the internet. Chuck Norris can strangle you with his tongue, Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth When Chuck Norris plays dodge ball...the balls dodge him Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. The chief export of Chuck Norris is Pain Chuck Norris doesn't wear a watch. HE decides what time it is Chuck Norris drives an ice cream truck covered in human skulls Chuck Norris can make curtains out of the fabric of time When Chuck Norris sends in his taxes, he sends blank forms and includes only a picture of himself, crouched and ready to attack. Chuck Norris has not had to pay taxes, ever, Contrary to popular belief, America is not a democracy, it is a Chucktatorship.</p>
-                                        </div>
-
-                                    </article>
-                                </div>
-                            </div>
-
-                            <!-- User Message Input -->
-                            <div class="input-group px-3 mb-2">
-                                <input type="text" class="input flex-grow-1" placeholder="Message">
-                                <button class="btn btn-dark border-purple hover-accent focus-accent"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
-                            </div>
-                          
-                        </div>
-
-                        <!-- Current Members -->
-                        <section class="d-none flex-column bg-color-purple-faded border p-3" id="chat-members-window" aria-selected="false">
-
-                            <!-- Section Title -->
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
-                                <h2 class="m-0">Membres</h2>
-                            </div>
-                            
-                            <hr>
-
-                            <!-- Room Lead -->
-                            <div>
-                                <h4>Chef :</h4>
-                                <div>
-                                    <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                    <span><?php print($currentHub->connectedUserRoom->owner) ?></span>
-                                </div>
-                            </div>
-
-                            <!-- Members -->
-                            <div class="d-flex flex-column my-4 gap-3">
-                                <h4 class="mb-0">Equipe :</h4>
-
-                                <?php foreach($currentHub->connectedUserRoom->members as $member): ?>
-                                    <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->OwnerId): ?>
-                                        <div class="d-flex align-items-center gap-2">
+                                        <!-- All Messages -->
+                                        <article class="col message">
                                             <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                            <span><?php print($member["username"]) ?></span>
-                                            <button class="btn hover-accent focus-accent ms-auto px-1">
-                                                <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                            </button>
-                                            <button class="btn hover-accent focus-accent px-1">
-                                                <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                            </button>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
 
+                                            <div class="message-body">
+
+                                                <div class="message-header">
+                                                    <h2 class="card-title">Random 1</h2>
+                                                    <small>14:46</small>
+                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                </div>
+
+                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, magni.</p>
+                                            </div>
+
+                                        </article>
+                                        <article class="col message">
+                                            <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
+
+                                            <div class="message-body">
+
+                                                <div class="message-header">
+                                                    <h4 class="card-title">Random 2</h4>
+                                                    <small>14:46</small>
+                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                </div>
+
+                                                <p class="card-text">Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. CNN was originally created as the "Chuck Norris Network" to update Americans with on-the-spot ass kicking in real-time, Chuck Norris does not get frostbite. Chuck Norris bites frost, In Olde Tribal Celtic language, "Chuck" is the word for "Stone" and "Norris" is the word for "Henge", Chuck Norris is the reason why Waldo is hiding. Chuck Norris doesn't own a stove, water comes to a boil while he watches the pot filling, Chuck Norris doesn't wash his clothes, he disembowels them.
+
+                                                Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris does not get frostbite. Chuck Norris bites frost.
+                                                    
+                                                There is no theory of evolution. Just a list of creatures Chuck Norris has allowed to live Chuck Norris has two speeds. Walk, and Kill. Chuck Norris uses pepper spray to spice up his steaks, Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris can eat a puffer fish whole Chuck Norris taught Yoda what the force was Chuck Norris played baseball once. He went 4 for 3 Chuck Norris uses pepper spray to spice up his steaks Chuck Norris once roundhouse kicked someone so hard that his foot broke the speed of light, went back in time, and killed Amelia Earhart while she was flying over the Pacific Ocean When the Boogeyman goes to sleep every night, he checks his closet for Chuck Norris. Chuck Norris can lead a horse to water AND make it drink The quickest way to a man's heart is with Chuck Norris' fist Chuck Norris' hand is the only hand that can beat a Royal Flush. Chuck Norris doesn't churn butter. He roundhouse kicks the cows and the butter comes straight out. When Chuck Norris does a pushup, he isn't lifting himself up, he's pushing the Earth down.
+                                                    
+                                                The government calls water boarding torture. Chuck calls it a facial. Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris has a website, is called the internet. Chuck Norris can strangle you with his tongue, Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth When Chuck Norris plays dodge ball...the balls dodge him Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. The chief export of Chuck Norris is Pain Chuck Norris doesn't wear a watch. HE decides what time it is Chuck Norris drives an ice cream truck covered in human skulls Chuck Norris can make curtains out of the fabric of time When Chuck Norris sends in his taxes, he sends blank forms and includes only a picture of himself, crouched and ready to attack. Chuck Norris has not had to pay taxes, ever, Contrary to popular belief, America is not a democracy, it is a Chucktatorship.</p>
+                                            </div>
+
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <!-- User Message Input -->
+                                <div class="input-group px-3 mb-2">
+                                    <input type="text" class="input flex-grow-1" placeholder="Message">
+                                    <button class="btn btn-dark border-purple hover-accent focus-accent"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
+                                </div>
+                            
                             </div>
 
-                            <!-- Modify/Leave Buttons -->
-                            <div class="d-flex flex-column gap-3 mt-auto">
-                                <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
-                                <button class="btn lh-buttons-red">Quitter le salon</button>
-                            </div>
-                        </section>
+                            <!-- Current Members -->
+                            <section class="d-none flex-column bg-color-purple-faded border p-3" id="chat-members-window" aria-selected="false">
 
+                                <!-- Section Title -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn-close" aria-label="Close" id="chat-members-close"></button>
+                                    <h2 class="m-0">Membres</h2>
+                                </div>
+                                
+                                <hr>
+
+                                <!-- Room Lead -->
+                                <div>
+                                    <h4>Chef :</h4>
+                                    <div>
+                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
+                                        <span><?php print($currentHub->connectedUserRoom->owner) ?></span>
+                                    </div>
+                                </div>
+
+                                <!-- Members -->
+                                <div class="d-flex flex-column my-4 gap-3">
+                                    <h4 class="mb-0">Equipe :</h4>
+
+                                    <?php foreach($currentHub->connectedUserRoom->members as $member): ?>
+                                        <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->OwnerId): ?>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
+                                                <span><?php print($member["username"]) ?></span>
+                                                <button class="btn hover-accent focus-accent ms-auto px-1">
+                                                    <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                                </button>
+                                                <button class="btn hover-accent focus-accent px-1">
+                                                    <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                                </button>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+
+                                </div>
+
+                                <!-- Modify/Leave Buttons -->
+                                <div class="d-flex flex-column gap-3 mt-auto">
+                                    <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
+                                    <button class="btn lh-buttons-red">Quitter le salon</button>
+                                </div>
+                            </section>
+
+                        </div>
                     </div>
-                </div>
+                <?php endif ?>
 
                 <!-- New Room hub tab content -->
                 <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
@@ -531,95 +537,97 @@
                 </div>
 
                 <!-- Update Room hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
+                <?php if (!empty($currentHub->connectedUserRoom)): ?>
+                    <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
-                    <div class="py-3">
-                        <div class="row row-cols-1 px-3">
+                        <div class="py-3">
+                            <div class="row row-cols-1 px-3">
 
-                            <div class="col">
-                                <h2 class="reconstruct mt-2">Modification d'un salon</h2>
-                            </div>
-                            <div class="col px-2 px-md-5 px-lg-0 pb-4">
-                                <hr>
-                            </div>
+                                <div class="col">
+                                    <h2 class="reconstruct mt-2">Modification d'un salon</h2>
+                                </div>
+                                <div class="col px-2 px-md-5 px-lg-0 pb-4">
+                                    <hr>
+                                </div>
 
-                            <!-- Update Room Form -->
-                            <form action="handlers/room-handler.php" method="POST" class="row py-lg-3" onsubmit="changeValues('#room_game_type')">
+                                <!-- Update Room Form -->
+                                <form action="handlers/room-handler.php" method="POST" class="row py-lg-3">
 
-                                <input type="text" name="action" value="modify" id="update-action-field" hidden>
+                                    <input type="text" name="action" value="modify" id="update-action-field" hidden>
 
-                                <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
+                                    <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
 
-                                <!-- Left Side -->
-                                <div class="col-lg-5 d-lg-flex flex-column">
-                                    <div>
-                                        <label for="game_update_room" class="mb-2">Jeux :</label>
-                                        <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
-                                            <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
-                                                <?php foreach ($allGames as $game => $mode): ?>
+                                    <!-- Left Side -->
+                                    <div class="col-lg-5 d-lg-flex flex-column">
+                                        <div>
+                                            <label for="game_update_room" class="mb-2">Jeux :</label>
+                                            <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
+                                                <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                                    <?php foreach ($allGames as $game => $mode): ?>
+                                                        <option
+                                                            value="<?php print($game) ?>"
+                                                            game_id="<?php print($gameId) ?>"
+                                                            <?php if ($currentHub->connectedUserRoom->gameId === $gameId) {print("selected");} ?>
+                                                        >
+                                                            <?php print($game) ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="game_type_update_room" class="mb-2">Type de partie :</label>
+                                            <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true" onchange="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
+                                                <?php foreach ($filters->getGamemodesFromGameId($currentHub->connectedUserRoom->gameId) as $gamemodeId => $gamemodeName): ?>
                                                     <option
-                                                        value="<?php print($game) ?>"
-                                                        game_id="<?php print($gameId) ?>"
-                                                        <?php if ($currentHub->connectedUserRoom->gameId === $gameId) {print("selected");} ?>
+                                                        value="<?php print($gamemodeName) ?>"
+                                                        gamemode_id="<?php print($gamemodeId) ?>"
+                                                        <?php if ($currentHub->connectedUserRoom->gamemodeId === $gamemodeId) {print("selected"); $currentGamemodeId = $gamemodeId;} ?>
                                                     >
-                                                        <?php print($game) ?>
+                                                        <?php print($gamemodeName) ?>
                                                     </option>
                                                 <?php endforeach; ?>
-                                            <?php endforeach; ?>
-                                        </select>
+                                            </select>
+                                        </div>
+
+                                        <input type="text" name="room_game_type_id" value="<?php print($currentGamemodeId) ?>" id="game_type_update_room_id" hidden>
+
+                                        <div>
+                                            <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
+                                            <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" value="<?php print($currentHub->connectedUserRoom->maxMembers) ?>" class="input mb-4 w-100">
+                                        </div>
                                     </div>
 
-                                    <div>
-                                        <label for="game_type_update_room" class="mb-2">Type de partie :</label>
-                                        <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true" onchange="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
-                                            <?php foreach ($filters->getGamemodesFromGameId($currentHub->connectedUserRoom->gameId) as $gamemodeId => $gamemodeName): ?>
-                                                <option
-                                                    value="<?php print($gamemodeName) ?>"
-                                                    gamemode_id="<?php print($gamemodeId) ?>"
-                                                    <?php if ($currentHub->connectedUserRoom->gamemodeId === $gamemodeId) {print("selected"); $currentGamemodeId = $gamemodeId;} ?>
-                                                >
-                                                    <?php print($gamemodeName) ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                    <!-- Right Side -->
+                                    <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
+                                        <div>
+                                            <label for="title_update_room" class="mb-2">Titre du salon :</label>
+                                            <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true" value="<?php print($currentHub->connectedUserRoom->title) ?>">
+                                        </div>
+
+                                        <div>
+                                            <label for="description" class="mb-2">Description :</label>
+                                            <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"><?php print($currentHub->connectedUserRoom->description) ?></textarea>
+                                        </div>
                                     </div>
 
-                                    <input type="text" name="room_game_type_id" value="<?php print($currentGamemodeId) ?>" id="game_type_update_room_id" hidden>
-
-                                    <div>
-                                        <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" value="<?php print($currentHub->connectedUserRoom->maxMembers) ?>" class="input mb-4 w-100">
+                                    <!-- Buttons -->
+                                    <div class="d-lg-flex col-lg-5 offset-lg-2 order-lg-2 flex-lg-row-reverse">
+                                        <button class="btn w-100 lh-buttons-purple mb-3">Modifier le salon</button>
+                                        <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
                                     </div>
-                                </div>
-
-                                <!-- Right Side -->
-                                <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
-                                    <div>
-                                        <label for="title_update_room" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true" value="<?php print($currentHub->connectedUserRoom->title) ?>">
+                                    <div class="d-lg-flex col-lg-5 order-lg-1">
+                                        <button class="btn w-100 lh-buttons-red mb-3" onclick="deleteRoom('#update-action-field')">Clôturer le salon</button>
                                     </div>
 
-                                    <div>
-                                        <label for="description" class="mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"><?php print($currentHub->connectedUserRoom->description) ?></textarea>
-                                    </div>
-                                </div>
+                                </form>
 
-                                <!-- Buttons -->
-                                <div class="d-lg-flex col-lg-5 offset-lg-2 order-lg-2 flex-lg-row-reverse">
-                                    <button class="btn w-100 lh-buttons-purple mb-3">Modifier le salon</button>
-                                    <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
-                                </div>
-                                <div class="d-lg-flex col-lg-5 order-lg-1">
-                                    <button class="btn w-100 lh-buttons-red mb-3" onclick="deleteRoom('#update-action-field')">Clôturer le salon</button>
-                                </div>
-
-                            </form>
-
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                <?php endif ?>
                 
             </div>
 

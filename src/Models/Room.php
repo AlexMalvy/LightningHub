@@ -21,7 +21,7 @@ class Room
         $this->gamemodeId = $gamemodeId;
         $this->gamemode = $gamemode;
 
-        $this->getRoomMembers();
+        $this->getRoomMembersConstruct();
     }
 
     public int $roomId;
@@ -44,7 +44,7 @@ class Room
     public array $friendList = [];
 
     // Construct Get Room Members
-    protected function getRoomMembers()
+    protected function getRoomMembersConstruct()
     {
         $this->members = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner
         FROM rooms
@@ -61,7 +61,8 @@ class Room
         }
     }
 
-    public function getNumberOfFriend($allRoomsFriendlist) {
+    public function getNumberOfFriend(array $allRoomsFriendlist)
+    {
         foreach ($allRoomsFriendlist as $friend) {
             if ($friend["idRoom"] === $this->roomId) {
                 array_push($this->friendList, $friend);
@@ -70,7 +71,7 @@ class Room
     }
     
     // Display Room creation time
-    public function CreatedSince()
+    public function CreatedSince() : string
     {
         $date_diff = date_diff($this->dateOfCreation, new DateTimeImmutable());
         $hours = intval($date_diff->format('%H'));
@@ -83,8 +84,19 @@ class Room
         }
         return $minutes_since_creation;
     }
+    
+    // Return Room Member's Id
+    public static function getRoomMembersId(int $roomId) : array
+    {
+        $roomMembers = DB::fetch("SELECT users.idUser
+        FROM rooms
+            INNER JOIN users
+            ON rooms.idRoom = users.idRoom
+        WHERE users.idRoom = :currentRoom", ["currentRoom" => $roomId]);
+        return $roomMembers;
+    }
 
-    public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode,)
+    public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode)
     {
         DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
         VALUES
@@ -97,12 +109,36 @@ class Room
         WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
     }
 
-    public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode,)
+    public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode)
     {
         DB::statement("UPDATE rooms
         SET title = :title, description = :description, maxMembers = :maxMembers, idGamemode = :idGamemode
         WHERE rooms.idRoom = :idRoom",
         ["idRoom" => $idRoom, "title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
+    }
+
+    public static function deleteRoom(int $idRoom)
+    {
+        $roomMembers = self::getRoomMembersId($idRoom);
+
+        // Remove each user's room and ownership
+        foreach ($roomMembers as $member) {
+            DB::statement("UPDATE users
+            SET users.isRoomOwner = 0, users.idRoom = NULL
+            WHERE users.idUser = :idUser",
+            ["idUser" => $member["idUser"]]);
+        }
+
+        // Delete the room from db
+        DB::statement("DELETE FROM rooms
+        WHERE rooms.idRoom = :idRoom",
+        ["idRoom" => $idRoom]);
+    }
+
+    public static function leaveRoom(int $idUser)
+    {
+        DB::statement("UPDATE users
+        SET users.isRoomOwner = 0");
     }
 
 }

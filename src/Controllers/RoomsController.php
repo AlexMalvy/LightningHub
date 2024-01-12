@@ -20,7 +20,7 @@ class RoomsController
             exit();
         }
 
-        $idUser = 11;
+        $idUser = $_SESSION["id"];
         $title = $_POST["room_title"];
         $description = $_POST["description"] ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
@@ -30,7 +30,7 @@ class RoomsController
         $filters = new Filters;
         $gamemodeId = $filters->getGamemodeId($game, $gamemode);
 
-        // Save the product in DB
+        // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
 
         header("Location: $index");
@@ -45,13 +45,15 @@ class RoomsController
             exit();
         }
 
+        // TODO check if the user sending the request is the room owner
+
         $idRoom = $_POST["room_id"];
         $title = $_POST["room_title"];
         $description = $_POST["description"] ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
         $gamemodeId = $_POST["room_game_type_id"];
 
-        // Save the product in DB
+        // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
 
         header("Location: $index");
@@ -60,24 +62,35 @@ class RoomsController
 
     public function delete()
     {
-        $index = self::URL_CREATE;
-        if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+        $index = self::URL_INDEX;
+        if (empty($_POST["room_id"])) {
             header("Location: $index");
             exit();
         }
 
-        $idUser = 11;
-        $title = $_POST["room_title"];
-        $description = $_POST["description"] ?? "";
-        $maxMembers = intval($_POST["room_number_player"] ?: 5);
-        $game = $_POST["room_game"];
-        $gamemode = $_POST["room_game_type"];
+        // TODO check if the user sending the request is the room owner
 
-        $filters = new Filters;
-        $gamemodeId = $filters->getGamemodeId($game, $gamemode);
+        $idRoom = $_POST["room_id"];
 
-        // Save the product in DB
-        Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
+        // Delete the room in DB
+        Room::deleteRoom($idRoom);
+
+        header("Location: $index");
+        exit();
+    }
+    
+    public function leave()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["id"])) {
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["id"];
+
+        // Delete the room in DB
+        Room::leaveRoom($idUser);
 
         header("Location: $index");
         exit();
