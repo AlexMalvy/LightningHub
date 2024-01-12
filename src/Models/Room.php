@@ -39,7 +39,7 @@ class Room
 
     public array $members;
     public string $owner;
-    public int $OwnerId;
+    public int $ownerId;
 
     public array $friendList = [];
 
@@ -56,7 +56,7 @@ class Room
         foreach ($this->members as $member) {
             if ($member["isRoomOwner"] === 1) {
                 $this->owner = $member["username"];
-                $this->OwnerId = $member["idUser"];
+                $this->ownerId = $member["idUser"];
             }
         }
     }
@@ -135,10 +135,17 @@ class Room
         ["idRoom" => $idRoom]);
     }
 
-    public static function leaveRoom(int $idUser)
+    public static function leaveRoom(int $idUser, int $idRoom, int $countMembers, int $idOwner)
     {
-        DB::statement("UPDATE users
-        SET users.isRoomOwner = 0");
+        if ($countMembers === 1) {
+            self::deleteRoom($idRoom);
+        } else if ($idUser !== $idOwner) {
+            DB::statement("UPDATE Users
+            SET idRoom = NULL
+            WHERE idUser = :idUser", ["idUser" => $idUser]);
+        } else {
+            // TODO change ownership before leaving
+        }
     }
 
 }

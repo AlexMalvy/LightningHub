@@ -82,15 +82,18 @@ class RoomsController
     public function leave()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["id"])) {
+        if (empty($_SESSION["id"]) or empty($_POST["room_id"]) or empty($_POST["membersCount"]) or empty($_POST["ownerId"])) {
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["id"];
+        $idRoom = $_POST["room_id"];
+        $countMembers = $_POST["membersCount"];
+        $idOwner = $_POST["ownerId"];
 
         // Delete the room in DB
-        Room::leaveRoom($idUser);
+        Room::leaveRoom($idUser, $idRoom, $countMembers, $idOwner);
 
         header("Location: $index");
         exit();

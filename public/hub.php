@@ -438,7 +438,7 @@
                                     <h4 class="mb-0">Equipe :</h4>
 
                                     <?php foreach($currentHub->connectedUserRoom->members as $member): ?>
-                                        <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->OwnerId): ?>
+                                        <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->ownerId): ?>
                                             <div class="d-flex align-items-center gap-2">
                                                 <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
                                                 <span><?php print($member["username"]) ?></span>
@@ -457,7 +457,13 @@
                                 <!-- Modify/Leave Buttons -->
                                 <div class="d-flex flex-column gap-3 mt-auto">
                                     <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
-                                    <button class="btn lh-buttons-red">Quitter le salon</button>
+                                    <form action="handlers/room-handler.php" method="POST">
+                                        <input type="text" name="action" value="leave" hidden>
+                                        <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
+                                        <input type="text" name="membersCount" value="<?php print(count($currentHub->connectedUserRoom->members)) ?>" hidden>
+                                        <input type="text" name="ownerId" value="<?php print($currentHub->connectedUserRoom->ownerId) ?>" hidden>
+                                        <button class="btn lh-buttons-red w-100">Quitter le salon</button>
+                                    </form>
                                 </div>
                             </section>
 

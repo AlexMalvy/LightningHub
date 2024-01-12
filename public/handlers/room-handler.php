@@ -15,7 +15,7 @@ if (!empty($_POST['action'])) {
         $controller->delete();
     }
     if ($_POST['action'] === 'leave') {
-        // $controller->create();
+        $controller->leave();
     }
 }
 
