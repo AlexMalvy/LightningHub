@@ -112,4 +112,22 @@ class DB {
     
         return null;
     }
+
+    public static function insert(string $table, array $data): bool
+    {
+        // only keys: ['enable', 'label', 'description', 'brand', 'price_ttc', 'price_ht', 'vat', 'quantity', 'created_at']
+        $keys = array_keys($data);
+
+        // enable, label, description, brand, price_ttc, price_ht, vat, quantity, created_at
+        $cols = implode(', ', $keys);
+
+        // :enable, :label, :description, :brand, :price_ttc, :price_ht, :vat, :quantity, :created_at
+        $params = ':'.implode(', :', $keys);
+
+        return DB::statement(
+            "INSERT INTO $table ($cols)"
+            ." VALUES ($params)",
+            $data,
+        );
+    }
 }

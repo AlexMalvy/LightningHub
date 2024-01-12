@@ -114,7 +114,8 @@ class Social
     }
 
 
-    public function insert() {
+    public function insert(): bool
+    {
         //dd($this);
         $data =  [
             'idUser1' => $this->idUser1,

@@ -28,6 +28,21 @@ class PrivateMessage
 
     }
 
+    public static function hydrate(array $data): PrivateMessage
+    {
+
+        $msg = new PrivateMessage(
+            $data['idUser1'] ?? null,
+            $data['idUser2'] ?? null,
+            $data['message'] ?? null,
+            $data['isReported'] ?? null,
+            $data['timeMessage'] ?? null
+        );
+
+
+        return $msg;
+    }
+
     public function getIdUser1(): ?int
     {
         return $this->idUser1;
@@ -77,8 +92,5 @@ class PrivateMessage
     {
         $this->isReported = $isReported;
     }
-
-
-
 
 }

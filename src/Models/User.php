@@ -30,8 +30,9 @@ class User
      */ 
     public static function hydrate(array $data): User
     {
+
         $user = new User(
-            $data['IdUser'] ?? null,
+            $data['idUser'] ?? null,
             $data['username'] ?? null,
             $data['password'] ?? null,
             $data['mail'] ?? null,
@@ -43,17 +44,18 @@ class User
             $data['isRoomOwner'] ?? null,
         );
 
-        $user->id = $data['IdUser'] ?? null;
+        $user->id = $data['idUser'] ?? null;
         $user->userName = $data['username'] ?? null;
         $user->password = $data['password'] ?? null;
         $user->mail = $data['mail'] ?? null;
-        $user->profilPicture = $data['profilPicture'] ?? null;
+        $user->profilPicture = $data['profilePicture'] ?? null;
         //$user->dateSignUp = $data['SignUpDate'];
         //$user->dateLastConnection = $data['lastConnection'];
-        $user->notificationEnabled = $data['notificationEnabled'] ?? null;
+        $user->notificationEnabled = $data['notificationsEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
-
+       // dd($data);
+       // dd($user);
         return $user;
     }
     

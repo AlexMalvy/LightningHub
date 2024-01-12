@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\PrivateMessage;
 use DB;
-use model\Social;
 
 class PrivateMessageController
 {
@@ -48,6 +49,14 @@ class PrivateMessageController
 
         // Redirection
         redirectAndExit(self::URL_INDEX);
+    }
+
+    public function hydrate(array $requests): array
+    {
+        foreach ($requests as $key => $request) {
+            $requests[$key] = PrivateMessage::hydrate($request);
+        }
+        return $requests;
     }
 
 //    public function delete()

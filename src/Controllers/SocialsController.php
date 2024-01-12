@@ -2,17 +2,14 @@
 
 namespace App\Controllers;
 
-
-require_once __DIR__ . '/../Models/Social.php';
-require_once __DIR__ . '/../Models/User.php';
-
 use Auth;
 use DB;
 use App\Models\Social;
 use App\Models\User;
 
-
-// use Models\Social;
+// TODO: l'heure est décalée d'une heure dans les messages
+// TODO: signaler les messages,
+// TODO: voir si la requete de la recup des msg prend en compte le booleen de signal
 
 class SocialsController
 {
@@ -24,40 +21,33 @@ class SocialsController
     public function index()
     {
 
-        $friends = $this->getFriends();
-        $friendsNames = $this->getMyFriendsNames();
-        // FRIENDS LIST TAB
-        $friends_connected = $this->getConnectedFriends();
-        $friends_disconnected = $this->getDisconnectedFriends();
+        $friends =  $this->hydrateUser($this->getFriends());
+        $nonFriendsNames = $this->getNonFriendsNames();
 
-        // Hydrate products
-//        foreach ($friends_disconnected as $key => $friend_disconnected) {
-//            $friends_disconnected[$key] = User::hydrate($friend_disconnected);
-//        }
-        //dd($friends_disconnected);
+        // FRIENDS LIST TAB
+        $friends_connected = $this->hydrateUser($this->getConnectedFriends());
+        $friends_disconnected  = $this->hydrateUser($this->getDisconnectedFriends());
+
 
         $current_user = Auth::getCurrentUser();
         // FRIENDS REQUESTS LIST TAB
-        $requests = $this->getFriendRequests();
+        $requests = $this->hydrateUser($this->getFriendRequests());
+
 
         // MESSAGES
         $myMsgs = $this->getMyMsgs();
+        $tab_users = $this->hydrateUser($myMsgs);
+        $tab_msgs = (new PrivateMessageController)->hydrate($myMsgs);
 
         $actionUrlSoc = self::URL_HANDLER_SOC;
         $actionUrlMsg = self::URL_HANDLER_MSG;
         require_once base_path('view/socials/index.php');
     }
 
-    public function create()
-    {
-        $actionUrl = self::URL_HANDLER;
-        $defaultVat = Product::DEFAULT_VAT;
-        require_once base_path('view/products/create.php');
-    }
+
 
     public function store()
     {
-        //dd($_POST);
         $myId = 1;// Auth::getSessionUserId();
         if (!$_POST['searchFriend']) {
             errors('Veuillez entrer un nom');
@@ -78,7 +68,6 @@ class SocialsController
             redirectAndExit(self::URL_INDEX);
         }
 
-        // dd($user[0]);
 
 
         $social = new Social(
@@ -94,26 +83,12 @@ class SocialsController
         redirectAndExit(self::URL_INDEX);
     }
 
-//    public function delete()
-//    {
-//        $id = $_GET['id'] ?? null;
-//
-//        if (!$id) {
-//            errors('Identifiant invalide');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//
-//        // Delete a product in DB
-//        Social::staticDelete($id);
-//
-//        redirectAndExit(self::URL_INDEX);
-//    }
+
 
     public function delete()
     {
         $idUser = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($idUser);
-        //dd($social);
         // Delete a product in DB
         $social->delete();
 
@@ -163,29 +138,6 @@ class SocialsController
         return $friendsConnected;
     }
 
-//    public function getDisconnectedFriends() {
-//        //$userId = Auth::getSessionUserId();
-//        $userId = 1;
-//
-//        $friends_disconnected = DB::fetch(
-//        // SQL
-//            "SELECT * FROM users"
-//            ." INNER JOIN isfriend ON users.idUser = isfriend.idUser1"
-//            ." WHERE isfriend.idUser2 = :user_id"
-//            ." AND accepted = 1"
-//            ." AND TIMESTAMPDIFF(MINUTE, lastConnection, NOW()) > 5"
-//            ." ORDER BY SignUpDate DESC",
-//
-//            // Params
-//            [':user_id' => $userId],
-//
-//        );
-//        if ($friends_disconnected === false) {
-//            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        return $friends_disconnected;
-//    }
 
     public function getDisconnectedFriends()
     {
@@ -231,7 +183,7 @@ class SocialsController
         return $requests;
     }
 
-    public static function getFriendsId()
+    public static function getFriendsId(): string
     {
         //$userId = Auth::getSessionUserId();
         $userId = 1;
@@ -263,6 +215,39 @@ class SocialsController
         return "'" . implode("', '", $tempFriendList) . "'";
     }
 
+    public static function getFriendsAndRequestsId(): string
+    {
+        //$userId = Auth::getSessionUserId();
+        $userId = 1;
+
+        $friendsId = DB::fetch(
+        // SQL
+            "SELECT * FROM isfriend"
+            . " WHERE (isfriend.idUser1 = :user_id OR isfriend.idUser2 = :user_id)",
+
+            // Params
+            [':user_id' => $userId],
+
+        );
+        if ($friendsId === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+        $tempFriendList = [];
+        foreach ($friendsId as $friendId) {
+            if ($friendId["idUser1"] === $userId) {
+                array_push($tempFriendList, $friendId["idUser2"]);
+            } else {
+                array_push($tempFriendList, $friendId["idUser1"]);
+            }
+        }
+
+        return "'" . implode("', '", $tempFriendList) . "'";
+    }
+
+
+
     public function getFriends()
     {
         $friendsID = $this->getFriendsId();
@@ -276,6 +261,28 @@ class SocialsController
             redirectAndExit(self::URL_INDEX);
         }
 
+        return $friends;
+    }
+
+    public function getNonFriends()
+    {
+        $userId = 1; // TODO check
+
+        $friendsId = $this->getFriendsAndRequestsId();
+        //  dd($friendsId);
+        $friends = DB::fetch(
+        // SQL
+            "SELECT * FROM users"
+            . " WHERE users.idUser NOT IN (". $friendsId . ")"
+            . " AND users.idUser != :userId",
+
+            // Params
+            [':userId' => $userId],
+        );
+        if ($friends === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
         return $friends;
     }
 
@@ -299,17 +306,12 @@ class SocialsController
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_INDEX);
         }
+
+
         return $myMsgs;
 
     }
 
-    public function acceptRequest()
-    {
-        //$userId = Auth::getSessionUserId();
-        $userId = 1;
-
-
-    }
 
     public function update()
     {
@@ -331,9 +333,11 @@ class SocialsController
         // redirectAndExit(self::URL_EDIT.'?id='.$product->getId());
     }
 
-    public function getMyFriendsNames(): string
+    public function getNonFriendsNames(): string
     {
-        $friends = self::getFriends();
+        //$users = $this->getUsers();
+        $friends = self::getNonFriends();
+
         $usernames = [];
         foreach ($friends as $t) {
             $usernames[] = $t['username']; // like array_push
@@ -341,25 +345,18 @@ class SocialsController
         return implode(',', $usernames);
     }
 
-    /// JE CHERCHE PAS DANS LES BONS TRUCS ::> faut trouver dans les non amis
-    public function getUsers(): array
-    {
-        $requests = DB::fetch(
-        // SQL
-            "SELECT * FROM users"
-            . " INNER JOIN isfriend ON users.idUser = isfriend.idUser1"
-            . " WHERE isfriend.idUser2 = :user_id"
-            . " AND accepted = 0",
 
-            // Params
-            [':user_id' => $userId],
 
-        );
-        if ($requests === false) {
-            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-            redirectAndExit(self::URL_INDEX);
+    public function hydrateUser (array $requests){
+        foreach ($requests as $key => $request) {
+            $requests[$key] = User::hydrate($request);
         }
         return $requests;
+    }
+
+    public function getAllUsers() {
+
+
     }
 
 }
