@@ -8,12 +8,10 @@ use App\Models\Social;
 use App\Models\User;
 
 // TODO: signaler les messages,
-// TODO: voir si la requete de la recup des msg prend en compte le booleen de signal
+// TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: séparer ce qui utilise des autres controllers
-// TODO: utiliser les CURRENT_USER
 // TODO: utiliser les #id partout
 // TODO: gérer chaque action met a jour le "last connection"
-// TODO: gérer quand y a pas de user ni connecté ni disc, ni de demandes d'ajout
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -292,7 +290,6 @@ class SocialsController
     public function getMyMsgs()
     {
         $userId = Auth::getSessionUserId();
-        //$userId = 1;
 
         $myMsgs = DB::fetch(
         // SQL

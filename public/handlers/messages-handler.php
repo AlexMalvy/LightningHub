@@ -10,8 +10,8 @@ if (!empty($_POST['action'])) {
 
     if ($_POST['action'] === 'store') {
         $controller->store();
-    } elseif ($_POST['action'] === 'delete') {
-       // $controller->delete();
+    } elseif ($_POST['action'] === 'update') {
+        $controller->update();
     }
 }
 

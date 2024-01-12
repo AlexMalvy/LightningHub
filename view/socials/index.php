@@ -161,14 +161,24 @@
                                                     <img src="assets/images/<?php echo($tab_users[$i]->getProfilPicture())?>" alt="profile picture" class="avatar-50x50">
 
                                                     <div class="message-body">
+                                                        <form method="post" action="<?php echo $actionUrlMsg?>">
+                                                            <input type="text" name="action" value="update" hidden>
+                                                            <div class="message-header">
 
-                                                        <div class="message-header">
-                                                            <h3 class="card-title"><?php echo($tab_users[$i]->getUsername())?></h3>
-                                                            <small><?php echo($tab_msgs[$i]->getTimeMessage())?></small>
-                                                            <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                                        </div>
+                                                                <h3 class="card-title">
+                                                                    <input  type="text" name="idUser1" value="<?php echo($tab_msgs[$i]->getIdUser1())?>" hidden>
+                                                                    <input  type="text" name="idUser2" value="<?php echo($tab_msgs[$i]->getIdUser2())?>" hidden>
+                                                                    <input  type="text" name="timeMessage" value="<?php echo($tab_msgs[$i]->getTimeMessage())?>" hidden>
+                                                                    <?php echo($tab_users[$i]->getUsername())?></h3>
+                                                                <small><?php echo($tab_msgs[$i]->getTimeMessage())?></small>
+                                                                <button type="submit" class="p-2 flex-shrink-1 bd-highlight bg-transparent report">
+                                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report"></button>
 
-                                                        <p class="card-text"><?php echo($tab_msgs[$i]->getMessage())?></p>
+                                                            </div>
+                                                            <p class="card-text">
+                                                                <?php echo($tab_msgs[$i]->getMessage())?>
+                                                            </p>
+                                                        </form>
                                                     </div>
 
                                                 </article>

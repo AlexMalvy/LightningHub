@@ -92,5 +92,46 @@ class PrivateMessageController
 //        }
 //        return Social::hydrate($product[0]);
 //    }
+    public function update()
+    {
+        $idUser1 = $_POST['idUser1'];
+        $idUser2 = $_POST['idUser2'];
+        $timeMessage = $_POST['timeMessage'];
+
+        $pvMsg = $this->getPrivateMessageByIds($idUser1, $idUser2, $timeMessage);
+
+        $pvMsg->setIsReported(1);
+
+        $result = $pvMsg->save();
+    }
+
+    public function getPrivateMessageByIds(?int $idUser1, int $idUser2, string $timeMessage) : PrivateMessage
+    {
+        if (!$idUser1 || !$idUser2 || !$timeMessage){
+            errors('404. Page introuvable');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+        $pvMsg =  DB::fetch(
+            "SELECT * FROM sendprivatemessages".
+            " WHERE timeMessage = :timeMessage".
+            " AND (idUser1 = :idUser1 and idUser2 = :idUser2".
+            " or idUser1 = :idUser2 and idUser2 = :idUser1)",
+
+            ['idUser1' => $idUser1,
+             'idUser2' => $idUser2,
+             'timeMessage' => $timeMessage]
+        );
+        if ($pvMsg === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+        if (empty($pvMsg)) {
+            errors('404. Page introuvable');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+        return PrivateMessage::hydrate($pvMsg[0]);
+    }
 
 }
