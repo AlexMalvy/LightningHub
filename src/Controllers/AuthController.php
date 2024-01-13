@@ -28,7 +28,7 @@ class AuthController
     
         // Check DB
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $email]);
-        if ($users == false) {
+        if (!$users) {
             $_SESSION['message'] = "Le compte utilisateur n'existe pas";
             $_SESSION['type'] = 'danger';
             $_SESSION['isConnected'] = false;

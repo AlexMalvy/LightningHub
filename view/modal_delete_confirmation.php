@@ -10,7 +10,7 @@
                 Êtes vous sur de vouloir supprimer votre compte ?
             </div>
             <div class="modal-footer modal-background">
-                <form action="../handlers/User-handler.php" method="POST">
+                <form action="../handlers/User-handler.php" method="POST" class="d-flex justify-content-end p-0">
                     <input type="text" name="action" value="deleteaccount" hidden>
                     <a href="account.php" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal" aria-label="Annuler">Annuler</a>
                     <button href="#"  class="btn lh-buttons-red" aria-label="Confirmer">Confirmation</button>

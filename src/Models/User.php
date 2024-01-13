@@ -26,7 +26,7 @@ class User
     }
 
     /**
-     * Hydrate User to dispaly
+     * Hydrate User to display
      */ 
     public static function hydrate(array $data): User
     {
@@ -128,6 +128,7 @@ class User
     public function setId($id)
     {
         $this->id = $id;
+
     }
 
     /**
@@ -141,7 +142,6 @@ class User
     /**
      * Set the value of userName
      *
-     * @return  self
      */ 
     public function setUserName($userName)
     {
@@ -159,7 +159,6 @@ class User
     /**
      * Set the value of password
      *
-     * @return  self
      */ 
     public function setPassword($password)
     {
@@ -177,7 +176,6 @@ class User
     /**
      * Set the value of email
      *
-     * @return  self
      */ 
     public function setEmail($email)
     {
@@ -195,7 +193,6 @@ class User
     /**
      * Set the value of profilPicture
      *
-     * @return  self
      */ 
     public function setProfilPicture($profilPicture)
     {
@@ -213,7 +210,6 @@ class User
     /**
      * Set the value of dateSignUp
      *
-     * @return  self
      */ 
     public function setDateSignUp($dateSignUp)
     {
@@ -231,7 +227,6 @@ class User
     /**
      * Set the value of dateLastConnection
      *
-     * @return  self
      */ 
     public function setDateLastConnection($dateLastConnection)
     {
@@ -267,7 +262,6 @@ class User
     /**
      * Set the value of isAdmin
      *
-     * @return  self
      */ 
     public function setIsAdmin($isAdmin)
     {
@@ -285,7 +279,6 @@ class User
     /**
      * Set the value of isRoomOwner
      *
-     * @return  self
      */ 
     public function setIsRoomOwner($isRoomOwner)
     {
