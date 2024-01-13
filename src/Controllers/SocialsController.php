@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\PrivateMessage;
 use Auth;
 use DB;
 use App\Models\Social;
@@ -9,39 +10,38 @@ use App\Models\User;
 
 
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
-// TODO: séparer ce qui utilise des autres controllers
-// TODO: utiliser les #id partout
+// TODO: séparer ce qui utilise des autres controllers // CHECK normalement
 // TODO: gérer chaque action met a jour le "last connection"
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
     const URL_INDEX = '/socials.php';
-    const URL_HANDLER_MSG = '/handlers/messages-handler.php';
+    //const URL_HANDLER_MSG = '/handlers/privateMessage-handler.php';
     const URL_HANDLER_SOC = '/handlers/socials-handler.php';
 
     public function index()
     {
 
-        $friends =  $this->hydrateUser($this->getFriends());
+        $friends =  $this->hydrateUsers($this->getFriends());
         $nonFriendsNames = $this->getNonFriendsNames();
 
         // FRIENDS LIST TAB
-        $friends_connected = $this->hydrateUser($this->getConnectedFriends());
-        $friends_disconnected  = $this->hydrateUser($this->getDisconnectedFriends());
+        $friends_connected = $this->hydrateUsers($this->getConnectedFriends());
+        $friends_disconnected  = $this->hydrateUsers($this->getDisconnectedFriends());
 
 
         $current_user = Auth::getCurrentUser();
         // FRIENDS REQUESTS LIST TAB
-        $requests = $this->hydrateUser($this->getFriendRequests());
+        $requests = $this->hydrateUsers($this->getFriendRequests());
 
 
         // MESSAGES
-        $myMsgs = $this->getMyMsgs();
-        $tab_users = $this->hydrateUser($myMsgs);
+        $myMsgs = (new PrivateMessageController)->getMyMsgs();
+        $tab_users = $this->hydrateUsers($myMsgs);
         $tab_msgs = (new PrivateMessageController)->hydrate($myMsgs);
 
         $actionUrlSoc = self::URL_HANDLER_SOC;
-        $actionUrlMsg = self::URL_HANDLER_MSG;
+        $actionUrlMsg = PrivateMessageController::URL_HANDLER;
         require_once base_path('view/socials/index.php');
     }
 
@@ -289,30 +289,6 @@ class SocialsController
         return $friends;
     }
 
-    public function getMyMsgs()
-    {
-        $userId = Auth::getSessionUserId();
-
-        $myMsgs = DB::fetch(
-        // SQL
-            "SELECT * FROM sendprivatemessages"
-            . " INNER JOIN users ON users.idUser = sendprivatemessages.idUser1"
-            . " WHERE (sendprivatemessages.idUser1 = :user_id OR sendprivatemessages.idUser2 = :user_id)"
-            . " ORDER BY sendprivatemessages.timeMessage",
-
-            // Params
-            [':user_id' => $userId],
-
-        );
-        if ($myMsgs === false) {
-            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-            redirectAndExit(self::URL_INDEX);
-        }
-
-
-        return $myMsgs;
-
-    }
 
 
     public function update()
@@ -349,7 +325,7 @@ class SocialsController
 
 
 
-    public function hydrateUser (array $requests){
+    public function hydrateUsers (array $requests){ // TODO a deplacer dans USERController
         foreach ($requests as $key => $request) {
             $requests[$key] = User::hydrate($request);
         }

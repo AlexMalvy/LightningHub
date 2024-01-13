@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\PrivateMessage;
+use Auth;
 use DB;
 
 class PrivateMessageController
 {
     const URL_INDEX = '/socials.php';
     const URL_HANDLER = '/handlers/privateMessage-handler.php';
+
 
     public function store() : void
     {
@@ -107,7 +109,7 @@ class PrivateMessageController
         }
         $pvMsg->setIsReported(1);
 
-        $result = $pvMsg->save();
+         $pvMsg->save();
     }
 
     public function getPrivateMessageByIds(?int $idUser1, int $idUser2, string $timeMessage) : PrivateMessage
@@ -138,5 +140,31 @@ class PrivateMessageController
 
         return PrivateMessage::hydrate($pvMsg[0]);
     }
+
+    public function getMyMsgs()
+    {
+        $userId = Auth::getSessionUserId();
+
+        $myMsgs = DB::fetch(
+        // SQL
+            "SELECT * FROM sendprivatemessages"
+            . " INNER JOIN users ON users.idUser = sendprivatemessages.idUser1"
+            . " WHERE (sendprivatemessages.idUser1 = :user_id OR sendprivatemessages.idUser2 = :user_id)"
+            . " ORDER BY sendprivatemessages.timeMessage",
+
+            // Params
+            [':user_id' => $userId],
+
+        );
+        if ($myMsgs === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+
+        return $myMsgs;
+
+    }
+
 
 }

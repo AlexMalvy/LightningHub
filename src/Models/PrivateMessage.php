@@ -14,6 +14,8 @@ class PrivateMessage
     protected ?string $message;
     protected ?int $isReported;
 
+
+
     public function __construct(
         ?int $idUser1,
         ?int $idUser2,
