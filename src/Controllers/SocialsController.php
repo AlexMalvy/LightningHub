@@ -94,7 +94,7 @@ class SocialsController
         );
 
 
-        // Save the product in DB
+        // Save the friendship in DB
         $social->insert();
 
         redirectAndExit(self::URL_INDEX);
@@ -106,7 +106,7 @@ class SocialsController
     {
         $idUser = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($idUser);
-        // Delete a product in DB
+        // Delete a friendship in DB
         $social->delete();
 
         redirectAndExit(self::URL_INDEX);
@@ -119,19 +119,19 @@ class SocialsController
             redirectAndExit(self::URL_INDEX);
         }
         $myId = Auth::getSessionUserId();
-        $product = DB::fetch(
+        $social = DB::fetch(
             "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idFriend]
         );
-        if ($product === false) {
+        if ($social === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_INDEX);
         }
-        if (empty($product)) {
+        if (empty($social)) {
             errors('404. Page introuvable');
             redirectAndExit(self::URL_INDEX);
         }
-        return Social::hydrate($product[0]);
+        return Social::hydrate($social[0]);
     }
 
 
@@ -314,7 +314,7 @@ class SocialsController
             $social->setAccepted($_POST['accepted'] == 1 ? 1 : 0);
         }
 
-        // Update the product in DB
+        // Update the friendship in DB
         $result = $social->save();
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
@@ -322,7 +322,7 @@ class SocialsController
             success('Le produit a bien été modifié.');
         }
 
-        // redirectAndExit(self::URL_EDIT.'?id='.$product->getId());
+        // redirectAndExit(self::URL_EDIT.'?id='.$social->getId());
     }
 
     public function getNonFriendsNames(): string

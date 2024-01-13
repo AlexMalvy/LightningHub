@@ -62,38 +62,9 @@ class PrivateMessageController
         return $requests;
     }
 
-//    public function delete()
-//    {
-//        $idUser = $_POST['id'] ?? null;
-//        $social = $this->getSocialByFriend($idUser);
-//        //dd($social);
-//        // Delete a product in DB
-//        $social->delete();
-//
-//        redirectAndExit(self::URL_INDEX);
-//    }
 
-//    protected function getSocialByFriend(?int $idFriend): Social
-//    {
-//        if (!$idFriend) {
-//            errors('404. Page introuvable');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        $myId = 1; // A changer
-//        $product = DB::fetch(
-//            "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
-//            ['myId' => $myId, 'idFriend' => $idFriend]
-//        );
-//        if ($product === false) {
-//            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        if (empty($product)) {
-//            errors('404. Page introuvable');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        return Social::hydrate($product[0]);
-//    }
+
+
     public function update()
     {
         $idUser1 = $_POST['idUser1'];
