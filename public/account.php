@@ -16,6 +16,10 @@
 
     $userController = new App\Controllers\UserController();
     $users = $userController->index($_SESSION['user']);
+
+    $idInGameUsername = new \App\Controllers\PlayGamesController($_SESSION['user']);
+    $games = new App\Models\Games();
+
     ?>
 
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
@@ -27,13 +31,14 @@
         </div>
 
         <div class="limit-width">
-
+            <?php foreach($users as $user): ?>
             <!-- Picture Profil -->
 
             <section id="profile-picture">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Photo de profil</h2>
-                <form method="post" action="" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center">
-                    <img src="assets/images/avatar.png" alt="photo de profil" class="avatar-70x70">
+                <form action="handlers/User-handler.php"  method="POST" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center">
+                    <input type="text" name="action" value="picture" hidden>
+                    <img src="<?php echo $user->getProfilPicture() ? $user->getProfilPicture() : 'assets/images/Avatar_default.png'?>" alt="photo de profil" class="avatar-70x70">
                     <label for="file" class="label-file me-2 p-2 text-center">Choisir une image</label>
                     <input id="file" type="file" name="avatarPicture">
                     <button class="btn lh-buttons-purple">Enregistrer</button>
@@ -43,7 +48,7 @@
 
             <!-- Pseudo -->
 
-        <?php foreach($users as $user): ?>
+
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
                 <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
@@ -67,61 +72,40 @@
             <section id="identifiants">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Identifiants IN GAME</h2>
 
-                    <!-- Identifiants INGAME League of Legends -->
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
-                        <label>Leagues of legends</label>
-                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[1]">
-                        <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
-                            <i class="fa-solid fa-pen text-white"></i></button>
-                        </div>
-                    </form>
+                <!-- Identifiants INGAME  -->
 
-                    <!-- Identifiants INGAME World of Warcraft -->
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
-                        <label>World of Warcraft</label>
-                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[2]">
-                        <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
-                            <i class="fa-solid fa-pen text-white"></i></button>
-                        </div>
-                    </form>
+                    <?php foreach($games->allGamesList as $game):?>
+                        <?php foreach($idInGameUsername->getInGameUsername() as $user):?>
+                            <?php if($game['idGame'] == $user['idGame']): ?>
+                                <form action="handlers/User-handler.php?idUser=<?php echo $user['idUser'] ?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
+                                    <input type="text" name="action" value="idGame" hidden>
+                                    <label><?php echo $game['nameGame'] ?></label>
+                                    <input class="input-inGame input" type="text" value="<?php
+                                    echo $user['inGameUsername']?>" name="inGameUsername">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
+                                            <i class="fa-solid fa-pen text-white"></i></button>
+                                    </div>
+                                </form>
+                            <?php endif;?>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    <!-- Identifiants INGAME Valorant -->
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
-                        <label>Valorant</label>
-                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[3]">
-                        <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
-                            <i class="fa-solid fa-pen text-white"></i></button>
-                        </div>
-                    </form>
-
-                    <!-- Identifiants INGAME Call of duty Warzone -->
-                    <form method="post" action="" class="col-md-7 d-flex justify-content-between">
-                        <label>Call of Duty : Warzone</label>
-                        <input class="input-inGame input" type="text" value="RedMorgane" name="game[4]">
-                        <div>
-                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
-                            <i class="fa-solid fa-pen text-white"></i></button>
-                        </div>
-                    </form>
             </section>
-
             <!-- Notifications -->
+            <?php foreach($users as $user): ?>
 
             <section id="notification-center">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Centre de Notifications</h2>
                 <form method="post" action="" id="formNotification" class="d-flex align-items-center justify-content-between">
                     <label>Notifications</label>
                     <div class="form-check form-switch form-check-reverse me-3">
-                        <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notificationCheckBox" aria-pressed="false"/>
-                            <!-- if ($valeur_checkbox == 'On') echo 'checked'; -->
+                        <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notificationCheckBox" aria-pressed="false" <?php echo !$user->getNotificationEnabled() ? '' : 'checked'; ?>/>
                         <label class="form-check-label" for="SwitchCheck">On</label>
                     </div>
                 </form>
             </section>
-
+            <?php endforeach; ?>
             <!-- Cookies -->
 
             <section id="cookies">

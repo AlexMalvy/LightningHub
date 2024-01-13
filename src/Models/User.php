@@ -11,14 +11,14 @@ class User
     protected ?string $password;
     protected ?string $mail;
     protected ?string $profilPicture;
-    protected \DateTimeImmutable $dateSignUp;
-    protected ?\DateTimeImmutable $dateLastConnection;
+    protected ?\DateTimeImmutable $signUpDate;
+    protected ?\DateTimeImmutable $lastConnection;
     protected ?bool $notificationEnabled;
     protected ?bool $isAdmin;
     protected ?bool $isRoomOwner;
 
 
-    public function __construct(?string $userName, ?string $email, ?string $password)
+    public function __construct(?string $userName = null, ?string $email = null, ?string $password = null)
     {
         $this->userName = $userName;
         $this->mail = $email;
@@ -48,8 +48,8 @@ class User
         $user->password = $data['password'] ?? null;
         $user->mail = $data['mail'] ?? null;
         $user->profilPicture = $data['profilPicture'] ?? null;
-        //$user->dateSignUp = $data['SignUpDate'];
-        //$user->dateLastConnection = $data['lastConnection'];
+        //$user->signUpDate = $data['SignUpDate'];
+        //$user->lastConnection = $data['lastConnection'];
         $user->notificationEnabled = $data['notificationEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
@@ -66,14 +66,14 @@ class User
         /**
          * Secure password with hash method
          */
-        $hachedpPassword = password_hash($this->password, PASSWORD_DEFAULT);
+        $hachedPassword = password_hash($this->password, PASSWORD_DEFAULT);
 
         return DB::statement(
             "INSERT INTO users (username, password, mail)"
             ." VALUES (:userName, :password, :mail)",
             [
                 'userName' => $this->userName,
-                'password' => $hachedpPassword,
+                'password' => $hachedPassword,
                 'mail' => $this->mail,
             ],
         );
@@ -96,7 +96,7 @@ class User
         return DB::statement(
             "UPDATE Users SET lastConnection = :lastConnection WHERE mail = :email",
             [
-                'lastConnection' => $this->dateLastConnection,
+                'lastConnection' => $this->lastConnection,
                  'email' => $this->mail,
             ],
         );
@@ -108,6 +108,22 @@ class User
         return DB::statement(
             "DELETE FROM Users WHERE idUser = :id",
             ['id' => $id],
+        );
+    }
+
+    /**
+     * Save picture
+     */
+    public function savePicture(int $id, string $profilPicture) : int|false
+    {
+
+        return DB::statement(
+            "UPDATE Users SET profilePicture = :profilPicture WHERE idUser = :id",
+            [
+                'profilPicture' => $profilPicture,
+                'id' => $id,
+
+            ],
         );
     }
 
@@ -188,6 +204,7 @@ class User
     public function getProfilPicture(): string
     {
         return $this->profilPicture;
+
     }
 
     /**
@@ -202,35 +219,35 @@ class User
     /**
      * Get the value of dateSignUp
      */ 
-    public function getDateSignUp(): \dateTimeImmutable
+    public function getSignUpDate(): \dateTimeImmutable
     {
-        return $this->dateSignUp;
+        return $this->signUpDate;
     }
 
     /**
      * Set the value of dateSignUp
      *
      */ 
-    public function setDateSignUp($dateSignUp)
+    public function setSignUpDate($signUpDate)
     {
-        $this->dateSignUp = $dateSignUp;
+        $this->signUpDate = $signUpDate;
     }
 
     /**
      * Get the value of dateLastConnection
      */ 
-    public function getDateLastConnection(): \dateTimeImmutable
+    public function getLastConnection(): \dateTimeImmutable
     {
-        return $this->dateLastConnection;
+        return $this->lastConnection;
     }
 
     /**
      * Set the value of dateLastConnection
      *
      */ 
-    public function setDateLastConnection($dateLastConnection)
+    public function setLastConnection($lastConnection)
     {
-        $this->dateLastConnection = $dateLastConnection;
+        $this->lastConnection = $lastConnection;
     }
 
     /**

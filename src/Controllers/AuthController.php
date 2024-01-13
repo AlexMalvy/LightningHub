@@ -12,7 +12,7 @@ class AuthController
     const URL_HOME = '/index.php';
 
 
-    public function login() : void
+    public function login(string $login = null, string $password = null ) : void
     {
        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -54,9 +54,8 @@ class AuthController
                     $user['password'],
                 );
 
-                
 
-                $user->setDateLastConnection(new \DateTimeImmutable);
+                $user->setLastConnection(new \DateTimeImmutable);
                 $user->updateDateLastConnection();
 
                 if ($remember) {

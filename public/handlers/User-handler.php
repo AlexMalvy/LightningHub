@@ -15,6 +15,13 @@ if (!empty($_POST['action'])) {
     } elseif ($_POST['action'] === 'deleteaccount') {
         $controller = new App\Controllers\UserController();
         $controller->delete();
+    }elseif ($_POST['action'] === 'picture') {
+        $controller = new App\Controllers\UserController();
+        $controller->savePicture();
+    }elseif ($_POST['action'] === 'idGame') {
+
+
+        \App\Controllers\PlayGamesController::updateInsGameUserName(intval($_GET['idUser']), intval($_GET['idGame']));
     }
 
 }
