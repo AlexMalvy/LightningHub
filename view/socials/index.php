@@ -16,11 +16,6 @@
 
 <?php require_once base_path('view/header_nav.php'); ?>
 <?php displayErrorsAndMessages(); ?>
-<?php //require_once(__DIR__ . "/../view/header_nav.php");
-//require_once(__DIR__."/../controller/SocialsController.php");
-
-//var_dump($_SESSION);
-?>
 
 <!-- Main -->
 <input name="friends" value="<?php echo ($nonFriendsNames)?>" hidden id="friends">
@@ -46,9 +41,9 @@
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
                         <img id="" class="mx-2 avatar-50x50" src="/assets/images/<?php echo
-                         $current_user['profilePicture'] ?>"  alt="connected user avatar-70x70">
-                        <span id="myProfile"><?php echo $current_user['username'] . "#" .
-                             $current_user['idUser'];?></span>
+                         $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
+                        <span id="myProfile"><?php echo $currentUser['username'] . "#" .
+                             $currentUser['idUser'];?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
@@ -106,23 +101,23 @@
                         <ul class="list-group list-group-flush p-0">
 
                             <?php
-                            if (count($friends_connected) == 0) {
+                            if (count($friendsConnected) == 0) {
                                 echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami connecté !</div>";
                             } else {
 
-                                 foreach ($friends_connected as $friend_connected) {?>
+                                 foreach ($friendsConnected as $friendConnected) {?>
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                            $friend_connected->getProfilPicture()?>" alt="player
-                                            avatar-70x70"><?php echo $friend_connected->getUsername() . "#" . $friend_connected->getId()?></a>
+                                            $friendConnected->getProfilPicture()?>" alt="player
+                                            avatar-70x70"><?php echo $friendConnected->getUsername() . "#" . $friendConnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friend_connected->getId()?>" aria-controls="offcanvasBottom">
+                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friendConnected->getId()?>" aria-controls="offcanvasBottom">
                                             <img class="icon-20x20" src="assets/images/message-solid-white.svg"
                                                  alt="message icon"></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_connected->getId()?>">
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendConnected->getId()?>">
                                             <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
                                                  alt="delete icon"></a>
 
@@ -151,14 +146,14 @@
 
                                         <?php
 
-                                        for ($i = 0; $i < count($tab_msgs); $i++) {
+                                        for ($i = 0; $i < count($tabMsgs); $i++) {
 
 
-                                            if ($tab_msgs[$i]->getIdUser2() == $friend->getId() OR $tab_msgs[$i]->getIdUser1() == $friend->getId() AND $tab_msgs[$i]->getIdUser2() == $current_user['idUser']) {
+                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUser['idUser']) {
                                             ?>
 
                                                 <article class="col message">
-                                                    <img src="assets/images/<?php echo($tab_users[$i]->getProfilPicture())?>" alt="profile picture" class="avatar-50x50">
+                                                    <img src="assets/images/<?php echo($tabUsers[$i]->getProfilPicture())?>" alt="profile picture" class="avatar-50x50">
 
                                                     <div class="message-body">
                                                         <form method="post" action="<?php echo $actionUrlMsg?>">
@@ -166,17 +161,17 @@
                                                             <div class="message-header">
 
                                                                 <h3 class="card-title">
-                                                                    <input  type="text" name="idUser1" value="<?php echo($tab_msgs[$i]->getIdUser1())?>" hidden>
-                                                                    <input  type="text" name="idUser2" value="<?php echo($tab_msgs[$i]->getIdUser2())?>" hidden>
-                                                                    <input  type="text" name="timeMessage" value="<?php echo($tab_msgs[$i]->getTimeMessage())?>" hidden>
-                                                                    <?php echo($tab_users[$i]->getUsername() . "#" . $tab_users[$i]->getId())?></h3>
-                                                                <small><?php echo($tab_msgs[$i]->getTimeMessage())?></small>
+                                                                    <input  type="text" name="idUser1" value="<?php echo($tabMsgs[$i]->getIdUser1())?>" hidden>
+                                                                    <input  type="text" name="idUser2" value="<?php echo($tabMsgs[$i]->getIdUser2())?>" hidden>
+                                                                    <input  type="text" name="timeMessage" value="<?php echo($tabMsgs[$i]->getTimeMessage())?>" hidden>
+                                                                    <?php echo($tabUsers[$i]->getUsername() . "#" . $tabUsers[$i]->getId())?></h3>
+                                                                <small><?php echo($tabMsgs[$i]->getTimeMessage())?></small>
                                                                 <button type="submit" class="hidden-button">
                                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report"></button>
 
                                                             </div>
                                                             <p class="card-text">
-                                                                <?php echo($tab_msgs[$i]->getMessage())?>
+                                                                <?php echo($tabMsgs[$i]->getMessage())?>
                                                             </p>
                                                         </form>
                                                     </div>
@@ -190,7 +185,7 @@
                                         <!-- User message input -->
 
                                         <form class="mt-3 position-absolute bottom-0 start-0 end-0 m-3" method="POST"
-                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($current_user['idUser']) ?>&idUser2=<?php echo($friend->getId()) ?>" >
+                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUser['idUser']) ?>&idUser2=<?php echo($friend->getId()) ?>" >
                                             <input type="text" name="action" value="store" hidden>
 
                                             <div class="input-group inputChat">
@@ -258,27 +253,27 @@
 
 
                             <?php
-                            if (count($friends_disconnected) == 0) {
+                            if (count($friendsDisconnected) == 0) {
                                 echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami déconnecté !</div>";
                             } else {
 
-                                foreach ($friends_disconnected as $friend_disconnected){
+                                foreach ($friendsDisconnected as $friendDisconnected){
                                     ?>
 
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                            $friend_disconnected->getProfilPicture()?>"
+                                            $friendDisconnected->getProfilPicture()?>"
                                                  alt="player
-                                            avatar-70x70"><?php echo $friend_disconnected->getUserName() . "#" . $friend_disconnected->getId()?></a>
+                                            avatar-70x70"><?php echo $friendDisconnected->getUserName() . "#" . $friendDisconnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
-                                        $friend_disconnected->getId()?>" aria-controls="offcanvasBottom">
+                                        $friendDisconnected->getId()?>" aria-controls="offcanvasBottom">
                                             <img class="icon-20x20" src="assets/images/message-solid-white.svg"
                                                  alt="message icon"></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_disconnected->getId()?>">
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendDisconnected->getId()?>">
                                             <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
                                     </li>
@@ -367,7 +362,6 @@
 
 </main>
 
-<?php // require_once(__DIR__ . "/../view/footer.php") ?>
 <?php require_once base_path('view/footer.php'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

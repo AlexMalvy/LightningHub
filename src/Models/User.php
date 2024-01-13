@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use DB;
 
 class User 
@@ -12,7 +13,7 @@ class User
     protected ?string $mail;
     protected ?string $profilPicture;
     protected \DateTimeImmutable $dateSignUp;
-    protected ?\DateTimeImmutable $dateLastConnection;
+    protected ?\DateTimeImmutable $dateLastConnection; //ISMAEL MODIF
     protected ?bool $notificationEnabled;
     protected ?bool $isAdmin;
     protected ?bool $isRoomOwner;
@@ -293,5 +294,21 @@ class User
     {
         $this->isRoomOwner = $isRoomOwner;
     }
+
+    // ISMAEL MODIFS
+//    public function updateLastConnection (){
+//        date_default_timezone_set('Europe/Paris');
+//
+//        $this->setDateLastConnection(date('Y-m-d H:i:s'));
+//
+//        $result = $this->save();
+//
+//        if ($result === false) {
+//            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+//        } else {
+//            success('Le produit a bien été modifié.');
+//        }
+//    }
+
 
 }

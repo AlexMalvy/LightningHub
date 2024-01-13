@@ -12,6 +12,8 @@ use App\Models\User;
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: séparer ce qui utilise des autres controllers // CHECK normalement
 // TODO: gérer chaque action met a jour le "last connection"
+// TODO: faire gaffe String / Time
+// TODO: gérer quand l'utilisateur n'est pas connecté // Acause des current_user
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -21,24 +23,36 @@ class SocialsController
 
     public function index()
     {
-
+        Auth::isAuthOrRedirect();
+        // Friends recovery + hydration. For displaying conversations with friends
         $friends =  $this->hydrateUsers($this->getFriends());
+
+        // Retrieving the id + username of non-friend users, to transmit them to the js
+        // and make a dynamic display when searching for new friends
         $nonFriendsNames = $this->getNonFriendsNames();
 
         // FRIENDS LIST TAB
-        $friends_connected = $this->hydrateUsers($this->getConnectedFriends());
-        $friends_disconnected  = $this->hydrateUsers($this->getDisconnectedFriends());
+        $friendsConnected = $this->hydrateUsers($this->getConnectedFriends()); // to display connected friends
+        $friendsDisconnected  = $this->hydrateUsers($this->getDisconnectedFriends()); // to display disconnected friends
 
 
-        $current_user = Auth::getCurrentUser();
+        $currentUser = Auth::getCurrentUser();
+
+        // updates the last login date every time he is on this page
+        $currentUserObj = User::hydrate($currentUser);
+        date_default_timezone_set('Europe/Paris');
+        //$currentUserObj->setDateLastConnection(date('Y-m-d H:i:s'));
+        $currentUserObj->setDateLastConnection(new \DateTimeImmutable);
+        $currentUserObj->updateDateLastConnection();
+
         // FRIENDS REQUESTS LIST TAB
         $requests = $this->hydrateUsers($this->getFriendRequests());
 
 
         // MESSAGES
         $myMsgs = (new PrivateMessageController)->getMyMsgs();
-        $tab_users = $this->hydrateUsers($myMsgs);
-        $tab_msgs = (new PrivateMessageController)->hydrate($myMsgs);
+        $tabUsers = $this->hydrateUsers($myMsgs);
+        $tabMsgs = (new PrivateMessageController)->hydrate($myMsgs);
 
         $actionUrlSoc = self::URL_HANDLER_SOC;
         $actionUrlMsg = PrivateMessageController::URL_HANDLER;
@@ -294,14 +308,14 @@ class SocialsController
     public function update()
     {
         $id = $_POST['id'] ?? null;
-        $product = $this->getSocialByFriend($id);
+        $social = $this->getSocialByFriend($id);
 
         if (isset($_POST['accepted'])) {
-            $product->setAccepted($_POST['accepted'] == 1 ? 1 : 0);
+            $social->setAccepted($_POST['accepted'] == 1 ? 1 : 0);
         }
 
         // Update the product in DB
-        $result = $product->save();
+        $result = $social->save();
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
         } else {
