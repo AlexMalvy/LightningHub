@@ -116,7 +116,7 @@
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
                                             $friend_connected->getProfilPicture()?>" alt="player
-                                            avatar-70x70"><?php echo $friend_connected->getUsername()?></a>
+                                            avatar-70x70"><?php echo $friend_connected->getUsername() . "#" . $friend_connected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friend_connected->getId()?>" aria-controls="offcanvasBottom">
                                             <img class="icon-20x20" src="assets/images/message-solid-white.svg"
@@ -141,7 +141,7 @@
                                      <!-- Offcanvas of a conversation-->
                                 <div class="offcanvas offcanvas-bottom h-75 col-lg-6 md-col-5" tabindex="-1" id="offcanvasBottom<?php echo($friend->getId())?>" aria-labelledby="offcanvasBottomLabel">
                                     <header class="offcanvas-header bg-color-purple">
-                                        <h5 id="offcanvasBottomLabel"><?php echo($friend->getUsername())?></h5>
+                                        <h5 id="offcanvasBottomLabel"><?php echo($friend->getUsername() . "#" . $friend->getId())?></h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </header>
 
@@ -169,7 +169,7 @@
                                                                     <input  type="text" name="idUser1" value="<?php echo($tab_msgs[$i]->getIdUser1())?>" hidden>
                                                                     <input  type="text" name="idUser2" value="<?php echo($tab_msgs[$i]->getIdUser2())?>" hidden>
                                                                     <input  type="text" name="timeMessage" value="<?php echo($tab_msgs[$i]->getTimeMessage())?>" hidden>
-                                                                    <?php echo($tab_users[$i]->getUsername())?></h3>
+                                                                    <?php echo($tab_users[$i]->getUsername() . "#" . $tab_users[$i]->getId())?></h3>
                                                                 <small><?php echo($tab_msgs[$i]->getTimeMessage())?></small>
                                                                 <button type="submit" class="hidden-button">
                                                                     <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report"></button>
@@ -218,7 +218,8 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-color-purple rounded-0">
-                                                        <h5 class="modal-title fs-5" id="deleteFriendModalLabel">Supprimer <?php echo $friend->getUsername()?></h5>
+                                                        <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
+                                                        Supprimer <?php echo $friend->getUsername() . "#" . $friend->getId()?></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -270,7 +271,7 @@
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
                                             $friend_disconnected->getProfilPicture()?>"
                                                  alt="player
-                                            avatar-70x70"><?php echo $friend_disconnected->getUserName()?></a>
+                                            avatar-70x70"><?php echo $friend_disconnected->getUserName() . "#" . $friend_disconnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
                                         $friend_disconnected->getId()?>" aria-controls="offcanvasBottom">
@@ -315,7 +316,7 @@
                                     <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
                                         <img class="me-2 avatar-50x50" src="assets/images/<?php echo
                                         $request->getProfilPicture()?>" alt="player avatar-70x70"><?php echo
-                                        $request->getUsername()?></a>
+                                        $request->getUsername() . "#" . $request->getId()?></a>
                                     <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
                                         <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
                                     <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">

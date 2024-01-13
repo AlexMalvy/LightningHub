@@ -55,10 +55,12 @@ class SocialsController
             redirectAndExit(self::URL_CREATE);
         }
 
+        $idUser2 = explode('#', $_POST['searchFriend'])[1];
+
         // La il faut un getUserByName(string $username)
         $user = DB::fetch(
-            "SELECT * FROM users WHERE username = :username",
-            ['username' => $_POST['searchFriend']]
+            "SELECT * FROM users WHERE idUser = :idUser2",
+            ['idUser2' => $idUser2]
         );
         if ($user === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
@@ -340,7 +342,7 @@ class SocialsController
 
         $usernames = [];
         foreach ($friends as $t) {
-            $usernames[] = $t['username']; // like array_push
+            $usernames[] = $t['username']. "#" . $t['idUser']; // like array_push
         }
         return implode(',', $usernames);
     }
