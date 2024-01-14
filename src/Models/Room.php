@@ -89,9 +89,7 @@ class Room
     public static function getRoomMembersId(int $roomId) : array
     {
         $roomMembers = DB::fetch("SELECT users.idUser
-        FROM rooms
-            INNER JOIN users
-            ON rooms.idRoom = users.idRoom
+        FROM users
         WHERE users.idRoom = :currentRoom", ["currentRoom" => $roomId]);
         return $roomMembers;
     }
@@ -139,13 +137,36 @@ class Room
     {
         if ($countMembers === 1) {
             self::deleteRoom($idRoom);
-        } else if ($idUser !== $idOwner) {
+        } else if ($idUser === $idOwner) {
+            // Retrieve all room members
+            $allMembers = self::getRoomMembersId($idRoom);
+
+            // Determine the new room owner (get his id)
+            $newOwnerId = $idUser;
+            foreach ($allMembers as $member) {
+                if ($member["idUser"] !== $idOwner) {
+                    $newOwnerId = $member["idUser"];
+                    break;
+                }
+            }
+
+            // Appoint the new room owner
+            DB::statement("UPDATE users
+            SET users.isRoomOwner = 1
+            WHERE users.idUser = :idUser",
+            ["idUser" => $newOwnerId]);
+            
+            // Remove initial user from his room
             DB::statement("UPDATE Users
             SET idRoom = NULL
             WHERE idUser = :idUser", ["idUser" => $idUser]);
         } else {
-            // TODO change ownership before leaving
+            // Remove initial user from his room
+            DB::statement("UPDATE Users
+            SET idRoom = NULL
+            WHERE idUser = :idUser", ["idUser" => $idUser]);
         }
+
     }
 
 }

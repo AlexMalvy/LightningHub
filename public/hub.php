@@ -22,7 +22,7 @@
     
     <?php
     $currentHub = new Hub;
-    $_SESSION["id"] = 8;
+    $_SESSION["id"] = 10;
     $currentHub->getFriendRooms($_SESSION["id"]);
     $currentHub->getConnectedUserRoom($_SESSION["id"]);
     $counter = 0;
