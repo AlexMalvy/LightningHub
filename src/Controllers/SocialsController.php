@@ -11,9 +11,7 @@ use App\Models\User;
 
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: séparer ce qui utilise des autres controllers // CHECK normalement
-// TODO: gérer chaque action met a jour le "last connection"
 // TODO: faire gaffe String / Time
-// TODO: gérer quand l'utilisateur n'est pas connecté // Acause des current_user
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';

@@ -13,7 +13,7 @@ class User
     protected ?string $mail;
     protected ?string $profilPicture;
     protected \DateTimeImmutable $dateSignUp;
-    protected ?\DateTimeImmutable $dateLastConnection; //ISMAEL MODIF
+    protected ?\DateTimeImmutable $dateLastConnection;
     protected ?bool $notificationEnabled;
     protected ?bool $isAdmin;
     protected ?bool $isRoomOwner;

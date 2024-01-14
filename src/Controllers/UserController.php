@@ -113,7 +113,4 @@ class UserController
 
         return true;
     }
-
-    
-
 }
