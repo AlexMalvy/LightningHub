@@ -94,6 +94,25 @@ class Room
         return $roomMembers;
     }
 
+    // Check provided user room's ownership
+    public static function checkUserOwnership(int $userId, int $roomId) : bool
+    {
+        // Get session user info
+        $result = \DB::fetch("SELECT users.isRoomOwner, users.idRoom
+        FROM users
+        WHERE users.idUser = :idUser",
+        ["idUser" => $userId]);
+
+        // Check if 
+        if (!empty($result)) {
+            if ($result[0]["isRoomOwner"] == 1 and $result[0]["idRoom"] == $roomId) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode)
     {
         DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
@@ -133,18 +152,23 @@ class Room
         ["idRoom" => $idRoom]);
     }
 
-    public static function leaveRoom(int $idUser, int $idRoom, int $countMembers, int $idOwner)
+    public static function leaveRoom(int $idUser, int $idRoom)
     {
-        if ($countMembers === 1) {
-            self::deleteRoom($idRoom);
-        } else if ($idUser === $idOwner) {
+        $isOwner = self::checkUserOwnership($idUser, $idRoom);
+        if ($isOwner) {
             // Retrieve all room members
             $allMembers = self::getRoomMembersId($idRoom);
+
+            // Delete room if user is last room member
+            if (count($allMembers) === 1) {
+                self::deleteRoom($idRoom);
+                return true;
+            }
 
             // Determine the new room owner (get his id)
             $newOwnerId = $idUser;
             foreach ($allMembers as $member) {
-                if ($member["idUser"] !== $idOwner) {
+                if ($member["idUser"] != $idUser) {
                     $newOwnerId = $member["idUser"];
                     break;
                 }
@@ -155,18 +179,12 @@ class Room
             SET users.isRoomOwner = 1
             WHERE users.idUser = :idUser",
             ["idUser" => $newOwnerId]);
-            
-            // Remove initial user from his room
-            DB::statement("UPDATE Users
-            SET idRoom = NULL
-            WHERE idUser = :idUser", ["idUser" => $idUser]);
-        } else {
-            // Remove initial user from his room
-            DB::statement("UPDATE Users
-            SET idRoom = NULL
-            WHERE idUser = :idUser", ["idUser" => $idUser]);
         }
-
+        
+        // Remove initial user from his room
+        DB::statement("UPDATE Users
+        SET idRoom = NULL
+        WHERE idUser = :idUser", ["idUser" => $idUser]);
     }
 
 }

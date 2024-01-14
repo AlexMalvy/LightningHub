@@ -8,19 +8,19 @@ use App\Models\Room;
 
 class RoomsController
 {
-    const URL_CREATE = '/hub.php';
     const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/product-handler.php';
     
     public function create()
     {
-        $index = self::URL_CREATE;
+        $index = self::URL_INDEX;
         if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+            // TODO Add errors message
             header("Location: $index");
             exit();
         }
 
-        $idUser = $_SESSION["id"];
+        $idUser = $_SESSION["user"];
         $title = $_POST["room_title"];
         $description = $_POST["description"] ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
@@ -40,14 +40,20 @@ class RoomsController
     public function modify()
     {
         $index = self::URL_INDEX;
-        if (empty($_POST["room_id"] or empty($_POST['room_game_type_id']) or empty($_POST['room_title']))) {
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"] or empty($_POST['room_game_type_id']) or empty($_POST['room_title']))) {
+            // TODO Add errors message
             header("Location: $index");
             exit();
         }
 
-        // TODO check if the user sending the request is the room owner
-
+        $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
+        if (!Room::checkUserOwnership($idUser, $idRoom)) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
+
         $title = $_POST["room_title"];
         $description = $_POST["description"] ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
@@ -63,14 +69,19 @@ class RoomsController
     public function delete()
     {
         $index = self::URL_INDEX;
-        if (empty($_POST["room_id"])) {
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
+            // TODO Add errors message
             header("Location: $index");
             exit();
         }
 
-        // TODO check if the user sending the request is the room owner
-
+        $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
+        if (!Room::checkUserOwnership($idUser, $idRoom)) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
 
         // Delete the room in DB
         Room::deleteRoom($idRoom);
@@ -82,12 +93,13 @@ class RoomsController
     public function leave()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["id"]) or empty($_POST["room_id"]) or empty($_POST["membersCount"]) or empty($_POST["ownerId"])) {
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"]) or empty($_POST["membersCount"]) or empty($_POST["ownerId"])) {
+            // TODO Add errors message
             header("Location: $index");
             exit();
         }
 
-        $idUser = $_SESSION["id"];
+        $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
         $countMembers = $_POST["membersCount"];
         $idOwner = $_POST["ownerId"];

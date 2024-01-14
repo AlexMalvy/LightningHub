@@ -22,9 +22,11 @@
     
     <?php
     $currentHub = new Hub;
-    $_SESSION["id"] = 10;
-    $currentHub->getFriendRooms($_SESSION["id"]);
-    $currentHub->getConnectedUserRoom($_SESSION["id"]);
+    // $_SESSION["user"] = 1;
+    if ($_SESSION["user"]) {
+        $currentHub->getFriendRooms($_SESSION["user"]);
+        $currentHub->getConnectedUserRoom($_SESSION["user"]);
+    }
     $counter = 0;
     $filters = new Filters;
     ?>
@@ -182,7 +184,7 @@
                                                 <i class="fa-solid fa-user fa-xl text-white"></i>
                                             </div>
                                             <?php 
-                                            if (!empty($_SESSION["id"])) {
+                                            if (!empty($_SESSION["user"])) {
                                                 $room->getNumberOfFriend($currentHub->friendRoomsList);
                                                 if (count($room->friendList)) {
                                                     print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
