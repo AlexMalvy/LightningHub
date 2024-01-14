@@ -161,13 +161,14 @@
                             <!-- Display All Rooms -->
                             <?php foreach($currentHub->allRoomsList as $room): ?>
                                 <!-- Room -->
-                                <div class="col">
+                                <article class="col">
                                     <div class="card h-100">
                                         <div class="card-header d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
                                                 <i class="fa-solid fa-user fa-xl text-white"></i>
                                             </div>
+
                                             <?php 
                                             if (!empty($_SESSION["user"])) {
                                                 $room->getNumberOfFriend($currentHub->friendRoomsList);
@@ -176,19 +177,24 @@
                                                 }
                                             }
                                             ?>
+
                                             <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
                                         </div>
+
                                         <div class="card-body">
                                             <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+
                                             <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+
                                             <p class="card-text"><?php print($room->description) ?></p>
                                         </div>
+
                                         <div class="card-footer d-flex justify-content-between align-items-center">
                                             <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
                                                 <form action="handlers/room-handler.php" method="POST">
                                                     <input type="text" name="action" value="cancel" hidden>
                                                     <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                    <button type="submit" class="btn lh-buttons-purple-faded">Demande Envoyée</button>
+                                                    <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
                                                 </form>
                                             <?php else: ?>
                                                 <form action="handlers/room-handler.php" method="POST">
@@ -197,10 +203,11 @@
                                                     <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                                 </form>
                                             <?php endif; ?>
+
                                             <p class="m-0"><?php print($room->CreatedSince()); ?></p>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             <?php endforeach; ?>
 
                         </div>
@@ -217,21 +224,25 @@
                             <?php foreach($currentHub->allRoomsList as $room): ?>
                                 <?php if(count($room->friendList) > 0): ?>
                                     <!-- Room -->
-                                    <div class="col">
+                                    <article class="col">
                                         <div class="card h-100">
                                             <div class="card-header d-flex justify-content-between align-items-center">
                                                 <div class="d-flex align-items-center">
                                                     <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
                                                     <i class="fa-solid fa-user fa-xl text-white"></i>
                                                 </div>
+
                                                 <?php 
                                                 print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
                                                 ?>
+
                                                 <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
                                             </div>
                                             <div class="card-body">
                                                 <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+
                                                 <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+
                                                 <p class="card-text"><?php print($room->description) ?></p>
                                             </div>
                                             <div class="card-footer d-flex justify-content-between align-items-center">
@@ -239,7 +250,7 @@
                                                     <form action="handlers/room-handler.php" method="POST">
                                                         <input type="text" name="action" value="cancel" hidden>
                                                         <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                        <button type="submit" class="btn lh-buttons-purple-faded">Demande Envoyée</button>
+                                                        <button type="submit" class="btn lh-buttons-purple-faded-to-red"></button>
                                                     </form>
                                                 <?php else: ?>
                                                     <form action="handlers/room-handler.php" method="POST">
@@ -248,10 +259,11 @@
                                                         <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
                                                     </form>
                                                 <?php endif; ?>
+
                                                 <p class="m-0"><?php print($room->CreatedSince()); ?></p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </article>
                                 <?php endif; ?>
                             <?php endforeach; ?>
 
@@ -264,46 +276,56 @@
                 <div class="tab-pane fade show p-1 border" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
 
                     <div class="container-fluid py-3">
-                        <div class="row row-cols-1 row-cols-lg-4 g-3">
+                        <?php if(count($currentHub->pendingRoomsList) > 0): ?>
+                            <div class="row row-cols-1 row-cols-lg-4 g-3">
 
-                            <!-- Display All Rooms -->
-                            <?php foreach($currentHub->pendingRoomsList as $room): ?>
-                                <!-- Room -->
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <div class="card-header d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
-                                                <i class="fa-solid fa-user fa-xl text-white"></i>
-                                            </div>
-                                            <?php 
-                                            if (!empty($_SESSION["user"])) {
-                                                $room->getNumberOfFriend($currentHub->friendRoomsList);
-                                                if (count($room->friendList)) {
-                                                    print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                <!-- Display All Rooms -->
+                                <?php foreach($currentHub->pendingRoomsList as $room): ?>
+                                    <!-- Room -->
+                                    <article class="col">
+                                        <div class="card h-100">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
+                                                    <i class="fa-solid fa-user fa-xl text-white"></i>
+                                                </div>
+
+                                                <?php 
+                                                if (!empty($_SESSION["user"])) {
+                                                    $room->getNumberOfFriend($currentHub->friendRoomsList);
+                                                    if (count($room->friendList)) {
+                                                        print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                            <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
-                                        </div>
-                                        <div class="card-body">
-                                            <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
-                                            <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
-                                            <p class="card-text"><?php print($room->description) ?></p>
-                                        </div>
-                                        <div class="card-footer d-flex justify-content-between align-items-center">
-                                            <form action="handlers/room-handler.php" method="POST">
-                                                <input type="text" name="action" value="cancel" hidden>
-                                                <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                <button type="submit" class="btn lh-buttons-purple-faded">Demande Envoyée</button>
-                                            </form>
-                                            <p class="m-0"><?php print($room->CreatedSince()); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+                                                ?>
 
-                        </div>
+                                                <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+
+                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+
+                                                <p class="card-text"><?php print($room->description) ?></p>
+                                            </div>
+                                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                                <form action="handlers/room-handler.php" method="POST">
+                                                    <input type="text" name="action" value="cancel" hidden>
+                                                    <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                    <button type="submit" class="btn lh-buttons-purple-faded-to-red"></button>
+                                                </form>
+
+                                                <p class="m-0"><?php print($room->CreatedSince()); ?></p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                <?php endforeach; ?>
+                            </div>
+
+                        <?php else: ?>
+                            <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici</h2>
+                        <?php endif; ?>
+
                     </div>
 
                 </div>
