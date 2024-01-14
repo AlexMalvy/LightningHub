@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @namespace App\Controllers
+ * @brief Namespac of controllers
+ *
+ */
 namespace App\Controllers;
 
 use App\Models\PrivateMessage;
@@ -110,7 +115,14 @@ class SocialsController
         redirectAndExit(self::URL_INDEX);
     }
 
-    protected function getSocialByFriend(?int $idFriend): Social
+    /**
+     * return a friendship by the id of a friend calculate for the current id.
+     *
+     * @param int $idFriend Id of the friend.
+     *
+     * @return Social The "Social" of the current user and the paramater.
+     */
+    public function getSocialByFriend(?int $idFriend): Social
     {
         if (!$idFriend) {
             errors('404. Page introuvable');
