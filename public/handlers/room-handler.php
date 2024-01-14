@@ -17,6 +17,12 @@ if (!empty($_POST['action'])) {
     if ($_POST['action'] === 'leave') {
         $controller->leave();
     }
+    if ($_POST['action'] === 'promote') {
+        $controller->promote();
+    }
+    if ($_POST['action'] === 'kick') {
+        $controller->kick();
+    }
 }
 
 // Unknown action

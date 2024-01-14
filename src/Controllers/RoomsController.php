@@ -93,7 +93,7 @@ class RoomsController
     public function leave()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["user"]) or empty($_POST["room_id"]) or empty($_POST["membersCount"]) or empty($_POST["ownerId"])) {
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
             // TODO Add errors message
             header("Location: $index");
             exit();
@@ -101,11 +101,47 @@ class RoomsController
 
         $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
-        $countMembers = $_POST["membersCount"];
-        $idOwner = $_POST["ownerId"];
 
         // Delete the room in DB
-        Room::leaveRoom($idUser, $idRoom, $countMembers, $idOwner);
+        Room::leaveRoom($idUser, $idRoom);
+
+        header("Location: $index");
+        exit();
+    }
+
+    public function promote()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idTarget = $_POST["targetId"];
+
+        // Delete the room in DB
+        Room::promoteToOwner($idUser, $idTarget);
+
+        header("Location: $index");
+        exit();
+    }
+
+    public function kick()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idTarget = $_POST["targetId"];
+
+        // Delete the room in DB
+        Room::kickFromRoom($idUser, $idTarget);
 
         header("Location: $index");
         exit();

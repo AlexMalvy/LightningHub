@@ -186,7 +186,57 @@ class Room
         SET idRoom = NULL
         WHERE idUser = :idUser", ["idUser" => $idUser]);
     }
+    
+    public static function promoteToOwner(int $idUser, int $idTarget)
+    {
+        // Retrieve from DB room owner and soon-to-be room owner
+        $result = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
+        FROM users
+        WHERE idUser = :idUser1 OR idUser = :idUser2',
+        ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
+        if (count($result) === 2) {
+            // Checks if user is the room owner
+            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
+                // Checks that both users are in the same room
+                if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
+                    DB::statement("UPDATE users
+                    SET users.isRoomOwner = 0
+                    WHERE users.idUser = :idUser",
+                    ["idUser" => $idUser]);
+
+                    DB::statement("UPDATE users
+                    SET users.isRoomOwner = 1
+                    WHERE users.idUser = :idTarget",
+                    ["idTarget" => $idTarget]);
+                }
+            }
+        }
+    }
+    
+    public static function kickFromRoom(int $idUser, int $idTarget)
+    {
+        // Retrieve from DB room owner and soon-to-be room owner
+        $result = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
+        FROM users
+        WHERE idUser = :idUser1 OR idUser = :idUser2',
+        ["idUser1" => $idUser, "idUser2" => $idTarget]);
+
+        if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser))
+
+        if (count($result) === 2) {
+            // Checks if user is the room owner
+            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
+                // Checks that both users are in the same room
+                if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
+                    DB::statement("UPDATE users
+                    SET users.idRoom = NULL
+                    WHERE users.idUser = :idTarget",
+                    ["idTarget" => $idTarget]);
+                }
+            }
+        }
+    }
 }
 
 

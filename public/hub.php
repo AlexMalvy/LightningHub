@@ -22,7 +22,8 @@
     
     <?php
     $currentHub = new Hub;
-    // $_SESSION["user"] = 1;
+    $_SESSION["user"] = 1;
+    $isRoomOwner = false;
     if ($_SESSION["user"]) {
         $currentHub->getFriendRooms($_SESSION["user"]);
         $currentHub->getConnectedUserRoom($_SESSION["user"]);
@@ -431,7 +432,7 @@
                                     <h4>Chef :</h4>
                                     <div>
                                         <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                        <span><?php print($currentHub->connectedUserRoom->owner) ?></span>
+                                        <span class="ms-1"><?php print($currentHub->connectedUserRoom->owner) ?></span>
                                     </div>
                                 </div>
 
@@ -443,13 +444,23 @@
                                         <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->ownerId): ?>
                                             <div class="d-flex align-items-center gap-2">
                                                 <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                                <span><?php print($member["username"]) ?></span>
-                                                <button class="btn hover-accent focus-accent ms-auto px-1">
-                                                    <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
-                                                </button>
-                                                <button class="btn hover-accent focus-accent px-1">
-                                                    <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
-                                                </button>
+                                                <span class="ms-1"><?php print($member["username"]) ?></span>
+                                                <?php if($_SESSION["user"] === $currentHub->connectedUserRoom->ownerId): ?>
+                                                    <form action="handlers/room-handler.php" method="POST" class="ms-auto">
+                                                        <input type="text" name="action" value="promote" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($member["idUser"]) ?>" hidden>
+                                                        <button class="btn hover-accent focus-accent px-1">
+                                                            <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
+                                                        </button>
+                                                    </form>
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="kick" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($member["idUser"]) ?>" hidden>
+                                                        <button class="btn hover-accent focus-accent px-1">
+                                                            <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
+                                                        </button>
+                                                    </form>
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                     <?php endforeach; ?>
