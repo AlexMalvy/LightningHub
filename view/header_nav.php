@@ -40,6 +40,16 @@
 
             <!-- Hub link -->
             <div class="col-3 col-lg-auto">
+                <a href="admin.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                    <div class="d-flex justify-content-center">
+                        <img src="assets/images/hub-icon-37x37.png" alt="" class="d-lg-none">
+                    </div>
+                    <p class="m-0 text-center">Dashboard</p>
+                </a>
+            </div>
+
+            <!-- Hub link -->
+            <div class="col-3 col-lg-auto">
                 <a href="hub.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                     <div class="d-flex justify-content-center">
                         <img src="assets/images/hub-icon-37x37.png" alt="" class="d-lg-none">

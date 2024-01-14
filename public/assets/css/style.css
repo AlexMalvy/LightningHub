@@ -276,7 +276,9 @@ main {
 /* header text color to white */
 
 .accordion-button:not(.collapsed) {
-    color: #ffffff;
+    color: #ffffff;.transparent-bg {
+    background-color: transparent !important;
+}
 }
 
 /* Remove active blue glow */
@@ -660,4 +662,10 @@ main.account-fields form:not(#formNotification) {
     background: none;
     cursor: pointer;
     /* Ajouter d'autres styles si nécessaire */
+}
+
+/* TEST TABLES*/
+
+table tr td, table tr th{
+    background-color: rgba(0,0,0, 0) !important;
 }
