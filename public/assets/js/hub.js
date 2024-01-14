@@ -37,23 +37,31 @@ const chatMembersCollapseExpend = () => {
     }
 }
 
-chatWindowOptions.addEventListener("click", () => chatMembersCollapseExpend());
-membersClose.addEventListener("click", () => chatMembersCollapseExpend());
+if (chatWindowOptions) {
+    chatWindowOptions.addEventListener("click", () => chatMembersCollapseExpend());
+}
+if (membersClose) {
+    membersClose.addEventListener("click", () => chatMembersCollapseExpend());
+}
 
 
 /* enable tab create new room / update room */
-
 const newRoom = document.querySelector('#newRoom');
 const newRoomHubTab = document.querySelector('#new-room-hub-tab');
 const newRoomHubTabPane = document.querySelector('#new-room-hub-tab-pane');
+
 const hubTab = document.querySelector('#hub-tab');
 const hubTabPane = document.querySelector('#hub-tab-pane');
+
 const hubFriendTab = document.querySelector('#friends-tab');
 const hubFriendTabPane = document.querySelector('#friends-tab-pane');
+
 const hubPendingTab = document.querySelector('#pending-tab');
 const hubPendingTabPane = document.querySelector('#pending-tab-pane');
+
 const hubCurrentTab = document.querySelector('#current-hub-tab');
 const hubCurrentTabPane = document.querySelector('#current-hub-tab-pane');
+
 const updateRoom = document.querySelector('#update-room');
 const updateRoomTab = document.querySelector('#update-room-hub-tab');
 const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
@@ -71,8 +79,16 @@ function hideTabs() {
     const tabs = [hubTab, hubFriendTab, hubPendingTab, hubCurrentTab];
     const tabPanes = [hubTabPane, hubFriendTabPane, hubPendingTabPane, hubCurrentTabPane];
 
-    tabs.forEach(tab => tab.classList.remove('active'));
-    tabPanes.forEach(tabPane => tabPane.classList.remove('active'));
+    tabs.forEach(tab => {
+        if(tab) {
+        tab.classList.remove('active')
+        }
+    });
+    tabPanes.forEach(tabPane => {
+        if(tabPane) {
+            tabPane.classList.remove('active')
+        }
+    });
 }
 
 if (newRoom && newRoomHubTab || updateRoom) {
@@ -81,36 +97,46 @@ if (newRoom && newRoomHubTab || updateRoom) {
         if(!newRoomTabOpen){
             displayTabs(newRoomHubTab, newRoomHubTabPane);
             hideTabs();
-            updateRoomTab.classList.remove('active');
-            updateRoomTabPane.classList.remove('active');
+            if (updateRoomTab) {
+                updateRoomTab.classList.remove('active');
+            }
+            if (updateRoomTabPane) {
+                updateRoomTabPane.classList.remove('active');
+            }
             newRoomTabOpen = true;
         } else{
             newRoomHubTab.classList.add("active");
             newRoomHubTabPane.classList.add("active");
             newRoomHubTabPane.classList.add("show");
-            updateRoomTab.classList.remove('active');
-            updateRoomTabPane.classList.remove('active');
+            if (updateRoomTab) {
+                updateRoomTab.classList.remove('active');
+            }
+            if (updateRoomTabPane) {
+                updateRoomTabPane.classList.remove('active');
+            }
             hideTabs();
         }
     });
 
-    updateRoom.addEventListener("click", () => {
-        const updateRoomTab = document.querySelector('#update-room-hub-tab');
-        const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
+    if (updateRoom) {
+        updateRoom.addEventListener("click", () => {
+            const updateRoomTab = document.querySelector('#update-room-hub-tab');
+            const updateRoomTabPane = document.querySelector('#update-room-hub-tab-pane');
 
-        if (!updateRoomTabOpen){
-            displayTabs(updateRoomTab, updateRoomTabPane);
-            hideTabs();
-            updateRoomTabOpen = true;
-        } else{
-            updateRoomTab.classList.add("active");
-            updateRoomTabPane.classList.add("active");
-            updateRoomTabPane.classList.add("show");
-            newRoomHubTab.classList.remove('active');
-            newRoomHubTabPane.classList.remove('active');
-            hideTabs();
-        }
+            if (!updateRoomTabOpen){
+                displayTabs(updateRoomTab, updateRoomTabPane);
+                hideTabs();
+                updateRoomTabOpen = true;
+            } else{
+                updateRoomTab.classList.add("active");
+                updateRoomTabPane.classList.add("active");
+                updateRoomTabPane.classList.add("show");
+                newRoomHubTab.classList.remove('active');
+                newRoomHubTabPane.classList.remove('active');
+                hideTabs();
+            }
         });
+    }
 }
 
 
@@ -121,6 +147,9 @@ const filterGamemode = document.querySelector("#game_type");
 
 const createNewRoomGame = document.querySelector("#game_new_room");
 const createNewRoomGamemode = document.querySelector("#game_type_new_room");
+
+const modifyRoomGame = document.querySelector("#game_update_room");
+const modifyRoomGamemode = document.querySelector("#game_type_update_room");
 
 // How to get to each elements
 // for (let gameId in gamemodes) {
@@ -161,3 +190,33 @@ filterGame.addEventListener("change", () => {
 createNewRoomGame.addEventListener("change", () => {
     loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
 });
+
+if (modifyRoomGame) {
+    modifyRoomGame.addEventListener("change", () => {
+        loadGamemodeOptions(modifyRoomGame, modifyRoomGamemode);
+    });
+}
+
+
+function deleteRoom($fieldId) {
+    const fieldToChange = document.querySelector($fieldId);
+    fieldToChange.setAttribute("value", "delete");
+}
+
+
+function changeValueToGamemodeId($selectFieldId, $hiddenInputFieldId) {
+    // Get select html element
+    const selectField = document.querySelector($selectFieldId);
+    // Get input html element that will carry the gamemode id
+    const hiddenInputField = document.querySelector($hiddenInputFieldId);
+
+    // Retrieve currently selected (not the attribute) option
+    let currentlySelectedIndex = selectField.options.selectedIndex;
+    // Get the currently selected option via it's index
+    let currentlySelectedOption = selectField.options.item(currentlySelectedIndex);
+    // Retrieve the gamemode id value through it's attribute
+    let currentlySelectedGamemodeId = currentlySelectedOption.getAttribute("gamemode_id")
+
+    // Replace the attribute "value" to the new gamemode id
+    hiddenInputField.setAttribute("value", currentlySelectedGamemodeId);
+}
