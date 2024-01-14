@@ -559,7 +559,7 @@
                                 </div>
 
                                 <!-- Update Room Form -->
-                                <form action="handlers/room-handler.php" method="POST" class="row py-lg-3">
+                                <form action="handlers/room-handler.php" method="POST" class="row py-lg-3" onsubmit="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
 
                                     <input type="text" name="action" value="modify" id="update-action-field" hidden>
 
@@ -567,6 +567,7 @@
 
                                     <!-- Left Side -->
                                     <div class="col-lg-5 d-lg-flex flex-column">
+                                        <!-- Game Select -->
                                         <div>
                                             <label for="game_update_room" class="mb-2">Jeux :</label>
                                             <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
@@ -584,9 +585,10 @@
                                             </select>
                                         </div>
 
+                                        <!-- Gamemode Select -->
                                         <div>
                                             <label for="game_type_update_room" class="mb-2">Type de partie :</label>
-                                            <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true" onchange="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
+                                            <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
                                                 <?php foreach ($filters->getGamemodesFromGameId($currentHub->connectedUserRoom->gameId) as $gamemodeId => $gamemodeName): ?>
                                                     <option
                                                         value="<?php print($gamemodeName) ?>"
