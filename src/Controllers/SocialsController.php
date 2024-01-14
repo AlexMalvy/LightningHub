@@ -10,8 +10,8 @@ use App\Models\User;
 
 
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
-// TODO: séparer ce qui utilise des autres controllers // CHECK normalement
 // TODO: faire gaffe String / Time
+// TODO: page de connexion qui naffiche pas les erreurs
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
