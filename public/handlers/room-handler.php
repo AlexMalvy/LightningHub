@@ -23,6 +23,12 @@ if (!empty($_POST['action'])) {
     if ($_POST['action'] === 'kick') {
         $controller->kick();
     }
+    if ($_POST['action'] === 'join') {
+        $controller->join();
+    }
+    if ($_POST['action'] === 'cancel') {
+        $controller->cancel();
+    }
 }
 
 // Unknown action

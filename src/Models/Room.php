@@ -237,6 +237,35 @@ class Room
             }
         }
     }
+
+    public static function RequestToJoinRoom($idUser, $idRoom)
+    {
+        $result = DB::fetch("SELECT rooms.idRoom
+        FROM rooms
+        WHERE idRoom = :idRoom",
+        ["idRoom" => $idRoom]);
+
+        if (count($result) === 1) {
+            DB::statement("INSERT INTO requesttojoin 
+            (idUser, idRoom)
+            VALUES (:idUser, :idRoom)",
+            ["idUser" => $idUser, "idRoom" => $idRoom]);
+        }
+    }
+
+    public static function cancelRequestToJoinRoom($idUser, $idRoom)
+    {
+        $result = DB::fetch("SELECT requesttojoin.idUser
+        FROM requesttojoin
+        WHERE requesttojoin.idUser = :idUser AND requesttojoin.idRoom = :idRoom",
+        ["idUser" => $idUser, "idRoom" => $idRoom]);
+
+        if (count($result) === 1) {
+            DB::statement("DELETE FROM requesttojoin
+            WHERE requesttojoin.idUser = :idUser AND requesttojoin.idRoom = :idRoom",
+            ["idUser" => $idUser, "idRoom" => $idRoom]);
+        }
+    }
 }
 
 

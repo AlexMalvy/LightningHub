@@ -146,6 +146,44 @@ class RoomsController
         header("Location: $index");
         exit();
     }
+
+    public function join()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idRoom = $_POST["room_id"];
+
+        // Delete the room in DB
+        Room::RequestToJoinRoom($idUser, $idRoom);
+
+        header("Location: $index");
+        exit();
+    }
+
+    public function cancel()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idRoom = $_POST["room_id"];
+
+        // Delete the room in DB
+        Room::cancelRequestToJoinRoom($idUser, $idRoom);
+
+        header("Location: $index");
+        exit();
+    }
 }
 
 ?>
