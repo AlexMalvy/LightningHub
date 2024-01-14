@@ -55,8 +55,6 @@ class User
         $user->notificationEnabled = $data['notificationsEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
-       // dd($data);
-       // dd($user);
         return $user;
     }
     
@@ -294,21 +292,4 @@ class User
     {
         $this->isRoomOwner = $isRoomOwner;
     }
-
-    // ISMAEL MODIFS
-//    public function updateLastConnection (){
-//        date_default_timezone_set('Europe/Paris');
-//
-//        $this->setDateLastConnection(date('Y-m-d H:i:s'));
-//
-//        $result = $this->save();
-//
-//        if ($result === false) {
-//            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-//        } else {
-//            success('Le produit a bien été modifié.');
-//        }
-//    }
-
-
 }
