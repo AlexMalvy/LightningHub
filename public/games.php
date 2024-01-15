@@ -9,7 +9,10 @@
     <title>Lightning Hub - Mon compte</title>
 </head>
 <body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
     <?php
 
     use App\Models\Games;
