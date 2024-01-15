@@ -22,8 +22,6 @@ class UserController
             // SQL
             "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
 
-
-
         // Hydrate user
         foreach ($users as $key => $value) {
             $user = new User();
@@ -32,7 +30,7 @@ class UserController
             $user->setUserName($value['username']);
             $user->setPassword($value['password']);
             $user->setEMail($value['mail']);
-            $user->setProfilPicture($value['profilePicture']);
+            $user->setProfilePicture($value['profilePicture']);
             $user->setNotificationEnabled(($value['notificationsEnabled']));
             $users[$key] = $user;
         }
@@ -127,23 +125,64 @@ class UserController
 
 
     /**
+     * Update User Username
+     */
+    public static function updateUsername(int $id): void
+    {
+        User::saveUsername($id,$_POST['pseudo'] );
+
+        header('Location: ' . self::URL_ACCOUNT);
+        exit();
+    }
+
+    /**
+     * Update User Mail
+     */
+    public static function updateEmail(int $id): void
+    {
+        // check format email
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
+            $_SESSION['type'] = 'danger';
+
+        } else {
+
+            User::saveMail($id,$_POST['email'] );
+        }
+
+        header('Location: ' . self::URL_ACCOUNT);
+        exit();
+
+    }
+
+    /**
+     * Update User Notification
+     */
+    public static function updateNotification(int $id): void
+    {
+        User::saveNotification($id,$_POST['notification'] );
+
+        header('Location: ' . self::URL_ACCOUNT);
+        exit();
+    }
+
+    /**
      * Save Profil Picture
      */
     public function savePicture(): void
     {
+        // Save Profile Picture directory
+        $uploadDir = '../../public/uploads/';
 
-        // TODO
-        $uploadDir = 'public/uploads';
-
-        // Je récupère l'extension du fichier
+        // I retrieve the file extension.
         $extension = pathinfo($_FILES['avatarPicture']['name'], PATHINFO_EXTENSION);
 
         $authorizedExtensions = ['jpg','png','gif'];
 
-        // Le poids max géré par PHP par défaut est de 2M
+        // The maximum weight handled by PHP by default is 2MB.
         $maxFileSize = 1000000;
 
-        // le nom de fichier sur le serveur est ici généré à partir du nom de fichier sur le poste du client
+        // The server-side file name is generated here based on the client-side file name.
         $uploadFile = $uploadDir . uniqid() .'.'.$extension;
 
         $errors = [];
@@ -151,7 +190,7 @@ class UserController
             $errors[] = 'Veuillez sélectionner une image de type Jpg ou Png !';
         }
 
-        /****** On vérifie si l'image existe et si le poids est autorisé en octets *************/
+        // Check if the image exists and if the weight is allowed in bytes.
         if( file_exists($_FILES['avatarPicture']['tmp_name']) && filesize($_FILES['avatarPicture']['tmp_name']) > $maxFileSize)
         {
             $errors[] = "Votre fichier doit faire moins de 2M !";
@@ -175,6 +214,9 @@ class UserController
             }
         }
 
+        header('Location: ' . self::URL_ACCOUNT);
+        exit();
+
     }
 
     /**
@@ -189,7 +231,5 @@ class UserController
 
         return true;
     }
-
-
 
 }
