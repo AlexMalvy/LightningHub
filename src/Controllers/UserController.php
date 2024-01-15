@@ -4,14 +4,18 @@ namespace App\Controllers;
 
 
 use App\Models\User;
+use App\Controllers\AuthController;
 use DB;
 
 class UserController
 {
     const URL_LOGIN = '/login.php';
     const URL_INDEX = '/index.php';
+    const URL_ACCOUNT = '/account.php';
 
-
+    /**
+     * Display information about user
+     */
     public function index(int $id)
     {
         $users = DB::fetch(
@@ -19,9 +23,18 @@ class UserController
             "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
 
 
+
         // Hydrate user
         foreach ($users as $key => $value) {
-            $users[$key] = User::hydrate($value);
+            $user = new User();
+
+            $user->setId($value['idUser']);
+            $user->setUserName($value['username']);
+            $user->setPassword($value['password']);
+            $user->setEMail($value['mail']);
+            $user->setProfilPicture($value['profilePicture']);
+            $user->setNotificationEnabled(($value['notificationsEnabled']));
+            $users[$key] = $user;
         }
 
         return $users;
@@ -29,6 +42,9 @@ class UserController
     }
 
 
+    /**
+     * Create a new account
+     */
     public function store(): void
     {
         // Prepare POST
@@ -76,7 +92,9 @@ class UserController
 
         if (!$user->AlreadyExistUser()) {
             $user->save();
-            $_SESSION['message'] = "Votre compte a bien été créé";
+
+            $auth = new AuthController;
+            $auth->login($_POST['email'], $_POST['password']);
 
             header('Location: ' . self::URL_INDEX);
             exit();
@@ -91,6 +109,9 @@ class UserController
 
     }
 
+    /**
+     * Delete account
+     */
     public function delete()
     {
         $id = $_SESSION['user'];
@@ -104,6 +125,61 @@ class UserController
         exit();
     }
 
+
+    /**
+     * Save Profil Picture
+     */
+    public function savePicture(): void
+    {
+
+        // TODO
+        $uploadDir = 'public/uploads';
+
+        // Je récupère l'extension du fichier
+        $extension = pathinfo($_FILES['avatarPicture']['name'], PATHINFO_EXTENSION);
+
+        $authorizedExtensions = ['jpg','png','gif'];
+
+        // Le poids max géré par PHP par défaut est de 2M
+        $maxFileSize = 1000000;
+
+        // le nom de fichier sur le serveur est ici généré à partir du nom de fichier sur le poste du client
+        $uploadFile = $uploadDir . uniqid() .'.'.$extension;
+
+        $errors = [];
+        if( (!in_array($extension, $authorizedExtensions))){
+            $errors[] = 'Veuillez sélectionner une image de type Jpg ou Png !';
+        }
+
+        /****** On vérifie si l'image existe et si le poids est autorisé en octets *************/
+        if( file_exists($_FILES['avatarPicture']['tmp_name']) && filesize($_FILES['avatarPicture']['tmp_name']) > $maxFileSize)
+        {
+            $errors[] = "Votre fichier doit faire moins de 2M !";
+        }
+
+        if(empty($errors)){
+
+            move_uploaded_file($_FILES['avatarPicture']['tmp_name'], $uploadFile);
+
+            $user = new User();
+            $user->savePicture($_SESSION['user'],$uploadFile );
+
+            header('Location: ' . self::URL_ACCOUNT);
+            exit();
+
+
+        }else{
+            foreach($errors as $error){
+                $_SESSION['message'] = "Une erreur s'est produite";
+                $_SESSION['type'] = 'danger';
+            }
+        }
+
+    }
+
+    /**
+     * Valid username and password
+     */
     private function validateCredentials(string $userName, string $password) : bool
     {
         // Validation
@@ -113,4 +189,7 @@ class UserController
 
         return true;
     }
+
+
+
 }

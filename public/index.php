@@ -52,10 +52,24 @@
                     <p class="mb-4">
                         Rejoins-nous pour vivre des expériences <br> <strong>gaming inoubliables.</strong>
                     </p>
-                    <a href="hub.php" class="btn lh-buttons-purple">
-                        <img src="assets/images/hub-icon-37x37.png" alt="">
-                        <span class="ps-2">Trouver une Team</span>
-                    </a>
+
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <a href="hub.php" class="btn lh-buttons-purple mt-3 mt-lg-0">
+                                        <img src="assets/images/hub-icon-37x37.png" alt="trouver-une-team">
+                                        <span class="ps-2">Trouver une Team</span>
+                                    </a>
+                                    <a href="login.php" class="btn lh-buttons-purple ms-lg-5 mt-5 mt-lg-0">
+                                        <img src="assets/images/pen-to-square-regular.svg" alt="créer-un-compte">
+                                        <span class="ps-2 mx-auto">Créer un compte</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <p class="col-lg-10 offset-lg-1 px-2 px-md-5 d-lg-none py-4">Trouvez facilement des partenaires de jeu partageant vos intérêts, que ce soit pour des sessions compétitives ou simplement pour le fun.</p>

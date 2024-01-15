@@ -12,7 +12,7 @@ class AuthController
     const URL_HOME = '/index.php';
 
 
-    public function login() : void
+    public function login(string $login = null, string $password = null ) : void
     {
        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -28,7 +28,7 @@ class AuthController
     
         // Check DB
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $email]);
-        if ($users == false) {
+        if (!$users) {
             $_SESSION['message'] = "Le compte utilisateur n'existe pas";
             $_SESSION['type'] = 'danger';
             $_SESSION['isConnected'] = false;
@@ -54,9 +54,8 @@ class AuthController
                     $user['password'],
                 );
 
-                
 
-                $user->setDateLastConnection(new \DateTimeImmutable);
+                $user->setLastConnection(new \DateTimeImmutable);
                 $user->updateDateLastConnection();
 
                 if ($remember) {
