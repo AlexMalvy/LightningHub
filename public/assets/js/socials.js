@@ -37,11 +37,11 @@ friends = document.querySelector('#friends').value;
 
 let friends_tab = friends.split(',');
 
-const
+const searchFriend = document.querySelector('#searchFriend');
+searchFriend.addEventListener('input', findUser);
 // Find the user in the list of friends
 
 function findUser(){
-
     const verifGood = document.querySelector('#verificationUserGood');
     const verifNotGood = document.querySelector('#verificationUserNotGood');
     const bouttonSearch = document.querySelector('#btnAddFriend');
