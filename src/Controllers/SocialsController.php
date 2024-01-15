@@ -17,6 +17,7 @@ use App\Models\User;
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: faire gaffe String / Time
 // TODO: page de connexion qui naffiche pas les erreurs
+// TODO: gérer quand ya  plusieurs fois la meme requete et que les users n'ont pas rechargé
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -45,7 +46,7 @@ class SocialsController
         $currentUserObj = User::hydrate($currentUser);
         date_default_timezone_set('Europe/Paris');
         //$currentUserObj->setDateLastConnection(date('Y-m-d H:i:s'));
-        $currentUserObj->setDateLastConnection(new \DateTimeImmutable);
+        $currentUserObj->setLastConnection(new \DateTimeImmutable);
         $currentUserObj->updateDateLastConnection();
 
         // FRIENDS REQUESTS LIST TAB
