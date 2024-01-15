@@ -37,6 +37,7 @@ friends = document.querySelector('#friends').value;
 
 let friends_tab = friends.split(',');
 
+const
 // Find the user in the list of friends
 
 function findUser(){
