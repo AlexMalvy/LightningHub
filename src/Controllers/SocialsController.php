@@ -75,7 +75,6 @@ class SocialsController
 
         $idUser2 = explode('#', $_POST['searchFriend'])[1];
 
-        // La il faut un getUserByName(string $username)
         $user = DB::fetch(
             "SELECT * FROM users WHERE idUser = :idUser2",
             ['idUser2' => $idUser2]
@@ -89,6 +88,21 @@ class SocialsController
             redirectAndExit(self::URL_INDEX);
         }
 
+        $test_exist = DB::fetch(
+            "SELECT * FROM isfriend".
+            " WHERE idUser1 = :myId and idUser2 = :idFriend".
+            " or idUser1 = :idFriend and idUser2 = :myId",
+            ['myId' => $myId, 'idFriend' => $idUser2]
+        );
+
+        if ($test_exist === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+        if (!empty($test_exist)) {
+            errors('Une demande d\'ami a déjà été envoyée pour cet utilisateur');
+            redirectAndExit(self::URL_INDEX);
+        };
 
 
         $social = new Social(
@@ -303,7 +317,6 @@ class SocialsController
         $userId = Auth::getSessionUserId();
 
         $friendsId = $this->getFriendsAndRequestsId();
-        //  dd($friendsId);
         $friends = DB::fetch(
         // SQL
             "SELECT * FROM users"
