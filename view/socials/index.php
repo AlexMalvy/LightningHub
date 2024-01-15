@@ -341,7 +341,7 @@
                         <label for="searchFriend" class="me-3">
                             <img class="me-1 icon-20x20" src="assets/images/user-plus-solid.svg" alt="add icon">Ajouter un ami</label>
 
-                        <input type="text" onkeyup="findUser()" class="input" id="searchFriend" name="searchFriend" aria-describedby="Rechercher un ami">
+                        <input type="text"  class="input" id="searchFriend" name="searchFriend" aria-describedby="Rechercher un ami">
 
                         <button disabled type="submit" class="btn d-inline-flex fw-bold text-center m-3 lh-buttons-purple" id="btnAddFriend" >Envoyer une demande
                         </button>

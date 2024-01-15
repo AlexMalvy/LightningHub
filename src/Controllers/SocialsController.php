@@ -103,9 +103,10 @@ class SocialsController
         redirectAndExit(self::URL_INDEX);
     }
 
+    // TODO : ne pas pouvoir cliquer sur le pseeudo quand on clique sur user deco
 
 
-    public function delete()
+    public function delete() // TODO : celui qui envoie l'invit n'arrive pas a supprimer
     {
         $idUser = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($idUser);
