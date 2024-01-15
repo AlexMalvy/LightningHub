@@ -25,7 +25,6 @@ class Social
 
     public static function hydrate(array $data): Social
     {
-        //dd($data);
         $social = new Social(
             $data['idUser1'] ?? null,
             $data['idUser2'] ?? null,
@@ -41,7 +40,7 @@ class Social
 
     public function delete() : int|false
     {
-        if ($this->idUser1 == 1 ) return self::staticDelete($this->idUser2);
+        if ($this->idUser1 == Auth::getSessionUserId() ) return self::staticDelete($this->idUser2);
         else return self::staticDelete($this->idUser1);
     }
     public static function staticDelete(int $idFriend) : int|false
@@ -117,7 +116,6 @@ class Social
 
     public function insert(): bool
     {
-        //dd($this);
         $data =  [
             'idUser1' => $this->idUser1,
             'idUser2' => $this->idUser2,

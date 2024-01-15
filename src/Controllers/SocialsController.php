@@ -106,10 +106,12 @@ class SocialsController
     // TODO : ne pas pouvoir cliquer sur le pseeudo quand on clique sur user deco
 
 
-    public function delete() // TODO : celui qui envoie l'invit n'arrive pas a supprimer
+    public function delete()
     {
         $idUser = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($idUser);
+
+
         // Delete a friendship in DB
         $social->delete();
 
@@ -131,9 +133,12 @@ class SocialsController
         }
         $myId = Auth::getSessionUserId();
         $social = DB::fetch(
-            "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
+            "SELECT * FROM isfriend".
+            " WHERE idUser1 = :myId and idUser2 = :idFriend".
+            " or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idFriend]
         );
+
         if ($social === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_INDEX);
