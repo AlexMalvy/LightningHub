@@ -40,7 +40,7 @@
 
             <!-- Hub link -->
             <div class="col-3 col-lg-auto">
-                <a href="admin.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+                <a href="admin/index.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                     <div class="d-flex justify-content-center">
                         <img src="assets/images/hub-icon-37x37.png" alt="" class="d-lg-none">
                     </div>

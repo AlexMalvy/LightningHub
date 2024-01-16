@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__.'/../bootstrap/app.php';
+require_once __DIR__ . '/../../bootstrap/app.php';
 
 // Auth
 //Auth::isAuthOrRedirect();
 
-$controller = new App\Controllers\AdminController();
+$controller = new \App\Controllers\admin\FaqController();
 $controller->index();
 
 // Remove errors, success and old data
