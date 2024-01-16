@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/../../bootstrap/app.php';
 
+
 if (!empty($_POST['action'])) {
     $controller = new App\Controllers\RoomsController();
 

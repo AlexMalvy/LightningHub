@@ -652,3 +652,12 @@ main.account-fields form:not(#formNotification) {
         margin-right: 0rem;
     }
 }
+
+.hidden-button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    cursor: pointer;
+    /* Ajouter d'autres styles si nécessaire */
+}
