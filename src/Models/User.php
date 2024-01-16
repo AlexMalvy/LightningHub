@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTime;
 use DB;
 
 class User 
@@ -30,8 +31,9 @@ class User
      */ 
     public static function hydrate(array $data): User
     {
+
         $user = new User(
-            $data['IdUser'] ?? null,
+            $data['idUser'] ?? null,
             $data['username'] ?? null,
             $data['password'] ?? null,
             $data['mail'] ?? null,
@@ -43,7 +45,7 @@ class User
             $data['isRoomOwner'] ?? null,
         );
 
-        $user->id = $data['IdUser'] ?? null;
+        $user->id = $data['idUser'] ?? null;
         $user->userName = $data['username'] ?? null;
         $user->password = $data['password'] ?? null;
         $user->mail = $data['mail'] ?? null;
@@ -53,7 +55,6 @@ class User
         $user->notificationEnabled = $data['notificationEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
-
         return $user;
     }
     
@@ -337,5 +338,4 @@ class User
     {
         $this->isRoomOwner = $isRoomOwner;
     }
-
 }

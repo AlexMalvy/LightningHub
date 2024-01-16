@@ -16,14 +16,9 @@
 
 <?php require_once base_path('view/header_nav.php'); ?>
 <?php displayErrorsAndMessages(); ?>
-<?php //require_once(__DIR__ . "/../view/header_nav.php");
-//require_once(__DIR__."/../controller/SocialsController.php");
-
-//var_dump($_SESSION);
-?>
 
 <!-- Main -->
-<input name="friends" value="<?php echo ($friendsNames)?>" hidden id="friends">
+<input name="friends" value="<?php echo ($nonFriendsNames)?>" hidden id="friends">
 <main class="mt-lg-5 pt-lg-5">
 
     <!-- Introduction -->
@@ -46,9 +41,9 @@
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
                         <img id="" class="mx-2 avatar-50x50" src="/assets/images/<?php echo
-                         $current_user['profilePicture'] ?>"  alt="connected user avatar-70x70">
-                        <span id="myProfile"><?php echo $current_user['username'] . "#" .
-                             $current_user['idUser'];?></span>
+                         $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
+                        <span id="myProfile"><?php echo $currentUser['username'] . "#" .
+                             $currentUser['idUser'];?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
@@ -105,41 +100,46 @@
                         <!-- Friends List -->
                         <ul class="list-group list-group-flush p-0">
 
-                            <!--                            TEST BDD-->
                             <?php
-                             foreach ($friends_connected as $friend_connected) {?>
-                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                    <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
-                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $friend_connected['profilePicture']?>" alt="player
-                                        avatar-70x70"><?php echo $friend_connected['username']?></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friend_connected['idUser']?>" aria-controls="offcanvasBottom">
-                                        <img class="icon-20x20" src="assets/images/message-solid-white.svg"
-                                             alt="message icon"></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_connected['idUser']?>">
-                                        <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
-                                             alt="delete icon"></a>
+                            if (count($friendsConnected) == 0) {
+                                echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami connecté !</div>";
+                            } else {
+
+                                 foreach ($friendsConnected as $friendConnected) {
+
+                                     ?>
+                                    <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+
+                                        <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
+                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            $friendConnected->getProfilePicture()?>" alt="player
+                                            avatar-70x70"><?php echo $friendConnected->getUsername() . "#" . $friendConnected->getId()?></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friendConnected->getId()?>" aria-controls="offcanvasBottom">
+                                            <img class="icon-20x20" src="assets/images/message-solid-white.svg"
+                                                 alt="message icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendConnected->getId()?>">
+                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
+                                                 alt="delete icon"></a>
 
 
-                                </li>
+                                    </li>
 
 
 
-                             <?php } ?>
-
-
-                            <!--                          FIN  TEST BDD-->
+                                 <?php }
+                            }
+                                 ?>
 
                                 <?php
 
                                 foreach ($friends as $friend){?>
                                      <!-- Offcanvas of a conversation-->
-                                <div class="offcanvas offcanvas-bottom h-75 col-lg-6 md-col-5" tabindex="-1" id="offcanvasBottom<?php echo($friend['idUser'])?>" aria-labelledby="offcanvasBottomLabel">
+                                <div class="offcanvas offcanvas-bottom h-75 col-lg-6 md-col-5" tabindex="-1" id="offcanvasBottom<?php echo($friend->getId())?>" aria-labelledby="offcanvasBottomLabel">
                                     <header class="offcanvas-header bg-color-purple">
-                                        <h5 id="offcanvasBottomLabel"><?php echo($friend['username'])?></h5>
+                                        <h5 id="offcanvasBottomLabel"><?php echo($friend->getUsername() . "#" . $friend->getId())?></h5>
                                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                     </header>
 
@@ -148,32 +148,47 @@
                                         <!-- All Messages -->
 
                                         <?php
-                                        foreach ($myMsgs as $msg) {
-                                            if ($msg['idUser2'] == $friend['idUser'] OR $msg['idUser1'] == $friend['idUser'] AND $msg['idUser2'] == $current_user['idUser']) {
+
+                                        for ($i = 0; $i < count($tabMsgs); $i++) {
+
+
+                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUser['idUser']) {
                                             ?>
 
                                                 <article class="col message">
-                                                    <img src="assets/images/<?php echo($msg['profilePicture'])?>" alt="profile picture" class="avatar-50x50">
+                                                    <img src="assets/images/<?php echo($tabUsers[$i]->getProfilePicture())?>" alt="profile picture" class="avatar-50x50">
 
                                                     <div class="message-body">
+                                                        <form method="post" action="<?php echo $actionUrlMsg?>">
+                                                            <input type="text" name="action" value="update" hidden>
+                                                            <div class="message-header">
 
-                                                        <div class="message-header">
-                                                            <h3 class="card-title"><?php echo($msg['username'])?></h3>
-                                                            <small><?php echo($msg['timeMessage'])?></small>
-                                                            <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                                        </div>
+                                                                <h3 class="card-title">
+                                                                    <input  type="text" name="idUser1" value="<?php echo($tabMsgs[$i]->getIdUser1())?>" hidden>
+                                                                    <input  type="text" name="idUser2" value="<?php echo($tabMsgs[$i]->getIdUser2())?>" hidden>
+                                                                    <input  type="text" name="timeMessage" value="<?php echo($tabMsgs[$i]->getTimeMessage())?>" hidden>
+                                                                    <?php echo($tabUsers[$i]->getUsername() . "#" . $tabUsers[$i]->getId())?></h3>
+                                                                <small><?php echo($tabMsgs[$i]->getTimeMessage())?></small>
+                                                                <button type="submit" class="hidden-button">
+                                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report"></button>
 
-                                                        <p class="card-text"><?php echo($msg['message'])?></p>
+                                                            </div>
+                                                            <p class="card-text">
+                                                                <?php echo($tabMsgs[$i]->getMessage())?>
+                                                            </p>
+                                                        </form>
                                                     </div>
 
                                                 </article>
+
+
                                                <?php }
                                         }
                                         ?>
                                         <!-- User message input -->
 
                                         <form class="mt-3 position-absolute bottom-0 start-0 end-0 m-3" method="POST"
-                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($current_user['idUser']) ?>&idUser2=<?php echo($friend['idUser']) ?>" >
+                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUser['idUser']) ?>&idUser2=<?php echo($friend->getId()) ?>" >
                                             <input type="text" name="action" value="store" hidden>
 
                                             <div class="input-group inputChat">
@@ -192,16 +207,17 @@
                                 </div>
 
                                     <!-- Delete Friend Modal -->
-                                    <div class="modal fade" id="deleteFriendModal<?php echo $friend['idUser']?>"
+                                    <div class="modal fade" id="deleteFriendModal<?php echo $friend->getId()?>"
                                          tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
                                         <form method="post" action="<?php echo($actionUrlSoc) ?>">
                                             <input type="text" name="action" value="delete" hidden>
-                                            <input type="text" name="id" value="<?php echo($friend['idUser']) ?>" hidden>
+                                            <input type="text" name="id" value="<?php echo($friend->getId()) ?>" hidden>
 
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-color-purple rounded-0">
-                                                        <h5 class="modal-title fs-5" id="deleteFriendModalLabel">Supprimer <?php echo $friend['username']?></h5>
+                                                        <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
+                                                        Supprimer <?php echo $friend->getUsername() . "#" . $friend->getId()?></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -229,41 +245,43 @@
 
 
                         <!--                        TEST BDD -->
-                        <?php
-                            if ($friends_connected && $friends_disconnected){
-                                ?>
+
+
                                 <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
                             friends -->
-                        <?php
-                            }
-                        ?>
-                        <ul class="list-group list-group-flush p-0 d-none"
-                            id="list-disconnected">
+
+                        <ul  id="list-disconnected" class="list-group list-group-flush p-0 d-none">
+
 
 
 
                             <?php
+                            if (count($friendsDisconnected) == 0) {
+                                echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami déconnecté !</div>";
+                            } else {
 
-                            foreach ($friends_disconnected as $friend_disconnected){?>
+                                foreach ($friendsDisconnected as $friendDisconnected){
+                                    ?>
 
-                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+                                    <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                    <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
-                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $friend_disconnected['profilePicture']?>"
-                                             alt="player
-                                        avatar-70x70"><?php echo $friend_disconnected['username']?></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
-                                    $friend_disconnected['idUser']?>" aria-controls="offcanvasBottom">
-                                        <img class="icon-20x20" src="assets/images/message-solid-white.svg"
-                                             alt="message icon"></a>
-                                    <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                       data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friend_disconnected['idUser']?>">
-                                        <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
+                                        <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
+                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            $friendDisconnected->getProfilePicture()?>"
+                                                 alt="player
+                                            avatar-70x70"><?php echo $friendDisconnected->getUserName() . "#" . $friendDisconnected->getId()?></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
+                                        $friendDisconnected->getId()?>" aria-controls="offcanvasBottom">
+                                            <img class="icon-20x20" src="assets/images/message-solid-white.svg"
+                                                 alt="message icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendDisconnected->getId()?>">
+                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
-                                </li>
-                                <?php
+                                    </li>
+                                    <?php
+                                }
                             }?>
 
 
@@ -281,29 +299,33 @@
                     <ul class="list-group list-group-flush p-0">
 
                         <?php
-
-                        foreach ($requests as $request) { ?>
-                            <form method="POST" action="<?php echo($actionUrlSoc) ?>">
-
-
-                                <input type="text" name="id" value="<?php echo($request['idUser']) ?>" hidden>
-
-                            <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
-
-                                <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
-                                    <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                    $request['profilePicture']?>" alt="player avatar-70x70"><?php echo
-                                    $request['username']?></a>
-                                <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                    <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
-                                <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                    <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
+                        if (count($requests) == 0) {
+                            echo "<div class=' p-5'>Vous n'avez aucune demande d'ami !</div>";
+                        }
+                        else {
+                            foreach ($requests as $request) { ?>
+                                <form method="POST" action="<?php echo($actionUrlSoc) ?>">
 
 
+                                    <input type="text" name="id" value="<?php echo($request->getId()) ?>" hidden>
 
-                            </li>
-                            </form>
-                        <?php } ?>
+                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+
+                                    <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
+                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                        $request->getProfilePicture()?>" alt="player avatar-70x70"><?php echo
+                                        $request->getUsername() . "#" . $request->getId()?></a>
+                                    <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                        <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
+                                    <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                        <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
+
+
+
+                                </li>
+                                </form>
+                            <?php }
+                        }?>
 
 
                     </ul>
@@ -322,7 +344,7 @@
                         <label for="searchFriend" class="me-3">
                             <img class="me-1 icon-20x20" src="assets/images/user-plus-solid.svg" alt="add icon">Ajouter un ami</label>
 
-                        <input type="text" onkeyup="findUser()" class="input" id="searchFriend" name="searchFriend" aria-describedby="Rechercher un ami">
+                        <input type="text"  class="input" id="searchFriend" name="searchFriend" aria-describedby="Rechercher un ami">
 
                         <button disabled type="submit" class="btn d-inline-flex fw-bold text-center m-3 lh-buttons-purple" id="btnAddFriend" >Envoyer une demande
                         </button>
@@ -343,7 +365,6 @@
 
 </main>
 
-<?php // require_once(__DIR__ . "/../view/footer.php") ?>
 <?php require_once base_path('view/footer.php'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

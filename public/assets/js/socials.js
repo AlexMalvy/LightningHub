@@ -36,15 +36,12 @@ let friends = [];
 friends = document.querySelector('#friends').value;
 
 let friends_tab = friends.split(',');
-//console.log(friends_tab);
 
+const searchFriend = document.querySelector('#searchFriend');
+searchFriend.addEventListener('input', findUser);
 // Find the user in the list of friends
 
 function findUser(){
-    console.log(friends_tab);
-    // alert("lala");
-    //  const nameUser = "ismaelel67";
-    //let tabUsers = ["ismaelel67","ismaelel68","ismaelel69","ismaelel70"];
     const verifGood = document.querySelector('#verificationUserGood');
     const verifNotGood = document.querySelector('#verificationUserNotGood');
     const bouttonSearch = document.querySelector('#btnAddFriend');
