@@ -4,24 +4,35 @@ namespace App\Controllers;
 
 
 use App\Models\User;
+use App\Controllers\AuthController;
 use DB;
 
 class UserController
 {
     const URL_LOGIN = '/login.php';
     const URL_INDEX = '/index.php';
+    const URL_ACCOUNT = '/account.php';
 
-
+    /**
+     * Display information about user
+     */
     public function index(int $id)
     {
         $users = DB::fetch(
             // SQL
             "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
 
-
         // Hydrate user
         foreach ($users as $key => $value) {
-            $users[$key] = User::hydrate($value);
+            $user = new User();
+
+            $user->setId($value['idUser']);
+            $user->setUserName($value['username']);
+            $user->setPassword($value['password']);
+            $user->setEMail($value['mail']);
+            $user->setProfilePicture($value['profilePicture']);
+            $user->setNotificationEnabled(($value['notificationsEnabled']));
+            $users[$key] = $user;
         }
 
         return $users;
@@ -29,6 +40,9 @@ class UserController
     }
 
 
+    /**
+     * Create a new account
+     */
     public function store(): void
     {
         // Prepare POST
@@ -47,25 +61,23 @@ class UserController
             $_SESSION['type'] = 'danger';
             $_SESSION['isConnected'] = false;
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+            redirectAndExit(self::URL_LOGIN);
         }
 
         if (!$adult or !$cgu) {
             $_SESSION['message'] = "Veuillez confirmer que vous êtes majeur et que vous accepté les conditions d'utilisations.";
             $_SESSION['type'] = 'danger';
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+
+            redirectAndExit(self::URL_LOGIN);
         }
 
         // check format email
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
             $_SESSION['type'] = 'danger';
-            
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+
+            redirectAndExit(self::URL_LOGIN);
         }
 
         $user = new User(
@@ -76,21 +88,24 @@ class UserController
 
         if (!$user->AlreadyExistUser()) {
             $user->save();
-            $_SESSION['message'] = "Votre compte a bien été créé";
 
-            header('Location: ' . self::URL_INDEX);
-            exit();
+            $auth = new AuthController;
+            $auth->login($_POST['email'], $_POST['password']);
+
+            redirectAndExit(self::URL_INDEX);
 
         } else {
             $_SESSION['message'] = "L'utilisateur existe déja";
             $_SESSION['type'] = 'warning';
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+            redirectAndExit(self::URL_LOGIN);
         }   
 
     }
 
+    /**
+     * Delete account
+     */
     public function delete()
     {
         $id = $_SESSION['user'];
@@ -100,10 +115,99 @@ class UserController
         $_SESSION['message'] = "Votre compte a bien été supprimé";
         $_SESSION['isConnected'] = false;
 
-        header('Location: ' . self::URL_INDEX);
-        exit();
+        redirectAndExit(self::URL_INDEX);
     }
 
+
+    /**
+     * Update User Username
+     */
+    public static function updateUsername(int $id): void
+    {
+        User::saveUsername($id,$_POST['pseudo'] );
+
+        redirectAndExit(self::URL_ACCOUNT);
+    }
+
+    /**
+     * Update User Mail
+     */
+    public static function updateEmail(int $id): void
+    {
+        // check format email
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
+            $_SESSION['type'] = 'danger';
+
+        } else {
+            User::saveMail($id,$_POST['email'] );
+        }
+
+        redirectAndExit(self::URL_ACCOUNT);
+    }
+
+    /**
+     * Update User Notification
+     */
+    public static function updateNotification(int $id): void
+    {
+        User::saveNotification($id,$_POST['notification'] );
+
+        redirectAndExit(self::URL_ACCOUNT);
+    }
+
+    /**
+     * Save Profil Picture
+     */
+    public function savePicture(): void
+    {
+        // Save Profile Picture directory
+        $uploadDir = '../../public/uploads/';
+
+        // I retrieve the file extension.
+        $extension = pathinfo($_FILES['avatarPicture']['name'], PATHINFO_EXTENSION);
+
+        $authorizedExtensions = ['jpg','png','gif'];
+
+        // The maximum weight handled by PHP by default is 2MB.
+        $maxFileSize = 1000000;
+
+        // The server-side file name is generated here based on the client-side file name.
+        $uploadFile = $uploadDir . uniqid() .'.'.$extension;
+
+        $errors = [];
+        if( (!in_array($extension, $authorizedExtensions))){
+            $errors[] = 'Veuillez sélectionner une image de type Jpg ou Png !';
+        }
+
+        // Check if the image exists and if the weight is allowed in bytes.
+        if( file_exists($_FILES['avatarPicture']['tmp_name']) && filesize($_FILES['avatarPicture']['tmp_name']) > $maxFileSize)
+        {
+            $errors[] = "Votre fichier doit faire moins de 2M !";
+        }
+
+        if(empty($errors)){
+
+            move_uploaded_file($_FILES['avatarPicture']['tmp_name'], $uploadFile);
+
+            $user = new User();
+            $user->savePicture($_SESSION['user'],$uploadFile );
+
+            redirectAndExit(self::URL_ACCOUNT);
+
+        }else{
+            foreach($errors as $error){
+                $_SESSION['message'] = "Une erreur s'est produite";
+                $_SESSION['type'] = 'danger';
+            }
+        }
+
+        redirectAndExit(self::URL_ACCOUNT);
+    }
+
+    /**
+     * Valid username and password
+     */
     private function validateCredentials(string $userName, string $password) : bool
     {
         // Validation
@@ -113,4 +217,7 @@ class UserController
 
         return true;
     }
+
+
 }
+

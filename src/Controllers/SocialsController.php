@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @namespace App\Controllers
+ * @brief Namespac of controllers
+ *
+ */
 namespace App\Controllers;
 
 use App\Models\PrivateMessage;
@@ -12,6 +17,8 @@ use App\Models\User;
 // TODO: voir si la requete de la recup des msg prend en compte le booleen de signal // CHECK
 // TODO: faire gaffe String / Time
 // TODO: page de connexion qui naffiche pas les erreurs
+// TODO: gérer quand ya  plusieurs fois la meme requete et que les users n'ont pas rechargé // a moitie checké
+
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -40,7 +47,7 @@ class SocialsController
         $currentUserObj = User::hydrate($currentUser);
         date_default_timezone_set('Europe/Paris');
         //$currentUserObj->setDateLastConnection(date('Y-m-d H:i:s'));
-        $currentUserObj->setDateLastConnection(new \DateTimeImmutable);
+        $currentUserObj->setLastConnection(new \DateTimeImmutable);
         $currentUserObj->updateDateLastConnection();
 
         // FRIENDS REQUESTS LIST TAB
@@ -69,7 +76,6 @@ class SocialsController
 
         $idUser2 = explode('#', $_POST['searchFriend'])[1];
 
-        // La il faut un getUserByName(string $username)
         $user = DB::fetch(
             "SELECT * FROM users WHERE idUser = :idUser2",
             ['idUser2' => $idUser2]
@@ -83,6 +89,21 @@ class SocialsController
             redirectAndExit(self::URL_INDEX);
         }
 
+        $test_exist = DB::fetch(
+            "SELECT * FROM isfriend".
+            " WHERE idUser1 = :myId and idUser2 = :idFriend".
+            " or idUser1 = :idFriend and idUser2 = :myId",
+            ['myId' => $myId, 'idFriend' => $idUser2]
+        );
+
+        if ($test_exist === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+        if (!empty($test_exist)) {
+            errors('Une demande d\'ami a déjà été envoyée pour cet utilisateur');
+            redirectAndExit(self::URL_INDEX);
+        };
 
 
         $social = new Social(
@@ -98,19 +119,29 @@ class SocialsController
         redirectAndExit(self::URL_INDEX);
     }
 
+    // TODO : ne pas pouvoir cliquer sur le pseeudo quand on clique sur user deco
 
 
     public function delete()
     {
         $idUser = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($idUser);
+
+
         // Delete a friendship in DB
         $social->delete();
 
         redirectAndExit(self::URL_INDEX);
     }
 
-    protected function getSocialByFriend(?int $idFriend): Social
+    /**
+     * return a friendship by the id of a friend calculate for the current id.
+     *
+     * @param int $idFriend Id of the friend.
+     *
+     * @return Social The "Social" of the current user and the paramater.
+     */
+    public function getSocialByFriend(?int $idFriend): Social
     {
         if (!$idFriend) {
             errors('404. Page introuvable');
@@ -118,9 +149,12 @@ class SocialsController
         }
         $myId = Auth::getSessionUserId();
         $social = DB::fetch(
-            "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
+            "SELECT * FROM isfriend".
+            " WHERE idUser1 = :myId and idUser2 = :idFriend".
+            " or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idFriend]
         );
+
         if ($social === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
             redirectAndExit(self::URL_INDEX);
@@ -284,7 +318,6 @@ class SocialsController
         $userId = Auth::getSessionUserId();
 
         $friendsId = $this->getFriendsAndRequestsId();
-        //  dd($friendsId);
         $friends = DB::fetch(
         // SQL
             "SELECT * FROM users"

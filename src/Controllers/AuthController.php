@@ -11,8 +11,10 @@ class AuthController
     const URL_LOGIN = '/login.php';
     const URL_HOME = '/index.php';
 
-
-    public function login() : void
+    /**
+     * Login user
+     */
+    public function login(string $login = null, string $password = null ) : void
     {
        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -28,14 +30,13 @@ class AuthController
     
         // Check DB
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $email]);
-        if ($users == false) {
+        if (!$users) {
             $_SESSION['message'] = "Le compte utilisateur n'existe pas";
             $_SESSION['type'] = 'danger';
             $_SESSION['isConnected'] = false;
 
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+            redirectAndExit(self::URL_LOGIN);
         }
        
 
@@ -54,9 +55,8 @@ class AuthController
                     $user['password'],
                 );
 
-                
 
-                $user->setDateLastConnection(new \DateTimeImmutable);
+                $user->setLastConnection(new \DateTimeImmutable);
                 $user->updateDateLastConnection();
 
                 if ($remember) {
@@ -68,8 +68,7 @@ class AuthController
                     setcookie( 'autoconnection', $cookieString, time() + $expiration, '/' );
                 }
 
-                header('location: ' . self::URL_HOME);
-                exit();
+                redirectAndExit(self::URL_HOME);
             }
         }
 
@@ -77,16 +76,17 @@ class AuthController
         $_SESSION['type'] = 'danger';
         $_SESSION['isConnected'] = false;
 
-        header('Location: ' . self::URL_LOGIN);
-        exit();
+        redirectAndExit(self::URL_LOGIN);
     }
 
+    /**
+     * Logout user
+     */
     public function logout() : void
     {
         session_destroy();
         
-        header('location: ' . self::URL_HOME);
-        exit();
+        redirectAndExit(self::URL_HOME);
     }
 
 }

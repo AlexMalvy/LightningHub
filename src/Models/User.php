@@ -11,15 +11,15 @@ class User
     protected ?string $userName;
     protected ?string $password;
     protected ?string $mail;
-    protected ?string $profilPicture;
-    protected \DateTimeImmutable $dateSignUp;
-    protected ?\DateTimeImmutable $dateLastConnection;
+    protected ?string $profilePicture;
+    protected ?\DateTimeImmutable $signUpDate;
+    protected ?\DateTimeImmutable $lastConnection;
     protected ?bool $notificationEnabled;
     protected ?bool $isAdmin;
     protected ?bool $isRoomOwner;
 
 
-    public function __construct(?string $userName, ?string $email, ?string $password)
+    public function __construct(?string $userName = null, ?string $email = null, ?string $password = null)
     {
         $this->userName = $userName;
         $this->mail = $email;
@@ -27,7 +27,7 @@ class User
     }
 
     /**
-     * Hydrate User to dispaly
+     * Hydrate User
      */ 
     public static function hydrate(array $data): User
     {
@@ -37,7 +37,7 @@ class User
             $data['username'] ?? null,
             $data['password'] ?? null,
             $data['mail'] ?? null,
-            $data['profilPicture'] ?? null,
+            $data['profilePicture'] ?? null,
             $data['SignUpDate'] ?? null,
             $data['lastConnection'] ?? null,
             $data['notificationEnabled'] ?? null,
@@ -49,10 +49,10 @@ class User
         $user->userName = $data['username'] ?? null;
         $user->password = $data['password'] ?? null;
         $user->mail = $data['mail'] ?? null;
-        $user->profilPicture = $data['profilePicture'] ?? null;
-        //$user->dateSignUp = $data['SignUpDate'];
-        //$user->dateLastConnection = $data['lastConnection'];
-        $user->notificationEnabled = $data['notificationsEnabled'] ?? null;
+        $user->profilePicture = $data['profilePicture'] ?? null;
+        //$user->signUpDate = $data['SignUpDate'];
+        //$user->lastConnection = $data['lastConnection'];
+        $user->notificationEnabled = $data['notificationEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
         return $user;
@@ -67,14 +67,14 @@ class User
         /**
          * Secure password with hash method
          */
-        $hachedpPassword = password_hash($this->password, PASSWORD_DEFAULT);
+        $hachedPassword = password_hash($this->password, PASSWORD_DEFAULT);
 
         return DB::statement(
             "INSERT INTO users (username, password, mail)"
             ." VALUES (:userName, :password, :mail)",
             [
                 'userName' => $this->userName,
-                'password' => $hachedpPassword,
+                'password' => $hachedPassword,
                 'mail' => $this->mail,
             ],
         );
@@ -82,7 +82,7 @@ class User
 
     public function AlreadyExistUser(): bool
     {
-        // Check User
+        // Check single User
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $this->mail]);
         if (count($users) >= 1) {
             return true;
@@ -97,7 +97,7 @@ class User
         return DB::statement(
             "UPDATE Users SET lastConnection = :lastConnection WHERE mail = :email",
             [
-                'lastConnection' => $this->dateLastConnection,
+                'lastConnection' => $this->lastConnection,
                  'email' => $this->mail,
             ],
         );
@@ -112,6 +112,62 @@ class User
         );
     }
 
+    /**
+     * Save picture
+     */
+    public function savePicture(int $id, string $profilePicture) : int|false
+    {
+        return DB::statement(
+            "UPDATE Users SET profilePicture = :profilPicture WHERE idUser = :id",
+            [
+                'profilPicture' => $profilePicture,
+                'id' => $id,
+            ],
+        );
+    }
+
+    /**
+     * Save Username
+     */
+    public static function saveUsername(int $id, string $username) : int|false
+    {
+        return DB::statement(
+            "UPDATE Users SET username = :username WHERE idUser = :id",
+            [
+                'username' => $username,
+                'id' => $id,
+            ],
+        );
+    }
+
+    /**
+     * Save Mail
+     */
+    public static function saveMail(int $id, string $mail) : int|false
+    {
+        return DB::statement(
+            "UPDATE Users SET mail = :mail WHERE idUser = :id",
+            [
+                'mail' => $mail,
+                'id' => $id,
+            ],
+        );
+    }
+
+    /**
+     * Save Notification
+     */
+    public static function saveNotification(int $id, string $notification) : int|false
+    {
+        return DB::statement(
+            "UPDATE Users SET notificationEnabled = :notification WHERE idUser = :id",
+            [
+                'notification' => $notification,
+                'id' => $id,
+            ],
+        );
+    }
+
 
      /**
      * Get the value of id
@@ -123,10 +179,8 @@ class User
 
     /**
      * Set the value of id
-     *
-     * @return  self
      */ 
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -141,10 +195,8 @@ class User
 
     /**
      * Set the value of userName
-     *
-     * @return  self
      */ 
-    public function setUserName($userName)
+    public function setUserName(string $userName)
     {
         $this->userName = $userName;
     }
@@ -159,10 +211,8 @@ class User
 
     /**
      * Set the value of password
-     *
-     * @return  self
      */ 
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
@@ -177,10 +227,8 @@ class User
 
     /**
      * Set the value of email
-     *
-     * @return  self
      */ 
-    public function setEmail($email)
+    public function setEmail(string $email)
     {
         $this->mail = $email;
     }
@@ -188,55 +236,59 @@ class User
     /**
      * Get the value of profilPicture
      */ 
-    public function getProfilPicture(): string
+    public function getProfilePicture(): string
     {
-        return $this->profilPicture;
+        if(!$this->profilePicture){
+            return 'assets/images/Avatar_default.png';
+        } else {
+            // Prefix to remove
+            $prefixToRemove = '../../public/';
+
+            // Delete Prefix
+            $relativePath = str_replace($prefixToRemove, '', $this->profilePicture);
+
+            return $this->profilePicture = $relativePath;
+        }
     }
 
     /**
      * Set the value of profilPicture
-     *
-     * @return  self
      */ 
-    public function setProfilPicture($profilPicture)
+    public function setProfilePicture(string $profilePicture)
     {
-        $this->profilPicture = $profilPicture;
+        $this->profilePicture = $profilePicture;
     }
 
     /**
      * Get the value of dateSignUp
      */ 
-    public function getDateSignUp(): \dateTimeImmutable
+    public function getSignUpDate(): \dateTimeImmutable
     {
-        return $this->dateSignUp;
+        return $this->signUpDate;
     }
 
     /**
      * Set the value of dateSignUp
-     *
-     * @return  self
      */ 
-    public function setDateSignUp($dateSignUp)
+    public function setSignUpDate($signUpDate)
     {
-        $this->dateSignUp = $dateSignUp;
+        $this->signUpDate = $signUpDate;
     }
 
     /**
      * Get the value of dateLastConnection
      */ 
-    public function getDateLastConnection(): \dateTimeImmutable
+    public function getLastConnection(): \dateTimeImmutable
     {
-        return $this->dateLastConnection;
+        return $this->lastConnection;
     }
 
     /**
      * Set the value of dateLastConnection
-     *
-     * @return  self
      */ 
-    public function setDateLastConnection($dateLastConnection)
+    public function setLastConnection($lastConnection)
     {
-        $this->dateLastConnection = $dateLastConnection;
+        $this->lastConnection = $lastConnection;
     }
 
     /**
@@ -249,8 +301,6 @@ class User
 
     /**
      * Set the value of notificationEnabled
-     *
-     * @return  self
      */ 
     public function setNotificationEnabled($notificationEnabled)
     {
@@ -267,8 +317,6 @@ class User
 
     /**
      * Set the value of isAdmin
-     *
-     * @return  self
      */ 
     public function setIsAdmin($isAdmin)
     {
@@ -285,8 +333,6 @@ class User
 
     /**
      * Set the value of isRoomOwner
-     *
-     * @return  self
      */ 
     public function setIsRoomOwner($isRoomOwner)
     {

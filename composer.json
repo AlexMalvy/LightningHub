@@ -1,6 +1,7 @@
 {
     "require-dev": {
-        "symfony/var-dumper": "^5.4"
+        "symfony/var-dumper": "^5.4",
+        "phpunit/phpunit": "^10.5"
     },
     "autoload": {
         "psr-4": {
@@ -15,10 +16,12 @@
         "classmap": [
             "helpers/class/DB.php",
             "helpers/class/Auth.php",
-            "helpers/class/App.php"
+            "helpers/class/App.php",
+            "helpers/class/Mail.php"
         ]
     },
     "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+        "nette/mail": "^4.0"
     }
 }
