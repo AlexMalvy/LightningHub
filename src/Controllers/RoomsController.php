@@ -14,15 +14,15 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
-        if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
             // TODO Add errors message
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $title = $_POST["room_title"];
-        $description = $_POST["description"] ?? "";
+        $title = strip_tags($_POST["room_title"]);
+        $description = strip_tags($_POST["description"]) ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
@@ -54,10 +54,10 @@ class RoomsController
             exit();
         }
 
-        $title = $_POST["room_title"];
-        $description = $_POST["description"] ?? "";
+        $title = strip_tags($_POST["room_title"]);
+        $description = strip_tags($_POST["description"]) ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
-        $gamemodeId = $_POST["room_game_type_id"];
+        $gamemodeId = intval($_POST["room_game_type_id"]);
 
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);

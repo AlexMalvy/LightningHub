@@ -146,8 +146,14 @@ class Room
             ["idUser" => $member["idUser"]]);
         }
 
+        // Delete requestToJoin the room from db
+        DB::statement("DELETE FROM requesttojoin
+        WHERE requesttojoin.idRoom = :idRoom",
+        ["idRoom" => $idRoom]);
+
         // Delete the room from db
-        DB::statement("DELETE FROM rooms
+        DB::statement("UPDATE rooms
+        SET rooms.isEnabled = 0
         WHERE rooms.idRoom = :idRoom",
         ["idRoom" => $idRoom]);
     }
@@ -183,7 +189,7 @@ class Room
         
         // Remove initial user from his room
         DB::statement("UPDATE Users
-        SET idRoom = NULL
+        SET users.isRoomOwner = 0, users.idRoom = NULL
         WHERE idUser = :idUser", ["idUser" => $idUser]);
     }
     
