@@ -14,8 +14,10 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
+        $_POST["room_title"] = "";
         if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -31,7 +33,8 @@ class RoomsController
         $filters = new Filters;
         $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
         if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -47,7 +50,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"] or empty($_POST['room_game_type_id']) or empty($_POST['room_title']))) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -55,7 +59,8 @@ class RoomsController
         $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
         if (!Room::checkUserOwnership($idUser, $idRoom)) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "danger";
             header("Location: $index");
             exit();
         }
@@ -71,7 +76,8 @@ class RoomsController
         $filters = new Filters;
         $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
         if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
-            // TODO Add errors messagek
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -87,7 +93,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -95,7 +102,8 @@ class RoomsController
         $idUser = $_SESSION["user"];
         $idRoom = intval($_POST["room_id"]);
         if (!Room::checkUserOwnership($idUser, $idRoom)) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -111,7 +119,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -130,7 +139,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -149,7 +159,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -168,7 +179,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -187,7 +199,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }

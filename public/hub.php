@@ -47,6 +47,18 @@
             <h1 class="reconstruct">hub</h1>
         </div>
 
+        <?php if (!empty($_SESSION['message'])): ?>
+            <div class="container">
+                <div class="col-lg-8 offset-lg-2 alert alert-<?=$_SESSION['type']?>" role="alert">
+                    <?php echo '<span class="text-white">' . $_SESSION['message'] . '</span>'?>
+                </div>
+            </div>
+        <?php unset($_SESSION['message']);
+            unset($_SESSION['type']);
+        ?>
+        <?php endif; ?>
+
+
         <!-- Filters + Create Hub -->
         <div class="row mx-0 align-items-center">
 
