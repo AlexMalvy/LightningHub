@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__.'/../../bootstrap/app.php';
 
+require_once __DIR__ . "/../../src/Controllers/UserController.php";
+
+
 if (!empty($_POST['action'])) {
 
     if ($_POST['action'] === 'store') {

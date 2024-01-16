@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use DB;
-use App\Models\Room;
 
 class Hub
 {

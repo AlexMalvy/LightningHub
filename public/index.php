@@ -20,6 +20,8 @@
     ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
+
+
     <!-- Main -->
     <main>
 

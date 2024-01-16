@@ -18,6 +18,10 @@
 
     $faq = new Faq();
     ?>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->

@@ -10,7 +10,7 @@ class RoomsController
 {
     const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/product-handler.php';
-    
+
     public function create()
     {
         $index = self::URL_INDEX;
@@ -89,7 +89,7 @@ class RoomsController
         header("Location: $index");
         exit();
     }
-    
+
     public function leave()
     {
         $index = self::URL_INDEX;
