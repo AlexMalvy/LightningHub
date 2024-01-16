@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Auth;
 use DateTime;
 use DB;
 
@@ -24,7 +25,6 @@ class Social
 
     public static function hydrate(array $data): Social
     {
-        //dd($data);
         $social = new Social(
             $data['idUser1'] ?? null,
             $data['idUser2'] ?? null,
@@ -40,13 +40,13 @@ class Social
 
     public function delete() : int|false
     {
-        if ($this->idUser1 == 1 ) return self::staticDelete($this->idUser2);
+        if ($this->idUser1 == Auth::getSessionUserId() ) return self::staticDelete($this->idUser2);
         else return self::staticDelete($this->idUser1);
     }
     public static function staticDelete(int $idFriend) : int|false
     {
 
-        $myId = 1; // a changer
+        $myId = Auth::getSessionUserId();
         return DB::statement(
             "DELETE FROM isfriend".
             " WHERE idUser1 = :idUser1 AND idUser2 = :idUser2".
@@ -99,7 +99,7 @@ class Social
                 ." OR idUser2 = :id and idUser1 = :idUser"
                 ,
                 // Params
-                [':id' => $this->idUser2,
+                [':id' => $this->idUser2, // TODO: check
                     'idUser' => $this->idUser1],
             );
 
@@ -114,8 +114,8 @@ class Social
     }
 
 
-    public function insert() {
-        //dd($this);
+    public function insert(): bool
+    {
         $data =  [
             'idUser1' => $this->idUser1,
             'idUser2' => $this->idUser2,
@@ -123,6 +123,8 @@ class Social
         ];
         return DB::insert(self::TABLE_NAME, $data);
     }
+
+
 
 
 

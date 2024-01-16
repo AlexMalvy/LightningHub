@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\PrivateMessage;
+use Auth;
 use DB;
-use model\Social;
 
 class PrivateMessageController
 {
     const URL_INDEX = '/socials.php';
     const URL_HANDLER = '/handlers/privateMessage-handler.php';
+
 
     public function store() : void
     {
@@ -29,6 +32,7 @@ class PrivateMessageController
             redirectAndExit(self::URL_INDEX);
         }
 
+        date_default_timezone_set('Europe/Paris');
         // Create new private message
         $result = DB::statement(
             "INSERT INTO sendprivatemessages(idUser1, idUser2, timeMessage, message, isReported)"
@@ -50,37 +54,88 @@ class PrivateMessageController
         redirectAndExit(self::URL_INDEX);
     }
 
-//    public function delete()
-//    {
-//        $idUser = $_POST['id'] ?? null;
-//        $social = $this->getSocialByFriend($idUser);
-//        //dd($social);
-//        // Delete a product in DB
-//        $social->delete();
-//
-//        redirectAndExit(self::URL_INDEX);
-//    }
+    public function hydrate(array $requests): array
+    {
+        foreach ($requests as $key => $request) {
+            $requests[$key] = PrivateMessage::hydrate($request);
+        }
+        return $requests;
+    }
 
-//    protected function getSocialByFriend(?int $idFriend): Social
-//    {
-//        if (!$idFriend) {
-//            errors('404. Page introuvable');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        $myId = 1; // A changer
-//        $product = DB::fetch(
-//            "SELECT * FROM isfriend WHERE idUser1 = :myId and idUser2 = :idFriend or idUser1 = :idFriend and idUser2 = :myId",
-//            ['myId' => $myId, 'idFriend' => $idFriend]
-//        );
-//        if ($product === false) {
-//            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        if (empty($product)) {
-//            errors('404. Page introuvable');
-//            redirectAndExit(self::URL_INDEX);
-//        }
-//        return Social::hydrate($product[0]);
-//    }
+
+
+
+    public function update()
+    {
+        $idUser1 = $_POST['idUser1'];
+        $idUser2 = $_POST['idUser2'];
+        $timeMessage = $_POST['timeMessage'];
+
+        $pvMsg = $this->getPrivateMessageByIds($idUser1, $idUser2, $timeMessage);
+
+        if ($pvMsg->getIsReported() == 1){
+            echo '<script>alert("Opération réussie!");</script>';
+            errors('Déjà signalé');
+            redirectAndExit(self::URL_INDEX);
+        }
+        $pvMsg->setIsReported(1);
+
+         $pvMsg->save();
+    }
+
+    public function getPrivateMessageByIds(?int $idUser1, int $idUser2, string $timeMessage) : PrivateMessage
+    {
+        if (!$idUser1 || !$idUser2 || !$timeMessage){
+            errors('404. Page introuvable');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+        $pvMsg =  DB::fetch(
+            "SELECT * FROM sendprivatemessages".
+            " WHERE timeMessage = :timeMessage".
+            " AND (idUser1 = :idUser1 and idUser2 = :idUser2".
+            " or idUser1 = :idUser2 and idUser2 = :idUser1)",
+
+            ['idUser1' => $idUser1,
+             'idUser2' => $idUser2,
+             'timeMessage' => $timeMessage]
+        );
+        if ($pvMsg === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+        if (empty($pvMsg)) {
+            errors('404. Page introuvable');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+        return PrivateMessage::hydrate($pvMsg[0]);
+    }
+
+    public function getMyMsgs()
+    {
+        $userId = Auth::getSessionUserId();
+
+        $myMsgs = DB::fetch(
+        // SQL
+            "SELECT * FROM sendprivatemessages"
+            . " INNER JOIN users ON users.idUser = sendprivatemessages.idUser1"
+            . " WHERE (sendprivatemessages.idUser1 = :user_id OR sendprivatemessages.idUser2 = :user_id)"
+            . " ORDER BY sendprivatemessages.timeMessage",
+
+            // Params
+            [':user_id' => $userId],
+
+        );
+        if ($myMsgs === false) {
+            errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
+            redirectAndExit(self::URL_INDEX);
+        }
+
+
+        return $myMsgs;
+
+    }
+
 
 }

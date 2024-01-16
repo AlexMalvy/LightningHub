@@ -135,8 +135,8 @@ class UserController
     {
         // check format email
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
-            $_SESSION['type'] = 'danger';
+                    $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
+                    $_SESSION['type'] = 'danger';
 
         } else {
             User::saveMail($id,$_POST['email'] );
@@ -218,4 +218,6 @@ class UserController
         return true;
     }
 
+
 }
+
