@@ -101,16 +101,19 @@
                         <ul class="list-group list-group-flush p-0">
 
                             <?php
+
                             if (count($friendsConnected) == 0) {
                                 echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami connecté !</div>";
                             } else {
 
-                                 foreach ($friendsConnected as $friendConnected) {?>
+                                 foreach ($friendsConnected as $friendConnected) {
+
+                                     ?>
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                            $friendConnected->getProfilPicture()?>" alt="player
+                                            $friendConnected->getProfilePicture()?>" alt="player
                                             avatar-70x70"><?php echo $friendConnected->getUsername() . "#" . $friendConnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friendConnected->getId()?>" aria-controls="offcanvasBottom">
@@ -153,7 +156,7 @@
                                             ?>
 
                                                 <article class="col message">
-                                                    <img src="assets/images/<?php echo($tabUsers[$i]->getProfilPicture())?>" alt="profile picture" class="avatar-50x50">
+                                                    <img src="assets/images/<?php echo($tabUsers[$i]->getProfilePicture())?>" alt="profile picture" class="avatar-50x50">
 
                                                     <div class="message-body">
                                                         <form method="post" action="<?php echo $actionUrlMsg?>">
@@ -264,7 +267,7 @@
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                            $friendDisconnected->getProfilPicture()?>"
+                                            $friendDisconnected->getProfilePicture()?>"
                                                  alt="player
                                             avatar-70x70"><?php echo $friendDisconnected->getUserName() . "#" . $friendDisconnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
@@ -310,7 +313,7 @@
 
                                     <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
                                         <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $request->getProfilPicture()?>" alt="player avatar-70x70"><?php echo
+                                        $request->getProfilePicture()?>" alt="player avatar-70x70"><?php echo
                                         $request->getUsername() . "#" . $request->getId()?></a>
                                     <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
                                         <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>

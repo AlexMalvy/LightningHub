@@ -11,7 +11,7 @@ class User
     protected ?string $userName;
     protected ?string $password;
     protected ?string $mail;
-    protected ?string $profilPicture;
+    protected ?string $profilePicture;
     protected ?\DateTimeImmutable $signUpDate;
     protected ?\DateTimeImmutable $lastConnection;
     protected ?bool $notificationEnabled;
@@ -37,7 +37,7 @@ class User
             $data['username'] ?? null,
             $data['password'] ?? null,
             $data['mail'] ?? null,
-            $data['profilPicture'] ?? null,
+            $data['profilePicture'] ?? null,
             $data['SignUpDate'] ?? null,
             $data['lastConnection'] ?? null,
             $data['notificationEnabled'] ?? null,
@@ -49,10 +49,10 @@ class User
         $user->userName = $data['username'] ?? null;
         $user->password = $data['password'] ?? null;
         $user->mail = $data['mail'] ?? null;
-        $user->profilPicture = $data['profilePicture'] ?? null;
-        //$user->dateSignUp = $data['SignUpDate'];
-        //$user->dateLastConnection = $data['lastConnection'];
-        $user->notificationEnabled = $data['notificationsEnabled'] ?? null;
+        $user->profilePicture = $data['profilePicture'] ?? null;
+        //$user->signUpDate = $data['SignUpDate'];
+        //$user->lastConnection = $data['lastConnection'];
+        $user->notificationEnabled = $data['notificationEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
         return $user;
@@ -115,13 +115,61 @@ class User
     /**
      * Save picture
      */
-    public function savePicture(int $id, string $profilPicture) : int|false
+    public function savePicture(int $id, string $profilePicture) : int|false
     {
 
         return DB::statement(
             "UPDATE Users SET profilePicture = :profilPicture WHERE idUser = :id",
             [
-                'profilPicture' => $profilPicture,
+                'profilPicture' => $profilePicture,
+                'id' => $id,
+
+            ],
+        );
+    }
+
+    /**
+     * Save Username
+     */
+    public static function saveUsername(int $id, string $username) : int|false
+    {
+
+        return DB::statement(
+            "UPDATE Users SET username = :username WHERE idUser = :id",
+            [
+                'username' => $username,
+                'id' => $id,
+
+            ],
+        );
+    }
+
+    /**
+     * Save Mail
+     */
+    public static function saveMail(int $id, string $mail) : int|false
+    {
+
+        return DB::statement(
+            "UPDATE Users SET mail = :mail WHERE idUser = :id",
+            [
+                'mail' => $mail,
+                'id' => $id,
+
+            ],
+        );
+    }
+
+    /**
+     * Save Notification
+     */
+    public static function saveNotification(int $id, string $notification) : int|false
+    {
+
+        return DB::statement(
+            "UPDATE Users SET notificationEnabled = :notification WHERE idUser = :id",
+            [
+                'notification' => $notification,
                 'id' => $id,
 
             ],
@@ -202,19 +250,28 @@ class User
     /**
      * Get the value of profilPicture
      */ 
-    public function getProfilPicture(): string
+    public function getProfilePicture(): string
     {
-        return $this->profilPicture;
+        if(!$this->profilePicture){
+            return 'assets/images/Avatar_default.png';
+        } else {
+            // Prefix to remove
+            $prefixToRemove = '../../public/';
 
+            // Delete Prefix
+            $relativePath = str_replace($prefixToRemove, '', $this->profilePicture);
+
+            return $this->profilePicture = $relativePath;
+        }
     }
 
     /**
      * Set the value of profilPicture
      *
      */ 
-    public function setProfilPicture($profilPicture)
+    public function setProfilePicture($profilePicture)
     {
-        $this->profilPicture = $profilPicture;
+        $this->profilePicture = $profilePicture;
     }
 
     /**
