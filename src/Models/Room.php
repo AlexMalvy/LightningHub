@@ -244,7 +244,7 @@ class Room
         }
     }
 
-    public static function RequestToJoinRoom($idUser, $idRoom)
+    public static function RequestToJoinRoom(int $idUser, int $idRoom)
     {
         $result = DB::fetch("SELECT rooms.idRoom
         FROM rooms
@@ -259,7 +259,7 @@ class Room
         }
     }
 
-    public static function cancelRequestToJoinRoom($idUser, $idRoom)
+    public static function cancelRequestToJoinRoom(int $idUser, int $idRoom)
     {
         $result = DB::fetch("SELECT requesttojoin.idUser
         FROM requesttojoin

@@ -26,9 +26,15 @@ class RoomsController
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
+        $gamemodeId = intval($_POST["room_game_type_id"]);
 
         $filters = new Filters;
-        $gamemodeId = $filters->getGamemodeId($game, $gamemode);
+        $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
+        if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
+            // TODO Add errors message
+            header("Location: $index");
+            exit();
+        }
 
         // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
@@ -58,6 +64,17 @@ class RoomsController
         $description = strip_tags($_POST["description"]) ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
         $gamemodeId = intval($_POST["room_game_type_id"]);
+        $game = $_POST["room_game"];
+        $gamemode = $_POST["room_game_type"];
+        $gamemodeId = intval($_POST["room_game_type_id"]);
+
+        $filters = new Filters;
+        $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
+        if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
+            // TODO Add errors messagek
+            header("Location: $index");
+            exit();
+        }
 
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
@@ -76,7 +93,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
         if (!Room::checkUserOwnership($idUser, $idRoom)) {
             // TODO Add errors message
             header("Location: $index");
@@ -100,7 +117,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::leaveRoom($idUser, $idRoom);
@@ -119,7 +136,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idTarget = $_POST["targetId"];
+        $idTarget = intval($_POST["targetId"]);
 
         // Delete the room in DB
         Room::promoteToOwner($idUser, $idTarget);
@@ -138,7 +155,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idTarget = $_POST["targetId"];
+        $idTarget = intval($_POST["targetId"]);
 
         // Delete the room in DB
         Room::kickFromRoom($idUser, $idTarget);
@@ -157,7 +174,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::RequestToJoinRoom($idUser, $idRoom);
@@ -176,7 +193,7 @@ class RoomsController
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::cancelRequestToJoinRoom($idUser, $idRoom);

@@ -93,30 +93,32 @@ function hideTabs() {
 
 if (newRoom && newRoomHubTab || updateRoom) {
 
-    newRoom.addEventListener("click", () => {
-        if(!newRoomTabOpen){
-            displayTabs(newRoomHubTab, newRoomHubTabPane);
-            hideTabs();
-            if (updateRoomTab) {
-                updateRoomTab.classList.remove('active');
+    if (newRoom) {
+        newRoom.addEventListener("click", () => {
+            if(!newRoomTabOpen){
+                displayTabs(newRoomHubTab, newRoomHubTabPane);
+                hideTabs();
+                if (updateRoomTab) {
+                    updateRoomTab.classList.remove('active');
+                }
+                if (updateRoomTabPane) {
+                    updateRoomTabPane.classList.remove('active');
+                }
+                newRoomTabOpen = true;
+            } else{
+                newRoomHubTab.classList.add("active");
+                newRoomHubTabPane.classList.add("active");
+                newRoomHubTabPane.classList.add("show");
+                if (updateRoomTab) {
+                    updateRoomTab.classList.remove('active');
+                }
+                if (updateRoomTabPane) {
+                    updateRoomTabPane.classList.remove('active');
+                }
+                hideTabs();
             }
-            if (updateRoomTabPane) {
-                updateRoomTabPane.classList.remove('active');
-            }
-            newRoomTabOpen = true;
-        } else{
-            newRoomHubTab.classList.add("active");
-            newRoomHubTabPane.classList.add("active");
-            newRoomHubTabPane.classList.add("show");
-            if (updateRoomTab) {
-                updateRoomTab.classList.remove('active');
-            }
-            if (updateRoomTabPane) {
-                updateRoomTabPane.classList.remove('active');
-            }
-            hideTabs();
-        }
-    });
+        });
+    }
 
     if (updateRoom) {
         updateRoom.addEventListener("click", () => {
@@ -187,9 +189,11 @@ filterGame.addEventListener("change", () => {
     loadGamemodeOptions(filterGame, filterGamemode);
 });
 
-createNewRoomGame.addEventListener("change", () => {
-    loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
-});
+if (createNewRoomGame) {
+    createNewRoomGame.addEventListener("change", () => {
+        loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
+    });
+}
 
 if (modifyRoomGame) {
     modifyRoomGame.addEventListener("change", () => {
