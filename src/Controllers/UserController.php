@@ -68,7 +68,6 @@ class UserController
             $_SESSION['message'] = "Veuillez confirmer que vous êtes majeur et que vous accepté les conditions d'utilisations.";
             $_SESSION['type'] = 'danger';
 
-
             redirectAndExit(self::URL_LOGIN);
         }
 
@@ -106,7 +105,7 @@ class UserController
     /**
      * Delete account
      */
-    public function delete()
+    public function delete(): void
     {
         $id = $_SESSION['user'];
 
@@ -151,7 +150,8 @@ class UserController
      */
     public static function updateNotification(int $id): void
     {
-        User::saveNotification($id,$_POST['notification'] );
+
+        User::saveNotification($id,$_POST['notification'] ?? false );
 
         redirectAndExit(self::URL_ACCOUNT);
     }

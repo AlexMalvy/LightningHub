@@ -28,7 +28,6 @@ if (!empty($_POST['action'])) {
     }elseif ($_POST['action'] === 'updateusername') {
         \App\Controllers\UserController::updateUsername(intval($_GET['idUser']));
     }elseif ($_POST['action'] === 'update_notification') {
-        //todo: $_POST
         \App\Controllers\UserController::updateNotification(intval($_GET['idUser']));
     }elseif ($_POST['action'] === 'sendmail') {
         // todo: Connection smtp
