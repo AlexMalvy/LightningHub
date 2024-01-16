@@ -2,42 +2,25 @@
 
 namespace App\Controllers;
 
-<<<<<<< HEAD
-require_once(__DIR__."/../Models/Room.php");
-=======
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
 
 use App\Models\Filters;
 use App\Models\Room;
 
 class RoomsController
 {
-<<<<<<< HEAD
-    const URL_CREATE = '/hub.php';
-=======
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
     const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/product-handler.php';
-    
+
     public function create()
     {
-<<<<<<< HEAD
-        $index = self::URL_CREATE;
-        if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
-=======
         $index = self::URL_INDEX;
         if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
             // TODO Add errors message
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
             header("Location: $index");
             exit();
         }
 
-<<<<<<< HEAD
-        $idUser = 11;
-=======
         $idUser = $_SESSION["user"];
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
         $title = $_POST["room_title"];
         $description = $_POST["description"] ?? "";
         $maxMembers = intval($_POST["room_number_player"] ?: 5);
@@ -47,21 +30,12 @@ class RoomsController
         $filters = new Filters;
         $gamemodeId = $filters->getGamemodeId($game, $gamemode);
 
-<<<<<<< HEAD
-        // Save the product in DB
-=======
         // Insert the room in DB
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
 
         header("Location: $index");
         exit();
     }
-<<<<<<< HEAD
-}
-
-?>
-=======
 
     public function modify()
     {
@@ -115,7 +89,7 @@ class RoomsController
         header("Location: $index");
         exit();
     }
-    
+
     public function leave()
     {
         $index = self::URL_INDEX;
@@ -213,4 +187,3 @@ class RoomsController
 }
 
 ?>
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
