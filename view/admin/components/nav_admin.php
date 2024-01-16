@@ -26,7 +26,7 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item">
-                        <a id="nav-welcome" class="nav-link active mt-4" aria-current="page" href="#"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+                        <a id="nav-welcome" class="nav-link active mt-4" aria-current="page" href="index.php"><i class="fa-solid fa-house me-2"></i>Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.php"><i class="fa-solid fa-reply-all me-2"></i>Site Lightning Hub</a>
@@ -34,31 +34,31 @@
                     <hr/>
                     <li class="nav-dashboard-title">Utilisateurs</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-user me-2"></i>Voir utilisateurs</a>
+                        <a class="nav-link" href="user.php"><i class="fa-solid fa-user me-2"></i>Voir utilisateurs</a>
                     </li>
                     <hr/>
                     <li class="nav-dashboard-title">Jeux</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-gamepad me-2"></i>Voir les jeux</a>
+                        <a class="nav-link" href="game.php"><i class="fa-solid fa-gamepad me-2"></i>Voir les jeux</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter un jeu</a>
+                        <a class="nav-link" href="game_create.php"><i class="fa-solid fa-plus me-2"></i>Ajouter un jeu</a>
                     </li>
                     <hr/>
                     <li class="nav-dashboard-title">Salons</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-comments me-2"></i>Voir les salons</a>
+                        <a id="nav-hub" class="nav-link" href="hub.php"><i class="fa-solid fa-comments me-2"></i>Voir les salons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter un salon</a>
+                        <a id="nav-create-hub" class="nav-link" href="hub_create.php"><i class="fa-solid fa-plus me-2"></i>Ajouter un salon</a>
                     </li>
                     <hr/>
                     <li class="nav-dashboard-title">FAQ</li>
                     <li class="nav-item">
-                        <a id="nav-faq" class="nav-link" href="#"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
+                        <a id="nav-faq" class="nav-link" href="faq.php"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-5" href="#"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>
+                        <a class="nav-link mb-5" href="faq_create.php"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>
                     </li>
                 </ul>
             </div>
