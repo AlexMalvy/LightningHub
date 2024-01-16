@@ -14,7 +14,6 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
-        $_POST["room_title"] = "";
         if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
             $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
@@ -41,7 +40,9 @@ class RoomsController
 
         // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
-
+        
+        $_SESSION["message"] = "Vous avez créer le salon ".$title.".";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -85,6 +86,8 @@ class RoomsController
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
 
+        $_SESSION["message"] = "Le salon ".$title." a été modifier.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -111,6 +114,8 @@ class RoomsController
         // Delete the room in DB
         Room::deleteRoom($idRoom);
 
+        $_SESSION["message"] = "Le salon a bien été fermer.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -131,6 +136,8 @@ class RoomsController
         // Delete the room in DB
         Room::leaveRoom($idUser, $idRoom);
 
+        $_SESSION["message"] = "Vous avez quitter votre salon.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
