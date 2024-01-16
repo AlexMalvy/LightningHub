@@ -10,18 +10,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <?php
 
-    use App\Models\Faq;
-
-    require_once(__DIR__."/../bootstrap/app.php");
-
-    $faq = new Faq();
-    ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
+    <?php require_once(__DIR__."/../bootstrap/app.php"); ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 
     <!-- Main -->
@@ -38,22 +28,24 @@
                         <!-- Accordion -->
                         <div class="accordion" id="accordionExample">
 
-                            <?php foreach ($faq->allFaqList as $key => $item): ?>
+                            <?php foreach (App\Controllers\FaqController::class::index() as $key => $item): ?>
+
                                 <!-- Accordion Item 1 -->
                                 <div class="accordion-item mt-3 rounded-0">
                                     <!-- Header -->
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed bg-color-purple rounded-0 focus-accent" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php print($key); ?>" aria-expanded="false" aria-controls="collapse<?php print($key); ?>">
-                                            <?php print($item["question"]) ?>
+                                        <button class="accordion-button collapsed bg-color-purple rounded-0 focus-accent" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $key;?>" aria-expanded="false" aria-controls="collapse<?php echo $key;?>">
+                                            <?php echo $item["question"];?>
                                         </button>
                                     </h2>
                                     <!-- Body -->
-                                    <div id="collapse<?php print($key); ?>" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
+                                    <div id="collapse<?php echo $key; ?>" class="accordion-collapse collapse bg-color-purple-faded" data-bs-parent="#accordionExample">
                                         <div class="accordion-body bg-color-purple-faded">
-                                            <p><?php print($item["answer"]) ?></p>
+                                            <p><?php echo $item["answer"]?></p>
                                         </div>
                                     </div>
                                 </div>
+
                             <?php endforeach; ?>
                             
                         </div>

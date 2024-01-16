@@ -88,12 +88,11 @@
                 </form>
             </section>
         <?php endforeach; ?>
-            <!-- Identifiants INGAME -->
 
+            <!-- Identifiants INGAME -->
+            <?php if($idInGameUsername->getInGameUsername()): ?>
             <section id="identifiants">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Identifiants IN GAME</h2>
-
-                <!-- Identifiants INGAME  -->
 
                     <?php foreach($games->allGamesList as $game):?>
                         <?php foreach($idInGameUsername->getInGameUsername() as $user):?>
@@ -113,6 +112,7 @@
                     <?php endforeach; ?>
 
             </section>
+            <?php endif;?>
             <!-- Notifications -->
             <?php foreach($users as $user): ?>
 
