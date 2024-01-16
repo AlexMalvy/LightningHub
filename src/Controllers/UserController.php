@@ -61,25 +61,23 @@ class UserController
             $_SESSION['type'] = 'danger';
             $_SESSION['isConnected'] = false;
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+            redirectAndExit(self::URL_LOGIN);
         }
 
         if (!$adult or !$cgu) {
             $_SESSION['message'] = "Veuillez confirmer que vous êtes majeur et que vous accepté les conditions d'utilisations.";
             $_SESSION['type'] = 'danger';
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+
+            redirectAndExit(self::URL_LOGIN);
         }
 
         // check format email
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['message'] = "Le format de l'e-mail n'est pas valide.";
             $_SESSION['type'] = 'danger';
-            
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+
+            redirectAndExit(self::URL_LOGIN);
         }
 
         $user = new User(
@@ -94,15 +92,13 @@ class UserController
             $auth = new AuthController;
             $auth->login($_POST['email'], $_POST['password']);
 
-            header('Location: ' . self::URL_INDEX);
-            exit();
+            redirectAndExit(self::URL_INDEX);
 
         } else {
             $_SESSION['message'] = "L'utilisateur existe déja";
             $_SESSION['type'] = 'warning';
 
-            header('Location: ' . self::URL_LOGIN);
-            exit();
+            redirectAndExit(self::URL_LOGIN);
         }   
 
     }
@@ -119,8 +115,7 @@ class UserController
         $_SESSION['message'] = "Votre compte a bien été supprimé";
         $_SESSION['isConnected'] = false;
 
-        header('Location: ' . self::URL_INDEX);
-        exit();
+        redirectAndExit(self::URL_INDEX);
     }
 
 
@@ -131,8 +126,7 @@ class UserController
     {
         User::saveUsername($id,$_POST['pseudo'] );
 
-        header('Location: ' . self::URL_ACCOUNT);
-        exit();
+        redirectAndExit(self::URL_ACCOUNT);
     }
 
     /**
@@ -146,13 +140,10 @@ class UserController
             $_SESSION['type'] = 'danger';
 
         } else {
-
             User::saveMail($id,$_POST['email'] );
         }
 
-        header('Location: ' . self::URL_ACCOUNT);
-        exit();
-
+        redirectAndExit(self::URL_ACCOUNT);
     }
 
     /**
@@ -162,8 +153,7 @@ class UserController
     {
         User::saveNotification($id,$_POST['notification'] );
 
-        header('Location: ' . self::URL_ACCOUNT);
-        exit();
+        redirectAndExit(self::URL_ACCOUNT);
     }
 
     /**
@@ -203,9 +193,7 @@ class UserController
             $user = new User();
             $user->savePicture($_SESSION['user'],$uploadFile );
 
-            header('Location: ' . self::URL_ACCOUNT);
-            exit();
-
+            redirectAndExit(self::URL_ACCOUNT);
 
         }else{
             foreach($errors as $error){
@@ -214,9 +202,7 @@ class UserController
             }
         }
 
-        header('Location: ' . self::URL_ACCOUNT);
-        exit();
-
+        redirectAndExit(self::URL_ACCOUNT);
     }
 
     /**

@@ -26,7 +26,7 @@ class User
     }
 
     /**
-     * Hydrate User to display
+     * Hydrate User
      */ 
     public static function hydrate(array $data): User
     {
@@ -81,7 +81,7 @@ class User
 
     public function AlreadyExistUser(): bool
     {
-        // Check User
+        // Check single User
         $users = DB::fetch("SELECT * FROM Users WHERE mail = :email;", ['email' => $this->mail]);
         if (count($users) >= 1) {
             return true;
@@ -116,13 +116,11 @@ class User
      */
     public function savePicture(int $id, string $profilePicture) : int|false
     {
-
         return DB::statement(
             "UPDATE Users SET profilePicture = :profilPicture WHERE idUser = :id",
             [
                 'profilPicture' => $profilePicture,
                 'id' => $id,
-
             ],
         );
     }
@@ -132,13 +130,11 @@ class User
      */
     public static function saveUsername(int $id, string $username) : int|false
     {
-
         return DB::statement(
             "UPDATE Users SET username = :username WHERE idUser = :id",
             [
                 'username' => $username,
                 'id' => $id,
-
             ],
         );
     }
@@ -148,13 +144,11 @@ class User
      */
     public static function saveMail(int $id, string $mail) : int|false
     {
-
         return DB::statement(
             "UPDATE Users SET mail = :mail WHERE idUser = :id",
             [
                 'mail' => $mail,
                 'id' => $id,
-
             ],
         );
     }
@@ -164,13 +158,11 @@ class User
      */
     public static function saveNotification(int $id, string $notification) : int|false
     {
-
         return DB::statement(
             "UPDATE Users SET notificationEnabled = :notification WHERE idUser = :id",
             [
                 'notification' => $notification,
                 'id' => $id,
-
             ],
         );
     }
@@ -186,13 +178,10 @@ class User
 
     /**
      * Set the value of id
-     *
-     * @return  self
      */ 
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
-
     }
 
     /**
@@ -205,9 +194,8 @@ class User
 
     /**
      * Set the value of userName
-     *
      */ 
-    public function setUserName($userName)
+    public function setUserName(string $userName)
     {
         $this->userName = $userName;
     }
@@ -222,9 +210,8 @@ class User
 
     /**
      * Set the value of password
-     *
      */ 
-    public function setPassword($password)
+    public function setPassword(string $password)
     {
         $this->password = $password;
     }
@@ -239,9 +226,8 @@ class User
 
     /**
      * Set the value of email
-     *
      */ 
-    public function setEmail($email)
+    public function setEmail(string $email)
     {
         $this->mail = $email;
     }
@@ -266,9 +252,8 @@ class User
 
     /**
      * Set the value of profilPicture
-     *
      */ 
-    public function setProfilePicture($profilePicture)
+    public function setProfilePicture(string $profilePicture)
     {
         $this->profilePicture = $profilePicture;
     }
@@ -283,7 +268,6 @@ class User
 
     /**
      * Set the value of dateSignUp
-     *
      */ 
     public function setSignUpDate($signUpDate)
     {
@@ -300,7 +284,6 @@ class User
 
     /**
      * Set the value of dateLastConnection
-     *
      */ 
     public function setLastConnection($lastConnection)
     {
@@ -317,8 +300,6 @@ class User
 
     /**
      * Set the value of notificationEnabled
-     *
-     * @return  self
      */ 
     public function setNotificationEnabled($notificationEnabled)
     {
@@ -335,7 +316,6 @@ class User
 
     /**
      * Set the value of isAdmin
-     *
      */ 
     public function setIsAdmin($isAdmin)
     {
@@ -352,7 +332,6 @@ class User
 
     /**
      * Set the value of isRoomOwner
-     *
      */ 
     public function setIsRoomOwner($isRoomOwner)
     {
