@@ -52,7 +52,7 @@ class User
         $user->profilePicture = $data['profilePicture'] ?? null;
         //$user->signUpDate = $data['SignUpDate'];
         //$user->lastConnection = $data['lastConnection'];
-        $user->notificationEnabled = $data['notificationEnabled'] ?? null;
+        $user->notificationEnabled = $data['notificationsEnabled'] ?? null;
         $user->isAdmin = $data['isAdmin'] ?? null;
         $user->isRoomOwner = $data['isRoomOwner'] ?? null;
         return $user;
@@ -157,10 +157,13 @@ class User
     /**
      * Save Notification
      */
-    public static function saveNotification(int $id, string $notification) : int|false
+    public static function saveNotification(int $id, $notification) : int|false
     {
+        // transform string to int
+        $notification = ($notification == "on") ? 1 : 0;
+
         return DB::statement(
-            "UPDATE Users SET notificationEnabled = :notification WHERE idUser = :id",
+            "UPDATE Users SET notificationsEnabled = :notification WHERE idUser = :id",
             [
                 'notification' => $notification,
                 'id' => $id,
