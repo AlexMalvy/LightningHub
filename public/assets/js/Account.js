@@ -29,13 +29,13 @@ if (btnPseudo && btnMail){
         });
     });
 
-    /* Submit form notification
+    // Submit form notification
 
         document.querySelector("#SwitchCheck").addEventListener('change', () =>{
             document.querySelector("#formNotification").submit();
         });
 
- */
+
 }
 
 

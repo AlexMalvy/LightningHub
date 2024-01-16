@@ -16,10 +16,12 @@
         "classmap": [
             "helpers/class/DB.php",
             "helpers/class/Auth.php",
-            "helpers/class/App.php"
+            "helpers/class/App.php",
+            "helpers/class/Mail.php"
         ]
     },
     "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+        "nette/mail": "^4.0"
     }
 }

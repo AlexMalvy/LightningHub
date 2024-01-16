@@ -25,6 +25,26 @@
     <main class="account-fields px-2 px-md-5 px-lg-0 mt-lg-5 pt-lg-5 col-lg-10 offset-lg-1">
         <h1>Mon compte</h1>
 
+        <?php if (!empty($_SESSION['message'])): ?>
+            <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header bg-color-purple rounded-0">
+                            <h3 class="modal-title fs-5"><?=$_SESSION['message']?></h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php unset($_SESSION['message']);
+            unset($_SESSION['type']);
+            ?>
+        <?php endif; ?>
+
+
         <!-- Divider (Mobile) -->
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-4 d-lg-none">
             <hr>
@@ -38,7 +58,7 @@
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Photo de profil</h2>
                 <form action="handlers/User-handler.php"  method="POST" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center">
                     <input type="text" name="action" value="picture" hidden>
-                    <img src="<?php echo $user->getProfilPicture() ? $user->getProfilPicture() : 'assets/images/Avatar_default.png'?>" alt="photo de profil" class="avatar-70x70">
+                    <img src="<?php echo $user->getProfilePicture()?>" alt="photo de profil" class="avatar-70x70">
                     <label for="file" class="label-file me-2 p-2 text-center">Choisir une image</label>
                     <input id="file" type="file" name="avatarPicture">
                     <button class="btn lh-buttons-purple">Enregistrer</button>
@@ -48,11 +68,11 @@
 
             <!-- Pseudo -->
 
-
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
-                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
+                <form action = "handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method = "POST"  class="d-flex justify-content-between align-items-center">
                     <input id="input-pseudo" class="input" type="text" value="<?php echo $user->getUserName(); ?>" name="pseudo"/>
+                    <input type="text" name="action" value="updateusername" hidden>
                     <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2 "><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
@@ -61,7 +81,8 @@
 
             <section id="email">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Adresse email</h2>
-                <form action = "" method = "POST"  class="d-flex justify-content-between align-items-center">
+                <form action = "handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method = "POST"  class="d-flex justify-content-between align-items-center">
+                    <input type="text" name="action" value="updatemail" hidden>
                     <input id="input-mail" class="input" type="email" value="<?php echo $user->getEmail(); ?>" name="email">
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
@@ -97,10 +118,11 @@
 
             <section id="notification-center">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Centre de Notifications</h2>
-                <form method="post" action="" id="formNotification" class="d-flex align-items-center justify-content-between">
+                <form action="handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method="POST"  id="formNotification" class="d-flex align-items-center justify-content-between">
+                    <input type="text" name="action" value="update_notification" hidden>
                     <label>Notifications</label>
                     <div class="form-check form-switch form-check-reverse me-3">
-                        <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notificationCheckBox" aria-pressed="false" <?php echo !$user->getNotificationEnabled() ? '' : 'checked'; ?>/>
+                        <input class="form-check-input" type="checkbox" id="SwitchCheck" name="notification" aria-pressed="false" <?php echo !$user->getNotificationEnabled() ? '' : 'checked'; ?>>
                         <label class="form-check-label" for="SwitchCheck">On</label>
                     </div>
                 </form>
@@ -108,16 +130,16 @@
             <?php endforeach; ?>
             <!-- Cookies -->
 
+
             <section id="cookies">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Cookies et données personnelles</h2>
-
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="label">Préférences cookies</span>
                         <a href="#" class="btn lh-buttons-purple my-2 mt-lg-0 me-2">Changer mes préférences</a>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="label">Télécharger vos données personnelles</span>
-                        <a href="#" class="btn lh-buttons-purple my-2 mt-lg-0 me-2">Envoyer une demande</a>
+                        <a href="#" class="btn lh-buttons-purple my-2 mt-lg-0 me-2" data-bs-toggle="modal" data-bs-target="#personaldata">Envoyer une demande</a>
                     </div>
             </section>
 
@@ -142,6 +164,7 @@
         </section>
 
         <?php include(__DIR__."/../view/modal_delete_confirmation.php") ?> 
+        <?php include(__DIR__."/../view/modal_personal_data.php") ?>
     </div>
     </main>
 
@@ -150,5 +173,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
-    <script src="assets/js/scriptAccount.js"></script>
+    <script src="assets/js/Account.js"></script>
 </body>
