@@ -4,16 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "content-hash": "6d2db0469a21805be7e464ce2432a11a",
-    "packages": [],
-    "packages-dev": [
-        {
-=======
-    "content-hash": "e9a76ef26a891a0e62d1dd63ee9e79a6",
-    "packages": [],
-=======
+
     "content-hash": "20622138943160a60c7a93eaf267a766",
     "packages": [
         {
@@ -174,7 +165,7 @@
             "time": "2023-10-29T21:02:13+00:00"
         }
     ],
->>>>>>> d490d0d7dab0493351dc458095475f45a7563b56
+
     "packages-dev": [
         {
             "name": "myclabs/deep-copy",
@@ -1742,7 +1733,6 @@
             "time": "2023-02-07T11:34:05+00:00"
         },
         {
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
             "name": "symfony/polyfill-mbstring",
             "version": "v1.28.0",
             "source": {
@@ -1996,8 +1986,6 @@
                 }
             ],
             "time": "2023-09-12T10:09:58+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "theseer/tokenizer",
@@ -2048,7 +2036,6 @@
                 }
             ],
             "time": "2023-11-20T00:12:19+00:00"
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
         }
     ],
     "aliases": [],
@@ -2056,15 +2043,10 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-<<<<<<< HEAD
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
-=======
+
     "platform": {
         "ext-pdo": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
->>>>>>> 8fb5e3dcf156fd3bcbe1757fa05429256dd6100d
 }
