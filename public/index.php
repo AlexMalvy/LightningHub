@@ -264,13 +264,13 @@
 
     <!-- Close modal validate create account -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var modal = new bootstrap.Modal(document.getElementById('messageModal'));
-            function closeModal() {
-                modal.hide();
-            }
-                modal.show();
-        });
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     var modal = new bootstrap.Modal(document.getElementById('messageModal'));
+        //     function closeModal() {
+        //         modal.hide();
+        //     }
+        //         modal.show();
+        // });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>

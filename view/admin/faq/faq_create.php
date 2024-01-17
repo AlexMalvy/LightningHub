@@ -24,7 +24,7 @@
     <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
 
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-            <h2 class="p-2 bd-highlight">CREER UNE FAQ</h2>
+            <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Créer une faq</h2>
         </div>
 
 

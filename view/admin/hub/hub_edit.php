@@ -24,7 +24,7 @@
     <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
 
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-            <h2 class="p-2 bd-highlight">MODIFIER UN SALON</h2>
+            <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Modifier un salon</h2>
         </div>
         <div class="tab-pane fade show p-1 border bg-color-purple-faded" id="update-room-hub-tab-pane" role="tabpanel"
              aria-labelledby="update-room-hub-tab" tabindex="0">

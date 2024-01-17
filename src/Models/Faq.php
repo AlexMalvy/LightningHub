@@ -7,32 +7,38 @@ use DB;
 class Faq
 {
     protected static array $allFaqList = [];
-    protected static int $id;
-    protected static string $question;
-    protected static string $answer;
+    protected  int $id;
+    protected  string $question;
+    protected  string $answer;
+
+
 
 
     /**
      * Hydrate FAQ
      */
-    public static function hydrate(array $data): void
+    public static function hydrate(array $data): FAQ
     {
-        self::$id = $data['idFaq'];
-        self::$question = $data['question'];
-        self::$answer = $data['answer'];
+        $faq = new Faq();
+
+        $faq->setId($data['idFaq']);
+        $faq->setQuestion($data['question']);
+        $faq->setAnswer($data['answer']);
+        return $faq;
     }
 
 
     /**
      * Save FAQ
      */
-    public static function save(): int|false
+    public function save(): int|false
     {
+
         return DB::statement(
             "INSERT INTO faq (question, answer) VALUES (:question, :answer)",
             [
-                'question' => self::$question,
-                'answer' => self::$answer,
+                'question' => $this->question,
+                'answer' => $this->$answer,
             ],
         );
     }
@@ -40,14 +46,14 @@ class Faq
     /**
      * Update FAQ
      */
-    public static function update(): int|false
+    public function update(): int|false
     {
         return DB::statement(
             "UPDATE faq SET question = :question, answer = :answer WHERE idFaq = :id",
             [
-                'question' => self::$question,
-                'answer' => self::$answer,
-                'id' => self::$id,
+                'question' => $this->question,
+                'answer' => $this->answer,
+                'id' => $this->id,
             ],
         );
     }
@@ -55,45 +61,45 @@ class Faq
     /**
      * Delete FAQ
      */
-    public static function delete(): int|false
+    public function delete(): int|false
     {
         return DB::statement(
             "DELETE * FROM faq WHERE idFaq = :id",
             [
-                'id' => self::$id,
+                'id' =>$this->id,
             ],
         );
     }
 
 
-    public static function getId(): int
+    public  function getId(): int
     {
-        return self::$id;
+        return $this->id;
     }
 
-    public static function setId(int $id): void
+    public  function setId(int $id): void
     {
-        self::$id = $id;
+        $this->id = $id;
     }
 
-    public static function getQuestion(): string
+    public  function getQuestion(): string
     {
-        return self::$question;
+        return $this->question;
     }
 
-    public static function setQuestion(string $question): void
+    public  function setQuestion(string $question): void
     {
-        self::$question = $question;
+        $this->question = $question;
     }
 
-    public static function getAnswer(): string
+    public  function getAnswer(): string
     {
-        return self::$answer;
+        return $this->answer;
     }
 
-    public static function setAnswer(string $answer): void
+    public  function setAnswer(string $answer): void
     {
-        self::$answer = $answer;
+        $this->answer = $answer;
     }
 
     public static function getAllFaqList(): array
