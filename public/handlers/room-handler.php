@@ -33,7 +33,7 @@ if (!empty($_POST['action'])) {
         $controller->accept();
     }
     if ($_POST['action'] === 'decline') {
-        // $controller->decline();
+        $controller->decline();
     }
 }
 

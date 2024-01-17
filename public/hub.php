@@ -335,6 +335,7 @@
                 <div class="tab-pane fade show p-1 border" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
 
                     <div class="container-fluid py-3">
+                        <!-- If owner -->
                         <?php if($currentHub->userIsOwner): ?>
                             <div class="row row-cols-1 g-2">
                                     <article class="col d-flex justify-content-between align-items-center bg-color-purple p-2">
@@ -342,6 +343,7 @@
                                         <div class="col-lg-2">Heure de la demande</div>
                                         <div class="col-lg-2 text-center">Actions</div>
                                     </article>
+                                <!-- Atleast 1 request -->
                                 <?php if(count($currentHub->usersRequestingToJoin) > 0): ?>
                                     <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
                                         <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
@@ -353,21 +355,26 @@
                                                 <form action="handlers/room-handler.php" method="POST" class="ms-5">
                                                     <input type="text" name="action" value="accept" hidden>
                                                     <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                    <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
                                                     <button class="btn lh-buttons-purple">Accepter</button>
                                                 </form>
                                                 <form action="handlers/room-handler.php" method="POST" class="ms-2">
                                                     <input type="text" name="action" value="decline" hidden>
                                                     <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                    <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
                                                     <button class="btn lh-buttons-red">X</button>
                                                 </form>
                                             </div>
                                         </article>
                                     <?php endforeach; ?>
+                                <!-- No request to join -->
                                 <?php else: ?>
                                     <h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>
                                 <?php endif; ?>
                             </div>
+                        <!-- Not a room owner -->
                         <?php else: ?>
+                            <!-- Atleast 1 request pending -->
                             <?php if(count($currentHub->pendingRoomsList) > 0): ?>
                                 <div class="row row-cols-1 row-cols-lg-4 g-3">
 
@@ -382,14 +389,7 @@
                                                         <i class="fa-solid fa-user fa-xl text-white"></i>
                                                     </div>
 
-                                                    <?php 
-                                                    if (!empty($_SESSION["user"])) {
-                                                        $room->getNumberOfFriend($currentHub->friendRoomsList);
-                                                        if (count($room->friendList)) {
-                                                            print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
-                                                        }
-                                                    }
-                                                    ?>
+                                                    <?php print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>'); ?>
 
                                                     <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
                                                 </div>
@@ -413,7 +413,7 @@
                                         </article>
                                     <?php endforeach; ?>
                                 </div>
-
+                            <!-- No request pending -->
                             <?php else: ?>
                                 <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici.</h2>
                             <?php endif; ?>

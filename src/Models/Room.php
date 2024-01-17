@@ -124,6 +124,8 @@ class Room
         DB::statement("UPDATE Users
         SET idRoom = :idRoom, isRoomOwner = 1
         WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
+        
+        self::cancelAllRequestToJoinRooms($idUser);
     }
 
     public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode)
@@ -281,9 +283,9 @@ class Room
     }
     
     
-    public static function acceptIntoRoom(int $idUser, int $idTarget)
+    public static function acceptIntoRoom(int $idUser, int $idTarget, int $idRoom)
     {
-        // Retrieve from DB room owner and soon-to-be room owner
+        // Retrieve from DB room owner and target user
         $usersResults = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
         FROM users
         WHERE idUser = :idUser1 OR idUser = :idUser2',
@@ -292,14 +294,16 @@ class Room
 
         if (count($usersResults) === 2) {
             // Checks if user is the room owner and confirm room Id
-            if ($usersResults[0]["isRoomOwner"] and $usersResults[0]["idUser"] == $idUser) {
-                $idRoom = $usersResults[0]["idRoom"];
-            } elseif ($usersResults[1]["isRoomOwner"] and $usersResults[1]["idUser"] == $idUser) {
-                $idRoom = $usersResults[1]["idRoom"];
+            if (($usersResults[0]["isRoomOwner"] and $usersResults[0]["idUser"] == $idUser and $usersResults[0]["idRoom"] == $idRoom) 
+            or ($usersResults[1]["isRoomOwner"] and $usersResults[1]["idUser"] == $idUser and $usersResults[1]["idRoom"] == $idRoom)) {
+                // Good result
             } else {
                 // TODO error message ?
                 return;
             }
+        } else {
+            // TODO error message ?
+            return;
         }
         
         // Get the number of user and max users of the room 
@@ -319,6 +323,36 @@ class Room
         }
 
         self::cancelAllRequestToJoinRooms($idTarget);
+    }
+    
+    public static function declineIntoRoom(int $idUser, int $idTarget, int $idRoom)
+    {
+        // Retrieve from DB room owner and target user
+        $usersResults = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
+        FROM users
+        WHERE idUser = :idUser1 OR idUser = :idUser2',
+        ["idUser1" => $idUser, "idUser2" => $idTarget]);
+
+
+        if (count($usersResults) === 2) {
+            // Checks if user is the room owner and confirm room Id
+            if (($usersResults[0]["isRoomOwner"] and $usersResults[0]["idUser"] == $idUser and $usersResults[0]["idRoom"] == $idRoom) 
+            or ($usersResults[1]["isRoomOwner"] and $usersResults[1]["idUser"] == $idUser and $usersResults[1]["idRoom"] == $idRoom)) {
+                // Good result
+            } else {
+                // TODO error message ?
+                return;
+            }
+        } else {
+            // TODO error message ?
+            return;
+        }
+
+        // Accept the user if room still has space
+        DB::statement("DELETE FROM requesttojoin
+        WHERE requesttojoin.idRoom = :idRoom AND requesttojoin.idUser = :idTarget",
+        ["idRoom" => $idRoom, "idTarget" => $idTarget]);
+
     }
 }
 

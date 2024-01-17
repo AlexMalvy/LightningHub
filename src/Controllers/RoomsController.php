@@ -235,7 +235,7 @@ class RoomsController
     public function accept()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
+        if (empty($_SESSION["user"]) or empty($_POST["targetId"]) or empty($_POST["room_id"])) {
             $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
@@ -244,9 +244,31 @@ class RoomsController
 
         $idUser = $_SESSION["user"];
         $idTarget = intval($_POST["targetId"]);
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
-        Room::acceptIntoRoom($idUser, $idTarget);
+        Room::acceptIntoRoom($idUser, $idTarget, $idRoom);
+
+        header("Location: $index");
+        exit();
+    }
+
+    public function decline()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["targetId"]) or empty($_POST["room_id"])) {
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idTarget = intval($_POST["targetId"]);
+        $idRoom = intval($_POST["room_id"]);
+
+        // Delete the room in DB
+        Room::declineIntoRoom($idUser, $idTarget, $idRoom);
 
         header("Location: $index");
         exit();
