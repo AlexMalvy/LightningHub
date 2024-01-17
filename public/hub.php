@@ -21,11 +21,15 @@
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
     
     <?php
-    $_SESSION["user"] = 2;
+    $_SESSION["user"] = 10;
     if ($_SESSION["user"]) {
         $currentHub = new Hub($_SESSION["user"]);
     } else {
         $currentHub = new Hub();
+    }
+    $userIsOwner = false;
+    if (!empty($currentHub->connectedUserRoom)) {
+        $userIsOwner = ($_SESSION["user"] === $currentHub->connectedUserRoom->ownerId) ? true : false;
     }
     $counter = 0;
     $filters = new Filters();
@@ -42,6 +46,18 @@
         <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 my-3">
             <h1 class="reconstruct">hub</h1>
         </div>
+
+        <?php if (!empty($_SESSION['message'])): ?>
+            <div class="container">
+                <div class="col-lg-8 offset-lg-2 alert alert-<?=$_SESSION['type']?>" role="alert">
+                    <?php echo '<span class="text-white">' . $_SESSION['message'] . '</span>'?>
+                </div>
+            </div>
+        <?php unset($_SESSION['message']);
+            unset($_SESSION['type']);
+        ?>
+        <?php endif; ?>
+
 
         <!-- Filters + Create Hub -->
         <div class="row mx-0 align-items-center">
@@ -65,7 +81,7 @@
 
                     <!-- Body -->
                     <div class="offcanvas-body">
-                        <form action="" class="d-flex flex-column py-3">
+                        <form action="" method="POST" name="filters" class="d-flex flex-column py-3">
                             <label for="game" class="pb-1">Jeu</label>
                             <select name="game" id="game" class="mb-3 input">
                                 <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
@@ -88,6 +104,8 @@
                                 <?php endforeach; ?>
                             </select>
 
+                            <input type="text" name="filters_game_type_id" value="<?php print(array_key_first($firstGamemodes)) ?>" id="game_type_filters_id" hidden>
+
                             <label for="search" class="pb-1">Recherche</label>
                             <input type="search" name="search" id="search" class="mb-5 input">
 
@@ -102,9 +120,11 @@
             </div>
 
             <!-- Create Hub -->
-            <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
-                <button id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple">Créer un salon</button>
-            </div>
+            <?php if (!$userIsOwner): ?>
+                <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
+                    <button id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple">Créer un salon</button>
+                </div>
+            <?php endif ?>
 
         </div>
 
@@ -116,7 +136,12 @@
 
                 <!-- Hub tab head -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow active" id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" aria-selected="true">Hub</button>
+                    <button class="nav-link text-white hover-accent-shadow focus-accent-shadow 
+                        <?php if (empty($currentHub->connectedUserRoom)) {print("active");} ?>" 
+                        id="hub-tab" data-bs-toggle="tab" data-bs-target="#hub-tab-pane" type="button" role="tab" aria-controls="hub-tab-pane" 
+                        aria-selected="<?php if (empty($currentHub->connectedUserRoom)) {print("true");} ?>">
+                        Hub
+                    </button>
                 </li>
 
                 <!-- Friends tab head -->
@@ -132,7 +157,7 @@
                 <!-- Current hub tab head -->
                 <?php if (!empty($currentHub->connectedUserRoom)): ?>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link text-white hover-accent-shadow focus-accent-shadow" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="false">Chat</button>
+                        <button class="nav-link text-white hover-accent-shadow focus-accent-shadow active" id="current-hub-tab" data-bs-toggle="tab" data-bs-target="#current-hub-tab-pane" type="button" role="tab" aria-controls="current-hub-tab-pane" aria-selected="true">Chat</button>
                     </li>
                 <?php endif ?>
 
@@ -153,7 +178,7 @@
             <div class="tab-content bg-color-purple-faded" id="myTabContent">
 
                 <!-- Hub tab content -->
-                <div class="tab-pane fade show p-1 active border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
+                <div class="tab-pane fade show p-1 <?php if (empty($currentHub->connectedUserRoom)) {print("active");} ?> border" id="hub-tab-pane" role="tabpanel" aria-labelledby="hub-tab" tabindex="0">
 
                     <div class="container-fluid p-3">
                         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3">
@@ -190,18 +215,22 @@
                                         </div>
 
                                         <div class="card-footer d-flex justify-content-between align-items-center">
-                                            <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
-                                                <form action="handlers/room-handler.php" method="POST">
-                                                    <input type="text" name="action" value="cancel" hidden>
-                                                    <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                    <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
-                                                </form>
-                                            <?php else: ?>
-                                                <form action="handlers/room-handler.php" method="POST">
-                                                    <input type="text" name="action" value="join" hidden>
-                                                    <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                    <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                                </form>
+                                            <?php if(!empty($currentHub->connectedUserRoom)): ?>
+                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$userIsOwner): ?>
+                                                    <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
+                                                        <form action="handlers/room-handler.php" method="POST">
+                                                            <input type="text" name="action" value="cancel" hidden>
+                                                            <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                            <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <form action="handlers/room-handler.php" method="POST">
+                                                            <input type="text" name="action" value="join" hidden>
+                                                            <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                            <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                        </form>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
                                             <?php endif; ?>
 
                                             <p class="m-0"><?php print($room->CreatedSince()); ?></p>
@@ -246,19 +275,23 @@
                                                 <p class="card-text"><?php print($room->description) ?></p>
                                             </div>
                                             <div class="card-footer d-flex justify-content-between align-items-center">
-                                                <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
-                                                    <form action="handlers/room-handler.php" method="POST">
-                                                        <input type="text" name="action" value="cancel" hidden>
-                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                        <button type="submit" class="btn lh-buttons-purple-faded-to-red"></button>
-                                                    </form>
-                                                <?php else: ?>
-                                                    <form action="handlers/room-handler.php" method="POST">
-                                                        <input type="text" name="action" value="join" hidden>
-                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
-                                                    </form>
+                                            <?php if(!empty($currentHub->connectedUserRoom)): ?>
+                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$userIsOwner): ?>
+                                                    <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
+                                                        <form action="handlers/room-handler.php" method="POST">
+                                                            <input type="text" name="action" value="cancel" hidden>
+                                                            <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                            <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <form action="handlers/room-handler.php" method="POST">
+                                                            <input type="text" name="action" value="join" hidden>
+                                                            <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                            <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                        </form>
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
+                                            <?php endif; ?>
 
                                                 <p class="m-0"><?php print($room->CreatedSince()); ?></p>
                                             </div>
@@ -332,7 +365,7 @@
 
                 <!-- Current hub tab content -->
                 <?php if (!empty($currentHub->connectedUserRoom)): ?>
-                    <div class="tab-pane fade show p-1 border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
+                    <div class="tab-pane fade show p-1 active border" id="current-hub-tab-pane" role="tabpanel" aria-labelledby="current-hub-tab" tabindex="0">
                         <div class="container-fluid p-0 d-flex">
                                 
                             <!-- Chat -->
@@ -452,7 +485,9 @@
 
                                 <!-- Modify/Leave Buttons -->
                                 <div class="d-flex flex-column gap-3 mt-auto">
-                                    <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
+                                    <?php if ($_SESSION["user"] === $currentHub->connectedUserRoom->ownerId): ?>
+                                        <button id="update-room" class="btn lh-buttons-purple">Modifier le salon</button>
+                                    <?php endif; ?>
                                     <form action="handlers/room-handler.php" method="POST">
                                         <input type="text" name="action" value="leave" hidden>
                                         <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
@@ -468,75 +503,79 @@
                 <?php endif ?>
 
                 <!-- New Room hub tab content -->
-                <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
+                <?php if (!$userIsOwner): ?>
+                    <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
 
-                    <div class="py-3">
-                        <div class="row row-cols-1 px-3">
+                        <div class="py-3">
+                            <div class="row row-cols-1 px-3">
 
-                            <div class="col">
-                                <h2 class="reconstruct mt-2">Création d'un salon</h2>
-                            </div>
-                            <div class="col px-2 px-md-5 px-lg-0 pb-4">
-                                <hr>
-                            </div>
+                                <div class="col">
+                                    <h2 class="reconstruct mt-2">Création d'un salon</h2>
+                                </div>
+                                <div class="col px-2 px-md-5 px-lg-0 pb-4">
+                                    <hr>
+                                </div>
 
-                            <!-- New Room Form -->
-                            <form action="handlers/room-handler.php" method="POST" class="row py-lg-3">
-                            
-                                <input type="text" name="action" value="create" hidden>
+                                <!-- New Room Form -->
+                                <form action="handlers/room-handler.php" method="POST" name="create_room" class="row py-lg-3">
+                                
+                                    <input type="text" name="action" value="create" hidden>
 
-                                <!-- Left Side -->
-                                <div class="col-lg-5 d-lg-flex flex-column">
-                                    <div>
-                                        <label for="game_new_room" class="mb-2">Jeu :</label>
-                                        <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
-                                            <option selected>Veuillez choisir un jeu</option>
-                                            <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
-                                                <?php foreach ($allGames as $game => $mode): ?>
-                                                    <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
+                                    <!-- Left Side -->
+                                    <div class="col-lg-5 d-lg-flex flex-column">
+                                        <div>
+                                            <label for="game_new_room" class="mb-2">Jeu :</label>
+                                            <select id="game_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
+                                                <option selected>Veuillez choisir un jeu</option>
+                                                <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                                    <?php foreach ($allGames as $game => $mode): ?>
+                                                        <option value="<?php print($game) ?>" game_id="<?php print($gameId) ?>"><?php print($game) ?></option>
+                                                    <?php endforeach; ?>
                                                 <?php endforeach; ?>
-                                            <?php endforeach; ?>
-                                        </select>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="game_type_new_room" class="mb-2">Type de partie :</label>
+                                            <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
+                                                <option selected>Veuillez choisir un type de partie</option>
+                                            </select>
+                                        </div>
+
+                                        <input type="text" name="room_game_type_id" value="1" id="game_type_update_room_id" hidden>
+
+                                        <div>
+                                            <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
+                                            <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" value="5" class="input mb-4 w-100">
+                                        </div>
                                     </div>
 
-                                    <div>
-                                        <label for="game_type_new_room" class="mb-2">Type de partie :</label>
-                                        <select id="game_type_new_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
-                                            <option selected>Veuillez choisir un type de partie</option>
-                                        </select>
+                                    <!-- Right Side -->
+                                    <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
+                                        <div>
+                                            <label for="title_new_room" class="mb-2">Titre du salon :</label>
+                                            <input type="text" name="room_title" id="title_new_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                        </div>
+
+                                        <div>
+                                            <label for="description" class="mb-2">Description :</label>
+                                            <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"></textarea>
+                                        </div>
                                     </div>
 
-                                    <div>
-                                        <label for="player_number_new_room" class="mb-2">Nombre de participants :</label>
-                                        <input type="number" name="room_number_player" id="player_number_new_room" min="1" max="10" value="5" class="input mb-4 w-100">
-                                    </div>
-                                </div>
-
-                                <!-- Right Side -->
-                                <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
-                                    <div>
-                                        <label for="title_new_room" class="mb-2">Titre du salon :</label>
-                                        <input type="text" name="room_title" id="title_new_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                    <!-- Buttons -->
+                                    <div class="d-lg-flex col-lg-5 offset-lg-7">
+                                        <button class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
+                                        <button class="btn w-100 lh-buttons-purple mb-3">Créer un salon</button>
                                     </div>
 
-                                    <div>
-                                        <label for="description" class="mb-2">Description :</label>
-                                        <textarea name="description" id="description" maxlength="200" cols="10" rows="3" class="input mb-4 w-100"></textarea>
-                                    </div>
-                                </div>
+                                </form>
 
-                                <!-- Buttons -->
-                                <div class="d-lg-flex col-lg-5 offset-lg-7">
-                                    <button class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
-                                    <button class="btn w-100 lh-buttons-purple mb-3">Créer un salon</button>
-                                </div>
-
-                            </form>
-
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Update Room hub tab content -->
                 <?php if (!empty($currentHub->connectedUserRoom)): ?>
@@ -553,7 +592,7 @@
                                 </div>
 
                                 <!-- Update Room Form -->
-                                <form action="handlers/room-handler.php" method="POST" class="row py-lg-3" onsubmit="changeValueToGamemodeId('#game_type_update_room', '#game_type_update_room_id')">
+                                <form action="handlers/room-handler.php" method="POST" class="row py-lg-3" name="update_room">
 
                                     <input type="text" name="action" value="modify" id="update-action-field" hidden>
 
@@ -622,7 +661,7 @@
                                         <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
                                     </div>
                                     <div class="d-lg-flex col-lg-5 order-lg-1">
-                                        <button class="btn w-100 lh-buttons-red mb-3" onclick="deleteRoom('#update-action-field')">Clôturer le salon</button>
+                                        <button class="btn w-100 lh-buttons-red mb-3" id="delete_room_button">Clôturer le salon</button>
                                     </div>
 
                                 </form>
