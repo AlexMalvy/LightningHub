@@ -22,30 +22,48 @@
 
 
 <section id="dashboard-faq" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start">
-    <p class="nav-dashboard-title ps-lg-3 my-4 py-4">FAQ</p>
-    <hr class="d-lg-none mx-3">
-    <ul class="list-unstyled d-lg-flex">
-        <div>
-            <li class="ps-lg-3 mb-3 mb-lg-0">Question</li>
-            <hr class="d-none d-lg-block ms-3 mb-lg-5">
-            <li class="ps-lg-3 mb-3">Qu’est-ce que Lightning Hub considère comme un comportement haineux ?</li>
+
+    <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
+        <h2 class="p-2 bd-highlight">FAQ</h2>
+        <div class="p-2 bd-highlight">
+            <form action="game_edit.php" method="GET">
+                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
+            </form>
         </div>
-        <hr class="mx-3">
-        <div>
-            <li class="ps-lg-3 mb-3 mb-lg-0">Réponse</li>
-            <hr class="d-none d-lg-block ms-3 mb-lg-5">
-            <li class="ps-lg-3 mb-3">Les comportements haineux, qui désignent tout contenu ou activité qui favorise, encourage ou met en avant la discrimination, le dénigrement, l’objectivation, le harcèlement ou la violence</li>
-        </div>
-        <hr class="mx-3">
-        <div>
-            <li class="dashboard-title ps-lg-3 mb-3 mb-lg-0">Actions</li>
-            <hr class="d-none d-lg-block ms-3 mb-lg-5">
-            <div class="d-flex justify-content-end">
-                <li class="dashboard-title ps-lg-3 mb-3 me-3"><a href="#"><i class="fa-solid fa-pen fa-xl text-white"></i></a></li>
-                <li class="dashboard-title ps-lg-3 mb-3 me-3"><a href="#"><i class="fa-solid fa-trash fa-xl text-danger"></i></a></li>
-            </div>
-        </div>
-    </ul>
+    </div>
+
+
+    <table class="table bg-color-purple-faded ">
+        <thead class="">
+        <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Réponse</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="">
+
+        <?php ; foreach ($faqs as $faq) {
+            ?>
+        <tr class="">
+            <td class=""><?php echo($faq->getQuestion()); ?></td>
+            <td><?php echo($faq->getAnswer()); ?></td>
+            <td class="text-center">
+                <a href="hub_edit.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
+                    <img src="../assets/images/pen-solid-20x20.png" alt="modifier le salon">
+                </a>
+                <a href="hub_delete.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
+                    <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer le salon/">
+                </a>
+            </td>
+        </tr>
+        <?php }    ?>
+
+        </tbody>
+    </table>
+
+
+
 </section>
 
 </div>
