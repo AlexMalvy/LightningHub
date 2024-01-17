@@ -69,6 +69,7 @@ CREATE TABLE Rooms (
    description VARCHAR(255) NOT NULL DEFAULT "",
    maxMembers INT(11) NOT NULL DEFAULT 5,
    dateCreation DATETIME NOT NULL DEFAULT NOW(),
+   isEnabled BOOLEAN NOT NULL DEFAULT TRUE,
    -- Constraints / Foreign key(s)
    idGamemode INT(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

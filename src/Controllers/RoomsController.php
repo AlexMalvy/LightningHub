@@ -14,25 +14,40 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
-        if (empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
-            // TODO Add errors message
+        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $title = $_POST["room_title"];
-        $description = $_POST["description"] ?? "";
-        $maxMembers = intval($_POST["room_number_player"] ?: 5);
+        $title = strip_tags($_POST["room_title"]);
+        $description = strip_tags($_POST["description"]) ?? "";
+
+        $maxMembers = intval($_POST["room_number_player"]);
+        if ($maxMembers <= 1 or $maxMembers > 10) {
+            $maxMembers = 5;
+        }
+        
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
+        $gamemodeId = intval($_POST["room_game_type_id"]);
 
         $filters = new Filters;
-        $gamemodeId = $filters->getGamemodeId($game, $gamemode);
+        $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
+        if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
 
         // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
-
+        
+        $_SESSION["message"] = "Vous avez créer le salon ".$title.".";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -41,7 +56,8 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"] or empty($_POST['room_game_type_id']) or empty($_POST['room_title']))) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -49,19 +65,39 @@ class RoomsController
         $idUser = $_SESSION["user"];
         $idRoom = $_POST["room_id"];
         if (!Room::checkUserOwnership($idUser, $idRoom)) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "danger";
             header("Location: $index");
             exit();
         }
 
-        $title = $_POST["room_title"];
-        $description = $_POST["description"] ?? "";
-        $maxMembers = intval($_POST["room_number_player"] ?: 5);
-        $gamemodeId = $_POST["room_game_type_id"];
+        $title = strip_tags($_POST["room_title"]);
+        $description = strip_tags($_POST["description"]) ?? "";
+
+        $maxMembers = intval($_POST["room_number_player"]);
+        if ($maxMembers <= 1 or $maxMembers > 10) {
+            $maxMembers = 5;
+        }
+
+        $gamemodeId = intval($_POST["room_game_type_id"]);
+        $game = $_POST["room_game"];
+        $gamemode = $_POST["room_game_type"];
+        $gamemodeId = intval($_POST["room_game_type_id"]);
+
+        $filters = new Filters;
+        $gameInfo = $filters->getGameNameAndGamemodeNameFromGamemodeId($gamemodeId);
+        if ($gameInfo["gameName"] != $game or $gameInfo["gamemodeName"] != $gamemode) {
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
 
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
 
+        $_SESSION["message"] = "Le salon ".$title." a été modifier.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -70,15 +106,17 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
         if (!Room::checkUserOwnership($idUser, $idRoom)) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
@@ -86,6 +124,8 @@ class RoomsController
         // Delete the room in DB
         Room::deleteRoom($idRoom);
 
+        $_SESSION["message"] = "Le salon a bien été fermer.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -94,17 +134,20 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::leaveRoom($idUser, $idRoom);
 
+        $_SESSION["message"] = "Vous avez quitter votre salon.";
+        $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
     }
@@ -113,13 +156,14 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idTarget = $_POST["targetId"];
+        $idTarget = intval($_POST["targetId"]);
 
         // Delete the room in DB
         Room::promoteToOwner($idUser, $idTarget);
@@ -132,13 +176,14 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idTarget = $_POST["targetId"];
+        $idTarget = intval($_POST["targetId"]);
 
         // Delete the room in DB
         Room::kickFromRoom($idUser, $idTarget);
@@ -151,13 +196,14 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::RequestToJoinRoom($idUser, $idRoom);
@@ -170,13 +216,14 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
-            // TODO Add errors message
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
         $idUser = $_SESSION["user"];
-        $idRoom = $_POST["room_id"];
+        $idRoom = intval($_POST["room_id"]);
 
         // Delete the room in DB
         Room::cancelRequestToJoinRoom($idUser, $idRoom);
