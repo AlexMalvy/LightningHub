@@ -47,7 +47,7 @@
                     </a>
                 </p>
                 <!-- Copy my id -->
-                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copier
+                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" id="copy">Copier
                     <img class="icon-20x20" src="assets/images/copy-regular.svg"  alt="copy icon">
                 </a>
 
@@ -58,23 +58,24 @@
 
 
     <!-- SECTION Tabs -->
-    <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1 hub">
+    <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1 hub tabs">
 
         <!-- Tabs -->
         <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+            <input type="hidden" name="onglet" />
             <!-- Friends tab head -->
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-white active" id="friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab-pane" type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="true">Mes amis</button>
+                <button class="change-tab nav-link text-white <?php echo ($ongletActif == 1) ? 'active' : ''; ?>" id="friends-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="true" data-id="1">Mes amis</button>
             </li>
 
             <!-- Friend request list tab head -->
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-white " id="demandes-tab" data-bs-toggle="tab" data-bs-target="#demandes-tab-pane" type="button" role="tab" aria-controls="demandes-tab-pane" aria-selected="false">Demandes d'ajout</button>
+                <button class="change-tab nav-link text-white <?php echo ($ongletActif == 2) ? 'active' : ''; ?> " id="demandes-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="demandes-tab-pane" aria-selected="false" data-id="2">Demandes d'ajout</button>
             </li>
 
             <!-- Add friend tab head -->
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-white" id="add-tab" data-bs-toggle="tab" data-bs-target="#add-tab-pane" type="button" role="tab" aria-controls="add-tab-pane" aria-selected="false">Ajouter</button>
+                <button  class="change-tab nav-link text-white <?php echo ($ongletActif == 3) ? 'active' : ''; ?>" id="add-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="add-tab-pane" aria-selected="false"  data-id="3">Ajouter</button>
             </li>
 
 
@@ -84,16 +85,16 @@
         <div class="tab-content bg-color-purple-faded" id="myTabContent">
 
             <!-- FRIENDS tab content -->
-            <div class="tab-pane fade show active border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
+            <div class="tab-pane fade show  <?php echo ($ongletActif == 1) ? 'active' : ''; ?> border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
 
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row" id="principal">
                         <!-- Disconnected Friends Switch -->
                         <div class="d-flex bd-highlight">
                             <div class="p-2 w-100 bd-highlight">Voir mes amis déconnectés</div>
                             <div class="form-check form-switch p-2 flex-shrink-1 bd-highlight ">
                                 <label for="flexSwitchCheckDefault"></label>
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="displayDisconnected()">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"">
                             </div>
                         </div>
 
@@ -119,10 +120,11 @@
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo $friendConnected->getId()?>" aria-controls="offcanvasBottom">
                                             <img class="icon-20x20" src="assets/images/message-solid-white.svg"
                                                  alt="message icon"></a>
-                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendConnected->getId()?>">
-                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg"
-                                                 alt="delete icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight delete"
+                                           data-id="<?php echo $friendConnected->getId()?>"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal">
+                                            <img class="icon-20x20 delete" src="assets/images/user-minus-solid-white.svg"
+                                                 alt="delete icon" data-id="<?php echo $friendConnected->getId()?>"></a>
 
 
                                     </li>
@@ -205,19 +207,22 @@
                                         </form>
                                     </div>
                                 </div>
+                                    <?php
+                                }
 
+                                ?>
                                     <!-- Delete Friend Modal -->
-                                    <div class="modal fade" id="deleteFriendModal<?php echo $friend->getId()?>"
+                                    <div class="modal fade" id="deleteFriendModal"
                                          tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
-                                        <form method="post" action="<?php echo($actionUrlSoc) ?>">
+                                        <form class="form" method="post" action="<?php echo($actionUrlSoc) ?>" name="modal">
                                             <input type="text" name="action" value="delete" hidden>
-                                            <input type="text" name="id" value="<?php echo($friend->getId()) ?>" hidden>
+                                            <input type="text" id="idToDelete"  name="id" hidden>
 
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-color-purple rounded-0">
                                                         <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
-                                                        Supprimer <?php echo $friend->getUsername() . "#" . $friend->getId()?></h5>
+                                                        Supprimer </h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -231,29 +236,13 @@
                                             </div>
                                         </form>
                                     </div>
-
-                           <?php
-                                }
-
-                                ?>
-
-
-
-
                         </ul>
                         <!-- List of disconnected friends -->
-
-
-                        <!--                        TEST BDD -->
-
 
                                 <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
                             friends -->
 
                         <ul  id="list-disconnected" class="list-group list-group-flush p-0 d-none">
-
-
-
 
                             <?php
                             if (count($friendsDisconnected) == 0) {
@@ -262,7 +251,6 @@
 
                                 foreach ($friendsDisconnected as $friendDisconnected){
                                     ?>
-
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
@@ -273,11 +261,11 @@
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom<?php echo
                                         $friendDisconnected->getId()?>" aria-controls="offcanvasBottom">
-                                            <img class="icon-20x20" src="assets/images/message-solid-white.svg"
+                                            <img class="icon-20x20 delete" src="assets/images/message-solid-white.svg"
                                                  alt="message icon"></a>
-                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendDisconnected->getId()?>">
-                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
+                                        <a data-id="<?php echo $friendDisconnected->getId()?>"  href="#" class="p-2 flex-shrink-1 bd-highlight delete"
+                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal">
+                                            <img data-id="<?php echo $friendDisconnected->getId()?>" class="icon-20x20 delete" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
                                     </li>
                                     <?php
@@ -292,7 +280,7 @@
 
 
             <!-- LIST DEMANDS tab content -->
-            <div class="tab-pane fade show border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
+            <div class="tab-pane  fade show <?php echo ($ongletActif == 2) ? 'active' : ''; ?> border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
 
                 <div class="container-fluid p-0">
 
@@ -335,7 +323,7 @@
             </div>
 
             <!-- ADD FRIEND tab content -->
-            <div class="tab-pane fade show p-1 border " id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab"
+            <div class="tab-pane fade show <?php echo ($ongletActif == 3) ? 'active' : ''; ?> p-1 border " id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab"
                  tabindex="0">
 
                 <div class="px-5 py-3 text-lg-start text-center g-lg-5 g-3">
