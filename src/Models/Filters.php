@@ -85,6 +85,19 @@ class Filters
             }
         }
     }
+
+    public function getGameNameAndGamemodeNameFromGamemodeId($submittedGamemodeId)
+    {
+        foreach ($this->filtersList as $gameId => $gameInfo) {
+            foreach ($gameInfo as $gameName => $gamemodes) {
+                foreach ($gamemodes as $gamemodeId => $gamemodeName) {
+                    if ($gamemodeId == $submittedGamemodeId) {
+                        return ["gameName" => $gameName, "gamemodeName" => $gamemodeName];
+                    }
+                }
+            }
+        }
+    }
 }
 
 ?>

@@ -93,30 +93,32 @@ function hideTabs() {
 
 if (newRoom && newRoomHubTab || updateRoom) {
 
-    newRoom.addEventListener("click", () => {
-        if(!newRoomTabOpen){
-            displayTabs(newRoomHubTab, newRoomHubTabPane);
-            hideTabs();
-            if (updateRoomTab) {
-                updateRoomTab.classList.remove('active');
+    if (newRoom) {
+        newRoom.addEventListener("click", () => {
+            if(!newRoomTabOpen){
+                displayTabs(newRoomHubTab, newRoomHubTabPane);
+                hideTabs();
+                if (updateRoomTab) {
+                    updateRoomTab.classList.remove('active');
+                }
+                if (updateRoomTabPane) {
+                    updateRoomTabPane.classList.remove('active');
+                }
+                newRoomTabOpen = true;
+            } else{
+                newRoomHubTab.classList.add("active");
+                newRoomHubTabPane.classList.add("active");
+                newRoomHubTabPane.classList.add("show");
+                if (updateRoomTab) {
+                    updateRoomTab.classList.remove('active');
+                }
+                if (updateRoomTabPane) {
+                    updateRoomTabPane.classList.remove('active');
+                }
+                hideTabs();
             }
-            if (updateRoomTabPane) {
-                updateRoomTabPane.classList.remove('active');
-            }
-            newRoomTabOpen = true;
-        } else{
-            newRoomHubTab.classList.add("active");
-            newRoomHubTabPane.classList.add("active");
-            newRoomHubTabPane.classList.add("show");
-            if (updateRoomTab) {
-                updateRoomTab.classList.remove('active');
-            }
-            if (updateRoomTabPane) {
-                updateRoomTabPane.classList.remove('active');
-            }
-            hideTabs();
-        }
-    });
+        });
+    }
 
     if (updateRoom) {
         updateRoom.addEventListener("click", () => {
@@ -187,9 +189,11 @@ filterGame.addEventListener("change", () => {
     loadGamemodeOptions(filterGame, filterGamemode);
 });
 
-createNewRoomGame.addEventListener("change", () => {
-    loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
-});
+if (createNewRoomGame) {
+    createNewRoomGame.addEventListener("change", () => {
+        loadGamemodeOptions(createNewRoomGame, createNewRoomGamemode);
+    });
+}
 
 if (modifyRoomGame) {
     modifyRoomGame.addEventListener("change", () => {
@@ -203,12 +207,19 @@ function deleteRoom($fieldId) {
     fieldToChange.setAttribute("value", "delete");
 }
 
+const deleteRoomButton = document.querySelector("#delete_room_button");
+if (deleteRoomButton) {
+    deleteRoomButton.addEventListener("click", () => {
+        deleteRoom("#update-action-field");
+    })
+}
 
-function changeValueToGamemodeId($selectFieldId, $hiddenInputFieldId) {
+
+function changeValueToGamemodeId($selectFieldName, $hiddenInputFieldName) {
     // Get select html element
-    const selectField = document.querySelector($selectFieldId);
+    const selectField = $selectFieldName;
     // Get input html element that will carry the gamemode id
-    const hiddenInputField = document.querySelector($hiddenInputFieldId);
+    const hiddenInputField = $hiddenInputFieldName;
 
     // Retrieve currently selected (not the attribute) option
     let currentlySelectedIndex = selectField.options.selectedIndex;
@@ -220,3 +231,31 @@ function changeValueToGamemodeId($selectFieldId, $hiddenInputFieldId) {
     // Replace the attribute "value" to the new gamemode id
     hiddenInputField.setAttribute("value", currentlySelectedGamemodeId);
 }
+
+const filtersForm = document.forms["filters"];
+const createRoomForm = document.forms["create_room"];
+const updateRoomForm = document.forms["update_room"];
+
+// console.log(filtersForm["game_type"].getAttribute("gamemode_id"));
+
+if (filtersForm) {
+    filtersForm.addEventListener("submit", () => {
+        changeValueToGamemodeId(filtersForm["room_game_type"], filtersForm["room_game_type_id"]);
+    })
+}
+
+if (createRoomForm) {
+    createRoomForm.addEventListener("submit", () => {
+        changeValueToGamemodeId(createRoomForm["room_game_type"], createRoomForm["room_game_type_id"]);
+    })
+}
+
+if (updateRoomForm) {
+    updateRoomForm.addEventListener("submit", () => {
+        changeValueToGamemodeId(updateRoomForm["room_game_type"], updateRoomForm["room_game_type_id"]);
+    })
+}
+
+// updateRoomForm.addEventListener("submit", () => {
+//     changeValueToGamemodeId()
+// })

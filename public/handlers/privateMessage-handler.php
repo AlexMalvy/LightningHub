@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__.'/../../bootstrap/app.php';
-//require_once base_path('src/Controllers/PrivateMessageController.php');
+//require_once base_path('src/admin/PrivateMessageController.php');
 
 // Auth
 Auth::isAuthOrRedirect();

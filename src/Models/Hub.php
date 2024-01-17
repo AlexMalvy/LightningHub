@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use DB;
-use App\Models\Room;
 
 class Hub
 {
@@ -15,6 +14,7 @@ class Hub
             ON rooms.idGamemode = gamemodes.idGamemode
                 INNER JOIN games
                 ON gamemodes.idGame = games.idGame
+        WHERE rooms.isEnabled = 1
         ORDER BY rooms.idRoom ASC");
 
         $this->allRoomsList = [];
