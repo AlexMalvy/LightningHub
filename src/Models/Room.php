@@ -320,9 +320,12 @@ class Room
             SET users.idRoom = :idRoom
             WHERE users.idUser = :idTarget",
             ["idRoom" => $idRoom, "idTarget" => $idTarget]);
+            self::cancelAllRequestToJoinRooms($idTarget);
+        } else {
+            // TODO error message ? max number of participant in room
+            return;
         }
 
-        self::cancelAllRequestToJoinRooms($idTarget);
     }
     
     public static function declineIntoRoom(int $idUser, int $idTarget, int $idRoom)
