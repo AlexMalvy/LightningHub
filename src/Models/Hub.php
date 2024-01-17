@@ -27,6 +27,15 @@ class Hub
             $this->getFriendRooms($connectedUserId);
             $this->getConnectedUserRoom($connectedUserId);
             $this->getPendingRoomList($connectedUserId);
+            if (!empty($this->connectedUserRoom)) {
+                if ($connectedUserId === $this->connectedUserRoom->ownerId) {
+                    $this->userIsOwner = true;
+                    $this->getRequestToJoinUserList($this->connectedUserRoom);
+                } else {
+                    $this->userIsOwner = false;
+                }
+                // $this->userIsOwner = ($connectedUserId === $this->connectedUserRoom->ownerId) ? true : false;
+            }
         }
     }
 
@@ -35,6 +44,8 @@ class Hub
     public array $pendingRoomsIdList = [];
     public array $pendingRoomsList = [];
     public Room $connectedUserRoom;
+    public bool $userIsOwner = false;
+    public array $usersRequestingToJoin = [];
     
     protected function getFriendRooms(int $userId)
     {
@@ -85,6 +96,16 @@ class Hub
                 array_push($this->pendingRoomsList, $room);
             }
         }
+    }
+
+    protected function getRequestToJoinUserList(room $room)
+    {
+        $this->usersRequestingToJoin = DB::fetch("SELECT users.idUser, users.username, requesttojoin.timeRequest
+        FROM requesttojoin
+            INNER JOIN users
+            ON requesttojoin.idUser = users.idUser
+        WHERE requesttojoin.idRoom = :idRoom",
+        ["idRoom" => $room->roomId]);
     }
 }
 

@@ -27,12 +27,9 @@
     } else {
         $currentHub = new Hub();
     }
-    $userIsOwner = false;
-    if (!empty($currentHub->connectedUserRoom)) {
-        $userIsOwner = ($_SESSION["user"] === $currentHub->connectedUserRoom->ownerId) ? true : false;
-    }
     $counter = 0;
     $filters = new Filters();
+    // dd($currentHub->usersRequestingToJoin);
     ?>
     <!-- Passing gamemodes value to js -->
     <script>
@@ -47,6 +44,7 @@
             <h1 class="reconstruct">hub</h1>
         </div>
 
+        <!-- Messages -->
         <?php if (!empty($_SESSION['message'])): ?>
             <div class="container">
                 <div class="col-lg-8 offset-lg-2 alert alert-<?=$_SESSION['type']?>" role="alert">
@@ -120,7 +118,7 @@
             </div>
 
             <!-- Create Hub -->
-            <?php if (!$userIsOwner): ?>
+            <?php if (!$currentHub->userIsOwner): ?>
                 <div class="col-lg-2 offset-lg-4 px-2 px-md-5 px-lg-0 mb-3 d-flex justify-content-lg-end">
                     <button id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple">Créer un salon</button>
                 </div>
@@ -215,8 +213,22 @@
                                         </div>
 
                                         <div class="card-footer d-flex justify-content-between align-items-center">
-                                            <?php if(!empty($currentHub->connectedUserRoom)): ?>
-                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$userIsOwner): ?>
+                                            <?php if(empty($currentHub->connectedUserRoom)): ?>
+                                                <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="cancel" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                        <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
+                                                    </form>
+                                                <?php else: ?>
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="join" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                    </form>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$currentHub->userIsOwner): ?>
                                                     <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
                                                         <form action="handlers/room-handler.php" method="POST">
                                                             <input type="text" name="action" value="cancel" hidden>
@@ -275,8 +287,22 @@
                                                 <p class="card-text"><?php print($room->description) ?></p>
                                             </div>
                                             <div class="card-footer d-flex justify-content-between align-items-center">
-                                            <?php if(!empty($currentHub->connectedUserRoom)): ?>
-                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$userIsOwner): ?>
+                                            <?php if(empty($currentHub->connectedUserRoom)): ?>
+                                                <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="cancel" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                        <button type="submit" class="btn lh-buttons-purple-faded-to-red" id="button_<?php print($room->roomId) ?>"></button>
+                                                    </form>
+                                                <?php else: ?>
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="join" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                        <button type="submit" class="btn lh-buttons-purple">Rejoindre</button>
+                                                    </form>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <?php if($room->roomId !== $currentHub->connectedUserRoom->roomId and !$currentHub->userIsOwner): ?>
                                                     <?php if(in_array($room->roomId, $currentHub->pendingRoomsIdList)): ?>
                                                         <form action="handlers/room-handler.php" method="POST">
                                                             <input type="text" name="action" value="cancel" hidden>
@@ -309,54 +335,86 @@
                 <div class="tab-pane fade show p-1 border" id="pending-tab-pane" role="tabpanel" aria-labelledby="pending-tab" tabindex="0">
 
                     <div class="container-fluid py-3">
-                        <?php if(count($currentHub->pendingRoomsList) > 0): ?>
-                            <div class="row row-cols-1 row-cols-lg-4 g-3">
-
-                                <!-- Display All Rooms -->
-                                <?php foreach($currentHub->pendingRoomsList as $room): ?>
-                                    <!-- Room -->
-                                    <article class="col">
-                                        <div class="card h-100">
-                                            <div class="card-header d-flex justify-content-between align-items-center">
-                                                <div class="d-flex align-items-center">
-                                                    <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
-                                                    <i class="fa-solid fa-user fa-xl text-white"></i>
-                                                </div>
-
-                                                <?php 
-                                                if (!empty($_SESSION["user"])) {
-                                                    $room->getNumberOfFriend($currentHub->friendRoomsList);
-                                                    if (count($room->friendList)) {
-                                                        print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
-                                                    }
-                                                }
-                                                ?>
-
-                                                <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
-
-                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
-
-                                                <p class="card-text"><?php print($room->description) ?></p>
-                                            </div>
-                                            <div class="card-footer d-flex justify-content-between align-items-center">
-                                                <form action="handlers/room-handler.php" method="POST">
-                                                    <input type="text" name="action" value="cancel" hidden>
-                                                    <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
-                                                    <button type="submit" class="btn lh-buttons-purple-faded-to-red"></button>
-                                                </form>
-
-                                                <p class="m-0"><?php print($room->CreatedSince()); ?></p>
-                                            </div>
+                        <?php if($currentHub->userIsOwner): ?>
+                            <div class="row row-cols-1 g-2">
+                                    <article class="col d-flex justify-content-between align-items-center bg-color-purple p-2">
+                                        <div class="col-lg-8">Nom d'utilisateur</div>
+                                        <div class="col-lg-2">Heure de la demande</div>
+                                        <div class="col-lg-2 text-center">Actions</div>
+                                    </article>
+                                <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
+                                    <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
+                                        <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
+                                            <div><?php print($user["username"]) ?></div>
+                                            <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <form action="" method="POST" class="ms-5">
+                                                <input type="text" name="action" value="accept" hidden>
+                                                <input type="text" name="userId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                <button class="btn lh-buttons-purple">Accepter</button>
+                                            </form>
+                                            <form action="" method="POST" class="ms-2">
+                                                <input type="text" name="action" value="decline" hidden>
+                                                <input type="text" name="userId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                <button class="btn lh-buttons-red">X</button>
+                                            </form>
                                         </div>
                                     </article>
+                                    <!-- <div class="divider"></div> -->
                                 <?php endforeach; ?>
                             </div>
-
+                            <?php unset($darkBackground); ?>
                         <?php else: ?>
-                            <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici</h2>
+                            <?php if(count($currentHub->pendingRoomsList) > 0): ?>
+                                <div class="row row-cols-1 row-cols-lg-4 g-3">
+
+                                    <!-- Display All Rooms -->
+                                    <?php foreach($currentHub->pendingRoomsList as $room): ?>
+                                        <!-- Room -->
+                                        <article class="col">
+                                            <div class="card h-100">
+                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="fs-5 m-0 pe-2"><?php print(count($room->members)."/".$room->maxMembers) ?></p>
+                                                        <i class="fa-solid fa-user fa-xl text-white"></i>
+                                                    </div>
+
+                                                    <?php 
+                                                    if (!empty($_SESSION["user"])) {
+                                                        $room->getNumberOfFriend($currentHub->friendRoomsList);
+                                                        if (count($room->friendList)) {
+                                                            print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                    <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
+
+                                                    <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner) ?></p>
+
+                                                    <p class="card-text"><?php print($room->description) ?></p>
+                                                </div>
+                                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                                    <form action="handlers/room-handler.php" method="POST">
+                                                        <input type="text" name="action" value="cancel" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($room->roomId) ?>" hidden>
+                                                        <button type="submit" class="btn lh-buttons-purple-faded-to-red"></button>
+                                                    </form>
+
+                                                    <p class="m-0"><?php print($room->CreatedSince()); ?></p>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    <?php endforeach; ?>
+                                </div>
+
+                            <?php else: ?>
+                                <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici</h2>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                     </div>
@@ -503,7 +561,7 @@
                 <?php endif ?>
 
                 <!-- New Room hub tab content -->
-                <?php if (!$userIsOwner): ?>
+                <?php if (!$currentHub->userIsOwner): ?>
                     <div class="tab-pane fade show p-1 border" id="new-room-hub-tab-pane" role="tabpanel" aria-labelledby="new-room-hub-tab" tabindex="0">
 
                         <div class="py-3">
@@ -578,7 +636,7 @@
                 <?php endif; ?>
 
                 <!-- Update Room hub tab content -->
-                <?php if (!empty($currentHub->connectedUserRoom)): ?>
+                <?php if ($currentHub->userIsOwner): ?>
                     <div class="tab-pane fade show p-1 border" id="update-room-hub-tab-pane" role="tabpanel" aria-labelledby="update-room-hub-tab" tabindex="0">
 
                         <div class="py-3">

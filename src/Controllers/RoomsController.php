@@ -8,7 +8,7 @@ use App\Models\Room;
 
 class RoomsController
 {
-    const URL_INDEX = '/index.php';
+    const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/product-handler.php';
 
     public function create()
