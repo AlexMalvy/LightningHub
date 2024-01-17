@@ -1,6 +1,8 @@
 // Diplay or hide the list of disconnected users
+
+const listDisconnected = document.querySelector('#list-disconnected');
+const principalRow = document.querySelector('#principal');
 function displayDisconnected(){
-    const listDisconnected = document.querySelector('#list-disconnected');
     if (listDisconnected.classList.contains('d-none')){
         listDisconnected.classList.remove('d-none');
     }
@@ -8,6 +10,17 @@ function displayDisconnected(){
         listDisconnected.classList.add('d-none');
     }
 }
+
+principalRow.addEventListener('click', function(event){
+    //console.log(event.target.dataset.id);
+    if (event.target.classList.contains('delete'))  {
+
+        const idToDelete = document.querySelector('#idToDelete');
+        idToDelete.value = event.target.dataset.id;
+        //console.log(idToDelete.value);
+    }
+})
+
 
 // Copy the id
 function copyId(){
@@ -74,3 +87,34 @@ function findUser(){
 
 
 }
+
+function changerOnglet(numeroOnglet) {
+    // Mettre à jour l'onglet actif
+    document.getElementById('myTab').querySelector('.active').classList.remove('active');
+    document.getElementById('myTab').querySelectorAll('.nav-item')[numeroOnglet - 1].querySelector('.nav-link').classList.add('active');
+
+    // Mettre à jour le contenu de l'onglet côté client
+    document.querySelector('.tab-content').querySelector('.active').classList.remove('show', 'active');
+    document.querySelector('.tab-content').querySelectorAll('.tab-pane')[numeroOnglet - 1].classList.add('show', 'active');
+
+    return fetch("mettre_a_jour_onglet.php?onglet=" + numeroOnglet)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur lors de la requête AJAX");
+            }
+            return response.text();
+        })
+        .then(responseText => {
+            // La requête a réussi
+            console.log("Succès :", responseText);
+        })
+        .catch(error => {
+            // La requête a échoué
+            console.error("Erreur :", error);
+        });
+
+}
+
+
+
+

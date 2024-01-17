@@ -18,7 +18,7 @@ use App\Models\User;
 // TODO: faire gaffe String / Time
 // TODO: page de connexion qui naffiche pas les erreurs
 // TODO: gérer quand ya  plusieurs fois la meme requete et que les users n'ont pas rechargé // a moitie checké
-
+// TODO: faire la doc les comms
 class SocialsController
 {
     const URL_CREATE = '/social-create.php';
@@ -61,6 +61,8 @@ class SocialsController
 
         $actionUrlSoc = self::URL_HANDLER_SOC;
         $actionUrlMsg = PrivateMessageController::URL_HANDLER;
+
+        $ongletActif = $_SESSION['ongletActif'] ?? 1;
         require_once base_path('view/socials/index.php');
     }
 
