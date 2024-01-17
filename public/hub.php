@@ -342,26 +342,30 @@
                                         <div class="col-lg-2">Heure de la demande</div>
                                         <div class="col-lg-2 text-center">Actions</div>
                                     </article>
-                                <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
-                                    <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
-                                        <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
-                                            <div><?php print($user["username"]) ?></div>
-                                            <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <form action="handlers/room-handler.php" method="POST" class="ms-5">
-                                                <input type="text" name="action" value="accept" hidden>
-                                                <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
-                                                <button class="btn lh-buttons-purple">Accepter</button>
-                                            </form>
-                                            <form action="handlers/room-handler.php" method="POST" class="ms-2">
-                                                <input type="text" name="action" value="decline" hidden>
-                                                <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
-                                                <button class="btn lh-buttons-red">X</button>
-                                            </form>
-                                        </div>
-                                    </article>
-                                <?php endforeach; ?>
+                                <?php if(count($currentHub->usersRequestingToJoin) > 0): ?>
+                                    <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
+                                        <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
+                                            <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
+                                                <div><?php print($user["username"]) ?></div>
+                                                <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <form action="handlers/room-handler.php" method="POST" class="ms-5">
+                                                    <input type="text" name="action" value="accept" hidden>
+                                                    <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                    <button class="btn lh-buttons-purple">Accepter</button>
+                                                </form>
+                                                <form action="handlers/room-handler.php" method="POST" class="ms-2">
+                                                    <input type="text" name="action" value="decline" hidden>
+                                                    <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                    <button class="btn lh-buttons-red">X</button>
+                                                </form>
+                                            </div>
+                                        </article>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>
+                                <?php endif; ?>
                             </div>
                         <?php else: ?>
                             <?php if(count($currentHub->pendingRoomsList) > 0): ?>
@@ -411,7 +415,7 @@
                                 </div>
 
                             <?php else: ?>
-                                <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici</h2>
+                                <h2 class="text-center py-5">Les salons que vous essayez de rejoindre apparaîtrons ici.</h2>
                             <?php endif; ?>
                         <?php endif; ?>
 
