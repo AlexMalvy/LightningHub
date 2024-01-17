@@ -2,6 +2,9 @@
 
 const listDisconnected = document.querySelector('#list-disconnected');
 const principalRow = document.querySelector('#principal');
+const flexSwitchCheckDefault = document.querySelector('#flexSwitchCheckDefault');
+
+flexSwitchCheckDefault.addEventListener('click', displayDisconnected);
 function displayDisconnected(){
     if (listDisconnected.classList.contains('d-none')){
         listDisconnected.classList.remove('d-none');
@@ -12,17 +15,18 @@ function displayDisconnected(){
 }
 
 principalRow.addEventListener('click', function(event){
-    //console.log(event.target.dataset.id);
     if (event.target.classList.contains('delete'))  {
-
         const idToDelete = document.querySelector('#idToDelete');
         idToDelete.value = event.target.dataset.id;
-        //console.log(idToDelete.value);
     }
 })
 
 
+
 // Copy the id
+const copy = document.querySelector('#copy');
+copy.addEventListener('click', copyId);
+
 function copyId(){
 
     const textToCopy = document.querySelector('#myProfile');
@@ -88,6 +92,13 @@ function findUser(){
 
 }
 
+const btnChangeTab = document.querySelector('.tabs');
+btnChangeTab.addEventListener('click', function(e){
+    if (e.target.classList.contains('change-tab')){
+        changerOnglet(e.target.dataset.id);
+    }
+})
+
 function changerOnglet(numeroOnglet) {
     // Mettre à jour l'onglet actif
     document.getElementById('myTab').querySelector('.active').classList.remove('active');
@@ -97,16 +108,12 @@ function changerOnglet(numeroOnglet) {
     document.querySelector('.tab-content').querySelector('.active').classList.remove('show', 'active');
     document.querySelector('.tab-content').querySelectorAll('.tab-pane')[numeroOnglet - 1].classList.add('show', 'active');
 
-    return fetch("mettre_a_jour_onglet.php?onglet=" + numeroOnglet)
+    return fetch("mettre_a_jour_onglet.p    hp?onglet=" + numeroOnglet)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Erreur lors de la requête AJAX");
             }
             return response.text();
-        })
-        .then(responseText => {
-            // La requête a réussi
-            console.log("Succès :", responseText);
         })
         .catch(error => {
             // La requête a échoué

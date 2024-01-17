@@ -47,7 +47,7 @@
                     </a>
                 </p>
                 <!-- Copy my id -->
-                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" onclick="copyId()">Copier
+                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" id="copy">Copier
                     <img class="icon-20x20" src="assets/images/copy-regular.svg"  alt="copy icon">
                 </a>
 
@@ -58,24 +58,24 @@
 
 
     <!-- SECTION Tabs -->
-    <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1 hub">
+    <section class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 pb-1 hub tabs">
 
         <!-- Tabs -->
         <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
             <input type="hidden" name="onglet" />
             <!-- Friends tab head -->
             <li class="nav-item" role="presentation">
-                <button onclick="changerOnglet(1)" class="nav-link text-white <?php echo ($ongletActif == 1) ? 'active' : ''; ?>" id="friends-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="true">Mes amis</button>
+                <button class="change-tab nav-link text-white <?php echo ($ongletActif == 1) ? 'active' : ''; ?>" id="friends-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="friends-tab-pane" aria-selected="true" data-id="1">Mes amis</button>
             </li>
 
             <!-- Friend request list tab head -->
             <li class="nav-item" role="presentation">
-                <button onclick="changerOnglet(2)" class="nav-link text-white <?php echo ($ongletActif == 2) ? 'active' : ''; ?> " id="demandes-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="demandes-tab-pane" aria-selected="false">Demandes d'ajout</button>
+                <button class="change-tab nav-link text-white <?php echo ($ongletActif == 2) ? 'active' : ''; ?> " id="demandes-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="demandes-tab-pane" aria-selected="false" data-id="2">Demandes d'ajout</button>
             </li>
 
             <!-- Add friend tab head -->
             <li class="nav-item" role="presentation">
-                <button  onclick="changerOnglet(3)"class="nav-link text-white <?php echo ($ongletActif == 3) ? 'active' : ''; ?>" id="add-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="add-tab-pane" aria-selected="false">Ajouter</button>
+                <button  class="change-tab nav-link text-white <?php echo ($ongletActif == 3) ? 'active' : ''; ?>" id="add-tab" data-bs-toggle="tab"  type="button" role="tab" aria-controls="add-tab-pane" aria-selected="false"  data-id="3">Ajouter</button>
             </li>
 
 
@@ -85,7 +85,7 @@
         <div class="tab-content bg-color-purple-faded" id="myTabContent">
 
             <!-- FRIENDS tab content -->
-            <div class="tab-pane fade show  <?php echo ($ongletActif == 1) ? 'active' : ''; ?>" border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
+            <div class="tab-pane fade show  <?php echo ($ongletActif == 1) ? 'active' : ''; ?> border" id="friends-tab-pane" role="tabpanel" aria-labelledby="friends-tab" tabindex="0">
 
                 <div class="container-fluid">
                     <div class="row" id="principal">
@@ -94,7 +94,7 @@
                             <div class="p-2 w-100 bd-highlight">Voir mes amis déconnectés</div>
                             <div class="form-check form-switch p-2 flex-shrink-1 bd-highlight ">
                                 <label for="flexSwitchCheckDefault"></label>
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="displayDisconnected()">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"">
                             </div>
                         </div>
 
@@ -280,7 +280,7 @@
 
 
             <!-- LIST DEMANDS tab content -->
-            <div class="tab-pane  fade show <?php echo ($ongletActif == 2) ? 'active' : ''; ?>" border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
+            <div class="tab-pane  fade show <?php echo ($ongletActif == 2) ? 'active' : ''; ?> border" id="demandes-tab-pane" role="tabpanel" aria-labelledby="demandes-tab" tabindex="0">
 
                 <div class="container-fluid p-0">
 
@@ -323,7 +323,7 @@
             </div>
 
             <!-- ADD FRIEND tab content -->
-            <div class="tab-pane fade show <?php echo ($ongletActif == 3) ? 'active' : ''; ?>" p-1 border " id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab"
+            <div class="tab-pane fade show <?php echo ($ongletActif == 3) ? 'active' : ''; ?> p-1 border " id="add-tab-pane" role="tabpanel" aria-labelledby="add-tab"
                  tabindex="0">
 
                 <div class="px-5 py-3 text-lg-start text-center g-lg-5 g-3">
