@@ -156,7 +156,7 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
@@ -176,7 +176,7 @@ class RoomsController
     {
         $index = self::URL_INDEX;
         if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
-            $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
+            $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
@@ -227,6 +227,26 @@ class RoomsController
 
         // Delete the room in DB
         Room::cancelRequestToJoinRoom($idUser, $idRoom);
+
+        header("Location: $index");
+        exit();
+    }
+
+    public function accept()
+    {
+        $index = self::URL_INDEX;
+        if (empty($_SESSION["user"]) or empty($_POST["targetId"])) {
+            $_SESSION["message"] = "Une erreur est survenue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+        $idTarget = intval($_POST["targetId"]);
+
+        // Delete the room in DB
+        Room::acceptIntoRoom($idUser, $idTarget);
 
         header("Location: $index");
         exit();

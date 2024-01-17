@@ -29,6 +29,12 @@ if (!empty($_POST['action'])) {
     if ($_POST['action'] === 'cancel') {
         $controller->cancel();
     }
+    if ($_POST['action'] === 'accept') {
+        $controller->accept();
+    }
+    if ($_POST['action'] === 'decline') {
+        // $controller->decline();
+    }
 }
 
 // Unknown action

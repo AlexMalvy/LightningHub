@@ -272,6 +272,54 @@ class Room
             ["idUser" => $idUser, "idRoom" => $idRoom]);
         }
     }
+
+    public static function cancelAllRequestToJoinRooms(int $idUser)
+    {
+        DB::statement("DELETE FROM requesttojoin
+        WHERE requesttojoin.idUser = :idUser",
+        ["idUser" => $idUser]);
+    }
+    
+    
+    public static function acceptIntoRoom(int $idUser, int $idTarget)
+    {
+        // Retrieve from DB room owner and soon-to-be room owner
+        $usersResults = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
+        FROM users
+        WHERE idUser = :idUser1 OR idUser = :idUser2',
+        ["idUser1" => $idUser, "idUser2" => $idTarget]);
+
+
+        if (count($usersResults) === 2) {
+            // Checks if user is the room owner and confirm room Id
+            if ($usersResults[0]["isRoomOwner"] and $usersResults[0]["idUser"] == $idUser) {
+                $idRoom = $usersResults[0]["idRoom"];
+            } elseif ($usersResults[1]["isRoomOwner"] and $usersResults[1]["idUser"] == $idUser) {
+                $idRoom = $usersResults[1]["idRoom"];
+            } else {
+                // TODO error message ?
+                return;
+            }
+        }
+        
+        // Get the number of user and max users of the room 
+        $roomResults = DB::fetch("SELECT COUNT(*) 'numberOfUsers', rooms.maxMembers
+        FROM users
+            INNER JOIN rooms
+            ON users.idRoom = rooms.idRoom
+        WHERE users.idRoom = :idRoom",
+        ["idRoom" => $idRoom]);
+
+        // Accept the user if room still has space
+        if ($roomResults[0]["numberOfUsers"] < $roomResults[0]["maxMembers"]) {
+            DB::statement("UPDATE users
+            SET users.idRoom = :idRoom
+            WHERE users.idUser = :idTarget",
+            ["idRoom" => $idRoom, "idTarget" => $idTarget]);
+        }
+
+        self::cancelAllRequestToJoinRooms($idTarget);
+    }
 }
 
 

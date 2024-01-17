@@ -349,22 +349,20 @@
                                             <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <form action="" method="POST" class="ms-5">
+                                            <form action="handlers/room-handler.php" method="POST" class="ms-5">
                                                 <input type="text" name="action" value="accept" hidden>
-                                                <input type="text" name="userId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
                                                 <button class="btn lh-buttons-purple">Accepter</button>
                                             </form>
-                                            <form action="" method="POST" class="ms-2">
+                                            <form action="handlers/room-handler.php" method="POST" class="ms-2">
                                                 <input type="text" name="action" value="decline" hidden>
-                                                <input type="text" name="userId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
                                                 <button class="btn lh-buttons-red">X</button>
                                             </form>
                                         </div>
                                     </article>
-                                    <!-- <div class="divider"></div> -->
                                 <?php endforeach; ?>
                             </div>
-                            <?php unset($darkBackground); ?>
                         <?php else: ?>
                             <?php if(count($currentHub->pendingRoomsList) > 0): ?>
                                 <div class="row row-cols-1 row-cols-lg-4 g-3">
