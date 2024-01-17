@@ -21,7 +21,7 @@
         <?php require_once base_path("view/admin/components/nav_admin.php") ?>
 
         <section id="dashboard-welcome" class="bg-color-purple-faded ms-lg-5 text-center text-lg-start">
-            <p class="nav-dashboard-title ps-lg-3 my-4 py-4">Accueil</p>
+            <p class="nav-dashboard-title ps-lg-3 my-4 py-4 reconstruct">Accueil</p>
             <hr class="d-lg-none mx-3">
             <ul class="list-unstyled d-lg-flex">
                 <div>

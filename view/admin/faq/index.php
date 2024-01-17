@@ -23,9 +23,9 @@
 
 <section id="dashboard-faq" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start">
 
-    <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-        <h2 class="p-2 bd-highlight">FAQ</h2>
-        <div class="p-2 bd-highlight">
+    <div class="d-flex bd-highlight justify-content-between ">
+        <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Faq</h2>
+        <div class="nav-dashboard-title px-lg-3 my-4 py-4">
             <form action="game_edit.php" method="GET">
                 <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
             </form>
@@ -33,7 +33,7 @@
     </div>
 
 
-    <table class="table bg-color-purple-faded ">
+    <table class="table  ">
         <thead class="">
         <tr>
             <th scope="col">Question</th>

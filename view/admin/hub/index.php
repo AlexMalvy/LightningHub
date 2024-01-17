@@ -23,8 +23,8 @@
     <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
 
     <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-        <h2 class="p-2 bd-highlight">SALONS</h2>
-        <div class="p-2 bd-highlight">
+        <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Salons</h2>
+        <div class="nav-dashboard-title px-lg-3 my-4 py-4">
             <form action="hub_create.php" method="GET">
             <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
             </form>

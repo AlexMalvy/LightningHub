@@ -24,8 +24,8 @@
     <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
 
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-            <h2 class="p-2 bd-highlight">JEUX</h2>
-            <div class="p-2 bd-highlight">
+            <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Jeux</h2>
+            <div class="nav-dashboard-title px-lg-3 my-4 py-4">
                 <form action="game_edit.php" method="GET">
                     <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
                 </form>
