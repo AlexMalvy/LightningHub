@@ -24,7 +24,12 @@ class RoomsController
         $idUser = $_SESSION["user"];
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
-        $maxMembers = intval($_POST["room_number_player"] ?: 5);
+
+        $maxMembers = intval($_POST["room_number_player"]);
+        if ($maxMembers <= 1 or $maxMembers > 10) {
+            $maxMembers = 5;
+        }
+        
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
         $gamemodeId = intval($_POST["room_game_type_id"]);
@@ -68,7 +73,12 @@ class RoomsController
 
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
-        $maxMembers = intval($_POST["room_number_player"] ?: 5);
+
+        $maxMembers = intval($_POST["room_number_player"]);
+        if ($maxMembers <= 1 or $maxMembers > 10) {
+            $maxMembers = 5;
+        }
+
         $gamemodeId = intval($_POST["room_game_type_id"]);
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
