@@ -1,6 +1,11 @@
 // Diplay or hide the list of disconnected users
+
+const listDisconnected = document.querySelector('#list-disconnected');
+const principalRow = document.querySelector('#principal');
+const flexSwitchCheckDefault = document.querySelector('#flexSwitchCheckDefault');
+
+flexSwitchCheckDefault.addEventListener('click', displayDisconnected);
 function displayDisconnected(){
-    const listDisconnected = document.querySelector('#list-disconnected');
     if (listDisconnected.classList.contains('d-none')){
         listDisconnected.classList.remove('d-none');
     }
@@ -9,7 +14,19 @@ function displayDisconnected(){
     }
 }
 
+principalRow.addEventListener('click', function(event){
+    if (event.target.classList.contains('delete'))  {
+        const idToDelete = document.querySelector('#idToDelete');
+        idToDelete.value = event.target.dataset.id;
+    }
+})
+
+
+
 // Copy the id
+const copy = document.querySelector('#copy');
+copy.addEventListener('click', copyId);
+
 function copyId(){
 
     const textToCopy = document.querySelector('#myProfile');
@@ -75,23 +92,32 @@ function findUser(){
 
 }
 
-const listDisconnectedFriends = document.querySelector('#list-disconnected');
-listDisconnectedFriends.addEventListener("click", function (event) {
-
-    if(event.target.classList.contains("delete-friend")) {
-        const aaa = document.querySelector('#mod');
-        const ism = document.forms.ism;
-        //console.log(ism.id.value);
-
-        const mod = document.querySelector('#mod');
-
-        const form_mod = document.forms.modal;
-        mod.value = ism.id.value;
-
-
-        console.log(document.querySelector('#mod').value);
-
-
-
+const btnChangeTab = document.querySelector('.tabs');
+btnChangeTab.addEventListener('click', function(e){
+    if (e.target.classList.contains('change-tab')){
+        changerOnglet(e.target.dataset.id);
     }
-});
+})
+
+function changerOnglet(numeroOnglet) {
+    // Mettre à jour l'onglet actif
+    document.getElementById('myTab').querySelector('.active').classList.remove('active');
+    document.getElementById('myTab').querySelectorAll('.nav-item')[numeroOnglet - 1].querySelector('.nav-link').classList.add('active');
+
+    // Mettre à jour le contenu de l'onglet côté client
+    document.querySelector('.tab-content').querySelector('.active').classList.remove('show', 'active');
+    document.querySelector('.tab-content').querySelectorAll('.tab-pane')[numeroOnglet - 1].classList.add('show', 'active');
+
+    return fetch("mettre_a_jour_onglet.p    hp?onglet=" + numeroOnglet)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur lors de la requête AJAX");
+            }
+            return response.text();
+        })
+        .catch(error => {
+            // La requête a échoué
+            console.error("Erreur :", error);
+        });
+
+}
