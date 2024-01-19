@@ -19,7 +19,17 @@ class Hub
             $filtersString .= " AND (rooms.title LIKE '%" . strip_tags($search)."%' OR rooms.description LIKE '%".$search."%')";
         }
         
-        $preparedQuery = "SELECT rooms.idRoom, rooms.title, rooms.description, rooms.maxMembers, rooms.dateCreation, games.idGame, games.nameGame, games.tag, gamemodes.idGamemode, gamemodes.nameGamemode
+        $preparedQuery = "SELECT 
+        rooms.idRoom, 
+        rooms.title, 
+        rooms.description, 
+        rooms.maxMembers, 
+        rooms.dateCreation, 
+        games.idGame, 
+        games.nameGame, 
+        games.tag, 
+        gamemodes.idGamemode, 
+        gamemodes.nameGamemode
         FROM rooms
             INNER JOIN gamemodes
             ON rooms.idGamemode = gamemodes.idGamemode
@@ -32,7 +42,17 @@ class Hub
 
         $this->allRoomsList = [];
         foreach($roomQuery as $room) {
-            $roomObj = new Room($room["idRoom"], $room["title"], $room["description"], $room["maxMembers"], $room["dateCreation"], $room["idGame"], $room["nameGame"], $room["tag"], $room["idGamemode"], $room["nameGamemode"]);
+            $roomObj = new Room(
+                $room["idRoom"], 
+                $room["title"], 
+                $room["description"], 
+                $room["maxMembers"], 
+                $room["dateCreation"], 
+                $room["idGame"], 
+                $room["nameGame"], 
+                $room["tag"], 
+                $room["idGamemode"], 
+                $room["nameGamemode"]);
             array_push($this->allRoomsList, $roomObj);
         }
 
@@ -48,6 +68,7 @@ class Hub
                     $this->userIsOwner = false;
                 }
                 $this->connectedUserRoom->getConnectedUserRoomMembers();
+                $this->connectedUserRoom->getRoomMessages();
             }
         }
     }
@@ -64,7 +85,8 @@ class Hub
     {
         $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
         FROM isfriend
-        WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", ["connectedUserId" => $userId]);
+        WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", 
+        ["connectedUserId" => $userId]);
 
         $tempFriendList = [];
         foreach ($result as $line) {
@@ -90,7 +112,17 @@ class Hub
         ["idUser" => $userId]);
 
         if ($result[0]["idRoom"] != NULL) {
-            $roomQuery = DB::fetch("SELECT rooms.idRoom, rooms.title, rooms.description, rooms.maxMembers, rooms.dateCreation, games.idGame, games.nameGame, games.tag, gamemodes.idGamemode, gamemodes.nameGamemode
+            $roomQuery = DB::fetch("SELECT 
+            rooms.idRoom, 
+            rooms.title, 
+            rooms.description, 
+            rooms.maxMembers, 
+            rooms.dateCreation, 
+            games.idGame, 
+            games.nameGame, 
+            games.tag, 
+            gamemodes.idGamemode, 
+            gamemodes.nameGamemode
             FROM rooms
                 INNER JOIN gamemodes
                 ON rooms.idGamemode = gamemodes.idGamemode
@@ -102,7 +134,17 @@ class Hub
 
             $room = $roomQuery[0];
             
-            $roomObj = new Room($room["idRoom"], $room["title"], $room["description"], $room["maxMembers"], $room["dateCreation"], $room["idGame"], $room["nameGame"], $room["tag"], $room["idGamemode"], $room["nameGamemode"]);
+            $roomObj = new Room(
+                $room["idRoom"], 
+                $room["title"], 
+                $room["description"], 
+                $room["maxMembers"], 
+                $room["dateCreation"], 
+                $room["idGame"], 
+                $room["nameGame"], 
+                $room["tag"], 
+                $room["idGamemode"], 
+                $room["nameGamemode"]);
 
             return $roomObj;
         } else {
