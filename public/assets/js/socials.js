@@ -74,3 +74,24 @@ function findUser(){
 
 
 }
+
+const listDisconnectedFriends = document.querySelector('#list-disconnected');
+listDisconnectedFriends.addEventListener("click", function (event) {
+
+    if(event.target.classList.contains("delete-friend")) {
+        const aaa = document.querySelector('#mod');
+        const ism = document.forms.ism;
+        //console.log(ism.id.value);
+
+        const mod = document.querySelector('#mod');
+
+        const form_mod = document.forms.modal;
+        mod.value = ism.id.value;
+
+
+        console.log(document.querySelector('#mod').value);
+
+
+
+    }
+});

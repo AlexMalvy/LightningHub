@@ -205,19 +205,22 @@
                                         </form>
                                     </div>
                                 </div>
+                                    <?php
+                                }
 
+                                ?>
                                     <!-- Delete Friend Modal -->
-                                    <div class="modal fade" id="deleteFriendModal<?php echo $friend->getId()?>"
+                                    <div class="modal fade" id="deleteFriendModal"
                                          tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
-                                        <form method="post" action="<?php echo($actionUrlSoc) ?>">
+                                        <form method="post" action="<?php echo($actionUrlSoc)?>" name="modal">
                                             <input type="text" name="action" value="delete" hidden>
-                                            <input type="text" name="id" value="<?php echo($friend->getId()) ?>" hidden>
+                                            <input id="mod" type="text" name="id" value="<?php // echo($friend->getId()) ?>" hidden>
 
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-color-purple rounded-0">
                                                         <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
-                                                        Supprimer <?php echo $friend->getUsername() . "#" . $friend->getId()?></h5>
+                                                        Supprimer <?php //echo $friend->getUsername() . "#" . $friend->getId()?></h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
@@ -232,10 +235,7 @@
                                         </form>
                                     </div>
 
-                           <?php
-                                }
 
-                                ?>
 
 
 
@@ -262,8 +262,10 @@
 
                                 foreach ($friendsDisconnected as $friendDisconnected){
                                     ?>
-
+                                    <form name="ism">
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+                                        <input type="text" name="id" value="<?php echo($friendDisconnected->getId()) ?>" hidden>
+
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
                                             <img class="me-2 avatar-50x50" src="assets/images/<?php echo
@@ -275,11 +277,12 @@
                                         $friendDisconnected->getId()?>" aria-controls="offcanvasBottom">
                                             <img class="icon-20x20" src="assets/images/message-solid-white.svg"
                                                  alt="message icon"></a>
-                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight"
-                                           data-bs-toggle="modal" data-bs-target="#deleteFriendModal<?php echo $friendDisconnected->getId()?>">
-                                            <img class="icon-20x20" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
+                                        <a href="#" class="p-2 flex-shrink-1 bd-highlight "
+                                           data-bs-toggle="modal" data-bs-target="#adeleteFriendModal">
+                                            <img class="icon-20x20 delete-friend" src="assets/images/user-minus-solid-white.svg" alt="delete icon"></a>
 
                                     </li>
+                                    </form>
                                     <?php
                                 }
                             }?>
