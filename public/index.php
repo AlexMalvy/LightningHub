@@ -17,6 +17,8 @@
     require_once(__DIR__."/../bootstrap/app.php");
 
     $games = new Games();
+
+    $current_user = Auth::getCurrentUser();
     ?>
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
 

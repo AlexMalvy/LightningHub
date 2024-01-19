@@ -38,7 +38,8 @@
                 </a>
             </div>
 
-            <!-- Hub link -->
+            <?php if ($current_user['isAdmin'] === 1) { ?>
+            <!-- Hub Dashboard link -->
             <div class="col-3 col-lg-auto">
                 <a href="admin/index.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                     <div class="d-flex justify-content-center">
@@ -47,7 +48,8 @@
                     <p class="m-0 text-center">Dashboard</p>
                 </a>
             </div>
-
+            <?php
+            } ?>
             <!-- Hub link -->
             <div class="col-3 col-lg-auto">
                 <a href="hub.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
@@ -57,7 +59,7 @@
                     <p class="m-0 text-center">Hub</p>
                 </a>
             </div>
-            
+
             <!-- Socials link -->
             <div class="col-3 col-lg-auto">
                 <a href="socials.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
