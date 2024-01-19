@@ -6,16 +6,29 @@ use DB;
 
 class Hub
 {
-    public function __construct(int $connectedUserId = NULL)
+    public function __construct(int $connectedUserId = NULL, string $gameName = NULL, string $gamemodeName = NULL, string $search = NULL)
     {
-        $roomQuery = DB::fetch("SELECT rooms.idRoom, rooms.title, rooms.description, rooms.maxMembers, rooms.dateCreation, games.idGame, games.nameGame, games.tag, gamemodes.idGamemode, gamemodes.nameGamemode
+        $filtersString = "";
+        if (!empty($gameName)) {
+            $filtersString .= " AND games.nameGame = '" . strip_tags($gameName)."'";
+        }
+        if (!empty($gamemodeName)) {
+            $filtersString .= " AND gamemodes.nameGamemode = '" . strip_tags($gamemodeName)."'";
+        }
+        if (!empty($search)) {
+            $filtersString .= " AND (rooms.title LIKE '%" . strip_tags($search)."%' OR rooms.description LIKE '%".$search."%')";
+        }
+        
+        $preparedQuery = "SELECT rooms.idRoom, rooms.title, rooms.description, rooms.maxMembers, rooms.dateCreation, games.idGame, games.nameGame, games.tag, gamemodes.idGamemode, gamemodes.nameGamemode
         FROM rooms
             INNER JOIN gamemodes
             ON rooms.idGamemode = gamemodes.idGamemode
                 INNER JOIN games
                 ON gamemodes.idGame = games.idGame
-        WHERE rooms.isEnabled = 1
-        ORDER BY rooms.idRoom ASC");
+        WHERE rooms.isEnabled = 1 ".$filtersString
+        ." ORDER BY rooms.idRoom ASC";
+
+        $roomQuery = DB::fetch($preparedQuery);
 
         $this->allRoomsList = [];
         foreach($roomQuery as $room) {
@@ -25,7 +38,7 @@ class Hub
 
         if ($connectedUserId) {
             $this->getFriendRooms($connectedUserId);
-            $this->getConnectedUserRoom($connectedUserId);
+            $this->connectedUserRoom = $this->getConnectedUserRoom($connectedUserId);
             $this->getPendingRoomList($connectedUserId);
             if (!empty($this->connectedUserRoom)) {
                 if ($connectedUserId === $this->connectedUserRoom->ownerId) {
@@ -34,7 +47,6 @@ class Hub
                 } else {
                     $this->userIsOwner = false;
                 }
-                // $this->userIsOwner = ($connectedUserId === $this->connectedUserRoom->ownerId) ? true : false;
             }
         }
     }
@@ -43,7 +55,7 @@ class Hub
     public array $friendRoomsList;
     public array $pendingRoomsIdList = [];
     public array $pendingRoomsList = [];
-    public Room $connectedUserRoom;
+    public Room|NULL $connectedUserRoom;
     public bool $userIsOwner = false;
     public array $usersRequestingToJoin = [];
     
@@ -71,13 +83,31 @@ class Hub
 
     protected function getConnectedUserRoom(int $userId)
     {
-        foreach ($this->allRoomsList as $room) {
-            foreach ($room->members as $member) {
-                if ($member["idUser"] === $userId) {
-                    $this->connectedUserRoom = $room;
-                }
-            }
+        $result = DB::fetch("SELECT users.idRoom
+        FROM users
+        WHERE users.idUser = :idUser",
+        ["idUser" => $userId]);
+
+        if ($result[0]["idRoom"] != NULL) {
+            $roomQuery = DB::fetch("SELECT rooms.idRoom, rooms.title, rooms.description, rooms.maxMembers, rooms.dateCreation, games.idGame, games.nameGame, games.tag, gamemodes.idGamemode, gamemodes.nameGamemode
+            FROM rooms
+                INNER JOIN gamemodes
+                ON rooms.idGamemode = gamemodes.idGamemode
+                    INNER JOIN games
+                    ON gamemodes.idGame = games.idGame
+            WHERE rooms.isEnabled = 1 AND rooms.idRoom = :idRoom
+            ORDER BY rooms.idRoom ASC",
+            ["idRoom" => $result[0]["idRoom"]]);
+
+            $room = $roomQuery[0];
+            
+            $roomObj = new Room($room["idRoom"], $room["title"], $room["description"], $room["maxMembers"], $room["dateCreation"], $room["idGame"], $room["nameGame"], $room["tag"], $room["idGamemode"], $room["nameGamemode"]);
+
+            return $roomObj;
+        } else {
+            return NULL;
         }
+        
     }
 
     protected function getPendingRoomList(int $userId) {

@@ -163,6 +163,34 @@ const modifyRoomGamemode = document.querySelector("#game_type_update_room");
 //     }
 // }
 
+function loadGamemodeOptionsFilters(game_element, gamemode_element) {
+    const filterOptionGamemode = gamemode_element.querySelectorAll("option");
+    filterOptionGamemode.forEach(option => {
+        option.remove();
+    });
+    
+    let html_option = document.createElement("option");
+    html_option.setAttribute("value", "");
+    let inner_html = document.createTextNode("Tout");
+    html_option.appendChild(inner_html);
+    gamemode_element.appendChild(html_option);
+
+    for (let gameId in gamemodes) {
+        for (let gameName in gamemodes[gameId]) {
+            if (game_element.value == gameName) {
+                for (let gamemodeId in gamemodes[gameId][gameName]) {
+                    let html_option = document.createElement("option");
+                    html_option.setAttribute("value", gamemodes[gameId][gameName][gamemodeId]);
+                    html_option.setAttribute("gamemode_id", [gamemodeId]);
+                    let inner_html = document.createTextNode(gamemodes[gameId][gameName][gamemodeId]);
+                    html_option.appendChild(inner_html);
+                    gamemode_element.appendChild(html_option);
+                }
+            }
+        }
+    }
+}
+
 function loadGamemodeOptions(game_element, gamemode_element) {
     const filterOptionGamemode = gamemode_element.querySelectorAll("option");
     filterOptionGamemode.forEach(option => {
@@ -186,7 +214,7 @@ function loadGamemodeOptions(game_element, gamemode_element) {
 }
 
 filterGame.addEventListener("change", () => {
-    loadGamemodeOptions(filterGame, filterGamemode);
+    loadGamemodeOptionsFilters(filterGame, filterGamemode);
 });
 
 if (createNewRoomGame) {
@@ -238,11 +266,11 @@ const updateRoomForm = document.forms["update_room"];
 
 // console.log(filtersForm["game_type"].getAttribute("gamemode_id"));
 
-if (filtersForm) {
-    filtersForm.addEventListener("submit", () => {
-        changeValueToGamemodeId(filtersForm["room_game_type"], filtersForm["room_game_type_id"]);
-    })
-}
+// if (filtersForm) {
+//     filtersForm.addEventListener("submit", () => {
+//         changeValueToGamemodeId(filtersForm["room_game_type"], filtersForm["room_game_type_id"]);
+//     })
+// }
 
 if (createRoomForm) {
     createRoomForm.addEventListener("submit", () => {
@@ -255,7 +283,3 @@ if (updateRoomForm) {
         changeValueToGamemodeId(updateRoomForm["room_game_type"], updateRoomForm["room_game_type_id"]);
     })
 }
-
-// updateRoomForm.addEventListener("submit", () => {
-//     changeValueToGamemodeId()
-// })
