@@ -47,6 +47,7 @@ class Hub
                 } else {
                     $this->userIsOwner = false;
                 }
+                $this->connectedUserRoom->getConnectedUserRoomMembers();
             }
         }
     }

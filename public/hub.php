@@ -18,7 +18,7 @@
     require_once(__DIR__."/../bootstrap/app.php")
     ?>
     
-    <?php require_once(__DIR__."/../view/header_nav.php") ?>
+    <?php // require_once(__DIR__."/../view/header_nav.php") ?>
     
     <?php
     if (empty($_SESSION["user"])) {
@@ -521,8 +521,8 @@
                                 <div>
                                     <h4>Chef :</h4>
                                     <div>
-                                        <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                        <span class="ms-1"><?php print($currentHub->connectedUserRoom->owner) ?></span>
+                                        <img src="<?php print($currentHub->connectedUserRoom->owner->getProfilePicture()) ?>" alt="profile picture" class="avatar-50x50">
+                                        <span class="ms-1"><?php print($currentHub->connectedUserRoom->owner->getUserName()."#".$currentHub->connectedUserRoom->ownerId) ?></span>
                                     </div>
                                 </div>
 
@@ -531,21 +531,21 @@
                                     <h4 class="mb-0">Equipe :</h4>
 
                                     <?php foreach($currentHub->connectedUserRoom->members as $member): ?>
-                                        <?php if ($member["idUser"] !== $currentHub->connectedUserRoom->ownerId): ?>
+                                        <?php if ($member->getId() !== $currentHub->connectedUserRoom->ownerId): ?>
                                             <div class="d-flex align-items-center gap-2">
-                                                <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-                                                <span class="ms-1"><?php print($member["username"]) ?></span>
+                                                <img src="<?php print($member->getProfilePicture()) ?>" alt="profile picture" class="avatar-50x50">
+                                                <span class="ms-1"><?php print($member->getUserName()."#".$member->getId()) ?></span>
                                                 <?php if($_SESSION["user"] === $currentHub->connectedUserRoom->ownerId): ?>
                                                     <form action="handlers/room-handler.php" method="POST" class="ms-auto">
                                                         <input type="text" name="action" value="promote" hidden>
-                                                        <input type="text" name="targetId" value="<?php print($member["idUser"]) ?>" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($member->getId()) ?>" hidden>
                                                         <button class="btn hover-accent focus-accent px-1">
                                                             <img src="assets/images/crown-solid.png" alt="Promouvoir en tant que chef">
                                                         </button>
                                                     </form>
                                                     <form action="handlers/room-handler.php" method="POST">
                                                         <input type="text" name="action" value="kick" hidden>
-                                                        <input type="text" name="targetId" value="<?php print($member["idUser"]) ?>" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($member->getId()) ?>" hidden>
                                                         <button class="btn hover-accent focus-accent px-1">
                                                             <img src="assets/images/user-minus-solid.png" alt="Renvoyer du salon">
                                                         </button>

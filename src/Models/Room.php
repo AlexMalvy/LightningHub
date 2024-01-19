@@ -37,8 +37,8 @@ class Room
     public int $gamemodeId;
     public string $gamemode;
 
-    public array $members;
-    public string $owner;
+    public array $members = [];
+    public User|string $owner;
     public int $ownerId;
 
     public array $friendList = [];
@@ -58,6 +58,27 @@ class Room
                 $this->owner = $member["username"];
                 $this->ownerId = $member["idUser"];
             }
+        }
+    }
+    
+    // Construct Get Room Members
+    public function getConnectedUserRoomMembers()
+    {
+        $allMembers = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner, users.profilePicture
+        FROM rooms
+            INNER JOIN users
+            ON rooms.idRoom = users.idRoom
+        WHERE users.idRoom = :currentRoom
+        ORDER BY users.isRoomOwner DESC", ["currentRoom" => $this->roomId]);
+
+        $this->members = [];
+        foreach ($allMembers as $member) {
+            $user = User::hydrate($member);
+            if ($member["isRoomOwner"] === 1) {
+                $this->owner = $user;
+                $this->ownerId = $member["idUser"];
+            }
+            array_push($this->members, $user);
         }
     }
 
