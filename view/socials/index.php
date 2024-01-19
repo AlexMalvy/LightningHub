@@ -41,9 +41,9 @@
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
                         <img id="" class="mx-2 avatar-50x50" src="/assets/images/<?php echo
-                         $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
+                        $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
                         <span id="myProfile"><?php echo $currentUser['username'] . "#" .
-                             $currentUser['idUser'];?></span>
+                                $currentUser['idUser'];?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
@@ -107,9 +107,9 @@
                                 echo "<div class='p-5 bg-color-purple-faded'>Vous n'avez aucun ami connecté !</div>";
                             } else {
 
-                                 foreach ($friendsConnected as $friendConnected) {
+                                foreach ($friendsConnected as $friendConnected) {
 
-                                     ?>
+                                    ?>
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
@@ -131,14 +131,14 @@
 
 
 
-                                 <?php }
+                                <?php }
                             }
-                                 ?>
+                            ?>
 
-                                <?php
+                            <?php
 
-                                foreach ($friends as $friend){?>
-                                     <!-- Offcanvas of a conversation-->
+                            foreach ($friends as $friend){?>
+                                <!-- Offcanvas of a conversation-->
                                 <div class="offcanvas offcanvas-bottom h-75 col-lg-6 md-col-5" tabindex="-1" id="offcanvasBottom<?php echo($friend->getId())?>" aria-labelledby="offcanvasBottomLabel">
                                     <header class="offcanvas-header bg-color-purple">
                                         <h5 id="offcanvasBottomLabel"><?php echo($friend->getUsername() . "#" . $friend->getId())?></h5>
@@ -155,7 +155,7 @@
 
 
                                             if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUser['idUser']) {
-                                            ?>
+                                                ?>
 
                                                 <article class="col message">
                                                     <img src="assets/images/<?php echo($tabUsers[$i]->getProfilePicture())?>" alt="profile picture" class="avatar-50x50">
@@ -184,7 +184,7 @@
                                                 </article>
 
 
-                                               <?php }
+                                            <?php }
                                         }
                                         ?>
                                         <!-- User message input -->
@@ -207,39 +207,39 @@
                                         </form>
                                     </div>
                                 </div>
-                                    <?php
-                                }
+                                <?php
+                            }
 
-                                ?>
-                                    <!-- Delete Friend Modal -->
-                                    <div class="modal fade" id="deleteFriendModal"
-                                         tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
-                                        <form class="form" method="post" action="<?php echo($actionUrlSoc) ?>" name="modal">
-                                            <input type="text" name="action" value="delete" hidden>
-                                            <input type="text" id="idToDelete"  name="id" hidden>
+                            ?>
+                            <!-- Delete Friend Modal -->
+                            <div class="modal fade" id="deleteFriendModal"
+                                 tabindex="-1" aria-labelledby="deleteFriendModalLabel" aria-hidden="true">
+                                <form class="form" method="post" action="<?php echo($actionUrlSoc) ?>" name="modal">
+                                    <input type="text" name="action" value="delete" hidden>
+                                    <input type="text" id="idToDelete"  name="id" hidden>
 
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-color-purple rounded-0">
-                                                        <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
-                                                        Supprimer </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>Êtes-vous sûr de vouloir supprimer cet ami ?</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Annuler</button>
-                                                        <button type="submit" class="btn lh-buttons-red">Supprimer</button>
-                                                    </div>
-                                                </div>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-color-purple rounded-0">
+                                                <h5 class="modal-title fs-5" id="deleteFriendModalLabel">
+                                                    Supprimer </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                        </form>
+                                            <div class="modal-body">
+                                                <p>Êtes-vous sûr de vouloir supprimer cet ami ?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Annuler</button>
+                                                <button type="submit" class="btn lh-buttons-red">Supprimer</button>
+                                            </div>
+                                        </div>
                                     </div>
+                                </form>
+                            </div>
                         </ul>
                         <!-- List of disconnected friends -->
 
-                                <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
+                        <div class="flex-fill divider"></div> <!-- Divider between connected and disconnected
                             friends -->
 
                         <ul  id="list-disconnected" class="list-group list-group-flush p-0 d-none">
@@ -297,20 +297,20 @@
 
                                     <input type="text" name="id" value="<?php echo($request->getId()) ?>" hidden>
 
-                                <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
+                                    <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
-                                    <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
-                                        <img class="me-2 avatar-50x50" src="assets/images/<?php echo
-                                        $request->getProfilePicture()?>" alt="player avatar-70x70"><?php echo
-                                        $request->getUsername() . "#" . $request->getId()?></a>
-                                    <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                        <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
-                                    <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
-                                        <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
+                                        <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
+                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            $request->getProfilePicture()?>" alt="player avatar-70x70"><?php echo
+                                                $request->getUsername() . "#" . $request->getId()?></a>
+                                        <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                            <img class="icon-20x20" src="assets/images/check-solid-green.svg" alt="acceptance icon"></button>
+                                        <button type="submit" name="action" value="delete" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
+                                            <img class="icon-20x20" src="assets/images/xmark-solid-red.svg" alt="refusal icon"></button>
 
 
 
-                                </li>
+                                    </li>
                                 </form>
                             <?php }
                         }?>

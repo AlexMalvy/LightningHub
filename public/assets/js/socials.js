@@ -121,7 +121,3 @@ function changerOnglet(numeroOnglet) {
         });
 
 }
-
-
-
-

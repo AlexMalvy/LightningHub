@@ -124,6 +124,10 @@ class SocialsController
     // TODO : ne pas pouvoir cliquer sur le pseeudo quand on clique sur user deco
 
 
+    /**
+     * function which will delete a friend from an id received in post method
+     * @return void
+     */
     public function delete()
     {
         $idUser = $_POST['id'] ?? null;
@@ -169,7 +173,12 @@ class SocialsController
     }
 
 
-    public function getConnectedFriends()
+    /**
+     * to obtain the list of connected friends of the current user
+     *
+     * @return array
+     */
+    public function getConnectedFriends() : array
     {
         $friendsID = $this->getFriendsId();
         $friendsConnected = DB::fetch(
@@ -189,8 +198,11 @@ class SocialsController
         return $friendsConnected;
     }
 
-
-    public function getDisconnectedFriends()
+    /**
+     * to obtain the list of disconnected friends of the current user
+     * @return array
+     */
+    public function getDisconnectedFriends() : array
     {
 
         $friendsID = $this->getFriendsId();
@@ -211,7 +223,11 @@ class SocialsController
         return $friendsDisconnected;
     }
 
-    public function getFriendRequests()
+    /**
+     * to get the list of add requests
+     * @return array
+     */
+    public function getFriendRequests() : array
     {
         $userId = Auth::getSessionUserId();
         //$userId = 1;
@@ -234,10 +250,14 @@ class SocialsController
         return $requests;
     }
 
+    /**
+     * to obtain the list of IDs of the current user's connected friends, in order to search this list.
+     * This is transformed into a string
+     * @return string
+     */
     public static function getFriendsId(): string
     {
         $userId = Auth::getSessionUserId();
-        //$userId = 1;
 
         $friendsId = DB::fetch(
         // SQL
@@ -266,10 +286,13 @@ class SocialsController
         return "'" . implode("', '", $tempFriendList) . "'";
     }
 
+    /**
+     * to get the ids of all friend requests accepted or not
+     * @return string
+     */
     public static function getFriendsAndRequestsId(): string
     {
         $userId = Auth::getSessionUserId();
-        //$userId = 1;
 
         $friendsId = DB::fetch(
         // SQL
@@ -298,8 +321,11 @@ class SocialsController
     }
 
 
-
-    public function getFriends()
+    /**
+     * to get all friend list
+     * @return array
+     */
+    public function getFriends() : array
     {
         $friendsID = $this->getFriendsId();
         $friends = DB::fetch(
@@ -315,7 +341,11 @@ class SocialsController
         return $friends;
     }
 
-    public function getNonFriends()
+    /**
+     * to retrieve all users who are not friends of the current user
+     * @return array
+     */
+    public function getNonFriends() : array
     {
         $userId = Auth::getSessionUserId();
 
@@ -337,8 +367,11 @@ class SocialsController
     }
 
 
-
-    public function update()
+    /**
+     * to accept the friend request
+     * @return void
+     */
+    public function update(): void
     {
         $id = $_POST['id'] ?? null;
         $social = $this->getSocialByFriend($id);
@@ -358,6 +391,10 @@ class SocialsController
         // redirectAndExit(self::URL_EDIT.'?id='.$social->getId());
     }
 
+    /**
+     * to obtain the list of concatenated names of users who are not friends of the current user
+     * @return string
+     */
     public function getNonFriendsNames(): string
     {
         //$users = $this->getUsers();
@@ -371,7 +408,11 @@ class SocialsController
     }
 
 
-
+    /**
+     * hydration function on a list of users
+     * @param array $requests
+     * @return array
+     */
     public function hydrateUsers (array $requests){ // TODO a deplacer dans USERController
         foreach ($requests as $key => $request) {
             $requests[$key] = User::hydrate($request);
