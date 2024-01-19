@@ -446,7 +446,7 @@
                             <div class="col d-flex flex-column" id="chat-window">
                                 <!-- Room Options/Members -->
                                 <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
-                                    <span>#Salon: <?php print($currentHub->connectedUserRoom->title) ?></span>
+                                    <span>#Salon: <?php print($currentHub->connectedUserRoom->title); ?></span>
                                     <img src="assets/images/pen-solid-20x20.png" alt="modifier le salon/voir les membres">
                                 </button>
 
@@ -455,54 +455,41 @@
                                     <div class="row row-cols-1 px-1 px-md-2 px-xl-3">
                                         <!-- Disclaimer -->
                                         <article class="col disclaimer">
-                                            <p>System : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, delectus.</p>
+                                            <p>System : Soyez gentils.</p>
                                         </article>
 
                                         <!-- All Messages -->
-                                        <article class="col message">
-                                            <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
+                                        <?php foreach($currentHub->connectedUserRoom->chat->allMessages as $message): ?>
+                                            <article class="col message">
+                                                <img src="<?php print($message->user->getProfilePicture()); ?>" alt="profile picture" class="avatar-50x50">
 
-                                            <div class="message-body">
+                                                <div class="message-body">
 
-                                                <div class="message-header">
-                                                    <h2 class="card-title">Random 1</h2>
-                                                    <small>14:46</small>
-                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                    <div class="message-header">
+                                                        <h2 class="card-title"><?php print($message->user->getUserName()); ?></h2>
+                                                        <small><?php print($message->timeMessage->format("H:i")) ?></small>
+                                                        <form action="handlers/roomMessage-handler.php" method="POST" class="ms-auto">
+                                                            <input type="text" name="action" value="report" hidden>
+                                                            <input type="text" name="message_id" value="<?php print($message->idMessage); ?>" hidden>
+                                                            <button class="btn">
+                                                                <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                                            </button>
+                                                        </form>
+                                                    </div>
+
+                                                    <p class="card-text"><?php print($message->message) ?></p>
                                                 </div>
-
-                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, magni.</p>
-                                            </div>
-
-                                        </article>
-                                        <article class="col message">
-                                            <img src="assets/images/the_last_of_us_profile_picture_500x500.png" alt="profile picture" class="avatar-50x50">
-
-                                            <div class="message-body">
-
-                                                <div class="message-header">
-                                                    <h4 class="card-title">Random 2</h4>
-                                                    <small>14:46</small>
-                                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                                </div>
-
-                                                <p class="card-text">Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. CNN was originally created as the "Chuck Norris Network" to update Americans with on-the-spot ass kicking in real-time, Chuck Norris does not get frostbite. Chuck Norris bites frost, In Olde Tribal Celtic language, "Chuck" is the word for "Stone" and "Norris" is the word for "Henge", Chuck Norris is the reason why Waldo is hiding. Chuck Norris doesn't own a stove, water comes to a boil while he watches the pot filling, Chuck Norris doesn't wash his clothes, he disembowels them.
-
-                                                Contrary to popular belief, America is not a democracy, it is a Chucktatorship, Chuck Norris does not get frostbite. Chuck Norris bites frost.
-                                                    
-                                                There is no theory of evolution. Just a list of creatures Chuck Norris has allowed to live Chuck Norris has two speeds. Walk, and Kill. Chuck Norris uses pepper spray to spice up his steaks, Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris can eat a puffer fish whole Chuck Norris taught Yoda what the force was Chuck Norris played baseball once. He went 4 for 3 Chuck Norris uses pepper spray to spice up his steaks Chuck Norris once roundhouse kicked someone so hard that his foot broke the speed of light, went back in time, and killed Amelia Earhart while she was flying over the Pacific Ocean When the Boogeyman goes to sleep every night, he checks his closet for Chuck Norris. Chuck Norris can lead a horse to water AND make it drink The quickest way to a man's heart is with Chuck Norris' fist Chuck Norris' hand is the only hand that can beat a Royal Flush. Chuck Norris doesn't churn butter. He roundhouse kicks the cows and the butter comes straight out. When Chuck Norris does a pushup, he isn't lifting himself up, he's pushing the Earth down.
-                                                    
-                                                The government calls water boarding torture. Chuck calls it a facial. Chuck Norris originally appeared in the "Street Fighter II" video game, but was removed by Beta Testers because every button caused him to do a roundhouse kick. When asked bout this "glitch," Norris replied, "That's no glitch." Chuck Norris has a website, is called the internet. Chuck Norris can strangle you with his tongue, Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth When Chuck Norris plays dodge ball...the balls dodge him Remember the Soviet Union? They decided to quit after watching a DeltaForce marathon on Satellite TV Contrary to popular belief, Chuck Norris, not the box jellyfish of northern Australia, is the most venomous creature on earth. The chief export of Chuck Norris is Pain Chuck Norris doesn't wear a watch. HE decides what time it is Chuck Norris drives an ice cream truck covered in human skulls Chuck Norris can make curtains out of the fabric of time When Chuck Norris sends in his taxes, he sends blank forms and includes only a picture of himself, crouched and ready to attack. Chuck Norris has not had to pay taxes, ever, Contrary to popular belief, America is not a democracy, it is a Chucktatorship.</p>
-                                            </div>
-
-                                        </article>
+                                            </article>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
 
                                 <!-- User Message Input -->
-                                <div class="input-group px-3 mb-2">
-                                    <input type="text" class="input flex-grow-1" placeholder="Message">
+                                <form action="handlers/roomMessage-handler.php" method="POST" class="input-group px-3 mb-2">
+                                    <input type="text" name="action" value="send" hidden>
+                                    <input type="text" name="message" class="input flex-grow-1" maxlength="2000" placeholder="Message" required>
                                     <button class="btn btn-dark border-purple hover-accent focus-accent"><img src="assets/images/paper-plane-solid.png" alt="send button"></button>
-                                </div>
+                                </form>
                             
                             </div>
 

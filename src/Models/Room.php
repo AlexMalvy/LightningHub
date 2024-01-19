@@ -43,6 +43,8 @@ class Room
 
     public array $friendList = [];
 
+    public RoomChat $chat;
+
     // Construct Get Room Members
     protected function getRoomMembersConstruct()
     {
@@ -80,6 +82,11 @@ class Room
             }
             array_push($this->members, $user);
         }
+    }
+
+    public function getRoomMessages()
+    {
+        $this->chat = new RoomChat($this->roomId);
     }
 
     public function getNumberOfFriend(array $allRoomsFriendlist)
