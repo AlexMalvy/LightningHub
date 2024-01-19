@@ -2,12 +2,16 @@
 
 namespace App\Controllers\admin;
 
+use App\Models\Hub;
+
 class RoomsController
 {
     const URL_HANDLER_HUB = '/handlers/hub-handler.php';
 
     public function index()
     {
+        //$hub = new Hub();
+        $hubs = (new Hub())->allRoomsList;
         require_once base_path('view/admin/hub/index.php');
     }
 

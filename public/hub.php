@@ -21,7 +21,8 @@
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
     
     <?php
-    $_SESSION["user"] = 10;
+    //$_SESSION["user"] = 10;
+    $_SESSION["user"] = Auth::getSessionUserId(); // TODO
     if ($_SESSION["user"]) {
         $currentHub = new Hub($_SESSION["user"]);
     } else {

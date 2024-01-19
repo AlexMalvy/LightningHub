@@ -42,11 +42,16 @@
                 </tr>
                 </thead>
                 <tbody class="text-center">
+
+                <?php
+                foreach ($hubs as $hub){
+                ?>
+
                 <tr class="">
-                    <td class="">Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
+                    <td class=""><?php echo $hub->title ?></td>
+                    <td><?php echo $hub->description ?></td>
+                    <td class="text-center"><?php echo $hub->maxMembers ?></td>
+                    <td><?php echo $hub->gameName ?></td>
                     <td class="text-center">
                         <a href="hub_edit.php" id="nav-update-hub">
                             <img src="../assets/images/pen-solid-20x20.png" alt="modifier le salon">
@@ -56,22 +61,9 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
-                    <td class="text-center">
+                <?php
+                } ?>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
-                    <td class="text-center">Ico X</td>
-                </tr>
                 </tbody>
             </table>
         </section>
