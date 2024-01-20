@@ -29,10 +29,16 @@ class FaqController
         require_once base_path('view/admin/faq/index.php');
     }
 
-    public function displayCreateForm()
+    public function displayCreateForm(): void
     {
-
         require_once base_path('view/admin/faq/faq_create.php');
+    }
+
+    public function displayUpdateForm(): void
+    {
+        $faqs = FAQ::getAllFaqList();
+        $faqs = $this->hydrate($faqs);
+        require_once base_path('view/admin/faq/faq_update.php');
     }
 
 
@@ -47,9 +53,9 @@ class FaqController
 
         $faq = new FAQ();
 
-
-        if(!$question and !$answer){
-            $this->hydrate($_POST);
+        if($question and $answer){
+            $faq->setQuestion($question);
+            $faq->setAnswer($answer);
             $faq->save();
         } else {
             $_SESSION['message'] = "Erreur lors de l'enregistrement";
@@ -66,14 +72,17 @@ class FaqController
     public function updateFaq(): void
     {
         // Prepare POST
-        $id =$_GET['idFaq'] ?? '';
+        $id = $_POST['idFaq'] ?? '';
         $question = $_POST['question'] ?? '';
         $answer = $_POST['answer'] ?? '';
 
         $faq = new FAQ();
 
-        if(!$id and !$question and !$answer){
-            $faq->hydrate($_POST);
+        if($id and $question and $answer){
+            $faq->setId($id);
+            $faq->setQuestion($question);
+            $faq->setAnswer($answer);
+
             $faq->update();
         } else {
             $_SESSION['message'] = "Erreur lors de la mise à jour";

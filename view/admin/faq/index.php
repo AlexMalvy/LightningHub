@@ -34,6 +34,26 @@
         </div>
     </div>
 
+
+    <?php if (!empty($_SESSION['message'])): ?>
+        <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header bg-color-purple rounded-0">
+                        <h3 class="modal-title fs-5"><?=$_SESSION['message']?></h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php unset($_SESSION['message']);
+        unset($_SESSION['type']);
+        ?>
+    <?php endif; ?>
+
     <table class="table">
         <thead>
         <tr>
@@ -48,11 +68,11 @@
         <tr>
             <td><?php echo $faq->getQuestion(); ?></td>
             <td><?php echo $faq->getAnswer(); ?></td>
-            <td class="text-center">
-                <a href="faq_create.php?id=<?php echo $faq->getId(); ?>" id="nav-update-hub">
+            <td class="mx-auto">
+                <a href="faq_create.php?id=<?php echo $faq->getId();?>&action=displayUpdateFaq">
                     <img src="../assets/images/pen-solid-20x20.png" alt="modifier la faq">
                 </a>
-                <a href="faq_create.php?idFaq=<?php echo $faq->getId(); ?>" id="nav-update-hub">
+                <a href="faq_create.php?idFaq=<?php echo $faq->getId();?>">
                     <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer la faq">
                 </a>
             </td>
