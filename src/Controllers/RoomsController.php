@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 use App\Models\Filters;
 use App\Models\Room;
+use Auth;
 
 class RoomsController
 {
@@ -102,32 +103,41 @@ class RoomsController
         exit();
     }
 
-    public function delete()
+    public function delete(string $type)
     {
+
         $index = self::URL_INDEX;
+        if ($type == "admin") {
+            $index = '../admin/hub.php';
+        }
+
         if (empty($_SESSION["user"]) or empty($_POST["room_id"])) {
+
             $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
+
         $idUser = $_SESSION["user"];
         $idRoom = intval($_POST["room_id"]);
-        if (!Room::checkUserOwnership($idUser, $idRoom)) {
+        if (Room::checkUserOwnership($idUser, $idRoom) || Auth::getCurrentUser()['isAdmin'] == 1) {
+        // Delete the room in DB
+            Room::deleteRoom($idRoom);
+
+            $_SESSION["message"] = "Le salon a bien été fermer.";
+            $_SESSION["type"] = "success";
+            header("Location: $index");
+            exit();
+        } else {
             $_SESSION["message"] = "Vous n'êtes pas le propiétaire de ce salon.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
             exit();
         }
 
-        // Delete the room in DB
-        Room::deleteRoom($idRoom);
 
-        $_SESSION["message"] = "Le salon a bien été fermer.";
-        $_SESSION["type"] = "success";
-        header("Location: $index");
-        exit();
     }
 
     public function leave()
