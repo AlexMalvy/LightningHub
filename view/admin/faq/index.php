@@ -26,9 +26,10 @@
     <div class="d-flex bd-highlight justify-content-between ">
         <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Faq</h2>
         <div class="nav-dashboard-title px-lg-3 my-4 py-4">
-            <form action="faq_create.php" method="GET">
+            <form action="faq_create.php" method="POST">
                 <input type="text" name="action" value="displayForm" hidden>
-                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer une FAQ</button>
+                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer une FAQ
+                </button>
             </form>
         </div>
     </div>
