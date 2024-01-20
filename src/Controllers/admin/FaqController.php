@@ -32,9 +32,7 @@ class FaqController
     public function displayCreateForm()
     {
 
-        redirectAndExit(self::URL_FAQ_CREATE);
-
-        //require_once base_path('view/admin/faq/faq_create.php');
+        require_once base_path('view/admin/faq/faq_create.php');
     }
 
 

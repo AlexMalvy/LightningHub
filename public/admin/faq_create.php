@@ -13,16 +13,13 @@ if (!empty($_POST['action'])) {
     }elseif ($_POST['action'] === 'createFaq') {
         $controller = new \App\Controllers\admin\FaqController();
         $controller->storeFaq();
+    }elseif ($_POST['action'] === 'displayForm') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->displayCreateForm();
     }
 }
 
 if (!empty($_GET)) {
-
-    if ($_GET['action'] === 'displayForm') {
-        $controller = new \App\Controllers\admin\FaqController();
-        $controller->displayCreateForm();
-    }
-
     $controller = new \App\Controllers\admin\FaqController();
     $controller->deleteFaq();
 }

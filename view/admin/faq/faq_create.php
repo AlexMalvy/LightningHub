@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -20,31 +21,21 @@
 
     <?php require_once base_path('view/admin/components/nav_admin.php'); ?>
 
-
-    <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
+    <section id="dashboard-faq" class="ms-lg-5 text-lg-start col-lg-10">
 
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Créer une faq</h2>
         </div>
 
-        <div class="tab-pane fade show p-1 border bg-color-purple-faded" id="new-room-hub-tab-pane" role="tabpanel"
-             aria-labelledby="new-room-hub-tab" tabindex="0">
-
+        <div class=" bg-color-purple-faded" >
             <div class="py-3">
                 <div class="row-cols-1 px-3">
 
-                    <div class="col">
-                        <h2 class="reconstruct mt-2">Création d'une FAQ</h2>
-                    </div>
-                    <div class="col px-2 px-md-5 px-lg-0 pb-4">
-                        <hr>
-                    </div>
-
                     <!-- New FAQ Form -->
-                    <form action="faq_create.php" method = "POST" class="row py-lg-3">
+                    <form action="faq_create.php" method= "POST" class="row py-lg-3">
                         <input type="text" name="action" value="createFaq" hidden>
                         <!-- Left Side -->
-                        <div class="col-lg-9 offset-lg-2 d-lg-flex flex-column">
+                        <div class="col-lg-9 d-lg-flex flex-column">
                             <div>
                                 <label for="question_faq" class="mb-2">Question</label>
                                 <input type="text" name="question" id="question_faq" maxlength="40" class="input mb-4 w-100" required aria-required="true">
@@ -55,12 +46,11 @@
                                 <textarea name="answer" id="answer_faq" maxlength="100" cols="10" rows="7" class="input mb-4 w-100" required aria-required="true"></textarea>
                             </div>
 
-
                         </div>
 
                         <!-- Buttons -->
-                        <div class="d-lg-flex col-lg-5 offset-lg-4">
-                            <button class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4">Annuler</button>
+                        <div class="d-lg-flex col-lg-5 offset-lg-4 mt-5">
+                            <a class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4" href="faq.php">Annuler</a>
                             <button class="btn w-100 lh-buttons-purple mb-3">Créer une FAQ</button>
                         </div>
 
