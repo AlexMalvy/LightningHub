@@ -14,8 +14,8 @@
       <p class="fs-6">En cliquant sur << J'accepte >>, vous donnez votre consentement à toutes les fins énoncées.</p>
 
       <form action="#" method="POST" class="d-flex mt-3 p-0">
-          <a href="index.php" class="btn lh-buttons-purple-faded me-3" data-bs-dismiss="modal" aria-label="Annuler">Je refuse</a>
-          <button   class="btn lh-buttons-purple" aria-label="Confirmer">J'accepte</button>
+          <button class="btn lh-buttons-purple-faded me-3" data-bs-dismiss="offcanvas"   aria-label="Annuler">Je refuse</button>
+          <button class="btn lh-buttons-purple" data-bs-dismiss="offcanvas"  aria-label="Confirmer">J'accepte</button>
       </form>
   </div>
 </div>
