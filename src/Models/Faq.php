@@ -27,17 +27,28 @@ class Faq
     }
 
 
+    public function selectOne(): int|false
+    {
+        return DB::statement(
+            "SELECT * FROM Faq WHERE idFaq = :id",
+            [
+                'id' =>$this->id,
+            ],
+        );
+
+    }
+
+
     /**
      * Save FAQ
      */
     public function save(): int|false
     {
-
         return DB::statement(
-            "INSERT INTO faq (question, answer) VALUES (:question, :answer)",
+            "INSERT INTO Faq (question, answer) VALUES (:question, :answer)",
             [
                 'question' => $this->question,
-                'answer' => $this->$answer,
+                'answer' => $this->answer,
             ],
         );
     }
@@ -48,7 +59,7 @@ class Faq
     public function update(): int|false
     {
         return DB::statement(
-            "UPDATE faq SET question = :question, answer = :answer WHERE idFaq = :id",
+            "UPDATE Faq SET question = :question, answer = :answer WHERE idFaq = :id",
             [
                 'question' => $this->question,
                 'answer' => $this->answer,

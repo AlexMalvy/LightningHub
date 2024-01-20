@@ -10,9 +10,6 @@ if (!empty($_POST['action'])) {
     }elseif ($_POST['action'] === 'update') {
         $controller = new \App\Controllers\admin\FaqController();
         $controller->updateFaq();
-    }elseif ($_POST['action'] === 'createFaq') {
-        $controller = new \App\Controllers\admin\FaqController();
-        $controller->storeFaq();
     }elseif ($_POST['action'] === 'displayForm') {
         $controller = new \App\Controllers\admin\FaqController();
         $controller->displayCreateForm();
@@ -20,7 +17,13 @@ if (!empty($_POST['action'])) {
 }
 
 if (!empty($_GET)) {
-    $controller = new \App\Controllers\admin\FaqController();
-    $controller->deleteFaq();
-}
 
+    if ($_GET['action'] === 'displayUpdateFaq') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->displayUpdateForm();
+    } else {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->deleteFaq();
+    }
+
+}

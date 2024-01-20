@@ -24,26 +24,31 @@
     <section id="dashboard-faq" class="ms-lg-5 text-lg-start col-lg-10">
 
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
-            <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Créer une faq</h2>
+            <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Modifier une faq</h2>
         </div>
 
         <div class=" bg-color-purple-faded" >
             <div class="py-3">
                 <div class="row-cols-1 px-3">
 
+                    <?php $idToShow = isset($_GET['id']) ? $_GET['id'] : null; ?>
+
+                    <?php foreach ($faqs as $faq):?>
+                        <?php if($faq->getId() == $idToShow): ?>
                     <!-- New FAQ Form -->
-                    <form action="faq_create.php" method= "POST" class="row py-lg-3">
-                        <input type="text" name="action" value="create" hidden>
+                    <form action="faq_create.php" method = "POST" class="row py-lg-3">
+                        <input type="text" name="action" value="update" hidden>
+                        <input type="number" name="idFaq" value="<?php echo $faq->getId(); ?>" hidden>
                         <!-- Left Side -->
                         <div class="col-lg-9 d-lg-flex flex-column">
                             <div>
                                 <label for="question_faq" class="mb-2">Question</label>
-                                <input type="text" name="question" id="question_faq" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                <input type="text" name="question" value="<?php echo $faq->getQuestion(); ?>" id="question_faq" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                             </div>
 
                             <div>
                                 <label for="answer_faq" class="mb-2">Réponse</label>
-                                <textarea name="answer" id="answer_faq" maxlength="100" cols="10" rows="7" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                <textarea name="answer" id="answer" maxlength="100" cols="10" rows="7" class="input mb-4 w-100" required aria-required="true"><?php echo $faq->getAnswer(); ?></textarea>
                             </div>
 
                         </div>
@@ -51,10 +56,11 @@
                         <!-- Buttons -->
                         <div class="d-lg-flex col-lg-5 offset-lg-4 mt-5">
                             <a class="btn w-100 lh-buttons-purple-faded mb-3 me-lg-4" href="faq.php">Annuler</a>
-                            <button class="btn w-100 lh-buttons-purple mb-3">Créer une FAQ</button>
+                            <button class="btn w-100 lh-buttons-purple mb-3">Modifier</button>
                         </div>
-
                     </form>
+                        <?php endif; ?>
+                    <?php endforeach;  ?>
 
                 </div>
             </div>
