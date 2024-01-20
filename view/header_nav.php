@@ -40,16 +40,6 @@
 
             <!-- Hub link -->
             <div class="col-3 col-lg-auto">
-                <a href="admin/index.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
-                    <div class="d-flex justify-content-center">
-                        <img src="assets/images/hub-icon-37x37.png" alt="" class="d-lg-none">
-                    </div>
-                    <p class="m-0 text-center">Dashboard</p>
-                </a>
-            </div>
-
-            <!-- Hub link -->
-            <div class="col-3 col-lg-auto">
                 <a href="hub.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
                     <div class="d-flex justify-content-center">
                         <img src="assets/images/hub-icon-37x37.png" alt="" class="d-lg-none">
@@ -101,6 +91,18 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 
+                        <!-- Dashboard link -->
+                        <li class="dropdown-item">
+                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover hover-accent-outline focus-accent-outline" href="admin/index.php" >
+                                <div>
+                                    <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">
+                                </div>
+                                <p class="m-0 text-center">Dashboard</p>
+                            </a>
+                        </li>
+
+                        <hr>
+
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="account.php">
                                 <div>
@@ -148,9 +150,16 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
+                            <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">
+                        </div>
+                        <a class="nav-link link-light hover-accent-outline focus-accent-outline"  href="admin/index.php" >Dashboard</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
+                        <div>
                             <img src="assets/images/account_icon_37x37.png" alt="">
                         </div>
-                        <a class="nav-link link-light  hover-accent-outline focus-accent-outline" href="account.php">Mon Compte</a>
+                        <a class="nav-link link-light hover-accent-outline focus-accent-outline" href="account.php">Mon Compte</a>
                     </li>
                     <hr>
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">

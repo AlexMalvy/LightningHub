@@ -18,11 +18,13 @@ if (!empty($_POST['action'])) {
     } elseif ($_POST['action'] === 'deleteaccount') {
         $controller = new App\Controllers\UserController();
         $controller->delete();
-    }elseif ($_POST['action'] === 'picture') {
+    } elseif ($_POST['action'] === 'picture') {
         $controller = new App\Controllers\UserController();
         $controller->savePicture();
-    }elseif ($_POST['action'] === 'idGame') {
-        \App\Controllers\PlayGamesController::updateInsGameUserName(intval($_GET['idUser']), intval($_GET['idGame']));
+    } elseif ($_POST['action'] === 'idGameInsert') {
+        \App\Controllers\PlayGamesController::insertInGameUserName(intval($_GET['idUser']), intval($_GET['idGame']));
+    }elseif ($_POST['action'] === 'idGameUpdate') {
+        \App\Controllers\PlayGamesController::updateInGameUserName(intval($_GET['idUser']), intval($_GET['idGame']));
     }elseif ($_POST['action'] === 'updatemail') {
         \App\Controllers\UserController::updateEmail(intval($_GET['idUser']));
     }elseif ($_POST['action'] === 'updateusername') {
