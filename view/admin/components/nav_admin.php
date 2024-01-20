@@ -58,7 +58,7 @@
                         <a id="nav-faq" class="nav-link" href="faq.php"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-5" href="faq_create.php"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>
+                        <a class="nav-link mb-5" href="faq_create.php?action=displayForm"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>
                     </li>
                 </ul>
             </div>

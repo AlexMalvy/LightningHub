@@ -28,7 +28,7 @@
                         <!-- Accordion -->
                         <div class="accordion" id="accordionExample">
 
-                            <?php foreach (App\Controllers\FaqController::class::index() as $key => $item): ?>
+                            <?php foreach (App\Controllers\admin\FaqController::class::home() as $key => $item): ?>
 
                                 <!-- Accordion Item 1 -->
                                 <div class="accordion-item mt-3 rounded-0">

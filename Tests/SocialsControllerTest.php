@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Tests;
 
 use App\Controllers\SocialsController;
 use PHPUnit\Framework\TestCase;

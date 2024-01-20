@@ -7,11 +7,9 @@ use DB;
 class Faq
 {
     protected static array $allFaqList = [];
-    protected  int $id;
-    protected  string $question;
-    protected  string $answer;
-
-
+    protected int $id;
+    protected string $question;
+    protected string $answer;
 
 
     /**
@@ -22,8 +20,9 @@ class Faq
         $faq = new Faq();
 
         $faq->setId($data['idFaq']);
-        $faq->setQuestion($data['question']);
-        $faq->setAnswer($data['answer']);
+        $faq->setQuestion($data['question'] ?? '' );
+        $faq->setAnswer($data['answer'] ?? '');
+
         return $faq;
     }
 
@@ -64,7 +63,7 @@ class Faq
     public function delete(): int|false
     {
         return DB::statement(
-            "DELETE * FROM faq WHERE idFaq = :id",
+            "DELETE FROM faq WHERE idFaq = :id",
             [
                 'id' =>$this->id,
             ],
@@ -72,17 +71,18 @@ class Faq
     }
 
 
-    public  function getId(): int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public  function setId(int $id): void
+    public function setId(int $id): void
     {
+
         $this->id = $id;
     }
 
-    public  function getQuestion(): string
+    public function getQuestion(): string
     {
         return $this->question;
     }

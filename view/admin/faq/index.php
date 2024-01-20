@@ -26,43 +26,40 @@
     <div class="d-flex bd-highlight justify-content-between ">
         <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Faq</h2>
         <div class="nav-dashboard-title px-lg-3 my-4 py-4">
-            <form action="game_edit.php" method="GET">
-                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
+            <form action="faq_create.php" method="GET">
+                <input type="text" name="action" value="displayForm" hidden>
+                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer une FAQ</button>
             </form>
         </div>
     </div>
 
-
-    <table class="table  ">
-        <thead class="">
+    <table class="table">
+        <thead>
         <tr>
             <th scope="col">Question</th>
             <th scope="col">Réponse</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
-        <tbody class="">
+        <tbody>
 
-        <?php ; foreach ($faqs as $faq) {
-            ?>
-        <tr class="">
-            <td class=""><?php echo($faq->getQuestion()); ?></td>
-            <td><?php echo($faq->getAnswer()); ?></td>
+        <?php foreach ($faqs as $faq):?>
+        <tr>
+            <td><?php echo $faq->getQuestion(); ?></td>
+            <td><?php echo $faq->getAnswer(); ?></td>
             <td class="text-center">
-                <a href="hub_edit.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
-                    <img src="../assets/images/pen-solid-20x20.png" alt="modifier le salon">
+                <a href="faq_create.php?id=<?php echo $faq->getId(); ?>" id="nav-update-hub">
+                    <img src="../assets/images/pen-solid-20x20.png" alt="modifier la faq">
                 </a>
-                <a href="hub_delete.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
-                    <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer le salon/">
+                <a href="faq_create.php?idFaq=<?php echo $faq->getId(); ?>" id="nav-update-hub">
+                    <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer la faq">
                 </a>
             </td>
         </tr>
-        <?php }    ?>
+        <?php endforeach;  ?>
 
         </tbody>
     </table>
-
-
 
 </section>
 
