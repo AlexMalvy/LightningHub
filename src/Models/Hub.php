@@ -180,6 +180,26 @@ class Hub
         WHERE requesttojoin.idRoom = :idRoom",
         ["idRoom" => $room->roomId]);
     }
+    
+    public static function RequestToJoinRoomAjax(int $idUser)
+    {
+        $getRoomId = DB::fetch("SELECT users.idRoom, users.isRoomOwner
+        FROM users
+        WHERE users.idUser = :idUser",
+        ["idUser" => $idUser]);
+
+        if ($getRoomId[0]["idRoom"] != NULL and $getRoomId[0]["isRoomOwner"]) {
+            $result = DB::fetch("SELECT users.idUser, users.username, requesttojoin.timeRequest, requesttojoin.idRoom
+            FROM requesttojoin
+                INNER JOIN users
+                ON requesttojoin.idUser = users.idUser
+            WHERE requesttojoin.idRoom = :idRoom",
+            ["idRoom" => $getRoomId[0]["idRoom"]]);
+
+            print(json_encode(["requests" => $result]));
+        }
+        exit();
+    }
 }
 
 
