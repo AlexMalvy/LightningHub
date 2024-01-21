@@ -29,11 +29,17 @@ class FaqController
         require_once base_path('view/admin/faq/index.php');
     }
 
+    /**
+     * Display FAQ create form
+     */
     public function displayCreateForm(): void
     {
         require_once base_path('view/admin/faq/faq_create.php');
     }
 
+    /**
+     * Display FAQ update form
+     */
     public function displayUpdateForm(): void
     {
         $faqs = FAQ::getAllFaqList();

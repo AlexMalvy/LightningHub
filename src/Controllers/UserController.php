@@ -14,7 +14,7 @@ class UserController
     const URL_ACCOUNT = '/account.php';
 
     /**
-     * Display information about user
+     * Display information about one user
      */
     public function index(int $id)
     {
@@ -22,21 +22,18 @@ class UserController
             // SQL
             "SELECT * FROM Users WHERE idUser = :id;", ['id' => $id]);
 
-        // Hydrate user
-        foreach ($users as $key => $value) {
-            $user = new User();
+        return $this->hydrate($users);
 
-            $user->setId($value['idUser']);
-            $user->setUserName($value['username']);
-            $user->setPassword($value['password']);
-            $user->setEMail($value['mail']);
-            $user->setProfilePicture($value['profilePicture']);
-            $user->setNotificationEnabled(($value['notificationsEnabled']));
-            $users[$key] = $user;
-        }
+    }
 
-        return $users;
+    /**
+     * Display information about all user
+     */
+    public function selectAllUsers()
+    {
+        $users = DB::fetch("SELECT * FROM Users");
 
+        return $this->hydrate($users);
     }
 
 
@@ -206,6 +203,28 @@ class UserController
     }
 
     /**
+     * hydrate User
+     */
+    private function hydrate($users)
+    {
+        // Hydrate user
+        foreach ($users as $key => $value) {
+            $user = new User();
+
+            $user->setId($value['idUser']);
+            $user->setUserName($value['username']);
+            $user->setPassword($value['password']);
+            $user->setEMail($value['mail']);
+            $user->setProfilePicture($value['profilePicture']);
+            $user->setNotificationEnabled(($value['notificationsEnabled']));
+            $user->setIsAdmin($value['isAdmin']);
+            $users[$key] = $user;
+        }
+
+        return $users;
+    }
+
+    /**
      * Valid username and password
      */
     private function validateCredentials(string $userName, string $password) : bool
@@ -218,6 +237,4 @@ class UserController
         return true;
     }
 
-
 }
-
