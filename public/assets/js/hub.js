@@ -391,3 +391,81 @@ if (hubCurrentTabPane == null) {
         joinedAjax();
     }, 5000);
 }
+
+
+// Chat Room AJAX
+const chatMessages = document.querySelector("#chat-messages");
+
+function messagesAjax() {
+    const instructions = {
+        action: "messages"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/roomChat-handler.php", options);
+    
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let html = `
+        <article class="col disclaimer">
+            <p>System : Soyez gentils.</p>
+        </article>`;
+
+        if(data != []){
+            data.roomChat.forEach(function(message){
+                date = new Date(message.timeMessage);
+                if(!message.profilePicture){
+                    userProfilePicture = 'assets/images/Avatar_default.png';
+                } else {
+                    // Prefix to remove
+                    prefixToRemove = '../../public/';
+
+                    // Delete Prefix
+                    relativePath = str_replace(prefixToRemove, '', message.profilePicture);
+
+                    userProfilePicture = relativePath;
+                }
+                html += `
+                
+                <article class="col message">
+                    <img src="${userProfilePicture}" alt="profile picture" class="avatar-50x50">
+
+                    <div class="message-body">
+
+                        <div class="message-header">
+                            <h2 class="card-title">${message.username}</h2>
+                            <small>${date.getHours()}:${date.getMinutes()}</small>
+                            <form action="handlers/roomMessage-handler.php" method="POST" class="ms-auto">
+                                <input type="text" name="action" value="report" hidden>
+                                <input type="text" name="message_id" value="${message.idMessage}" hidden>
+                                <button class="btn">
+                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                </button>
+                            </form>
+                        </div>
+
+                        <p class="card-text">${message.message}</p>
+                    </div>
+                </article>
+                `;
+            })
+        }
+
+        chatMessages.innerHTML = html;
+    })
+}
+
+if (chatMessages != null) {
+    setInterval(() => {
+        messagesAjax();
+    }, 2000);
+}

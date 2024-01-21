@@ -25,7 +25,7 @@
         $_SESSION["user"] = NULL;
     }
 
-    $_SESSION["user"] = 1;
+    $_SESSION["user"] = 10;
 
     $filteredGame = NULL;
     $filteredGamemode = NULL;
@@ -467,7 +467,7 @@
 
                                 <!-- Chat log -->
                                 <div class="container-fluid chat-window">
-                                    <div class="row row-cols-1 px-1 px-md-2 px-xl-3">
+                                    <div class="row row-cols-1 px-1 px-md-2 px-xl-3" id="chat-messages">
                                         <!-- Disclaimer -->
                                         <article class="col disclaimer">
                                             <p>System : Soyez gentils.</p>
