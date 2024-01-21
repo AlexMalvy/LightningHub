@@ -453,7 +453,7 @@ function messagesAjax() {
                             </form>
                         </div>
 
-                        <p class="card-text">${message.message}</p>
+                        <p class="card-text text-break">${message.message}</p>
                     </div>
                 </article>
                 `;

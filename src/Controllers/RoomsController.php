@@ -96,7 +96,7 @@ class RoomsController
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
 
-        $_SESSION["message"] = "Le salon ".$title." a été modifier.";
+        $_SESSION["message"] = "Le salon ".$title." a été modifié.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
@@ -124,7 +124,7 @@ class RoomsController
         // Delete the room in DB
         Room::deleteRoom($idRoom);
 
-        $_SESSION["message"] = "Le salon a bien été fermer.";
+        $_SESSION["message"] = "Le salon a bien été fermé.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
@@ -146,7 +146,7 @@ class RoomsController
         // Delete the room in DB
         Room::leaveRoom($idUser, $idRoom);
 
-        $_SESSION["message"] = "Vous avez quitter votre salon.";
+        $_SESSION["message"] = "Vous avez quitté votre salon.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
