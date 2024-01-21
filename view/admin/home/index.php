@@ -42,7 +42,7 @@
                     <li class="dashboard-title ps-lg-3 mb-5 mb-lg-0">Nombre de jeux</li>
                     <hr class="d-none d-lg-block ms-3 mb-lg-5">
                     <li class="dashboard-title ps-lg-3 mb-3 text-center"><i class="fa-solid fa-gamepad fa-2xl"></i></li>
-                    <li class="dashboard-title ps-lg-3 text-center">5 jeux</li>
+                    <li class="dashboard-title ps-lg-3 text-center"><?php echo $games ?> jeux</li>
                 </div>
                 <hr class="mx-3">
                 <div>
