@@ -49,7 +49,7 @@
                             <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
 
                                 <!-- Join Team -->
-                                <a href="#" class="btn lh-buttons-purple px-3">
+                                <a href="<?php print(str_replace(" ", "+",$game["nameGame"])) ?>" class="btn lh-buttons-purple px-3">
                                     <span>Rejoindre</span>
                                 </a>
 
