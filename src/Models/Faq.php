@@ -7,11 +7,9 @@ use DB;
 class Faq
 {
     protected static array $allFaqList = [];
-    protected  int $id;
-    protected  string $question;
-    protected  string $answer;
-
-
+    protected int $id;
+    protected string $question;
+    protected string $answer;
 
 
     /**
@@ -22,9 +20,22 @@ class Faq
         $faq = new Faq();
 
         $faq->setId($data['idFaq']);
-        $faq->setQuestion($data['question']);
-        $faq->setAnswer($data['answer']);
+        $faq->setQuestion($data['question'] ?? '' );
+        $faq->setAnswer($data['answer'] ?? '');
+
         return $faq;
+    }
+
+
+    public function selectOne(): int|false
+    {
+        return DB::statement(
+            "SELECT * FROM Faq WHERE idFaq = :id",
+            [
+                'id' =>$this->id,
+            ],
+        );
+
     }
 
 
@@ -33,12 +44,11 @@ class Faq
      */
     public function save(): int|false
     {
-
         return DB::statement(
-            "INSERT INTO faq (question, answer) VALUES (:question, :answer)",
+            "INSERT INTO Faq (question, answer) VALUES (:question, :answer)",
             [
                 'question' => $this->question,
-                'answer' => $this->$answer,
+                'answer' => $this->answer,
             ],
         );
     }
@@ -49,7 +59,7 @@ class Faq
     public function update(): int|false
     {
         return DB::statement(
-            "UPDATE faq SET question = :question, answer = :answer WHERE idFaq = :id",
+            "UPDATE Faq SET question = :question, answer = :answer WHERE idFaq = :id",
             [
                 'question' => $this->question,
                 'answer' => $this->answer,
@@ -64,7 +74,7 @@ class Faq
     public function delete(): int|false
     {
         return DB::statement(
-            "DELETE * FROM faq WHERE idFaq = :id",
+            "DELETE FROM faq WHERE idFaq = :id",
             [
                 'id' =>$this->id,
             ],
@@ -72,17 +82,18 @@ class Faq
     }
 
 
-    public  function getId(): int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public  function setId(int $id): void
+    public function setId(int $id): void
     {
+
         $this->id = $id;
     }
 
-    public  function getQuestion(): string
+    public function getQuestion(): string
     {
         return $this->question;
     }

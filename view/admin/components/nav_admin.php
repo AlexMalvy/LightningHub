@@ -58,7 +58,10 @@
                         <a id="nav-faq" class="nav-link" href="faq.php"><i class="fa-solid fa-question me-2"></i>Voir les questions</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mb-5" href="faq_create.php"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</a>
+                        <form action="faq_create.php" method="POST">
+                            <input type="text" name="action" value="displayForm" hidden>
+                            <button class="nav-link mb-5"><i class="fa-solid fa-plus me-2"></i>Ajouter une question</button>
+                        </form>
                     </li>
                 </ul>
             </div>

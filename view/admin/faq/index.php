@@ -26,43 +26,61 @@
     <div class="d-flex bd-highlight justify-content-between ">
         <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Faq</h2>
         <div class="nav-dashboard-title px-lg-3 my-4 py-4">
-            <form action="game_edit.php" method="GET">
-                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer un salon</button>
+            <form action="faq_create.php" method="POST">
+                <input type="text" name="action" value="displayForm" hidden>
+                <button type="submit" id="newRoom" aria-controls="create-room-button" aria-selected="false" class="btn lh-buttons-purple text-end">Créer une FAQ
+                </button>
             </form>
         </div>
     </div>
 
 
-    <table class="table  ">
-        <thead class="">
+    <?php if (!empty($_SESSION['message'])): ?>
+        <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header bg-color-purple rounded-0">
+                        <h3 class="modal-title fs-5"><?=$_SESSION['message']?></h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php unset($_SESSION['message']);
+        unset($_SESSION['type']);
+        ?>
+    <?php endif; ?>
+
+    <table class="table">
+        <thead>
         <tr>
             <th scope="col">Question</th>
             <th scope="col">Réponse</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
-        <tbody class="">
+        <tbody>
 
-        <?php ; foreach ($faqs as $faq) {
-            ?>
-        <tr class="">
-            <td class=""><?php echo($faq->getQuestion()); ?></td>
-            <td><?php echo($faq->getAnswer()); ?></td>
-            <td class="text-center">
-                <a href="hub_edit.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
-                    <img src="../assets/images/pen-solid-20x20.png" alt="modifier le salon">
+        <?php foreach ($faqs as $faq):?>
+        <tr>
+            <td><?php echo $faq->getQuestion(); ?></td>
+            <td><?php echo $faq->getAnswer(); ?></td>
+            <td class="mx-auto">
+                <a href="faq_create.php?id=<?php echo $faq->getId();?>&action=displayUpdateFaq">
+                    <img src="../assets/images/pen-solid-20x20.png" alt="modifier la faq">
                 </a>
-                <a href="hub_delete.php?id=<?php echo($faq->getId()); ?>" id="nav-update-hub">
-                    <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer le salon/">
+                <a href="faq_create.php?idFaq=<?php echo $faq->getId();?>">
+                    <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer la faq">
                 </a>
             </td>
         </tr>
-        <?php }    ?>
+        <?php endforeach;  ?>
 
         </tbody>
     </table>
-
-
 
 </section>
 

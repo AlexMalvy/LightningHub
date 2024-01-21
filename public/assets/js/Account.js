@@ -32,8 +32,10 @@ if (btnPseudo && btnMail){
     // Submit form notification
 
         document.querySelector("#SwitchCheck").addEventListener('change', () =>{
-            document.querySelector("#formNotification").submit();
+            document.querySelector("#formNotification").submit()
         });
+
+
 
 
 }

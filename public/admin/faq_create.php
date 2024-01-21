@@ -1,11 +1,29 @@
 <?php
 require_once __DIR__ . '/../../bootstrap/app.php';
 
-// Auth
-//Auth::isAuthOrRedirect();
 
-$controller = new \App\Controllers\admin\FaqController();
-$controller->create();
+if (!empty($_POST['action'])) {
 
-// Remove errors, success and old data
-App::terminate();
+    if ($_POST['action'] === 'create') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->storeFaq();
+    }elseif ($_POST['action'] === 'update') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->updateFaq();
+    }elseif ($_POST['action'] === 'displayForm') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->displayCreateForm();
+    }
+}
+
+if (!empty($_GET)) {
+
+    if ($_GET['action'] === 'displayUpdateFaq') {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->displayUpdateForm();
+    } else {
+        $controller = new \App\Controllers\admin\FaqController();
+        $controller->deleteFaq();
+    }
+
+}

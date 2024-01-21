@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
 use DB;
 
 
@@ -19,9 +18,22 @@ class PlayGamesController extends UserController
     }
 
     /**
+     * Insert InGame username
+     */
+    public static function insertInGameUserName(int $id, int $idGame): void
+    {
+        $inGameUsername = $_POST['inGameUsername'];
+
+        DB::fetch("INSERT INTO plays (inGameUsername, idUser, idGame ) VALUES (:inGameUsername, :idUser, :idGame);",
+            ['inGameUsername' => $inGameUsername,'idUser' => $id, 'idGame' => $idGame]);
+
+        redirectAndExit(self::URL_ACCOUNT);
+    }
+
+    /**
      * Update InGame username
      */
-    public static function updateInsGameUserName(int $id, int $idGame): void
+    public static function updateInGameUserName(int $id, int $idGame): void
     {
         $inGameUsername = $_POST['inGameUsername'];
 

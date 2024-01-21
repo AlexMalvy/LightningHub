@@ -100,7 +100,7 @@ CREATE TABLE Messages (
    idMessage INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
    -- Table Content
    timeMessage DATETIME NOT NULL DEFAULT NOW(),
-   message VARCHAR(50) NOT NULL,
+   message VARCHAR(2000) NOT NULL,
    isReported BOOLEAN NOT NULL DEFAULT FALSE,
    -- Constraints / Foreign key(s)
    idRoom INT(11) UNSIGNED NOT NULL,
@@ -165,7 +165,7 @@ CREATE TABLE sendPrivateMessages (
    idUser2 INT(11) UNSIGNED NOT NULL,
    timeMessage DATETIME NOT NULL DEFAULT NOW(),
    -- Table Content
-   message VARCHAR(50) NOT NULL,
+   message VARCHAR(2000) NOT NULL,
    isReported BOOLEAN NOT NULL DEFAULT FALSE,
    -- Constraints / Foreign key(s)
    CONSTRAINT sendPrivateMessages_pk PRIMARY KEY (idUser1, idUser2, timeMessage)
