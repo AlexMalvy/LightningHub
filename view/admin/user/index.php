@@ -25,7 +25,7 @@
     <section id="dashboard-user" class="ms-lg-5 text-lg-start col-lg-10">
 
 
-        <div class="d-flex bd-highlight justify-content-between">
+        <div class="d-flex bg-color-purple-faded justify-content-between ">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Utilisateurs</h2>
         </div>
 
