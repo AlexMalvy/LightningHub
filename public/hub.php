@@ -19,7 +19,7 @@
     ?>
 
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
-
+    
         <?php
     if (empty($_SESSION["user"])) {
         $_SESSION["user"] = NULL;
