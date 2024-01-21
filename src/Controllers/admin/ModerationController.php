@@ -6,7 +6,7 @@ namespace App\Controllers\admin;
 use DB;
 use Datetime;
 
-class BanController
+class ModerationController
 {
 
     /**
@@ -62,10 +62,22 @@ class BanController
                                            INNER JOIN Moderations
                                            ON Moderations.idBanType = Bantypes.idBanType
                                            WHERE idUser = :idUser ORDER BY startingDate DESC LIMIT 1",
-                                                        [
-                                                            'idUser' => $id,
-                                                        ]
-                                                    );
+                                                [
+                                                    'idUser' => $id,
+                                                ]
+                                    );
+    }
+
+
+    public static function countReportsById(int $id)
+    {
+        return $numberUserReports = DB::fetch("SELECT COUNT(*) AS report FROM Moderations
+                                                    WHERE idUser = :idUser",
+                                                    [
+                                                        'idUser' => $id,
+                                                    ]
+        );
+
     }
 
 }

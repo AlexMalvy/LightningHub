@@ -35,7 +35,7 @@
                 <th scope="col" class="fs-3 text-center">Email</th>
                 <th scope="col" class="fs-3 text-center">Identifiants In-Game</th>
                 <th scope="col" class="fs-3 text-center">Banissements</th>
-                <th scope="col" class="fs-3 text-center">Quantités</th>
+                <th scope="col" class="fs-3 text-center">Signalement</th>
                 <th scope="col" class="fs-3 text-center">Actions</th>
             </tr>
             </thead>
@@ -44,13 +44,14 @@
             $userController = new App\Controllers\UserController();
             $users = $userController->selectAllUsers();
             $games = new App\Models\Games();
-            $bans = App\Controllers\admin\BanController::class::selectAllTypes();
+            $bans = App\Controllers\admin\ModerationController::class::selectAllTypes();
             ?>
 
             <?php foreach($users as $user): ?>
             <?php
                 $idInGameUsername = new \App\Controllers\PlayGamesController($user->getId());
-                $userBans = App\Controllers\admin\BanController::class::selectBanById($user->getId());
+                $userBans = App\Controllers\admin\ModerationController::class::selectBanById($user->getId());
+                $userReports = App\Controllers\admin\ModerationController::class::countReportsById($user->getId());
                 ?>
             <tr>
                 <td class="text-center"><?php echo $user->getUsername();?></td>
@@ -79,7 +80,13 @@
                     <td class="text-center"></td>
                 <?php endif; ?>
 
-                <td class="text-center">Quantités</td>
+                <?php if (!empty($userReports)): ?>
+                    <?php foreach ($userReports as $userReport): ?>
+                        <td class="text-center"><?php echo $userReport['report'] ?></td>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+
                 <td class="text-center">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#moderation">
                         <img src="../assets/images/ban-solid.svg" alt="Gestion de la modération"></a>

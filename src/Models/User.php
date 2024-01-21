@@ -172,6 +172,12 @@ class User
     }
 
 
+    public static function getAllUsers(): array
+    {
+        return DB::fetch("SELECT * FROM Users");
+    }
+
+
      /**
      * Get the value of id
      */ 

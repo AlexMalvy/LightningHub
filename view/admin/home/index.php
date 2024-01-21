@@ -28,7 +28,7 @@
                     <li class="dashboard-title ps-lg-3 text-center mb-5 mb-lg-0">Nombre d'utilisateurs</li>
                     <hr class="d-none d-lg-block ms-3 mb-lg-5">
                     <li class="dashboard-title ps-lg-3 mb-3 text-center"><i class="fa-regular fa-user fa-2xl"></i></li>
-                    <li class="dashboard-title ps-lg-3 text-center">200 Membres</li>
+                    <li class="dashboard-title ps-lg-3 text-center"><?php echo count(App\Controllers\admin\AdminController::class::countUsers()) ?> Membres</li>
                 </div>
                 <hr class="mx-3">
                 <div>
