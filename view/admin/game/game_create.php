@@ -21,14 +21,14 @@
     <?php require_once base_path('view/admin/components/nav_admin.php'); ?>
 
 
-    <section id="dashboard-hub" class="ms-lg-5 text-lg-start col-lg-10">
+    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start w-100">
 
-        <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
+        <div class="d-flex bd-highlight justify-content-between">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Créer un jeu</h2>
         </div>
 
         <!-- Update Room Form -->
-        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 bg-color-purple-faded">
+        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 ">
             <input type="text" name="action" value="store" id="update-action-field" hidden>
             <!-- Left Side -->
             <div class="col-lg-5 d-lg-flex flex-column">

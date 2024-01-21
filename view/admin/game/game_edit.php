@@ -21,14 +21,14 @@
     <?php require_once base_path('view/admin/components/nav_admin.php'); ?>
 
 
-    <section id="dashboard-hub" class="ms-lg-5 text-lg-start w-100">
+    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start">
 
-        <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
+        <div class="d-flex bd-highlight justify-content-between ">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Modifier un jeu</h2>
         </div>
 
         <!-- Update Room Form -->
-        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 bg-color-purple-faded">
+        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 ">
             <input type="text" name="action" value="update" id="update-action-field" hidden>
             <input type="text" id="idGame"  name="idGame" value="<?php echo $_GET['id']; ?>" hidden>
             <!-- Left Side -->
@@ -112,7 +112,7 @@
 
 
         </form>
-        <div class="bg-color-purple-faded  p-0 m-O  ">
+        <div class=" p-0 m-O  ">
         <div class="col-6 ">
 
             <label class="mb-2">Modes de jeu :</label>
