@@ -26,22 +26,12 @@
         <div class="d-flex bd-highlight justify-content-between bg-color-purple-faded">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Modifier un salon</h2>
         </div>
-        <div class="tab-pane fade show p-1 border bg-color-purple-faded" id="update-room-hub-tab-pane" role="tabpanel"
-             aria-labelledby="update-room-hub-tab" tabindex="0">
-
-            <div class="py-3">
-                <div class=" row-cols-1 px-3">
-
-                    <div class="col">
-                        <h2 class="reconstruct mt-2">Modification d'un salon</h2>
-                    </div>
-                    <div class="col px-2 px-md-5 px-lg-0 pb-4">
-                        <hr>
-                    </div>
 
                     <!-- Update Room Form -->
-                    <form action="" class="row py-lg-3">
-
+                    <form action="" class="row m-0 bg-color-purple-faded">
+                        <input type="text" name="action" value="modify" id="update-action-field" hidden>
+                        <input type="text" id="room_id"  name="room_id" value="<?php echo $_GET['id']; ?>" hidden>
+                        <input type="text" id="type"  name="type" value="admin" hidden>
                         <!-- Left Side -->
                         <div class="col-lg-5 d-lg-flex flex-column">
                             <div>
@@ -63,7 +53,9 @@
 
                             <div>
                                 <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>
-                                <input type="number" name="room_number_player" id="player_number_update_room" min="1" max="10" class="input mb-4 w-100" required aria-required="true">
+                                <input value="<?php echo $hub->maxMembers ?>"
+                                        type="number" name="room_number_player" id="player_number_update_room" min="1" max="10"
+                                       class="input mb-4 w-100" required aria-required="true">
                             </div>
                         </div>
 
@@ -71,30 +63,27 @@
                         <div class="col-lg-5 offset-lg-2 d-lg-flex flex-column">
                             <div>
                                 <label for="title_update_room" class="mb-2">Titre du salon :</label>
-                                <input type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
+                                <input value="<?php echo $hub->title ?>"
+                                        type="text" name="room_title" id="title_update_room" maxlength="40" class="input mb-4 w-100" required aria-required="true">
                             </div>
 
                             <div>
                                 <label for="description" class="mb-2">Description :</label>
-                                <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"></textarea>
+                                <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"
+                                ><?php echo $hub->description ?>
+                                </textarea>
                             </div>
                         </div>
 
                         <!-- Buttons -->
-                        <div class="d-lg-flex col-lg-5 offset-lg-2 order-lg-2 flex-lg-row-reverse">
+                        <div class="d-lg-flex col-lg-5 offset-lg-7  flex-lg-row-reverse">
                             <button class="btn w-100 lh-buttons-purple mb-3">Modifier le salon</button>
                             <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
-                        </div>
-                        <div class="d-lg-flex col-lg-5 order-lg-1">
-                            <button class="btn w-100 lh-buttons-red mb-3">Clôturer le salon</button>
                         </div>
 
                     </form>
 
-                </div>
-            </div>
 
-        </div>
 
     </section>
 

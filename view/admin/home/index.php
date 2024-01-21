@@ -20,7 +20,7 @@
 
         <?php require_once base_path("view/admin/components/nav_admin.php") ?>
 
-        <section id="dashboard-welcome" class="bg-color-purple-faded ms-lg-5 text-center text-lg-start col-lg-10">
+        <section id="dashboard-welcome" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start w-100">
             <p class="nav-dashboard-title ps-lg-3 my-4 py-4 reconstruct">Accueil</p>
             <hr class="d-lg-none mx-3">
             <ul class="list-unstyled d-lg-flex justify-content-lg-around">
@@ -65,6 +65,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
-<script src="../assets/js/dashboard.js"></script>
 </body>
 </html>

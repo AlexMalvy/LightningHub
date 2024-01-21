@@ -12,6 +12,10 @@ if (!empty($_POST['action'])) {
         $controller->modify();
     }
     if ($_POST['action'] === 'delete') {
+//        if ($_POST['type'] === 'admin'){
+//            $controller->delete('admin');
+//        }
+//        $controller->delete('autre');
         $controller->delete();
     }
     if ($_POST['action'] === 'leave') {

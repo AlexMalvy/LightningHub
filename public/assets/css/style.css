@@ -414,7 +414,7 @@ main {
 
 /* Handle */
 .chat-window::-webkit-scrollbar-thumb {
-  background: var(--bg-color-secondary);
+  background: var(--bg-purple);
   border-radius: 10px;
 }
 

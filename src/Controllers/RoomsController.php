@@ -29,7 +29,7 @@ class RoomsController
         if ($maxMembers <= 1 or $maxMembers > 10) {
             $maxMembers = 5;
         }
-        
+
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
         $gamemodeId = intval($_POST["room_game_type_id"]);
@@ -45,7 +45,7 @@ class RoomsController
 
         // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
-        
+
         $_SESSION["message"] = "Vous avez créer le salon ".$title.".";
         $_SESSION["type"] = "success";
         header("Location: $index");
@@ -96,7 +96,7 @@ class RoomsController
         // Update the room in DB
         Room::modifyRoom($idRoom, $title, $description, $maxMembers, $gamemodeId);
 
-        $_SESSION["message"] = "Le salon ".$title." a été modifier.";
+        $_SESSION["message"] = "Le salon ".$title." a été modifié.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
@@ -124,7 +124,7 @@ class RoomsController
         // Delete the room in DB
         Room::deleteRoom($idRoom);
 
-        $_SESSION["message"] = "Le salon a bien été fermer.";
+        $_SESSION["message"] = "Le salon a bien été fermé.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();
@@ -146,7 +146,7 @@ class RoomsController
         // Delete the room in DB
         Room::leaveRoom($idUser, $idRoom);
 
-        $_SESSION["message"] = "Vous avez quitter votre salon.";
+        $_SESSION["message"] = "Vous avez quitté votre salon.";
         $_SESSION["type"] = "success";
         header("Location: $index");
         exit();

@@ -1,12 +1,14 @@
 
 <!-- Header mobile -->
 <header class="container-fluid p-2 d-flex justify-content-between align-items-center bg-color-purple d-lg-none">
-    <img src="assets/images/logo-lightninghub.png" class="logo">
-    <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
-        echo '<h1 class="m-0 fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
-    else :
-        echo '<div class="m-0 fs-3 d-flex justify-content-center reconstruct"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></div>';
-    endif; ?>
+    <a href="index.php" class="d-flex flex-row w-100 align-items-center gap-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
+        <img src="assets/images/logo-lightninghub.png" class="logo">
+        <?php if($_SERVER['REQUEST_URI'] == '/LightningHub/public/index.php') :
+            echo '<h1 class="m-0 ms-auto fs-3"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></h1>';
+        else :
+            echo '<div class="m-0 ms-auto fs-3 d-flex justify-content-center reconstruct"><span class="pe-2">LIGHTNING</span><span class="ps-1 text-center">HUB</span></div>';
+        endif; ?>
+    </a>
 </header>
 
 
@@ -38,6 +40,7 @@
                 </a>
             </div>
 
+
             <!-- Hub link -->
             <div class="col-3 col-lg-auto">
                 <a href="hub.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
@@ -47,7 +50,7 @@
                     <p class="m-0 text-center">Hub</p>
                 </a>
             </div>
-            
+
             <!-- Socials link -->
             <div class="col-3 col-lg-auto">
                 <a href="socials.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2  link-light text-decoration-none link-opacity-100 link-opacity-75-hover">
@@ -63,13 +66,13 @@
 
             <!-- OffCanvas Toggler (Mobile Only) -->
             <?php if(isset($_SESSION['isConnected']) and ($_SESSION['isConnected'])) : ?>
-
                 <a href="#" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" type="button" data-bs-toggle="offcanvas"data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"aria-label="Toggle navigation">
                     <div class="d-flex justify-content-center">
                         <img src="assets/images/account_icon_37x37.png" alt="account" class="d-lg-none">
                     </div>
                     <p class="m-0 text-center text-white">Menu</p>
                 </a>
+
             <?php else : ?>
 
                 <a href="login.php" class="d-flex flex-column flex-lg-row align-items-lg-center gap-lg-2 d-lg-none link-light text-decoration-none" aria-label="Connexion">
@@ -92,6 +95,7 @@
                     <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 
 
+
                         <?php
                         $userController = new App\Controllers\UserController();
                         $users = $userController->index($_SESSION['user']);
@@ -100,18 +104,26 @@
                         <?php foreach ($users as $user): ?>
                             <?php if($user->getIsAdmin()): ?>
                         <!-- Dashboard link -->
+
                         <li class="dropdown-item">
-                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover hover-accent-outline focus-accent-outline" href="admin/index.php" >
+                            <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="admin/index.php"">
                                 <div>
-                                    <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">
+                                    <img src="assets/images/admin.svg" alt="" class="icon-25x25">
                                 </div>
-                                <p class="m-0 text-center">Dashboard</p>
+                                <p class="align-self-center m-0">Dashboard</p>
+
                             </a>
                         </li>
 
                         <hr>
                             <?php endif; ?>
                         <?php endforeach; ?>
+
+
+                    <?php
+                             }
+                         }?>
+
 
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="account.php">
@@ -159,8 +171,24 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
 
+
                     <?php foreach ($users as $user): ?>
                         <?php if($user->getIsAdmin()): ?>
+                            <li class="dropdown-item">
+                                <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="admin/index.php"">
+                                <div>
+                                    <img src="assets/images/admin.svg" alt="" class="icon-25x25">
+                                </div>
+                                <p class="align-self-center m-0">Dashboard</p>
+                                </a>
+                            </li>
+
+                            <hr>
+
+                            <?php
+                        }
+                    }?>
+
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
                             <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">

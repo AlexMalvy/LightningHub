@@ -36,4 +36,31 @@ class RoomChat
     }
 
     public array $allMessages = [];
+    
+    
+    public static function messagesAjax(int $idUser)
+    {
+        $getRoomId = DB::fetch("SELECT users.idRoom
+        FROM users
+        WHERE users.idUser = :idUser",
+        ["idUser" => $idUser]);
+
+        $result = DB::fetch("SELECT 
+        messages.idMessage, 
+        messages.timeMessage, 
+        messages.message, 
+        messages.isReported,
+        messages.idUser, 
+        users.username, 
+        users.profilePicture
+        FROM messages
+            INNER JOIN users
+            ON messages.idUser = users.idUser
+        WHERE messages.idRoom = :idRoom
+        ORDER BY messages.timeMessage ASC",
+        ["idRoom" => $getRoomId[0]["idRoom"]]);
+
+        print(json_encode(["roomChat" => $result]));
+        exit();
+    }
 }

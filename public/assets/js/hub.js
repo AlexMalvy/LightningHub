@@ -283,3 +283,189 @@ if (updateRoomForm) {
         changeValueToGamemodeId(updateRoomForm["room_game_type"], updateRoomForm["room_game_type_id"]);
     })
 }
+
+
+// Request to join AJAX
+const requestToJoinPannel = document.querySelector("#requestToJoinHeader");
+
+function requestsAjax() {
+    const instructions = {
+        action: "request"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/hub-handler.php", options);
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let html = "";
+        const {requests} = data;
+
+        if(requests.length === 0){
+            html = `<h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>`
+        }
+
+        requests.forEach(function(request){
+            date = new Date(request.timeRequest);
+            html += `
+            <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
+                <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
+                    <div>${request.username}#${request.idUser}</div>
+                    <div class="ms-auto">${date.getHours()}:${date.getMinutes()}</div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <form action="handlers/room-handler.php" method="POST" class="ms-5">
+                        <input type="text" name="action" value="accept" hidden>
+                        <input type="text" name="targetId" value="${request.idUser}" hidden>
+                        <input type="text" name="room_id" value="${request.idRoom}" hidden>
+                        <button class="btn lh-buttons-purple">Accepter</button>
+                    </form>
+                    <form action="handlers/room-handler.php" method="POST" class="ms-2">
+                        <input type="text" name="action" value="decline" hidden>
+                        <input type="text" name="targetId" value="${request.idUser}" hidden>
+                        <input type="text" name="room_id" value="${request.idRoom}" hidden>
+                        <button class="btn lh-buttons-red">X</button>
+                    </form>
+                </div>
+            </article>
+            `;
+        })
+
+        requestToJoinPannel.innerHTML = html;
+    })
+}
+
+if (requestToJoinPannel) {
+    setInterval(() => {
+        requestsAjax();
+    }, 5000);
+}
+
+
+// Joined a Room AJAX
+const toastLiveExample = document.getElementById('liveToast');
+const toastLiveBody = document.querySelector("#notification-body");
+
+function joinedAjax() {
+    const instructions = {
+        action: "joined"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/hub-handler.php", options);
+    
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        const {joined} = data;
+
+        if (joined.length > 0) {
+            text = `Vous avez été accepter dans ${joined[0].title}`;
+        
+            toastLiveBody.innerText = text;
+            
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastBootstrap.show()
+        }
+    })
+}
+
+if (hubCurrentTabPane == null) {
+    setInterval(() => {
+        joinedAjax();
+    }, 5000);
+}
+
+
+// Chat Room AJAX
+const chatMessages = document.querySelector("#chat-messages");
+
+function messagesAjax() {
+    const instructions = {
+        action: "messages"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/roomChat-handler.php", options);
+    
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let html = `
+        <article class="col disclaimer">
+            <p>System : Soyez gentils.</p>
+        </article>`;
+
+        if(data != []){
+            data.roomChat.forEach(function(message){
+                date = new Date(message.timeMessage);
+                if(!message.profilePicture){
+                    userProfilePicture = 'assets/images/Avatar_default.png';
+                } else {
+                    // Prefix to remove
+                    prefixToRemove = '../../public/';
+
+                    // Delete Prefix
+                    relativePath = str_replace(prefixToRemove, '', message.profilePicture);
+
+                    userProfilePicture = relativePath;
+                }
+                html += `
+                
+                <article class="col message">
+                    <img src="${userProfilePicture}" alt="profile picture" class="avatar-50x50">
+
+                    <div class="message-body">
+
+                        <div class="message-header">
+                            <h2 class="card-title">${message.username}</h2>
+                            <small>${date.getHours()}:${date.getMinutes()}</small>
+                            <form action="handlers/roomMessage-handler.php" method="POST" class="ms-auto">
+                                <input type="text" name="action" value="report" hidden>
+                                <input type="text" name="message_id" value="${message.idMessage}" hidden>
+                                <button class="btn">
+                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                </button>
+                            </form>
+                        </div>
+
+                        <p class="card-text text-break">${message.message}</p>
+                    </div>
+                </article>
+                `;
+            })
+        }
+
+        chatMessages.innerHTML = html;
+    })
+}
+
+if (chatMessages != null) {
+    setInterval(() => {
+        messagesAjax();
+    }, 2000);
+}
