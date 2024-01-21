@@ -25,7 +25,7 @@
         $_SESSION["user"] = NULL;
     }
 
-    $_SESSION["user"] = 10;
+    $_SESSION["user"] = 1;
 
     $filteredGame = NULL;
     $filteredGamemode = NULL;
@@ -234,7 +234,7 @@
                                             <div class="card-body">
                                                 <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
 
-                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner."#".$room->ownerId) ?></p>
+                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créé par ".$room->owner."#".$room->ownerId) ?></p>
 
                                                 <p class="card-text"><?php print($room->description) ?></p>
                                             </div>
@@ -309,7 +309,7 @@
                                             <div class="card-body">
                                                 <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
 
-                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner."#".$room->ownerId) ?></p>
+                                                <p class="card-subtitle fst-italic pb-2"><?php print("Créé par ".$room->owner."#".$room->ownerId) ?></p>
 
                                                 <p class="card-text"><?php print($room->description) ?></p>
                                             </div>
@@ -418,14 +418,18 @@
                                                         <i class="fa-solid fa-user fa-xl text-white"></i>
                                                     </div>
 
-                                                    <?php print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>'); ?>
+                                                    <?php 
+                                                    if (count($room->friendList)) {
+                                                        print('<div class="px-2 fs-5 rounded bg-success">'.count($room->friendList).' amis</div>');
+                                                    }
+                                                    ?>
 
                                                     <div class="px-2 fs-5 rounded-5 game-tag-color"><?php print($room->gameTag) ?></div>
                                                 </div>
                                                 <div class="card-body">
                                                     <h2 class="card-title m-0 pb-1"><?php print($room->title) ?></h2>
 
-                                                    <p class="card-subtitle fst-italic pb-2"><?php print("Créer par ".$room->owner."#".$room->ownerId) ?></p>
+                                                    <p class="card-subtitle fst-italic pb-2"><?php print("Créé par ".$room->owner."#".$room->ownerId) ?></p>
 
                                                     <p class="card-text"><?php print($room->description) ?></p>
                                                 </div>
@@ -458,7 +462,7 @@
                         <div class="container-fluid p-0 d-flex">
                                 
                             <!-- Chat -->
-                            <div class="col d-flex flex-column" id="chat-window">
+                            <div class="col mw-100 d-flex flex-column" id="chat-window">
                                 <!-- Room Options/Members -->
                                 <button class="btn lh-buttons-purple rounded-2 px-2 mx-1 mx-md-2 mx-xl-3 my-2 d-flex justify-content-between align-items-center" id="chat-window-room-options">
                                     <span>#Salon: <?php print($currentHub->connectedUserRoom->title); ?></span>
@@ -492,7 +496,7 @@
                                                         </form>
                                                     </div>
 
-                                                    <p class="card-text"><?php print($message->message) ?></p>
+                                                    <p class="card-text text-break"><?php print($message->message) ?></p>
                                                 </div>
                                             </article>
                                         <?php endforeach; ?>

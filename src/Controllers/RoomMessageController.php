@@ -51,7 +51,7 @@ class RoomMessageController
         // Delete the room in DB
         RoomMessage::reportMessage($idUser, $idMessage);
         
-        $_SESSION["message"] = "Le message a bien été signaler.";
+        $_SESSION["message"] = "Le message a bien été signalé.";
         $_SESSION["type"] = "success";
 
         header("Location: $index");
