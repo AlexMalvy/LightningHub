@@ -343,6 +343,51 @@ function requestsAjax() {
     })
 }
 
-setInterval(() => {
-    requestsAjax();
-}, 5000);
+if (requestToJoinPannel) {
+    setInterval(() => {
+        requestsAjax();
+    }, 5000);
+}
+
+
+// Joined a Room AJAX
+const toastLiveExample = document.getElementById('liveToast');
+const toastLiveBody = document.querySelector("#notification-body");
+
+function joinedAjax() {
+    const instructions = {
+        action: "joined"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/hub-handler.php", options);
+    
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        const {joined} = data;
+
+        if (joined.length > 0) {
+            text = `Vous avez été accepter dans ${joined[0].title}`;
+        
+            toastLiveBody.innerText = text;
+            
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastBootstrap.show()
+        }
+    })
+}
+
+if (hubCurrentTabPane == null) {
+    setInterval(() => {
+        joinedAjax();
+    }, 5000);
+}
