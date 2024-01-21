@@ -9,7 +9,12 @@ use App\Models\User;
 
 class AdminController
 {
-
+    /**
+     * @Route home dashboard
+     * @Method public
+     * @Template index
+     * @return void
+     */
     public function index()
     {
         $users = count(USER::getAllUsers());
@@ -18,12 +23,4 @@ class AdminController
         $games = count((new Games)->allGamesList);
         require_once base_path('view/admin/home/index.php');
     }
-
-    public static function countUsers()
-    {
-        return count(USER::getAllUsers());
-    }
-
-
-
 }
