@@ -51,3 +51,5 @@ function dismissAll(){
         section.classList.add('d-none');
     }
 }
+
+alert('lala');
