@@ -106,7 +106,7 @@
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple">
+                                    <a href="hub.php?game=<?php print(str_replace(" ", "+",$game["nameGame"])) ?>" class="btn lh-buttons-purple">
                                         <span>Rejoindre</span>
                                     </a>
 
@@ -177,7 +177,7 @@
                                 <!-- Card Footer -->
                                 <div class="card-footer d-flex justify-content-between align-items-center border-0 mb-2 bg-transparent">
                                     <!-- Join Team -->
-                                    <a href="hub.php" class="btn lh-buttons-purple px-3">
+                                    <a href="hub.php?game=<?php print(str_replace(" ", "+",$game["nameGame"])) ?>" class="btn lh-buttons-purple px-3">
                                         <span>Rejoindre</span>
                                     </a>
                                     <!-- Game's Social Links -->
