@@ -21,7 +21,24 @@ class HubController
         $idUser = $_SESSION["user"];
 
         // Delete the room in DB
-        Hub::RequestToJoinRoomAjax($idUser);
+        Hub::requestToJoinRoomAjax($idUser);
+
+        exit();
+    }
+
+    public function joined()
+    {
+        if ($_SERVER["REQUEST_METHOD"] != "POST"){
+            exit();
+        }
+        if (empty($_SESSION["user"])) {
+            exit();
+        }
+
+        $idUser = $_SESSION["user"];
+
+        // Delete the room in DB
+        Hub::joinedRoomAjax($idUser);
 
         exit();
     }

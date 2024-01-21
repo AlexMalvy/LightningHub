@@ -19,6 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($action === 'request') {
         $controller->request();
     }
+    
+    if ($action === 'joined') {
+        $controller->joined();
+    }
 }
 
 // Unknown action

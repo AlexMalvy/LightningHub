@@ -181,7 +181,7 @@ class Hub
         ["idRoom" => $room->roomId]);
     }
     
-    public static function RequestToJoinRoomAjax(int $idUser)
+    public static function requestToJoinRoomAjax(int $idUser)
     {
         $getRoomId = DB::fetch("SELECT users.idRoom, users.isRoomOwner
         FROM users
@@ -198,6 +198,19 @@ class Hub
 
             print(json_encode(["requests" => $result]));
         }
+        exit();
+    }
+    
+    public static function joinedRoomAjax(int $idUser)
+    {
+        $result = DB::fetch("SELECT users.idRoom, rooms.title
+        FROM users
+            INNER JOIN rooms
+            ON users.idRoom = rooms.idRoom
+        WHERE users.idUser = :idUser",
+        ["idUser" => $idUser]);
+
+        print(json_encode(["joined" => $result]));
         exit();
     }
 }

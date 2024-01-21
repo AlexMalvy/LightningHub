@@ -25,7 +25,7 @@
         $_SESSION["user"] = NULL;
     }
 
-    $_SESSION["user"] = 10;
+    $_SESSION["user"] = 1;
 
     $filteredGame = NULL;
     $filteredGamemode = NULL;
@@ -61,7 +61,7 @@
         <!-- Messages -->
         <?php if (!empty($_SESSION['message'])): ?>
             <div class="container">
-                <div class="col-lg-8 offset-lg-2 alert alert-<?=$_SESSION['type']?>" role="alert">
+                <div class="col-lg-8 offset-lg-2 alert alert-<?php print($_SESSION['type']); ?>" role="alert">
                     <?php echo '<span class="text-white">' . $_SESSION['message'] . '</span>'?>
                 </div>
             </div>
@@ -69,6 +69,19 @@
             unset($_SESSION['type']);
         ?>
         <?php endif; ?>
+
+        <!-- Notification -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <span class="me-2" id="notification-body"></span>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Veuillez recharger la page.
+                </div>
+            </div>
+        </div>
 
 
         <!-- Filters + Create Hub -->
