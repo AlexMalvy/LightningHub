@@ -283,3 +283,66 @@ if (updateRoomForm) {
         changeValueToGamemodeId(updateRoomForm["room_game_type"], updateRoomForm["room_game_type_id"]);
     })
 }
+
+
+// Request to join AJAX
+const requestToJoinPannel = document.querySelector("#requestToJoinHeader");
+
+function requestsAjax() {
+    const instructions = {
+        action: "request"
+    }
+    const instructionsJSON = JSON.stringify(instructions);
+    const options = {
+        method: "POST",
+        body: instructionsJSON,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const request = fetch("handlers/hub-handler.php", options);
+    request.then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let html = "";
+        const {requests} = data;
+
+        if(requests.length === 0){
+            html = `<h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>`
+        }
+
+        requests.forEach(function(request){
+            date = new Date(request.timeRequest);
+            html += `
+            <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
+                <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
+                    <div>${request.username}#${request.idUser}</div>
+                    <div class="ms-auto">${date.getHours()}:${date.getMinutes()}</div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <form action="handlers/room-handler.php" method="POST" class="ms-5">
+                        <input type="text" name="action" value="accept" hidden>
+                        <input type="text" name="targetId" value="${request.idUser}" hidden>
+                        <input type="text" name="room_id" value="${request.idRoom}" hidden>
+                        <button class="btn lh-buttons-purple">Accepter</button>
+                    </form>
+                    <form action="handlers/room-handler.php" method="POST" class="ms-2">
+                        <input type="text" name="action" value="decline" hidden>
+                        <input type="text" name="targetId" value="${request.idUser}" hidden>
+                        <input type="text" name="room_id" value="${request.idRoom}" hidden>
+                        <button class="btn lh-buttons-red">X</button>
+                    </form>
+                </div>
+            </article>
+            `;
+        })
+
+        requestToJoinPannel.innerHTML = html;
+    })
+}
+
+setInterval(() => {
+    requestsAjax();
+}, 5000);

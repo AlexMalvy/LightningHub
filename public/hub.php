@@ -358,33 +358,35 @@
                                         <div class="col-lg-2 text-center">Actions</div>
                                     </article>
                                 <!-- Atleast 1 request -->
-                                <?php if(count($currentHub->usersRequestingToJoin) > 0): ?>
-                                    <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
-                                        <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
-                                            <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
-                                                <div><?php print($user["username"]."#".$user["idUser"]) ?></div>
-                                                <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <form action="handlers/room-handler.php" method="POST" class="ms-5">
-                                                    <input type="text" name="action" value="accept" hidden>
-                                                    <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
-                                                    <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
-                                                    <button class="btn lh-buttons-purple">Accepter</button>
-                                                </form>
-                                                <form action="handlers/room-handler.php" method="POST" class="ms-2">
-                                                    <input type="text" name="action" value="decline" hidden>
-                                                    <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
-                                                    <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
-                                                    <button class="btn lh-buttons-red">X</button>
-                                                </form>
-                                            </div>
-                                        </article>
-                                    <?php endforeach; ?>
-                                <!-- No request to join -->
-                                <?php else: ?>
-                                    <h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>
-                                <?php endif; ?>
+                                <div id="requestToJoinHeader">
+                                    <?php if(count($currentHub->usersRequestingToJoin) > 0): ?>
+                                        <?php foreach($currentHub->usersRequestingToJoin as $user): ?>
+                                            <article class="col d-flex flex-column flex-md-row justify-content-between align-items-center p-2 border">
+                                                <div class="d-flex justify-content-between align-items-center w-100 px-1 px-md-0">
+                                                    <div><?php print($user["username"]."#".$user["idUser"]) ?></div>
+                                                    <div class="ms-auto"><?php print((new DateTimeImmutable($user["timeRequest"]))->format("H:i")) ?></div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <form action="handlers/room-handler.php" method="POST" class="ms-5">
+                                                        <input type="text" name="action" value="accept" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
+                                                        <button class="btn lh-buttons-purple">Accepter</button>
+                                                    </form>
+                                                    <form action="handlers/room-handler.php" method="POST" class="ms-2">
+                                                        <input type="text" name="action" value="decline" hidden>
+                                                        <input type="text" name="targetId" value="<?php print($user["idUser"]) ?>" hidden>
+                                                        <input type="text" name="room_id" value="<?php print($currentHub->connectedUserRoom->roomId) ?>" hidden>
+                                                        <button class="btn lh-buttons-red">X</button>
+                                                    </form>
+                                                </div>
+                                            </article>
+                                        <?php endforeach; ?>
+                                    <!-- No request to join -->
+                                    <?php else: ?>
+                                        <h2 class="text-center py-5">Les utilisateurs qui veulent rejoindre votre salon apparaîtrons ici.</h2>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         <!-- Not a room owner -->
                         <?php else: ?>
