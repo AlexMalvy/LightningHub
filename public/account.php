@@ -86,33 +86,32 @@
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
-        <?php endforeach; ?>
+
 
             <!-- Identifiants INGAME -->
             <section id="identifiants">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Identifiants IN GAME</h2>
 
-                <?php foreach($games->allGamesList as $game):?>
-                    <?php $userFound = false ;?>
-                        <?php foreach($idInGameUsername->getInGameUsername() as $user):?>
-                            <?php if($game['idGame'] == $user['idGame']): ?>
-                                <?php $userFound = true ;?>
-                                    <form action="handlers/User-handler.php?idUser=<?php echo $user['idUser']?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
-                                        <input type="text" name="action" value="idGameUpdate" hidden>
-                                        <label><?php echo $game['nameGame'] ?></label>
-                                        <input class="input-inGame input" type="text" value="<?php
-                                        echo $user['inGameUsername']?>" name="inGameUsername">
-                                        <div>
-                                            <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
-                                                <i class="fa-solid fa-pen text-white"></i>
-                                            </button>
-                                        </div>
-                                    </form>
+                    <?php foreach($games->allGamesList as $game):?>
+                        <?php $userFound = false; ?>
+                        <?php foreach($idInGameUsername->getInGameUsername() as $inGameUser):?>
+                            <?php if($game['idGame'] === $inGameUser['idGame']): ?>
+                                <?php $userFound = true; ?>
+                                <form action="handlers/User-handler.php?idUser=<?php echo $inGameUser['idUser']?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
+                                    <input type="text" name="action" value="idGameUpdate" hidden>
+                                    <label><?php echo $game['nameGame'] ?></label>
+                                    <input class="input-inGame input" type="text" value="<?php echo $inGameUser['inGameUsername']?>" name="inGameUsername">
+                                    <div>
+                                        <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
+                                            <i class="fa-solid fa-pen text-white"></i>
+                                        </button>
+                                    </div>
+                                </form>
                             <?php endif;?>
                         <?php endforeach; ?>
 
-                        <?php if(!$userFound) :?>
-                            <form action="handlers/User-handler.php?idUser=<?php echo $user['idUser']?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
+                        <?php if(!$userFound): ?>
+                            <form action="handlers/User-handler.php?idUser=<?php echo $user->getId()?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
                                 <input type="text" name="action" value="idGameInsert" hidden>
                                 <label><?php echo $game['nameGame'] ?></label>
                                 <input class="input-inGame input" type="text" value="" name="inGameUsername">
@@ -123,12 +122,12 @@
                                 </div>
                             </form>
                         <?php endif;?>
-                <?php endforeach; ?>
 
+                    <?php endforeach; ?>
             </section>
 
             <!-- Notifications -->
-            <?php foreach($users as $user): ?>
+
             <section id="notification-center">
                 <h2 class="py-3 ps-3 bg-color-purple rounded-0">Centre de Notifications</h2>
                 <form action="handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method="POST"  id="formNotification" class="d-flex align-items-center justify-content-between">

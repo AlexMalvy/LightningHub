@@ -95,9 +95,16 @@
                     <ul class="dropdown-menu dropdown-menu-end py-3 drop-down-fix-position">
 
 
-                         <?php $current = Auth::getCurrentUser();
-                         if (isset($current)) {
-                             if ($current['isAdmin'] === 1) {?>
+
+                        <?php
+                        $userController = new App\Controllers\UserController();
+                        $users = $userController->index($_SESSION['user']);
+                        ?>
+
+                        <?php foreach ($users as $user): ?>
+                            <?php if($user->getIsAdmin()): ?>
+                        <!-- Dashboard link -->
+
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="admin/index.php"">
                                 <div>
@@ -109,6 +116,8 @@
                         </li>
 
                         <hr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
 
 
                     <?php
@@ -161,9 +170,10 @@
             <!-- Body -->
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center fs-5">
-                    <?php $current = Auth::getCurrentUser();
-                    if (isset($current)) {
-                        if ($current['isAdmin'] === 1) {?>
+
+
+                    <?php foreach ($users as $user): ?>
+                        <?php if($user->getIsAdmin()): ?>
                             <li class="dropdown-item">
                                 <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="admin/index.php"">
                                 <div>
@@ -178,6 +188,7 @@
                             <?php
                         }
                     }?>
+
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
                             <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">
@@ -185,6 +196,9 @@
                         <a class="nav-link link-light hover-accent-outline focus-accent-outline"  href="admin/index.php" >Dashboard</a>
                     </li>
                     <hr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
                             <img src="assets/images/account_icon_37x37.png" alt="">

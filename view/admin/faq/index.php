@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="fr" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -57,9 +57,9 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Question</th>
-            <th scope="col">Réponse</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="fs-3">Question</th>
+            <th scope="col" class="fs-3">Réponse</th>
+            <th scope="col" class="fs-3">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -68,7 +68,7 @@
         <tr>
             <td><?php echo $faq->getQuestion(); ?></td>
             <td><?php echo $faq->getAnswer(); ?></td>
-            <td class="mx-auto">
+            <td class="text-center">
                 <a href="faq_create.php?id=<?php echo $faq->getId();?>&action=displayUpdateFaq">
                     <img src="../assets/images/pen-solid-20x20.png" alt="modifier la faq">
                 </a>
