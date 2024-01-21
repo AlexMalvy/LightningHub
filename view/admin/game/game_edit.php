@@ -119,8 +119,6 @@
             <?php
             if (isset($_SESSION['errors'])) echo '<input id="errors" type="hidden" name="errors" value="1">';
 
-
-
             ?>
             <label class="mb-2">Modes de jeu :</label>
             <div class="d-flex flex-row align-items-center flex-wrap">
