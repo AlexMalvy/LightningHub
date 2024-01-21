@@ -90,3 +90,6 @@ class AuthController
     }
 
 }
+
+// TODO : messages d''erreur dans la page connection
+// TODO : voir comment il affiche les hubs

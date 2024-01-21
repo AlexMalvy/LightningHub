@@ -45,7 +45,6 @@ class Social
     }
     public static function staticDelete(int $idFriend) : int|false
     {
-
         $myId = Auth::getSessionUserId();
         return DB::statement(
             "DELETE FROM isfriend".

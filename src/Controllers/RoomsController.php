@@ -29,7 +29,7 @@ class RoomsController
         if ($maxMembers <= 1 or $maxMembers > 10) {
             $maxMembers = 5;
         }
-        
+
         $game = $_POST["room_game"];
         $gamemode = $_POST["room_game_type"];
         $gamemodeId = intval($_POST["room_game_type_id"]);
@@ -45,7 +45,7 @@ class RoomsController
 
         // Insert the room in DB
         Room::createNewRoom($idUser, $title, $description, $maxMembers, $gamemodeId);
-        
+
         $_SESSION["message"] = "Vous avez créer le salon ".$title.".";
         $_SESSION["type"] = "success";
         header("Location: $index");

@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/c608f59341.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/admin/hub.js" defer></script>
 
 </head>
 
@@ -41,37 +42,32 @@
                     <th scope="col" class="text-center">Actions</th>
                 </tr>
                 </thead>
-                <tbody class="text-center">
+                <tbody class="text-center" id="hubs">
+
+                <?php
+                foreach ($hubs as $hub){
+                ?>
+
                 <tr class="">
-                    <td class="">Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
+                    <td class=""><?php echo $hub->title ?></td>
+                    <td><?php echo $hub->description ?></td>
+                    <td class="text-center"><?php echo $hub->maxMembers ?></td>
+                    <td><?php echo $hub->gameName ?></td>
                     <td class="text-center">
-                        <a href="hub_edit.php" id="nav-update-hub">
+                        <a href="hub_edit.php?id=<?php echo $hub->roomId ?>" id="nav-update-hub">
                             <img src="../assets/images/pen-solid-20x20.png" alt="modifier le salon">
                         </a>
-                        <a href="" id="nav-update-hub">
-                            <img class="icon-20x20" src="../assets/images/trash-red.svg" alt="supprimer le salon/">
+                        <a href="" id="nav-update-hub" data-id="<?php echo $hub->roomId ?>"
+                           data-bs-toggle="modal" data-bs-target="#deleteHubModal">
+                            <img class="icon-20x20 delete" src="../assets/images/trash-red.svg" alt="supprimer le salon/"
+                                 data-id="<?php echo $hub->roomId ?>">
                         </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
-                    <td class="text-center">
 
                     </td>
                 </tr>
-                <tr>
-                    <td>Les Maîtres de la faille</td>
-                    <td>Rejoignez nous pour une expérience ultime et forgez votre légende sur la faille...</td>
-                    <td class="text-center">5</td>
-                    <td>Lol</td>
-                    <td class="text-center">Ico X</td>
-                </tr>
+                <?php
+                } ?>
+
                 </tbody>
             </table>
         </section>
@@ -79,6 +75,33 @@
 
 
 
+</div>
+
+<!-- Delete Hub Modal -->
+<div class="modal fade" id="deleteHubModal"
+     tabindex="-1" aria-labelledby="deleteHubModalLabel" aria-hidden="true">
+    <form class="form" method="post" action="<?php echo($actionUrl) ?>" name="modal">
+        <input type="text" name="action" value="delete" hidden>
+        <input type="text" id="room_id"  name="room_id" hidden>
+        <input type="text" id="type"  name="type" value="admin" hidden>
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-color-purple rounded-0">
+                    <h5 class="modal-title fs-5" id="deleteHubModalLabel">
+                        Supprimer </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Êtes-vous sûr de vouloir supprimer ce salon ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn lh-buttons-purple-faded" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn lh-buttons-red">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

@@ -108,7 +108,7 @@ function changerOnglet(numeroOnglet) {
     document.querySelector('.tab-content').querySelector('.active').classList.remove('show', 'active');
     document.querySelector('.tab-content').querySelectorAll('.tab-pane')[numeroOnglet - 1].classList.add('show', 'active');
 
-    return fetch("mettre_a_jour_onglet.p    hp?onglet=" + numeroOnglet)
+    return fetch("mettre_a_jour_onglet.php?onglet=" + numeroOnglet)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Erreur lors de la requête AJAX");
