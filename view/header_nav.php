@@ -121,8 +121,8 @@
 
 
                     <?php
-                             }
-                         }?>
+
+                         ?>
 
 
                         <li class="dropdown-item">
@@ -186,8 +186,8 @@
                             <hr>
 
                             <?php
-                        }
-                    }?>
+
+                    ?>
 
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>

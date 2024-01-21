@@ -136,11 +136,18 @@ class GameController
     {
         $idGameMode = $_POST['idGameMode'] ?? null;
 
-        DB::statement(
-            "DELETE FROM gamemodes".
-            " WHERE idGamemode = :idGamemode",
-            ['idGamemode' => $idGameMode],
-        );
+
+        $roomUseGameMode = DB::fetch("SELECT * FROM rooms WHERE idGamemode = :id",
+            ['id' => $idGameMode]);
+
+        if (count($roomUseGameMode) == 0){
+            DB::statement(
+                "DELETE FROM gamemodes".
+                " WHERE idGamemode = :idGamemode",
+                ['idGamemode' => $idGameMode],
+            );
+        } else errors('Ce mode de jeu est utilisé par un salon, veuillez d\'abord supprimer le salon.');
+
 
         redirectAndExit('../admin/game_edit.php?id='. $_POST['idGame']);
     }
