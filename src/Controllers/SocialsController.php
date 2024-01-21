@@ -67,7 +67,10 @@ class SocialsController
     }
 
 
-
+    /**
+     * function to create a new friendship
+     * @return void
+     */
     public function store()
     {
         $myId = Auth::getSessionUserId();
@@ -121,7 +124,6 @@ class SocialsController
         redirectAndExit(self::URL_INDEX);
     }
 
-    // TODO : ne pas pouvoir cliquer sur le pseeudo quand on clique sur user deco
 
 
     /**

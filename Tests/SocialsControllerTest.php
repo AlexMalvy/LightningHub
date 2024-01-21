@@ -1,15 +1,12 @@
 <?php
 
-namespace Tests;
+namespace Controllers;
 
 use App\Controllers\SocialsController;
+use App\Models\Social;
 use PHPUnit\Framework\TestCase;
 
 class SocialsControllerTest extends TestCase
 {
-    public function getSocialByFriend (){
-        $controller = new SocialsController();
-        $result = $controller->getSocialByFriend(1);
 
-    }
 }

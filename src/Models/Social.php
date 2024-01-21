@@ -38,12 +38,12 @@ class Social
         return $social;
     }
 
-    public function delete() : int|false
+    public function delete() : int
     {
         if ($this->idUser1 == Auth::getSessionUserId() ) return self::staticDelete($this->idUser2);
         else return self::staticDelete($this->idUser1);
     }
-    public static function staticDelete(int $idFriend) : int|false
+    public static function staticDelete(int $idFriend) : int
     {
         $myId = Auth::getSessionUserId();
         return DB::statement(
@@ -85,7 +85,7 @@ class Social
         $this->accepted = $accepted;
     }
 
-    public function save($forced = false) : int|false
+    public function save($forced = false) : int
     {
 
         if ($this->idUser2 ?? null) {
