@@ -98,7 +98,7 @@ class Social
                 ." OR idUser2 = :id and idUser1 = :idUser"
                 ,
                 // Params
-                [':id' => $this->idUser2, // TODO: check
+                [':id' => $this->idUser2,
                     'idUser' => $this->idUser1],
             );
 

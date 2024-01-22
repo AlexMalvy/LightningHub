@@ -6,7 +6,6 @@ use App\Models\Hub;
 use App\Models\Room;
 use DB;
 
-// TODO CHECK IF ADMIN DANS le premier .php dans public
 class RoomsController
 {
     const URL_HANDLER = '/handlers/room-handler.php';

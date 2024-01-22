@@ -10,12 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/socials.js" defer></script>
-
+    <script src="assets/js/errors.js" defer></script>
 </head>
 
 <body>
 
-<?php require_once base_path('view/header_nav.php'); ?>
+<?php require_once base_path('view/header_nav.php');
+?>
 
 <!-- Main -->
 <input name="friends" value="<?php echo ($nonFriendsNames)?>" hidden id="friends">
@@ -40,14 +41,14 @@
 
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img id="" class="mx-2 avatar-50x50" src="/assets/images/<?php echo
-                        $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
-                        <span id="myProfile"><?php echo $currentUser['username'] . "#" .
-                                $currentUser['idUser'];?></span>
+                        <img id="" class="mx-2 avatar-50x50" src="<?php echo
+                        $currentUserObj->getProfilePicture() ?>"  alt="connected user avatar-70x70">
+                        <span id="myProfile"><?php echo $currentUserObj->getUsername() . "#" .
+                                $currentUserObj->getId() ;?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
-                <a href="#" class="list-group-item col-3 text-end me-2 pe-3" id="copy">Copier
+                <a href="" class="list-group-item col-3 text-end me-2 pe-3" id="copy">Copier
                     <img class="icon-20x20" src="assets/images/copy-regular.svg"  alt="copy icon">
                 </a>
 
@@ -113,7 +114,7 @@
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none ">
-                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            <img class="me-2 avatar-50x50" src="<?php echo
                                             $friendConnected->getProfilePicture()?>" alt="player
                                             avatar-70x70"><?php echo $friendConnected->getUsername() . "#" . $friendConnected->getId()?></a>
                                         <a href="#" class="p-2 flex-shrink-1 bd-highlight"
@@ -154,11 +155,11 @@
                                         for ($i = 0; $i < count($tabMsgs); $i++) {
 
 
-                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUser['idUser']) {
+                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUserObj->getId() ) {
                                                 ?>
 
                                                 <article class="col message">
-                                                    <img src="assets/images/<?php echo($tabUsers[$i]->getProfilePicture())?>" alt="profile picture" class="avatar-50x50">
+                                                    <img src="<?php echo($tabUsers[$i]->getProfilePicture())?>" alt="profile picture" class="avatar-50x50">
 
                                                     <div class="message-body">
                                                         <form method="post" action="<?php echo $actionUrlMsg?>">
@@ -190,7 +191,7 @@
                                         <!-- User message input -->
 
                                         <form class="mt-3 position-absolute bottom-0 start-0 end-0 m-3" method="POST"
-                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUser['idUser']) ?>&idUser2=<?php echo($friend->getId()) ?>" >
+                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUserObj->getId()) ?>&idUser2=<?php echo($friend->getId()) ?>" >
                                             <input type="text" name="action" value="store" hidden>
 
                                             <div class="input-group inputChat">
@@ -254,7 +255,7 @@
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-secondary text-decoration-none">
-                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            <img class="me-2 avatar-50x50" src="<?php echo
                                             $friendDisconnected->getProfilePicture()?>"
                                                  alt="player
                                             avatar-70x70"><?php echo $friendDisconnected->getUserName() . "#" . $friendDisconnected->getId()?></a>
@@ -300,7 +301,7 @@
                                     <li class="list-group-item d-flex bg-color-purple-faded align-items-center">
 
                                         <a href="#" class="p-2 w-100 bd-highlight link-light text-decoration-none">
-                                            <img class="me-2 avatar-50x50" src="assets/images/<?php echo
+                                            <img class="me-2 avatar-50x50" src="<?php echo
                                             $request->getProfilePicture()?>" alt="player avatar-70x70"><?php echo
                                                 $request->getUsername() . "#" . $request->getId()?></a>
                                         <button type="submit" name="action" value="update" class="p-2 flex-shrink-1 bd-highlight bg-color-purple-faded">
