@@ -40,7 +40,7 @@
 
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
-                        <img id="" class="mx-2 avatar-50x50" src="/assets/images/<?php echo
+                        <img id="" class="mx-2 avatar-50x50" src="<?php echo
                         $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
                         <span id="myProfile"><?php echo $currentUser['username'] . "#" .
                                 $currentUser['idUser'];?></span>
