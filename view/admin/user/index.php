@@ -25,7 +25,7 @@
     <section id="dashboard-user" class="ms-lg-5 text-lg-start col-lg-10">
 
 
-        <div class="d-flex bd-highlight justify-content-between">
+        <div class="d-flex bg-color-purple-faded justify-content-between ">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Utilisateurs</h2>
         </div>
 
@@ -90,16 +90,18 @@
 
 
                 <td class="text-center">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#moderation">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#moderation" data-user-id="<?php echo $user->getId();?>">
                         <img src="../assets/images/ban-solid.svg" alt="Gestion de la modération"></a>
                 </td>
             </tr>
+
             <?php endforeach; ?>
             </tbody>
         </table>
     </section>
 
     <?php require_once base_path('view/modal_moderation.php'); ?>
+
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

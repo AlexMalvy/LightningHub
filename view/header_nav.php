@@ -119,12 +119,6 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
 
-
-                    <?php
-
-                         ?>
-
-
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="account.php">
                                 <div>
@@ -182,20 +176,8 @@
                                 <p class="align-self-center m-0">Dashboard</p>
                                 </a>
                             </li>
-
                             <hr>
 
-                            <?php
-
-                    ?>
-
-                    <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
-                        <div>
-                            <img src="assets/images/dashboard-icon-37x37.svg" alt="" class="icon-25x25">
-                        </div>
-                        <a class="nav-link link-light hover-accent-outline focus-accent-outline"  href="admin/index.php" >Dashboard</a>
-                    </li>
-                    <hr>
                         <?php endif; ?>
                     <?php endforeach; ?>
 

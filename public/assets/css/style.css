@@ -31,6 +31,8 @@ footer {
     font-size: 14px;
 }
 
+
+
 /* ######### */
 /* Variables */
 
@@ -602,11 +604,19 @@ main.account-fields form:not(#formNotification) {
         padding-top: 77px;
     }
 
-    /* Games.html bloc page margin-top */
+    /* Games.php bloc page margin-top */
     .game-margin-top {
         margin-top: 10%;
     }
 
+    /* hero first bloc index.php */
+    .hero-size{
+        font-size: 1.3rem;
+    }
+
+    .hero-size-title{
+        font-size: 2rem;
+    }
 
 }
 
@@ -620,6 +630,7 @@ main.account-fields form:not(#formNotification) {
     .dashboard-title{
         margin-right: 0rem;
     }
+
 }
 
 @media screen and (max-width: 450px) {

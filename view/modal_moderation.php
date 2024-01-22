@@ -8,7 +8,7 @@
             </div>
             <form action="moderation.php" method="POST" class="d-flex flex-column">
                 <input type="text" name="action" value="moderation" hidden>
-                <input type="text" name="userId" value="<?php echo $user->getId()?>" hidden>
+                <input type="text" name="userId" id="modalUserId" hidden>
                 <div class="modal-body">
                     <label for="ban-type">Type de Ban</label>
                     <select id="ban-type" name="BanType" class="mt-1 mb-2 w-100 input">
@@ -29,3 +29,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Update the user ID in the modal
+    document.addEventListener('DOMContentLoaded', function () {
+        const moderationModal = new bootstrap.Modal(document.querySelector('#moderation'));
+
+        // Event listener for clicking on the moderation link.
+        document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#moderation"]').forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Retrieve the user ID from the data attribute of the modal-opening link.
+                const userId = this.getAttribute('data-user-id');
+
+                // Update the value of the userId field in the modal form.
+                document.querySelector('#modalUserId').value = userId;
+
+                moderationModal.show();
+            });
+        });
+    });
+</script>

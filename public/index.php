@@ -49,10 +49,10 @@
         <section>
             <div class="container-fluid d-flex align-items-center first-background-img px-0 first-section">
                 <div class="col-lg-10 offset-lg-1 px-2 px-md-5 px-lg-0 py-5">
-                    <h2 class="reconstruct">Entre Dans Le Game</h2>
-                    <p class="py-2 d-none d-lg-block">Trouvez facilement des partenaires de jeu partageant vos intérêts, que ce soit pour des sessions compétitives ou simplement pour le fun.</p>
-                    <p class="mb-4">
-                        Rejoins-nous pour vivre des expériences <br> <strong>gaming inoubliables.</strong>
+                    <h2 class="reconstruct hero-size-title">Entre Dans Le Game</h2>
+                    <p class="py-2 d-none d-lg-block hero-size">Trouvez facilement des partenaires de jeu partageant vos intérêts, que ce soit pour des sessions compétitives ou simplement pour le fun.</p>
+                    <p class="mb-4 hero-size">
+                        Rejoins-nous pour vivre des expériences <strong>gaming inoubliables.</strong>
                     </p>
                     <div class="d-flex flex-column flex-lg-row">
                         <a href="hub.php" class="btn lh-buttons-purple mt-3 mt-lg-0">
