@@ -119,12 +119,6 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
 
-
-                    <?php
-
-                         ?>
-
-
                         <li class="dropdown-item">
                             <a class="d-flex flex-row justify-content-start align-items-center gap-2 nav-link link-light link-opacity-100 link-opacity-75-hover  hover-accent-outline focus-accent-outline" href="account.php">
                                 <div>
@@ -184,10 +178,6 @@
                             </li>
 
                             <hr>
-
-                            <?php
-
-                    ?>
 
                     <li class="nav-item d-flex flex-row justify-content-start align-items-center gap-2">
                         <div>
