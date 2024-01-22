@@ -22,6 +22,7 @@ class ModerationController
      */
     public static function storeBan(): void
     {
+
         // Prepare POST
         $typeBan =$_POST['BanType'] ?? '';
         $description = $_POST['description'] ?? '';
