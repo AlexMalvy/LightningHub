@@ -63,23 +63,28 @@ class PrivateMessageController
     }
 
 
-
-
     public function update()
     {
+
         $idUser1 = $_POST['idUser1'];
         $idUser2 = $_POST['idUser2'];
         $timeMessage = $_POST['timeMessage'];
 
         $pvMsg = $this->getPrivateMessageByIds($idUser1, $idUser2, $timeMessage);
 
+        if ($pvMsg->getIdUser1() == Auth::getSessionUserId()){
+            errors('Vous ne pouvez pas signaler votre propre message');
+            redirectAndExit(self::URL_INDEX);
+        }
+
         if ($pvMsg->getIsReported() == 1){
-            echo '<script>alert("Opération réussie!");</script>';
             errors('Déjà signalé');
+
             redirectAndExit(self::URL_INDEX);
         }
         $pvMsg->setIsReported(1);
 
+        errors('Message signalé');
          $pvMsg->save();
     }
 

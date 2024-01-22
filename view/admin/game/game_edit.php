@@ -30,7 +30,7 @@
         </div>
 
         <!-- Update Room Form -->
-        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 ">
+        <form method="POST" action="<?php echo $actionUrl ?>" class="row m-0 " enctype="multipart/form-data">
             <input type="text" name="action" value="update" id="update-action-field" hidden>
             <input type="text" id="idGame"  name="idGame" value="<?php echo $_GET['id']; ?>" hidden>
             <!-- Left Side -->
@@ -95,7 +95,7 @@
 
                 <div>
                         <input type="text" name="image" value="image" hidden>
-                        <img src="../assets/images/<?php echo $game->getImage() ?>"
+                        <img src="../<?php echo $game->getImage() ?>"
                              id="image" alt="game image"
                              class="input mb-4 w-100">
                         <label for="file" class="label-file me-2 p-2 text-center">Choisir une image</label>
@@ -115,7 +115,7 @@
 
         </form>
         <div class=" p-0 m-O  ">
-        <div class="col-6 ">
+        <div class="col-lg-6 justify-content-between">
             <?php
             if (isset($_SESSION['errors'])) echo '<input id="errors" type="hidden" name="errors" value="1">';
 
@@ -124,7 +124,7 @@
             <div class="d-flex flex-row align-items-center flex-wrap">
                 <?php
                 foreach ($game->getAllGamesModes() as $mode) {
-                    echo "<div class='card col-3'>
+                    echo "<div class='card col-lg-3'>
                                   <div class='card-body'>
                                   <form method='POST' action='$actionUrl' class='m-0'>
                                            <input type='text' name='action' value='deleteGameMode' hidden>

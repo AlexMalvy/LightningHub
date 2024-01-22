@@ -39,7 +39,12 @@ class GameController
     public function edit()
     {
         $id = $_GET['id'] ?? null;
+        if ($id == null){
+            errors('Mauvais id');
+            redirectAndExit(self::URL_HANDLER);
+        }
         $game = (new Games())->getGameById($id);
+
         $title = 'Modifier un jeu';
         $actionUrl = self::URL_HANDLER;
         $actionValue = 'update';
@@ -57,8 +62,11 @@ class GameController
             }
         }
 
-        if ($_POST['file']) $game->setImage($_POST['file']);
-
+        if ($_FILES['file']['error'] == 0)
+        {
+            $game->setImage('assets/images/' . $_FILES['file']['name']);
+        }
+        $this->savePicture();
 
         $gamesModes = explode(',', $_POST['gamemodes']);
         foreach ($gamesModes as $gamesMode){
@@ -151,6 +159,54 @@ class GameController
 
         redirectAndExit('../admin/game_edit.php?id='. $_POST['idGame']);
     }
+
+    public function savePicture(): void
+    {
+       // dd($_FILES);
+        // Save Profile Picture directory
+        $uploadDir = '../../public/assets/images/';
+
+        // I retrieve the file extension.
+        $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+
+        $authorizedExtensions = ['jpg','png','gif'];
+
+        // The maximum weight handled by PHP by default is 2MB.
+        $maxFileSize = 1000000;
+
+        // The server-side file name is generated here based on the client-side file name.
+        $uploadFile = $uploadDir . $_FILES['file']['name'];
+
+        $errors = [];
+        if( (!in_array($extension, $authorizedExtensions))){
+            $errors[] = 'Veuillez sélectionner une image de type Jpg ou Png !';
+        }
+
+        // Check if the image exists and if the weight is allowed in bytes.
+        if( file_exists($_FILES['file']['tmp_name']) && filesize($_FILES['file']['tmp_name']) > $maxFileSize)
+        {
+            $errors[] = "Votre fichier doit faire moins de 2M !";
+        }
+
+        if(empty($errors)){
+
+            move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile);
+
+//            $user = new User();
+//            $user->savePicture($_SESSION['user'],$uploadFile );
+
+           // redirectAndExit(self::URL_INDEX);
+
+        }else{
+            foreach($errors as $error){
+                $_SESSION['message'] = "Une erreur s'est produite";
+                $_SESSION['type'] = 'danger';
+            }
+        }
+
+        //redirectAndExit(self::URL_INDEX);
+    }
+
 
 
 }
