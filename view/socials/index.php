@@ -41,9 +41,9 @@
                 <p class="list-group-item col-4 m-0">
                     <a href="account.php" class="w-100 bd-highlight link-light text-decoration-none d-flex align-items-center">
                         <img id="" class="mx-2 avatar-50x50" src="<?php echo
-                        $currentUser['profilePicture'] ?>"  alt="connected user avatar-70x70">
-                        <span id="myProfile"><?php echo $currentUser['username'] . "#" .
-                                $currentUser['idUser'];?></span>
+                        $currentUserObj->getProfilePicture() ?>"  alt="connected user avatar-70x70">
+                        <span id="myProfile"><?php echo $currentUserObj->getUsername() . "#" .
+                                $currentUserObj->getId() ;?></span>
                     </a>
                 </p>
                 <!-- Copy my id -->
@@ -154,7 +154,7 @@
                                         for ($i = 0; $i < count($tabMsgs); $i++) {
 
 
-                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUser['idUser']) {
+                                            if ($tabMsgs[$i]->getIdUser2() == $friend->getId() OR $tabMsgs[$i]->getIdUser1() == $friend->getId() AND $tabMsgs[$i]->getIdUser2() == $currentUserObj->getId() ) {
                                                 ?>
 
                                                 <article class="col message">
@@ -190,7 +190,7 @@
                                         <!-- User message input -->
 
                                         <form class="mt-3 position-absolute bottom-0 start-0 end-0 m-3" method="POST"
-                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUser['idUser']) ?>&idUser2=<?php echo($friend->getId()) ?>" >
+                                              action="<?php echo($actionUrlMsg) ?>?idUser1=<?php echo($currentUserObj->getId()) ?>&idUser2=<?php echo($friend->getId()) ?>" >
                                             <input type="text" name="action" value="store" hidden>
 
                                             <div class="input-group inputChat">
