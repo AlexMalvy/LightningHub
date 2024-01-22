@@ -36,6 +36,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="user.php"><i class="fa-solid fa-user me-2"></i>Voir utilisateurs</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signal.php"><i class="fa-solid fa-user me-2"></i>Voir signalements</a>
+                    </li>
                     <hr/>
                     <li class="nav-dashboard-title">Jeux</li>
                     <li class="nav-item">
