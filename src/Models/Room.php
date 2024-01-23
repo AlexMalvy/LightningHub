@@ -12,8 +12,10 @@ class Room
         string $title, 
         string $description, 
         int $maxMembers, $dateDB, 
-        int $gameId, string $gameName, 
-        string $gameTag, int $gamemodeId, 
+        int $gameId, 
+        string $gameName, 
+        string $gameTag, 
+        int $gamemodeId, 
         string $gamemode)
     {
         $this->roomId = $roomId;
