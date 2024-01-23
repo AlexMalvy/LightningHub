@@ -21,6 +21,9 @@ class RoomMessage
     public int $isReported;
     public User $user;
 
+    /**
+     * Send a message into the connected user's room
+     */
     public static function sendMessage(int $idUser, string $message)
     {
         $resultUserRoomCheck = DB::fetch("SELECT users.idRoom
@@ -33,6 +36,9 @@ class RoomMessage
         ["message" => $message, "idRoom" => $resultUserRoomCheck[0]["idRoom"], "idUser" => $idUser]);
     }
 
+    /**
+     * Report the target message in the connected user's room
+     */
     public static function reportMessage(int $idUser, int $idMessage)
     {
         $resultUserRoomCheck = DB::fetch("SELECT users.idRoom

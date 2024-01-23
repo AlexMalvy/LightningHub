@@ -34,22 +34,41 @@
                         <input type="text" id="type"  name="type" value="admin" hidden>
                         <!-- Left Side -->
                         <div class="col-lg-5 d-lg-flex flex-column">
+                            <!-- Game Select -->
                             <div>
                                 <label for="game_update_room" class="mb-2">Jeux :</label>
                                 <select id="game_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game" required aria-required="true">
-                                    <option selected>Veuillez choisir un jeu</option>
-                                    <option value="lol">League Of Legends</option>
+                                    <?php foreach ($filters->filtersList as $gameId => $allGames): ?>
+                                        <?php foreach ($allGames as $game => $mode): ?>
+                                            <option
+                                                    value="<?php print($game) ?>"
+                                                    game_id="<?php print($gameId) ?>"
+                                                <?php if ($currentHub->connectedUserRoom->gameId === $gameId) {print("selected");} ?>
+                                            >
+                                                <?php print($game) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
 
+                            <!-- Gamemode Select -->
                             <div>
                                 <label for="game_type_update_room" class="mb-2">Type de partie :</label>
                                 <select id="game_type_update_room" class="input mb-4 w-100" aria-label="Select" name="room_game_type" required aria-required="true">
-                                    <option selected>Veuillez choisir un type de partie</option>
-                                    <option value="normal">Normal</option>
-                                    <option value="ranked">Ranked</option>
+                                    <?php foreach ($filters->getGamemodesFromGameId($currentHub->connectedUserRoom->gameId) as $gamemodeId => $gamemodeName): ?>
+                                        <option
+                                                value="<?php print($gamemodeName) ?>"
+                                                gamemode_id="<?php print($gamemodeId) ?>"
+                                            <?php if ($currentHub->connectedUserRoom->gamemodeId === $gamemodeId) {print("selected"); $currentGamemodeId = $gamemodeId;} ?>
+                                        >
+                                            <?php print($gamemodeName) ?>
+                                        </option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
+
+                            <input type="text" name="room_game_type_id" value="<?php print($currentGamemodeId) ?>" id="game_type_update_room_id" hidden>
 
                             <div>
                                 <label for="player_number_update_room" class="mb-2">Nombre de participants :</label>

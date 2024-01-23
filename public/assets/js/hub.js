@@ -153,16 +153,6 @@ const createNewRoomGamemode = document.querySelector("#game_type_new_room");
 const modifyRoomGame = document.querySelector("#game_update_room");
 const modifyRoomGamemode = document.querySelector("#game_type_update_room");
 
-// How to get to each elements
-// for (let gameId in gamemodes) {
-//     for (let gameName in gamemodes[gameId]) {
-//         console.log("game id : " + gameId + " || game : " + gameName);
-//         for (let gamemodeId in gamemodes[gameId][gameName]) {
-//             console.log("gamemode id : " + gamemodeId + " || gamemode : " + gamemodes[gameId][gameName][gamemodeId]);
-//         }
-//     }
-// }
-
 function loadGamemodeOptionsFilters(game_element, gamemode_element) {
     const filterOptionGamemode = gamemode_element.querySelectorAll("option");
     filterOptionGamemode.forEach(option => {
@@ -263,14 +253,6 @@ function changeValueToGamemodeId($selectFieldName, $hiddenInputFieldName) {
 const filtersForm = document.forms["filters"];
 const createRoomForm = document.forms["create_room"];
 const updateRoomForm = document.forms["update_room"];
-
-// console.log(filtersForm["game_type"].getAttribute("gamemode_id"));
-
-// if (filtersForm) {
-//     filtersForm.addEventListener("submit", () => {
-//         changeValueToGamemodeId(filtersForm["room_game_type"], filtersForm["room_game_type_id"]);
-//     })
-// }
 
 if (createRoomForm) {
     createRoomForm.addEventListener("submit", () => {
@@ -395,6 +377,7 @@ if (hubCurrentTabPane == null) {
 
 // Chat Room AJAX
 const chatMessages = document.querySelector("#chat-messages");
+let lastAmountOfMessages;
 
 function messagesAjax() {
     const instructions = {
@@ -421,46 +404,50 @@ function messagesAjax() {
         </article>`;
 
         if(data != []){
-            data.roomChat.forEach(function(message){
-                date = new Date(message.timeMessage);
-                if(!message.profilePicture){
-                    userProfilePicture = 'assets/images/Avatar_default.png';
-                } else {
-                    // Prefix to remove
-                    prefixToRemove = '../../public/';
+            if (lastAmountOfMessages != data.roomChat.length) {
+                data.roomChat.forEach(function(message){
+                    date = new Date(message.timeMessage);
+                    if(!message.profilePicture){
+                        userProfilePicture = 'assets/images/Avatar_default.png';
+                    } else {
+                        // Prefix to remove
+                        prefixToRemove = '../../public/';
 
-                    // Delete Prefix
-                    relativePath = str_replace(prefixToRemove, '', message.profilePicture);
+                        // Delete Prefix
+                        relativePath = str_replace(prefixToRemove, '', message.profilePicture);
 
-                    userProfilePicture = relativePath;
-                }
-                html += `
-                
-                <article class="col message">
-                    <img src="${userProfilePicture}" alt="profile picture" class="avatar-50x50">
+                        userProfilePicture = relativePath;
+                    }
+                    html += `
+                    
+                    <article class="col message">
+                        <img src="${userProfilePicture}" alt="profile picture" class="avatar-50x50">
 
-                    <div class="message-body">
+                        <div class="message-body">
 
-                        <div class="message-header">
-                            <h2 class="card-title">${message.username}</h2>
-                            <small>${date.getHours()}:${date.getMinutes()}</small>
-                            <form action="handlers/roomMessage-handler.php" method="POST" class="ms-auto">
-                                <input type="text" name="action" value="report" hidden>
-                                <input type="text" name="message_id" value="${message.idMessage}" hidden>
-                                <button class="btn">
-                                    <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
-                                </button>
-                            </form>
+                            <div class="message-header">
+                                <h2 class="card-title">${message.username}</h2>
+                                <small>${date.getHours()}:${date.getMinutes()}</small>
+                                <form action="handlers/roomMessage-handler.php" method="POST" class="ms-auto">
+                                    <input type="text" name="action" value="report" hidden>
+                                    <input type="text" name="message_id" value="${message.idMessage}" hidden>
+                                    <button class="btn">
+                                        <img src="assets/images/triangle-exclamation-solid.svg" alt="report user" class="report">
+                                    </button>
+                                </form>
+                            </div>
+
+                            <p class="card-text text-break">${message.message}</p>
                         </div>
+                    </article>
+                    `;
+                })
+                lastAmountOfMessages = data.roomChat.length;
 
-                        <p class="card-text text-break">${message.message}</p>
-                    </div>
-                </article>
-                `;
-            })
+                chatMessages.innerHTML = html;
+            }
         }
 
-        chatMessages.innerHTML = html;
     })
 }
 

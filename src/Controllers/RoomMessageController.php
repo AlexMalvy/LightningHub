@@ -8,6 +8,9 @@ class RoomMessageController
 {
     const URL_INDEX = '/hub.php';
 
+    /**
+     * Send a message into the user's current room
+     */
     public function send()
     {
         $index = self::URL_INDEX;
@@ -35,6 +38,9 @@ class RoomMessageController
         exit();
     }
     
+    /**
+     * Report the target message in connected user's room
+     */
     public function report()
     {
         $index = self::URL_INDEX;
