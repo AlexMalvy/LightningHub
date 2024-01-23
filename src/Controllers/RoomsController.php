@@ -17,7 +17,7 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type_id']) or $_POST['room_game_type_id'] == "null") {
             $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
