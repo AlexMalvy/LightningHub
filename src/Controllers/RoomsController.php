@@ -11,6 +11,9 @@ class RoomsController
     const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/product-handler.php';
 
+    /**
+     * Create a room with the current user as the owner
+     */
     public function create()
     {
         $index = self::URL_INDEX;
@@ -52,6 +55,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Modify the current user's room
+     */
     public function modify()
     {
         $index = self::URL_INDEX;
@@ -102,6 +108,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Delete the current user's room
+     */
     public function delete()
     {
         $index = self::URL_INDEX;
@@ -130,6 +139,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Leave the current room for current user
+     */
     public function leave()
     {
         $index = self::URL_INDEX;
@@ -152,6 +164,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Promote to room owner the target user
+     */
     public function promote()
     {
         $index = self::URL_INDEX;
@@ -172,6 +187,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Kick the target user from the room
+     */
     public function kick()
     {
         $index = self::URL_INDEX;
@@ -192,6 +210,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Send a request to join target room for connected user
+     */
     public function join()
     {
         $index = self::URL_INDEX;
@@ -212,6 +233,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Cancel request to join target room for connected user
+     */
     public function cancel()
     {
         $index = self::URL_INDEX;
@@ -232,6 +256,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Accept into the room target user
+     */
     public function accept()
     {
         $index = self::URL_INDEX;
@@ -253,6 +280,9 @@ class RoomsController
         exit();
     }
 
+    /**
+     * Decline request to join the room of target user
+     */
     public function decline()
     {
         $index = self::URL_INDEX;

@@ -6,6 +6,9 @@ use DB;
 
 class Filters
 {
+    /**
+     * Get all games and gamemodes
+     */
     public function __construct()
     {
         $result = DB::fetch("SELECT games.idGame, games.nameGame, gamemodes.idGamemode, gamemodes.nameGamemode
@@ -49,7 +52,10 @@ class Filters
 
     public $filtersList = [];
 
-    public function getGameId($submittedGameName)
+    /**
+     * Get game database id from game's name
+     */
+    public function getGameId(string $submittedGameName) : int
     {
         foreach ($this->filtersList as $gameId => $gameInfo) {
             foreach ($gameInfo as $gameName => $gamemodes) {
@@ -60,7 +66,10 @@ class Filters
         }
     }
     
-    public function getGamemodeId($submittedGameName, $submittedGamemodeName)
+    /**
+     * Get gamemode database id from gamemode's name
+     */
+    public function getGamemodeId(string $submittedGameName, string $submittedGamemodeName) : int
     {
         foreach ($this->filtersList as $gameId => $gameInfo) {
             foreach ($gameInfo as $gameName => $gamemodes) {
@@ -75,7 +84,10 @@ class Filters
         }
     }
 
-    public function getGamemodesFromGameId($submittedGameId)
+    /**
+     * Get all gamemodes id and name from game's id
+     */
+    public function getGamemodesFromGameId(int $submittedGameId) : array
     {
         foreach ($this->filtersList as $gameId => $gameInfo) {
             if ($submittedGameId === $gameId) {
@@ -86,7 +98,10 @@ class Filters
         }
     }
 
-    public function getGameNameAndGamemodeNameFromGamemodeId($submittedGamemodeId)
+    /**
+     * Get game's name and gamemode name from gamemode's id
+     */
+    public function getGameNameAndGamemodeNameFromGamemodeId(int $submittedGamemodeId) : array
     {
         foreach ($this->filtersList as $gameId => $gameInfo) {
             foreach ($gameInfo as $gameName => $gamemodes) {

@@ -164,7 +164,7 @@ class UserController
         // I retrieve the file extension.
         $extension = pathinfo($_FILES['avatarPicture']['name'], PATHINFO_EXTENSION);
 
-        $authorizedExtensions = ['jpg','png','gif'];
+        $authorizedExtensions = ['jpg','png','gif','jfif'];
 
         // The maximum weight handled by PHP by default is 2MB.
         $maxFileSize = 1000000;

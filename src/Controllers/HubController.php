@@ -9,6 +9,9 @@ class HubController
     const URL_INDEX = '/hub.php';
     const URL_HANDLER = '/handlers/hub-handler.php';
 
+    /**
+     * Get all request to join connected user's room through ajax request
+     */
     public function request()
     {
         if ($_SERVER["REQUEST_METHOD"] != "POST"){
@@ -26,6 +29,9 @@ class HubController
         exit();
     }
 
+    /**
+     * Get notified if current user's got accepted into a room through ajax request
+     */
     public function joined()
     {
         if ($_SERVER["REQUEST_METHOD"] != "POST"){
