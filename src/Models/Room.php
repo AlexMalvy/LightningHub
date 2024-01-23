@@ -7,7 +7,14 @@ use DB;
 
 class Room
 {
-    public function __construct(int $roomId, string $title, string $description, int $maxMembers, $dateDB, int $gameId, string $gameName, string $gameTag, int $gamemodeId, string $gamemode)
+    public function __construct(
+        int $roomId, 
+        string $title, 
+        string $description, 
+        int $maxMembers, $dateDB, 
+        int $gameId, string $gameName, 
+        string $gameTag, int $gamemodeId, 
+        string $gamemode)
     {
         $this->roomId = $roomId;
         $this->title = $title;
@@ -45,7 +52,9 @@ class Room
 
     public RoomChat $chat;
 
-    // Construct Get Room Members
+    /**
+     * Get room members
+     */
     protected function getRoomMembersConstruct()
     {
         $this->members = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner
@@ -63,7 +72,9 @@ class Room
         }
     }
     
-    // Construct Get Room Members
+    /**
+     * Get room members and hydrate User object
+     */
     public function getConnectedUserRoomMembers()
     {
         $allMembers = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner, users.profilePicture
@@ -84,6 +95,9 @@ class Room
         }
     }
 
+    /**
+     * Get this room's chat
+     */
     public function getRoomMessages()
     {
         $this->chat = new RoomChat($this->roomId);
@@ -98,7 +112,9 @@ class Room
         }
     }
     
-    // Display Room creation time
+    /**
+     * Print minutes since creation of the room 
+     */
     public function CreatedSince() : string
     {
         $date_diff = date_diff($this->dateOfCreation, new DateTimeImmutable());
@@ -113,16 +129,21 @@ class Room
         return $minutes_since_creation;
     }
     
-    // Return Room Member's Id
+    /**
+     * Get room members id's
+     */
     public static function getRoomMembersId(int $roomId) : array
     {
         $roomMembers = DB::fetch("SELECT users.idUser
         FROM users
-        WHERE users.idRoom = :currentRoom", ["currentRoom" => $roomId]);
+        WHERE users.idRoom = :currentRoom", 
+        ["currentRoom" => $roomId]);
         return $roomMembers;
     }
 
-    // Check provided user room's ownership
+    /**
+     * Check if target user is the room owner of target room
+     */
     public static function checkUserOwnership(int $userId, int $roomId) : bool
     {
         // Get session user info
@@ -141,21 +162,29 @@ class Room
         return false;
     }
 
+    /**
+     * Insert into the database a new room and put the requesting user as room owner
+     */
     public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode)
     {
         DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
         VALUES
-            (:title, :description, :maxMembers, :idGamemode);", ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
+            (:title, :description, :maxMembers, :idGamemode);", 
+            ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
 
         $connection = DB::getDB();
 
         DB::statement("UPDATE Users
         SET idRoom = :idRoom, isRoomOwner = 1
-        WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
+        WHERE idUser = :idUser;", 
+        ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
         
         self::cancelAllRequestToJoinRooms($idUser);
     }
 
+    /**
+     * Modify the target room
+     */
     public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode)
     {
         DB::statement("UPDATE rooms
@@ -164,6 +193,9 @@ class Room
         ["idRoom" => $idRoom, "title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
     }
 
+    /**
+     * Delete target room, kick all room members from it and cancel all request to join
+     */
     public static function deleteRoom(int $idRoom)
     {
         $roomMembers = self::getRoomMembersId($idRoom);
@@ -188,6 +220,10 @@ class Room
         ["idRoom" => $idRoom]);
     }
 
+    /**
+     * Make connected user leave his room, transfer ownership (last room member) 
+     * or delete room (atleast another member still in the room) if needed
+     */
     public static function leaveRoom(int $idUser, int $idRoom)
     {
         $isOwner = self::checkUserOwnership($idUser, $idRoom);
@@ -223,6 +259,10 @@ class Room
         WHERE idUser = :idUser", ["idUser" => $idUser]);
     }
     
+    /**
+     * Promote target user to room owner if connected user is room owner 
+     * and both users are in the same room
+     */
     public static function promoteToOwner(int $idUser, int $idTarget)
     {
         // Retrieve from DB room owner and soon-to-be room owner
@@ -233,7 +273,8 @@ class Room
 
         if (count($result) === 2) {
             // Checks if user is the room owner
-            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
+            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) 
+            or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
                 // Checks that both users are in the same room
                 if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
                     DB::statement("UPDATE users
@@ -250,6 +291,9 @@ class Room
         }
     }
     
+    /**
+     * Kick target user from connected user's room if connected user is room owner
+     */
     public static function kickFromRoom(int $idUser, int $idTarget)
     {
         // Retrieve from DB room owner and soon-to-be room owner
@@ -258,11 +302,10 @@ class Room
         WHERE idUser = :idUser1 OR idUser = :idUser2',
         ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
-        if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser))
-
         if (count($result) === 2) {
             // Checks if user is the room owner
-            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
+            if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) 
+            or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
                 // Checks that both users are in the same room
                 if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
                     DB::statement("UPDATE users
@@ -274,6 +317,9 @@ class Room
         }
     }
 
+    /**
+     * Put a request to join target room for the connected user
+     */
     public static function RequestToJoinRoom(int $idUser, int $idRoom)
     {
         $result = DB::fetch("SELECT rooms.idRoom
@@ -289,6 +335,9 @@ class Room
         }
     }
 
+    /**
+     * Cancel a request to join target room for the connected user
+     */
     public static function cancelRequestToJoinRoom(int $idUser, int $idRoom)
     {
         $result = DB::fetch("SELECT requesttojoin.idUser
@@ -303,6 +352,9 @@ class Room
         }
     }
 
+    /**
+     * Cancel all request to join rooms for the target user
+     */
     public static function cancelAllRequestToJoinRooms(int $idUser)
     {
         DB::statement("DELETE FROM requesttojoin
@@ -310,7 +362,9 @@ class Room
         ["idUser" => $idUser]);
     }
     
-    
+    /**
+     * Accept targeted user into targeted room if connected user is the room owner of the targeted room
+     */
     public static function acceptIntoRoom(int $idUser, int $idTarget, int $idRoom)
     {
         // Retrieve from DB room owner and target user
@@ -356,6 +410,10 @@ class Room
 
     }
     
+    /**
+     * Accept targeted user into targeted room if connected user is the room owner of the targeted room 
+     * and the room still has place
+     */
     public static function declineIntoRoom(int $idUser, int $idTarget, int $idRoom)
     {
         // Retrieve from DB room owner and target user

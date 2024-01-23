@@ -37,7 +37,9 @@ class RoomChat
 
     public array $allMessages = [];
     
-    
+    /**
+     * Retrieve all the information needed to create a new RoomChat for an Ajax request
+     */
     public static function messagesAjax(int $idUser)
     {
         $getRoomId = DB::fetch("SELECT users.idRoom

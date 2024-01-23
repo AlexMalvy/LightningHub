@@ -81,6 +81,9 @@ class Hub
     public bool $userIsOwner = false;
     public array $usersRequestingToJoin = [];
     
+    /**
+     * Get connected user's friends
+     */
     protected function getFriendRooms(int $userId)
     {
         $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
@@ -104,7 +107,10 @@ class Hub
         WHERE users.idUser IN (".$tempFriendList.")");
     }
 
-    protected function getConnectedUserRoom(int $userId)
+    /**
+     * Get connected user's room
+     */
+    protected function getConnectedUserRoom(int $userId) : Room|NULL
     {
         $result = DB::fetch("SELECT users.idRoom
         FROM users
@@ -153,6 +159,9 @@ class Hub
         
     }
 
+    /**
+     * Get current user's list of requested to join rooms
+     */
     protected function getPendingRoomList(int $userId) {
         $allPendingRooms = DB::fetch("SELECT requesttojoin.idRoom
         FROM requesttojoin
@@ -171,6 +180,9 @@ class Hub
         }
     }
 
+    /**
+     * Get target room requesting to join users
+     */
     protected function getRequestToJoinUserList(room $room)
     {
         $this->usersRequestingToJoin = DB::fetch("SELECT users.idUser, users.username, requesttojoin.timeRequest
@@ -181,6 +193,9 @@ class Hub
         ["idRoom" => $room->roomId]);
     }
     
+    /**
+     * Get current owner room's list of requesting to join user through Ajax
+     */
     public static function requestToJoinRoomAjax(int $idUser)
     {
         $getRoomId = DB::fetch("SELECT users.idRoom, users.isRoomOwner
@@ -201,6 +216,9 @@ class Hub
         exit();
     }
     
+    /**
+     * Get if current user's got accepted into a room through ajax request
+     */
     public static function joinedRoomAjax(int $idUser)
     {
         $result = DB::fetch("SELECT users.idRoom, rooms.title

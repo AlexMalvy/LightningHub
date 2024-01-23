@@ -6,7 +6,14 @@ use DB;
 
 class RoomMessage
 {
-    public function __construct(int $idMessage, $timeMessage, string $message, bool $isReported, int $idUser, string $username, string $profilePicture)
+    public function __construct(
+        int $idMessage, 
+        string $timeMessage, 
+        string $message, 
+        bool $isReported, 
+        int $idUser, 
+        string $username, 
+        string $profilePicture)
     {
         $this->idMessage = $idMessage;
         $this->timeMessage = new \DateTimeImmutable($timeMessage);
@@ -21,6 +28,9 @@ class RoomMessage
     public int $isReported;
     public User $user;
 
+    /**
+     * Send a message into the connected user's room
+     */
     public static function sendMessage(int $idUser, string $message)
     {
         $resultUserRoomCheck = DB::fetch("SELECT users.idRoom
@@ -33,6 +43,9 @@ class RoomMessage
         ["message" => $message, "idRoom" => $resultUserRoomCheck[0]["idRoom"], "idUser" => $idUser]);
     }
 
+    /**
+     * Report the target message in the connected user's room
+     */
     public static function reportMessage(int $idUser, int $idMessage)
     {
         $resultUserRoomCheck = DB::fetch("SELECT users.idRoom
