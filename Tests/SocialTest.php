@@ -2,7 +2,6 @@
 
 namespace Models;
 
-use App\Controllers\UserController;
 use App\Models\Social;
 use App\Models\User;
 use DB;

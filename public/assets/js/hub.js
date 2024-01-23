@@ -248,6 +248,7 @@ function changeValueToGamemodeId($selectFieldName, $hiddenInputFieldName) {
 
     // Replace the attribute "value" to the new gamemode id
     hiddenInputField.setAttribute("value", currentlySelectedGamemodeId);
+    
 }
 
 const filtersForm = document.forms["filters"];
