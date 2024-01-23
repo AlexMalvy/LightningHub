@@ -75,13 +75,13 @@
                     <div class="col-lg-7 offset-lg-1 pe-lg-0">
                         <form action="">
                             <label for="pseudo" class="mb-2">Pseudo :</label>
-                            <input type="text" maxlength="25" name="pseudo" id="pseudo" class="mb-4 w-100 input" required aria-required="true" placeholder="Fatality67">
+                            <input type="text" maxlength= 25 name="pseudo" id="pseudo" class="mb-4 w-100 input" required aria-required="true" placeholder="Fatality67">
 
                             <label for="email" class="mb-2">Adresse email :</label>
-                            <input type="email" maxlength="40" name="email" id="email" class="mb-4 w-100 input" required aria-required="true" placeholder="Fatality67@email.com">
+                            <input type="email" maxlength= 40 name="email" id="email" class="mb-4 w-100 input" required aria-required="true" placeholder="Fatality67@email.com">
 
                             <label for="message" class="mb-2">Votre message :</label>
-                            <textarea name="message" maxlength="2000" id="message" cols="30" rows="10" class="mb-4 w-100 input" required aria-required="true" placeholder="J'aime le chocolat chaud ! :D"></textarea>
+                            <textarea name="message" maxlength= 2000 id="message" cols="30" rows="10" class="mb-4 w-100 input" required aria-required="true" placeholder="J'aime le chocolat chaud ! :D"></textarea>
 
                             <button type="submit" class="btn lh-buttons-purple w-100 mb-3 ">Envoyer</button>
                         </form>
