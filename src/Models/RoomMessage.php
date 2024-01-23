@@ -6,7 +6,14 @@ use DB;
 
 class RoomMessage
 {
-    public function __construct(int $idMessage, $timeMessage, string $message, bool $isReported, int $idUser, string $username, string $profilePicture)
+    public function __construct(
+        int $idMessage, 
+        string $timeMessage, 
+        string $message, 
+        bool $isReported, 
+        int $idUser, 
+        string $username, 
+        string $profilePicture)
     {
         $this->idMessage = $idMessage;
         $this->timeMessage = new \DateTimeImmutable($timeMessage);

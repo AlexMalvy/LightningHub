@@ -7,7 +7,14 @@ use DB;
 
 class Room
 {
-    public function __construct(int $roomId, string $title, string $description, int $maxMembers, $dateDB, int $gameId, string $gameName, string $gameTag, int $gamemodeId, string $gamemode)
+    public function __construct(
+        int $roomId, 
+        string $title, 
+        string $description, 
+        int $maxMembers, $dateDB, 
+        int $gameId, string $gameName, 
+        string $gameTag, int $gamemodeId, 
+        string $gamemode)
     {
         $this->roomId = $roomId;
         $this->title = $title;
@@ -129,7 +136,8 @@ class Room
     {
         $roomMembers = DB::fetch("SELECT users.idUser
         FROM users
-        WHERE users.idRoom = :currentRoom", ["currentRoom" => $roomId]);
+        WHERE users.idRoom = :currentRoom", 
+        ["currentRoom" => $roomId]);
         return $roomMembers;
     }
 
@@ -161,13 +169,15 @@ class Room
     {
         DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
         VALUES
-            (:title, :description, :maxMembers, :idGamemode);", ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
+            (:title, :description, :maxMembers, :idGamemode);", 
+            ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
 
         $connection = DB::getDB();
 
         DB::statement("UPDATE Users
         SET idRoom = :idRoom, isRoomOwner = 1
-        WHERE idUser = :idUser;", ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
+        WHERE idUser = :idUser;", 
+        ["idRoom" => $connection->lastInsertId(), "idUser" => $idUser]);
         
         self::cancelAllRequestToJoinRooms($idUser);
     }

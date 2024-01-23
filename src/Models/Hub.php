@@ -110,7 +110,7 @@ class Hub
     /**
      * Get connected user's room
      */
-    protected function getConnectedUserRoom(int $userId)
+    protected function getConnectedUserRoom(int $userId) : Room|NULL
     {
         $result = DB::fetch("SELECT users.idRoom
         FROM users
