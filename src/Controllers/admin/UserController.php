@@ -16,17 +16,23 @@ class UserController
         require_once base_path('view/admin/user/index.php');
     }
 
+    /**
+     * displays the signaled messages
+     * @return void
+     */
     public function signal()
     {
         $res = DB::fetch('SELECT * FROM sendprivatemessages WHERE isReported = 1');
         $signales = (new PrivateMessageController)->hydrate($res);
 
-
-
-
         require_once base_path('view/admin/user/signal.php');
     }
 
+    /**
+     * @param $id
+     * @display the User object by its ID
+     * @return User
+     */
     public function getUserById($id){
         $res =  (DB::fetch('SELECT * FROM users WHERE idUser = '. $id ))[0];
         return (new User())->hydrate($res);

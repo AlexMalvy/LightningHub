@@ -1,0 +1,25 @@
+var class_app_1_1_models_1_1_user =
+[
+    [ "getEmail", "class_app_1_1_models_1_1_user.html#a02a01849f28e2535e888ae4ec87b20f2", null ],
+    [ "getId", "class_app_1_1_models_1_1_user.html#a12251d0c022e9e21c137a105ff683f13", null ],
+    [ "getIsAdmin", "class_app_1_1_models_1_1_user.html#afd0274ba7938059cad299fe4fe0edfea", null ],
+    [ "getIsRoomOwner", "class_app_1_1_models_1_1_user.html#a97b4ed770691326191a4a7586e889204", null ],
+    [ "getLastConnection", "class_app_1_1_models_1_1_user.html#a7eb01ca180ed16ae65fdca5289979842", null ],
+    [ "getNotificationEnabled", "class_app_1_1_models_1_1_user.html#a7538d9265da6114b1a8d688ace62466c", null ],
+    [ "getPassword", "class_app_1_1_models_1_1_user.html#a04e0957baeb7acde9c0c86556da2d43f", null ],
+    [ "getProfilePicture", "class_app_1_1_models_1_1_user.html#a7ca895ce8dc567b19e85a982429c7c77", null ],
+    [ "getSignUpDate", "class_app_1_1_models_1_1_user.html#acb491df9be9b5f27ff473ac288ca72fb", null ],
+    [ "getUserName", "class_app_1_1_models_1_1_user.html#aafd6d1ef27e6acc5833aba4012e5ee77", null ],
+    [ "save", "class_app_1_1_models_1_1_user.html#afc8a3c62679cf00ade9f15fb2a6d6132", null ],
+    [ "savePicture", "class_app_1_1_models_1_1_user.html#aa3d9c84b3f252e7e6912a0ae02b0d7b8", null ],
+    [ "setEmail", "class_app_1_1_models_1_1_user.html#a2d22391fa86fa0eaf3b9d2a3c29880bc", null ],
+    [ "setId", "class_app_1_1_models_1_1_user.html#af8e956b8b0343ff7d1b955c26cb0c780", null ],
+    [ "setIsAdmin", "class_app_1_1_models_1_1_user.html#a7ce567d104a751522173c749b9825203", null ],
+    [ "setIsRoomOwner", "class_app_1_1_models_1_1_user.html#a834b709f48b2e78294b22b81cd7bce06", null ],
+    [ "setLastConnection", "class_app_1_1_models_1_1_user.html#a00734e31aeaa31abd8c1b5a12c3ba881", null ],
+    [ "setNotificationEnabled", "class_app_1_1_models_1_1_user.html#a4c259e331dda6900e1729f7cd58dc7d4", null ],
+    [ "setPassword", "class_app_1_1_models_1_1_user.html#a81e0f429784973551fb5417d5b92b0db", null ],
+    [ "setProfilePicture", "class_app_1_1_models_1_1_user.html#af9fbf6d49fd4a9dc2f97092bfe5260cd", null ],
+    [ "setSignUpDate", "class_app_1_1_models_1_1_user.html#af0df8066cc47926db905a8fded182a51", null ],
+    [ "setUserName", "class_app_1_1_models_1_1_user.html#a18f014e54b5905f533c756f7e6c0ca02", null ]
+];

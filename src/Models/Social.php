@@ -23,6 +23,11 @@ class Social
         $this->accepted = $accepted;
     }
 
+    /**
+     * @param array $data
+     * @return Social
+     * hydration of a Social object (= friendship)
+     */
     public static function hydrate(array $data): Social
     {
         $social = new Social(
@@ -43,6 +48,12 @@ class Social
         if ($this->idUser1 == Auth::getSessionUserId() ) return self::staticDelete($this->idUser2);
         else return self::staticDelete($this->idUser1);
     }
+
+    /**
+     * delete a friendship (Social)
+     * @param int $idFriend
+     * @return int
+     */
     public static function staticDelete(int $idFriend) : int
     {
         $myId = Auth::getSessionUserId();

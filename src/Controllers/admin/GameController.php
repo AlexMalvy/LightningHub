@@ -10,6 +10,10 @@ class GameController
     const URL_HANDLER = '/handlers/game-handler.php';
     const URL_INDEX = '/admin/game.php';
 
+    /**
+     * @template game index
+     * @return void
+     */
     public function index()
     {
         $list_games = (new Games())->allGamesList;
@@ -19,6 +23,10 @@ class GameController
         require_once base_path('view/admin/game/index.php');
     }
 
+    /**
+     * @template game creation
+     * @return void
+     */
     public function create()
     {
         $id = $_GET['id'] ?? null;
@@ -29,6 +37,10 @@ class GameController
         require_once base_path('view/admin/game/game_create.php');
     }
 
+    /**
+     * @param array of a games request
+     * @return array of Games
+     */
     public function hydrateGames (array $requests){
         foreach ($requests as $key => $request) {
             $requests[$key] = (new \App\Models\Games)->hydrate($request);
@@ -36,6 +48,10 @@ class GameController
         return $requests;
     }
 
+    /**
+     * @template game edition
+     * @return void
+     */
     public function edit()
     {
         $id = $_GET['id'] ?? null;
@@ -51,6 +67,10 @@ class GameController
         require_once base_path('view/admin/game/game_edit.php');
     }
 
+    /**
+     * Update a game in the database
+     * @return void
+     */
     public function update()
     {
         $id = $_POST['idGame'] ?? null;
@@ -79,12 +99,7 @@ class GameController
         }
         $game->setGamesMode($gamesModes);
 
-
-
-
-
-
-        // Update the friendship in DB
+        // Update the game in DB
         $result = $game->save();
         if ($result === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
@@ -93,6 +108,10 @@ class GameController
         }
     }
 
+    /**
+     * delete a game
+     * @return void
+     */
     public function delete()
     {
         $idGame = $_POST['idgame'] ?? null;
@@ -105,6 +124,10 @@ class GameController
         redirectAndExit(self::URL_INDEX);
     }
 
+    /**
+     * To create a new game
+     * @return void
+     */
     public function store()
     {
         $idGame = $_POST['idgame'] ?? null;
@@ -140,6 +163,10 @@ class GameController
         redirectAndExit(self::URL_INDEX);
     }
 
+    /**
+     * to delete a game mode
+     * @return void
+     */
     public function deleteGameMode()
     {
         $idGameMode = $_POST['idGameMode'] ?? null;
@@ -160,6 +187,10 @@ class GameController
         redirectAndExit('../admin/game_edit.php?id='. $_POST['idGame']);
     }
 
+    /**
+     * save a picture file in the project directory
+     * @return void
+     */
     public function savePicture(): void
     {
        // dd($_FILES);
@@ -192,19 +223,12 @@ class GameController
 
             move_uploaded_file($_FILES['file']['tmp_name'], $uploadFile);
 
-//            $user = new User();
-//            $user->savePicture($_SESSION['user'],$uploadFile );
-
-           // redirectAndExit(self::URL_INDEX);
-
         }else{
             foreach($errors as $error){
                 $_SESSION['message'] = "Une erreur s'est produite";
                 $_SESSION['type'] = 'danger';
             }
         }
-
-        //redirectAndExit(self::URL_INDEX);
     }
 
 
