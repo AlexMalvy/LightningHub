@@ -16,6 +16,7 @@ class GameController
      */
     public function index()
     {
+        AdminController::isAdmin();
         $list_games = (new Games())->allGamesList;
         $games = $this->hydrateGames($list_games);
         $actionUrl = self::URL_HANDLER;
@@ -29,6 +30,7 @@ class GameController
      */
     public function create()
     {
+        AdminController::isAdmin();
         $id = $_GET['id'] ?? null;
         $game = null;
         $title = 'Créer un jeu';
@@ -54,6 +56,7 @@ class GameController
      */
     public function edit()
     {
+        AdminController::isAdmin();
         $id = $_GET['id'] ?? null;
         if ($id == null){
             errors('Mauvais id');
@@ -73,6 +76,11 @@ class GameController
      */
     public function update()
     {
+        if (isset($_POST['tag']))
+            if (strlen($_POST['tag'])>5)
+                redirectAndExit(self::URL_INDEX);
+
+
         $id = $_POST['idGame'] ?? null;
         $game = (new Games)->getGameById($id);
         foreach ($_POST as $key => $value) {
@@ -130,6 +138,8 @@ class GameController
      */
     public function store()
     {
+        if (isset($_POST['tag']) && $_POST['tag']>5) errors('coucou bg');
+
         $idGame = $_POST['idgame'] ?? null;
 
         $game = new Games();
@@ -139,6 +149,7 @@ class GameController
                 $game->$methodName($value);
             }
         }
+
 
         if ($_POST['file']) $game->setImage($_POST['file']);
 

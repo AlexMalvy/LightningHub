@@ -12,7 +12,7 @@ class UserController
 
     public function index()
     {
-
+        AdminController::isAdmin();
         require_once base_path('view/admin/user/index.php');
     }
 
@@ -22,6 +22,7 @@ class UserController
      */
     public function signal()
     {
+        AdminController::isAdmin();
         $res = DB::fetch('SELECT * FROM sendprivatemessages WHERE isReported = 1');
         $signales = (new PrivateMessageController)->hydrate($res);
 

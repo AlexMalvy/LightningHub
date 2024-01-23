@@ -21,6 +21,19 @@ class AdminController
         $faqs = count(FAQ::getAllFaqList());
         $hubs = count((new Hub)->allRoomsList);
         $games = count((new Games)->allGamesList);
+
+
         require_once base_path('view/admin/home/index.php');
+
+
+    }
+
+    public static function isAdmin() {
+        $current_user = \Auth::getCurrentUser();
+        if ($current_user['isAdmin'] == 0)
+        {
+            header('Location: ../index.php');
+            exit();
+        }
     }
 }

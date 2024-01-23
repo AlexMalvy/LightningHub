@@ -22,7 +22,7 @@
     <?php require_once base_path('view/admin/components/nav_admin.php'); ?>
 
 
-    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start">
+    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start w-100">
 
         <div class="d-flex bd-highlight justify-content-between">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Jeux</h2>
