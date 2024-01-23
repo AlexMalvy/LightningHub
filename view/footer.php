@@ -4,3 +4,5 @@
     <a href="support.php" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Support</a>
     <a href="legal.php" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Mentions légales</a>
     <a href="#" class="link-light text-decoration-none link-opacity-75 link-opacity-100-hover">Copyright 2023 LIGHTNINGHUB CORP</a>
+
+    <script src="assets/js/index.js"></script>
