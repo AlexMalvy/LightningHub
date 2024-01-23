@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['login_0',['login',['../class_app_1_1_controllers_1_1_auth_controller.html#a73ca43b77e5544eda49e2e3cb61b0b76',1,'App::Controllers::AuthController']]],
-  ['logout_1',['logout',['../class_app_1_1_controllers_1_1_auth_controller.html#a082405d89acd6835c3a7c7a08a7adbab',1,'App::Controllers::AuthController']]]
+  ['home_0',['home',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a88bed67b3e6333587f630f887d828dd7',1,'App::Controllers::admin::FaqController']]],
+  ['hydrate_1',['hydrate',['../class_app_1_1_models_1_1_faq.html#abd0a9174dae37993defb30f5e6696cba',1,'App\Models\Faq\hydrate()'],['../class_app_1_1_models_1_1_private_message.html#abd0a9174dae37993defb30f5e6696cba',1,'App\Models\PrivateMessage\hydrate()'],['../class_app_1_1_models_1_1_social.html#abd0a9174dae37993defb30f5e6696cba',1,'App\Models\Social\hydrate()'],['../class_app_1_1_models_1_1_user.html#abd0a9174dae37993defb30f5e6696cba',1,'App\Models\User\hydrate()']]],
+  ['hydrategames_2',['hydrateGames',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a24a0fa884e741708e88e598280da20f2',1,'App::Controllers::admin::GameController']]],
+  ['hydrateusers_3',['hydrateUsers',['../class_app_1_1_controllers_1_1_socials_controller.html#a109a33f8b415635055e4e8260adb852f',1,'App::Controllers::SocialsController']]]
 ];

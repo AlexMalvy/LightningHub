@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['delete_0',['delete',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\admin\GameController\delete()'],['../class_app_1_1_controllers_1_1_socials_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\SocialsController\delete()'],['../class_app_1_1_controllers_1_1_user_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\UserController\delete()'],['../class_app_1_1_models_1_1_faq.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Models\Faq\delete()']]],
-  ['deletefaq_1',['deleteFaq',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a066a428498ce4a405ac4a2b47bfa4771',1,'App::Controllers::admin::FaqController']]],
-  ['deletegamemode_2',['deleteGameMode',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a8286f30dfb0667c7803a6214623306c1',1,'App::Controllers::admin::GameController']]],
-  ['displaycreateform_3',['displayCreateForm',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#ac2798f694d032bdb3071a6d5376fae24',1,'App::Controllers::admin::FaqController']]],
-  ['displayupdateform_4',['displayUpdateForm',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a2c12c17a1b8be9e75b9a250b0f3e59a0',1,'App::Controllers::admin::FaqController']]]
+  ['cancel_0',['cancel',['../class_app_1_1_controllers_1_1_rooms_controller.html#a649b2b3005c687ae78c9d1d65e973493',1,'App::Controllers::RoomsController']]],
+  ['cancelallrequesttojoinrooms_1',['cancelAllRequestToJoinRooms',['../class_app_1_1_models_1_1_room.html#a30ff2a2dca16992c073ad69f4bfc70d6',1,'App::Models::Room']]],
+  ['cancelrequesttojoinroom_2',['cancelRequestToJoinRoom',['../class_app_1_1_models_1_1_room.html#a9a1c1494cf654a6037efdd583be491de',1,'App::Models::Room']]],
+  ['checkuserownership_3',['checkUserOwnership',['../class_app_1_1_models_1_1_room.html#affe387a1ac0f5fe5f476de83ec858374',1,'App::Models::Room']]],
+  ['create_4',['create',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a435e7d7525d4bcd0ed5e34a469f3adf6',1,'App\Controllers\admin\GameController\create()'],['../class_app_1_1_controllers_1_1_rooms_controller.html#a435e7d7525d4bcd0ed5e34a469f3adf6',1,'App\Controllers\RoomsController\create()']]],
+  ['createdsince_5',['CreatedSince',['../class_app_1_1_models_1_1_room.html#a7f791c9bbd177c1f57be56590fe24a7d',1,'App::Models::Room']]],
+  ['createnewroom_6',['createNewRoom',['../class_app_1_1_models_1_1_room.html#a2323ea286ed4d3826825245a46680273',1,'App::Models::Room']]]
 ];

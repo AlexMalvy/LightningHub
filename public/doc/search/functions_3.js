@@ -1,24 +1,11 @@
 var searchData=
 [
-  ['getconnectedfriends_0',['getConnectedFriends',['../class_app_1_1_controllers_1_1_socials_controller.html#aae1ba88356eb47c9a9632c83d5324fff',1,'App::Controllers::SocialsController']]],
-  ['getdisconnectedfriends_1',['getDisconnectedFriends',['../class_app_1_1_controllers_1_1_socials_controller.html#acfce47c554df0f28fab833cb23a4e2e0',1,'App::Controllers::SocialsController']]],
-  ['getemail_2',['getEmail',['../class_app_1_1_models_1_1_user.html#a02a01849f28e2535e888ae4ec87b20f2',1,'App::Models::User']]],
-  ['getfriendrequests_3',['getFriendRequests',['../class_app_1_1_controllers_1_1_socials_controller.html#a5f6701b8668e76b459780ed12fbb9497',1,'App::Controllers::SocialsController']]],
-  ['getfriends_4',['getFriends',['../class_app_1_1_controllers_1_1_socials_controller.html#a3de379fa61951c3dc4436bd6c2f9cafc',1,'App::Controllers::SocialsController']]],
-  ['getfriendsandrequestsid_5',['getFriendsAndRequestsId',['../class_app_1_1_controllers_1_1_socials_controller.html#add1933421002c590493e434ede09b68d',1,'App::Controllers::SocialsController']]],
-  ['getfriendsid_6',['getFriendsId',['../class_app_1_1_controllers_1_1_socials_controller.html#a2d1d3a9f872ecc82dee9204d3b91d156',1,'App::Controllers::SocialsController']]],
-  ['getid_7',['getId',['../class_app_1_1_models_1_1_user.html#a12251d0c022e9e21c137a105ff683f13',1,'App::Models::User']]],
-  ['getingameusername_8',['getInGameUsername',['../class_app_1_1_controllers_1_1_play_games_controller.html#a5f6d7411dd6fdf4ce5db75e0e8da80d3',1,'App::Controllers::PlayGamesController']]],
-  ['getisadmin_9',['getIsAdmin',['../class_app_1_1_models_1_1_user.html#afd0274ba7938059cad299fe4fe0edfea',1,'App::Models::User']]],
-  ['getisroomowner_10',['getIsRoomOwner',['../class_app_1_1_models_1_1_user.html#a97b4ed770691326191a4a7586e889204',1,'App::Models::User']]],
-  ['getlastconnection_11',['getLastConnection',['../class_app_1_1_models_1_1_user.html#a7eb01ca180ed16ae65fdca5289979842',1,'App::Models::User']]],
-  ['getnonfriends_12',['getNonFriends',['../class_app_1_1_controllers_1_1_socials_controller.html#a7b4b68d2ed6d2b8221701f8457b44fc9',1,'App::Controllers::SocialsController']]],
-  ['getnonfriendsnames_13',['getNonFriendsNames',['../class_app_1_1_controllers_1_1_socials_controller.html#af1873bf6aff2c1fa6cfd83128179ec67',1,'App::Controllers::SocialsController']]],
-  ['getnotificationenabled_14',['getNotificationEnabled',['../class_app_1_1_models_1_1_user.html#a7538d9265da6114b1a8d688ace62466c',1,'App::Models::User']]],
-  ['getpassword_15',['getPassword',['../class_app_1_1_models_1_1_user.html#a04e0957baeb7acde9c0c86556da2d43f',1,'App::Models::User']]],
-  ['getprofilepicture_16',['getProfilePicture',['../class_app_1_1_models_1_1_user.html#a7ca895ce8dc567b19e85a982429c7c77',1,'App::Models::User']]],
-  ['getsignupdate_17',['getSignUpDate',['../class_app_1_1_models_1_1_user.html#acb491df9be9b5f27ff473ac288ca72fb',1,'App::Models::User']]],
-  ['getsocialbyfriend_18',['getSocialByFriend',['../class_app_1_1_controllers_1_1_socials_controller.html#a885aa7e80eed60a649272043e98cf337',1,'App::Controllers::SocialsController']]],
-  ['getuserbyid_19',['getUserById',['../class_app_1_1_controllers_1_1admin_1_1_user_controller.html#a5e7d616b80a7b0fb4b8d2736800e29cc',1,'App::Controllers::admin::UserController']]],
-  ['getusername_20',['getUserName',['../class_app_1_1_models_1_1_user.html#aafd6d1ef27e6acc5833aba4012e5ee77',1,'App::Models::User']]]
+  ['decline_0',['decline',['../class_app_1_1_controllers_1_1_rooms_controller.html#a5b8f8d1d805da67db203c173d0e900dd',1,'App::Controllers::RoomsController']]],
+  ['declineintoroom_1',['declineIntoRoom',['../class_app_1_1_models_1_1_room.html#adad83bce30bb3504ca3d84611de3e8a6',1,'App::Models::Room']]],
+  ['delete_2',['delete',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\admin\GameController\delete()'],['../class_app_1_1_controllers_1_1_rooms_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\RoomsController\delete()'],['../class_app_1_1_controllers_1_1_socials_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\SocialsController\delete()'],['../class_app_1_1_controllers_1_1_user_controller.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Controllers\UserController\delete()'],['../class_app_1_1_models_1_1_faq.html#a13bdffdd926f26b825ea57066334ff01',1,'App\Models\Faq\delete()']]],
+  ['deletefaq_3',['deleteFaq',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a066a428498ce4a405ac4a2b47bfa4771',1,'App::Controllers::admin::FaqController']]],
+  ['deletegamemode_4',['deleteGameMode',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a8286f30dfb0667c7803a6214623306c1',1,'App::Controllers::admin::GameController']]],
+  ['deleteroom_5',['deleteRoom',['../class_app_1_1_models_1_1_room.html#aa12e93420b14ccb3e9e3fc5ba100068d',1,'App::Models::Room']]],
+  ['displaycreateform_6',['displayCreateForm',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#ac2798f694d032bdb3071a6d5376fae24',1,'App::Controllers::admin::FaqController']]],
+  ['displayupdateform_7',['displayUpdateForm',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a2c12c17a1b8be9e75b9a250b0f3e59a0',1,'App::Controllers::admin::FaqController']]]
 ];

@@ -1,26 +1,5 @@
 var searchData=
 [
-  ['save_0',['save',['../class_app_1_1_models_1_1_faq.html#afc8a3c62679cf00ade9f15fb2a6d6132',1,'App\Models\Faq\save()'],['../class_app_1_1_models_1_1_user.html#afc8a3c62679cf00ade9f15fb2a6d6132',1,'App\Models\User\save()']]],
-  ['savemail_1',['saveMail',['../class_app_1_1_models_1_1_user.html#afd442c3afec3a75e396f1922d8a3305c',1,'App::Models::User']]],
-  ['savenotification_2',['saveNotification',['../class_app_1_1_models_1_1_user.html#ac8769a89f5f31c3467ae52b70f4efb7f',1,'App::Models::User']]],
-  ['savepicture_3',['savePicture',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#ac6e425868c20d9bd76b3b99b5282ab75',1,'App\Controllers\admin\GameController\savePicture()'],['../class_app_1_1_controllers_1_1_user_controller.html#ac6e425868c20d9bd76b3b99b5282ab75',1,'App\Controllers\UserController\savePicture()'],['../class_app_1_1_models_1_1_user.html#aa3d9c84b3f252e7e6912a0ae02b0d7b8',1,'App\Models\User\savePicture(int $id, string $profilePicture)']]],
-  ['saveusername_4',['saveUsername',['../class_app_1_1_models_1_1_user.html#a21de5cd8148178a1231e8cfee9c117ca',1,'App::Models::User']]],
-  ['selectalltypes_5',['selectAllTypes',['../class_app_1_1_controllers_1_1admin_1_1_moderation_controller.html#a1f41c094e7b245e6bdd62f0a62e4d81b',1,'App::Controllers::admin::ModerationController']]],
-  ['selectallusers_6',['selectAllUsers',['../class_app_1_1_controllers_1_1_user_controller.html#a66c36a35e5e0cab8d6d8de904a58e8fe',1,'App::Controllers::UserController']]],
-  ['selectbanbyid_7',['selectBanById',['../class_app_1_1_controllers_1_1admin_1_1_moderation_controller.html#ae61a031b02e8d3d8ccf9ca386d0515e8',1,'App::Controllers::admin::ModerationController']]],
-  ['setemail_8',['setEmail',['../class_app_1_1_models_1_1_user.html#a2d22391fa86fa0eaf3b9d2a3c29880bc',1,'App::Models::User']]],
-  ['setid_9',['setId',['../class_app_1_1_models_1_1_user.html#af8e956b8b0343ff7d1b955c26cb0c780',1,'App::Models::User']]],
-  ['setisadmin_10',['setIsAdmin',['../class_app_1_1_models_1_1_user.html#a7ce567d104a751522173c749b9825203',1,'App::Models::User']]],
-  ['setisroomowner_11',['setIsRoomOwner',['../class_app_1_1_models_1_1_user.html#a834b709f48b2e78294b22b81cd7bce06',1,'App::Models::User']]],
-  ['setlastconnection_12',['setLastConnection',['../class_app_1_1_models_1_1_user.html#a00734e31aeaa31abd8c1b5a12c3ba881',1,'App::Models::User']]],
-  ['setnotificationenabled_13',['setNotificationEnabled',['../class_app_1_1_models_1_1_user.html#a4c259e331dda6900e1729f7cd58dc7d4',1,'App::Models::User']]],
-  ['setpassword_14',['setPassword',['../class_app_1_1_models_1_1_user.html#a81e0f429784973551fb5417d5b92b0db',1,'App::Models::User']]],
-  ['setprofilepicture_15',['setProfilePicture',['../class_app_1_1_models_1_1_user.html#af9fbf6d49fd4a9dc2f97092bfe5260cd',1,'App::Models::User']]],
-  ['setsignupdate_16',['setSignUpDate',['../class_app_1_1_models_1_1_user.html#af0df8066cc47926db905a8fded182a51',1,'App::Models::User']]],
-  ['setusername_17',['setUserName',['../class_app_1_1_models_1_1_user.html#a18f014e54b5905f533c756f7e6c0ca02',1,'App::Models::User']]],
-  ['signal_18',['signal',['../class_app_1_1_controllers_1_1admin_1_1_user_controller.html#a2248e365cfab8faa18f7a834f7b9f1c7',1,'App::Controllers::admin::UserController']]],
-  ['staticdelete_19',['staticDelete',['../class_app_1_1_models_1_1_social.html#a97de96d4d3a9cc2a40fa19be2c979184',1,'App::Models::Social']]],
-  ['store_20',['store',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a98e4b7b7529a9a5f6d7e96909cba8bfe',1,'App\Controllers\admin\GameController\store()'],['../class_app_1_1_controllers_1_1_socials_controller.html#a98e4b7b7529a9a5f6d7e96909cba8bfe',1,'App\Controllers\SocialsController\store()'],['../class_app_1_1_controllers_1_1_user_controller.html#a98e4b7b7529a9a5f6d7e96909cba8bfe',1,'App\Controllers\UserController\store()']]],
-  ['storeban_21',['storeBan',['../class_app_1_1_controllers_1_1admin_1_1_moderation_controller.html#ab8b49268ae319d2a14de653f9f6b8c40',1,'App::Controllers::admin::ModerationController']]],
-  ['storefaq_22',['storeFaq',['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#ae533d137fca3c3f5d8c03bd5e2e9fe69',1,'App::Controllers::admin::FaqController']]]
+  ['index_0',['index',['../class_app_1_1_controllers_1_1admin_1_1_admin_controller.html#a149eb92716c1084a935e04a8d95f7347',1,'App\Controllers\admin\AdminController\index()'],['../class_app_1_1_controllers_1_1admin_1_1_faq_controller.html#a149eb92716c1084a935e04a8d95f7347',1,'App\Controllers\admin\FaqController\index()'],['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a149eb92716c1084a935e04a8d95f7347',1,'App\Controllers\admin\GameController\index()'],['../class_app_1_1_controllers_1_1_user_controller.html#a23b19966b9aacbcaabf43ca6b3fd957a',1,'App\Controllers\UserController\index()']]],
+  ['insertingameusername_1',['insertInGameUserName',['../class_app_1_1_controllers_1_1_play_games_controller.html#aac3af9228743cf237f753f962ee78a24',1,'App::Controllers::PlayGamesController']]]
 ];

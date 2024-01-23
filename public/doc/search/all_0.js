@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['admincontroller_0',['AdminController',['../class_app_1_1_controllers_1_1admin_1_1_admin_controller.html',1,'App::Controllers::admin']]],
-  ['app_1',['App',['../namespace_app.html',1,'']]],
-  ['authcontroller_2',['AuthController',['../class_app_1_1_controllers_1_1_auth_controller.html',1,'App::Controllers']]]
+  ['_5f_5fconstruct_0',['__construct',['../class_app_1_1_models_1_1_filters.html#a095c5d389db211932136b53f25f39685',1,'App::Models::Filters']]]
 ];
