@@ -23,7 +23,7 @@
 
 
 
-    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start">
+    <section id="dashboard-hub" class="bg-color-purple-faded ms-lg-5 px-3 text-lg-start w-100">
 
         <div class="d-flex bd-highlight justify-content-between ">
             <h2 class="nav-dashboard-title px-lg-3 my-4 py-4 reconstruct">Modifier un jeu</h2>
@@ -38,36 +38,36 @@
                 <div>
                     <label for="nameGame" class="mb-2">Titre :</label>
                     <input value="<?php echo $game->getNameGame() ?>"
-                           name="nameGame" id="nameGame"
+                           name="nameGame" id="nameGame" maxlength="50"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
                     <label for="descriptionShort" class="mb-2">Description courte :</label>
-                    <textarea name="descriptionShort" id="descriptionShort" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"
+                    <textarea name="descriptionShort" id="descriptionShort" maxlength="100" cols="10" rows="3" class="input mb-4 w-100"  aria-required="true"
                     ><?php echo $game->getDescriptionShort() ?></textarea>
                 </div>
                 <div>
                     <label for="twitch" class="mb-2">Twitch :</label>
                     <input value="<?php echo $game->getTwitch() ?>"
-                           name="twitch" id="twitch"
+                           name="twitch" id="twitch" maxlength="255"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
                     <label for="reddit" class="mb-2">Reddit :</label>
                     <input value="<?php echo $game->getReddit() ?>"
-                           name="reddit" id="reddit"
+                           name="reddit" id="reddit"  maxlength="255"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
-                    <label for="officialWebsite" class="mb-2">Twitch :</label>
+                    <label for="officialWebsite" class="mb-2">Site web :</label>
                     <input value="<?php echo $game->getOfficialWebsite() ?>"
-                           name="officialWebsite" id="officialWebsite"
+                           name="officialWebsite" id="officialWebsite" maxlength="255"
                            class="input mb-4 w-100" required aria-required="true">
 
                 </div>
                 <div>
                     <label for="gamemodes" class="mb-2">Entrez des nouveaux modes de jeu si vous le souhaitez :</label>
-                    <input placeholder="Nouveaux modes (séparés d'une virgule)" name="gamemodes" id="gamemodes"
+                    <input placeholder="Nouveaux modes (séparés d'une virgule)" name="gamemodes" id="gamemodes"  maxlength="255"
                            class="input mb-4 w-100">
 
                 </div>
@@ -83,13 +83,13 @@
                 <div>
                     <label for="tag" class="mb-2">Tag :</label>
                     <input value="<?php echo $game->getTag() ?>"
-                           name="tag" id="tag"
+                           name="tag" id="tag"  maxlength="5"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
 
                 <div>
                     <label for="description" class="mb-2">Description longue :</label>
-                    <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"
+                    <textarea name="description" id="description" maxlength="2000" cols="10" rows="3" class="input mb-4 w-100"  aria-required="true"
                     ><?php echo $game->getDescription() ?></textarea>
                 </div>
 
@@ -108,7 +108,7 @@
             <!-- Buttons -->
             <div class="d-lg-flex col-lg-5 offset-lg-7  flex-lg-row-reverse">
                 <button class="btn w-100 lh-buttons-purple mb-3">Modifier le jeu</button>
-                <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
+                <a href="game.php" class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</a>
             </div>
 
 

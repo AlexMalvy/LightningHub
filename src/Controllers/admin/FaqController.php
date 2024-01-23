@@ -23,6 +23,7 @@ class FaqController
      */
     public function index()
     {
+        AdminController::isAdmin();
         $faqs = FAQ::getAllFaqList();
         $faqs = $this->hydrate($faqs);
 
@@ -34,6 +35,7 @@ class FaqController
      */
     public function displayCreateForm(): void
     {
+        AdminController::isAdmin();
         require_once base_path('view/admin/faq/faq_create.php');
     }
 
@@ -42,6 +44,7 @@ class FaqController
      */
     public function displayUpdateForm(): void
     {
+        AdminController::isAdmin();
         $faqs = FAQ::getAllFaqList();
         $faqs = $this->hydrate($faqs);
         require_once base_path('view/admin/faq/faq_update.php');
@@ -53,6 +56,7 @@ class FaqController
      */
     public function storeFaq(): void
     {
+
         // Prepare POST
         $question =$_POST['question'] ?? '';
         $answer = $_POST['answer'] ?? '';

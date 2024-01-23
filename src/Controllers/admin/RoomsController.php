@@ -13,6 +13,7 @@ class RoomsController
 
     public function index()
     {
+        AdminController::isAdmin();
         $hubs = (new Hub())->allRoomsList;
 
         $actionUrl = self::URL_HANDLER;
@@ -22,6 +23,7 @@ class RoomsController
 
     public function create()
     {
+        AdminController::isAdmin();
         $hub = null;
         //$title = 'Modifier un produit';
         $actionUrl = self::URL_HANDLER;
@@ -31,6 +33,7 @@ class RoomsController
 
     public function edit()
     {
+        AdminController::isAdmin();
         $id = $_GET['id'] ?? null;
         $hub = $this->getRoomById($id);
         $title = 'Modifier un salon';

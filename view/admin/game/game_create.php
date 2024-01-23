@@ -35,7 +35,7 @@
             <div class="col-lg-5 d-lg-flex flex-column">
                 <div>
                     <label for="title" class="mb-2">Titre :</label>
-                    <input value=""
+                    <input value=""  maxlength="50"
                            name="nameGame" id="nameGame"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
@@ -46,25 +46,25 @@
                 </div>
                 <div>
                     <label for="twitch" class="mb-2">Twitch :</label>
-                    <input value=""
+                    <input value="" maxlength="255"
                            name="twitch" id="twitch"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
                     <label for="reddit" class="mb-2">Reddit :</label>
-                    <input value=""
+                    <input value="" maxlength="255"
                            name="reddit" id="reddit"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
                     <label for="officialWebsite" class="mb-2">Twitch :</label>
-                    <input value=""
+                    <input value="" maxlength="255"
                            name="officialWebsite" id="officialWebsite"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
                 <div>
                     <label for="gameModes" class="mb-2">Modes de jeu (séparés d'une virgule) :</label>
-                    <input name="gameModes" id="gameModes"
+                    <input name="gameModes" id="gameModes" maxlength="255"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
 
@@ -77,13 +77,13 @@
                 <div>
                     <label for="title" class="mb-2">Tag :</label>
                     <input
-                           name="tag" id="tag"
+                           name="tag" id="tag" maxlength="5"
                            class="input mb-4 w-100" required aria-required="true">
                 </div>
 
                 <div>
                     <label for="description" class="mb-2">Description longue :</label>
-                    <textarea name="description" id="description" maxlength="100" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"
+                    <textarea name="description" id="description" maxlength="2000" cols="10" rows="3" class="input mb-4 w-100" required aria-required="true"
                     ></textarea>
                 </div>
 
@@ -91,7 +91,7 @@
                     <input type="text" name="image" value="image" hidden>
 
                     <label for="file" class="label-file me-2 p-2 text-center">Choisir une image</label>
-                    <input id="file" type="file" name="file">
+                    <input id="file" type="file" name="file"  maxlength="255" required>
 
 
                 </div>
@@ -100,7 +100,7 @@
             <!-- Buttons -->
             <div class="d-lg-flex col-lg-5 offset-lg-7  flex-lg-row-reverse">
                 <button class="btn w-100 lh-buttons-purple mb-3">Valider</button>
-                <button class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</button>
+                <a href="game.php" class="btn w-100 lh-buttons-purple-faded mb-4 mb-lg-3 me-lg-4">Annuler</a>
             </div>
 
 
