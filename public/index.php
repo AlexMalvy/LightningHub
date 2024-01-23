@@ -55,11 +55,11 @@
                         Rejoins-nous pour vivre des expériences <strong>gaming inoubliables.</strong>
                     </p>
                     <div class="d-flex flex-column flex-lg-row">
-                        <a href="hub.php" class="btn lh-buttons-purple mt-3 mt-lg-0">
+                        <a href="hub.php" class="btn lh-buttons-purple mt-3 mt-lg-0 d-flex align-items-center">
                             <img src="assets/images/hub-icon-37x37.png" alt="trouver-une-team">
                             <span class="ps-2">Trouver une Team</span>
                         </a>
-                        <a href="login.php" class="btn lh-buttons-purple ms-lg-5 mt-5 mt-lg-0">
+                        <a href="login.php" class="btn lh-buttons-purple ms-lg-5 mt-5 mt-lg-0 d-flex align-items-center">
                             <img src="assets/images/pen-to-square-regular.svg" alt="créer-un-compte">
                             <span class="ps-2 mx-auto">Créer un compte</span>
                         </a>
