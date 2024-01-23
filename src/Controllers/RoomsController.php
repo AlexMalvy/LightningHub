@@ -28,6 +28,13 @@ class RoomsController
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
 
+        if (strlen($title) <= 0 or strlen($title) > 50 or strlen($description) > 255) {
+            $_SESSION["message"] = "Le titre ou la description est trop longue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
+
         $maxMembers = intval($_POST["room_number_player"]);
         if ($maxMembers <= 1 or $maxMembers > 10) {
             $maxMembers = 5;
@@ -79,6 +86,14 @@ class RoomsController
 
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
+
+        if (strlen($title) <= 0 or strlen($title) > 50 or strlen($description) > 255) {
+            $_SESSION["message"] = "Le titre ou la description est trop longue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
+
 
         $maxMembers = intval($_POST["room_number_player"]);
         if ($maxMembers <= 1 or $maxMembers > 10) {
