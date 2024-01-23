@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['create_0',['create',['../class_app_1_1_controllers_1_1admin_1_1_game_controller.html#a435e7d7525d4bcd0ed5e34a469f3adf6',1,'App::Controllers::admin::GameController']]]
+  ['_5f_5fconstruct_0',['__construct',['../class_app_1_1_models_1_1_filters.html#a095c5d389db211932136b53f25f39685',1,'App::Models::Filters']]]
 ];

@@ -22,7 +22,7 @@ class UserModelTest extends TestCase
         $user->setEMail('skoenuguer@free.com');
 
         $result = $user->save();
-
+        dd($result);
         // Assertions sur le résultat attendu
         $this->assertIsInt($result, 'Expected user ID to be an integer or false');
         $this->assertGreaterThan(0, $result, 'Expected user ID to be greater than 0 or false');

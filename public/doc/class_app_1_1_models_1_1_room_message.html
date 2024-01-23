@@ -102,17 +102,15 @@ $(function(){initNavTree('class_app_1_1_models_1_1_room_message.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a16e634d2ab8b98b2bb244b89703785b2" id="r_a16e634d2ab8b98b2bb244b89703785b2"><td class="memItemLeft" align="right" valign="top"><a id="a16e634d2ab8b98b2bb244b89703785b2" name="a16e634d2ab8b98b2bb244b89703785b2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>__construct</b> (int $idMessage, $timeMessage, string $message, bool $isReported, int $idUser, string $username, string $profilePicture)</td></tr>
-<tr class="separator:a16e634d2ab8b98b2bb244b89703785b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad862ce4ae3cddd973aab942cb0ba9d2d" id="r_ad862ce4ae3cddd973aab942cb0ba9d2d"><td class="memItemLeft" align="right" valign="top"><a id="ad862ce4ae3cddd973aab942cb0ba9d2d" name="ad862ce4ae3cddd973aab942cb0ba9d2d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>__construct</b> (int $idMessage, string $timeMessage, string $message, bool $isReported, int $idUser, string $username, string $profilePicture)</td></tr>
+<tr class="separator:ad862ce4ae3cddd973aab942cb0ba9d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:adef4f487d41e2d05c0dfae9b19373713" id="r_adef4f487d41e2d05c0dfae9b19373713"><td class="memItemLeft" align="right" valign="top"><a id="adef4f487d41e2d05c0dfae9b19373713" name="adef4f487d41e2d05c0dfae9b19373713"></a>
-static&#160;</td><td class="memItemRight" valign="bottom"><b>sendMessage</b> (int $idUser, string $message)</td></tr>
+<tr class="memitem:adef4f487d41e2d05c0dfae9b19373713" id="r_adef4f487d41e2d05c0dfae9b19373713"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef4f487d41e2d05c0dfae9b19373713">sendMessage</a> (int $idUser, string $message)</td></tr>
 <tr class="separator:adef4f487d41e2d05c0dfae9b19373713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0067645c916e239a78b64a6cf7882db3" id="r_a0067645c916e239a78b64a6cf7882db3"><td class="memItemLeft" align="right" valign="top"><a id="a0067645c916e239a78b64a6cf7882db3" name="a0067645c916e239a78b64a6cf7882db3"></a>
-static&#160;</td><td class="memItemRight" valign="bottom"><b>reportMessage</b> (int $idUser, int $idMessage)</td></tr>
+<tr class="memitem:a0067645c916e239a78b64a6cf7882db3" id="r_a0067645c916e239a78b64a6cf7882db3"><td class="memItemLeft" align="right" valign="top">static&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0067645c916e239a78b64a6cf7882db3">reportMessage</a> (int $idUser, int $idMessage)</td></tr>
 <tr class="separator:a0067645c916e239a78b64a6cf7882db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -133,6 +131,67 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>$isReported</b></td></
 <a class="el" href="class_app_1_1_models_1_1_user.html">User</a>&#160;</td><td class="memItemRight" valign="bottom"><b>$user</b></td></tr>
 <tr class="separator:a35c45cc33d8d420da794514df59466b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0067645c916e239a78b64a6cf7882db3" name="a0067645c916e239a78b64a6cf7882db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0067645c916e239a78b64a6cf7882db3">&#9670;&#160;</a></span>reportMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static reportMessage </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idUser</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idMessage</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Report the target message in the connected user's room </p>
+
+</div>
+</div>
+<a id="adef4f487d41e2d05c0dfae9b19373713" name="adef4f487d41e2d05c0dfae9b19373713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef4f487d41e2d05c0dfae9b19373713">&#9670;&#160;</a></span>sendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static sendMessage </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idUser</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$message</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Send a message into the connected user's room </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/Models/<b>RoomMessage.php</b></li>
 </ul>

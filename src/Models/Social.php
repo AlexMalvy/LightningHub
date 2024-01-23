@@ -115,9 +115,6 @@ class Social
 
 
 
-        } else {
-            // Insert
-            // return DB::insert(self::TABLE_NAME, $this->toArray());
         }
 
         return 0;
