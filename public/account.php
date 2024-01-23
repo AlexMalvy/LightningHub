@@ -70,7 +70,7 @@
           <section id="pseudo">
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Pseudo</h2>
                 <form action = "handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method = "POST"  class="d-flex justify-content-between align-items-center">
-                    <input id="input-pseudo" class="input" type="text" value="<?php echo $user->getUserName(); ?>" name="pseudo"/>
+                    <input id="input-pseudo" maxlength= 25 class="input" type="text" value="<?php echo $user->getUserName(); ?>" name="pseudo"/>
                     <input type="text" name="action" value="updateusername" hidden>
                     <button id ="btn-pseudo" aria-pressed="false" class="btn lh-buttons-purple me-2 "><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
@@ -82,7 +82,7 @@
             <h2 class="py-3 ps-3 bg-color-purple rounded-0">Adresse email</h2>
                 <form action = "handlers/User-handler.php?idUser=<?php echo $user->getId(); ?>" method = "POST"  class="d-flex justify-content-between align-items-center">
                     <input type="text" name="action" value="updatemail" hidden>
-                    <input id="input-mail" class="input" type="email" value="<?php echo $user->getEmail(); ?>" name="email">
+                    <input id="input-mail" maxlength= 40 class="input" type="email" value="<?php echo $user->getEmail(); ?>" name="email">
                     <button id ="btn-mail" aria-pressed="false" class="btn lh-buttons-purple me-2"><i class="fa-solid fa-pen text-white"></i></button>
                 </form>
             </section>
@@ -100,7 +100,7 @@
                                 <form action="handlers/User-handler.php?idUser=<?php echo $inGameUser['idUser']?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
                                     <input type="text" name="action" value="idGameUpdate" hidden>
                                     <label><?php echo $game['nameGame'] ?></label>
-                                    <input class="input-inGame input" type="text" value="<?php echo $inGameUser['inGameUsername']?>" name="inGameUsername">
+                                    <input class="input-inGame input" maxlength=25 type="text" value="<?php echo $inGameUser['inGameUsername']?>" name="inGameUsername">
                                     <div>
                                         <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                                             <i class="fa-solid fa-pen text-white"></i>
@@ -114,7 +114,7 @@
                             <form action="handlers/User-handler.php?idUser=<?php echo $user->getId()?>&idGame=<?php echo $game['idGame'] ?>" method="POST" class="col-md-7 d-flex justify-content-between">
                                 <input type="text" name="action" value="idGameInsert" hidden>
                                 <label><?php echo $game['nameGame'] ?></label>
-                                <input class="input-inGame input" type="text" value="" name="inGameUsername">
+                                <input class="input-inGame input" maxlength= 25 type="text" value="" name="inGameUsername">
                                 <div>
                                     <button aria-pressed="false" class="button-inGame btn lh-buttons-purple me-2">
                                         <i class="fa-solid fa-pen text-white"></i>

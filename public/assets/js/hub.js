@@ -248,6 +248,7 @@ function changeValueToGamemodeId($selectFieldName, $hiddenInputFieldName) {
 
     // Replace the attribute "value" to the new gamemode id
     hiddenInputField.setAttribute("value", currentlySelectedGamemodeId);
+    
 }
 
 const filtersForm = document.forms["filters"];
@@ -402,6 +403,10 @@ function messagesAjax() {
         <article class="col disclaimer">
             <p>System : Soyez gentils.</p>
         </article>`;
+
+        if(data.roomChat.length === 0){
+            html += `<h2 class="text-center py-5">Les messages du salons apparaîtront ici.</h2>`
+        }
 
         if(data != []){
             if (lastAmountOfMessages != data.roomChat.length) {

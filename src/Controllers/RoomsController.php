@@ -17,7 +17,7 @@ class RoomsController
     public function create()
     {
         $index = self::URL_INDEX;
-        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type'])) {
+        if (empty($_SESSION["user"]) or empty($_POST['room_title']) or empty($_POST['room_game_type_id']) or $_POST['room_game_type_id'] == "null") {
             $_SESSION["message"] = "Une erreur est survenue.";
             $_SESSION["type"] = "warning";
             header("Location: $index");
@@ -27,6 +27,13 @@ class RoomsController
         $idUser = $_SESSION["user"];
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
+
+        if (strlen($title) <= 0 or strlen($title) > 50 or strlen($description) > 255) {
+            $_SESSION["message"] = "Le titre ou la description est trop longue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
 
         $maxMembers = intval($_POST["room_number_player"]);
         if ($maxMembers <= 1 or $maxMembers > 10) {
@@ -79,6 +86,14 @@ class RoomsController
 
         $title = strip_tags($_POST["room_title"]);
         $description = strip_tags($_POST["description"]) ?? "";
+
+        if (strlen($title) <= 0 or strlen($title) > 50 or strlen($description) > 255) {
+            $_SESSION["message"] = "Le titre ou la description est trop longue.";
+            $_SESSION["type"] = "warning";
+            header("Location: $index");
+            exit();
+        }
+
 
         $maxMembers = intval($_POST["room_number_player"]);
         if ($maxMembers <= 1 or $maxMembers > 10) {
