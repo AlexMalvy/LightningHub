@@ -117,45 +117,46 @@ class Hub
         WHERE users.idUser = :idUser",
         ["idUser" => $userId]);
 
-        if ($result[0]["idRoom"] != NULL) {
-            $roomQuery = DB::fetch("SELECT 
-            rooms.idRoom, 
-            rooms.title, 
-            rooms.description, 
-            rooms.maxMembers, 
-            rooms.dateCreation, 
-            games.idGame, 
-            games.nameGame, 
-            games.tag, 
-            gamemodes.idGamemode, 
-            gamemodes.nameGamemode
-            FROM rooms
-                INNER JOIN gamemodes
-                ON rooms.idGamemode = gamemodes.idGamemode
-                    INNER JOIN games
-                    ON gamemodes.idGame = games.idGame
-            WHERE rooms.isEnabled = 1 AND rooms.idRoom = :idRoom
-            ORDER BY rooms.idRoom ASC",
-            ["idRoom" => $result[0]["idRoom"]]);
+        if (!empty($result)) {
+            if ($result[0]["idRoom"] != NULL) {
+                $roomQuery = DB::fetch("SELECT 
+                rooms.idRoom, 
+                rooms.title, 
+                rooms.description, 
+                rooms.maxMembers, 
+                rooms.dateCreation, 
+                games.idGame, 
+                games.nameGame, 
+                games.tag, 
+                gamemodes.idGamemode, 
+                gamemodes.nameGamemode
+                FROM rooms
+                    INNER JOIN gamemodes
+                    ON rooms.idGamemode = gamemodes.idGamemode
+                        INNER JOIN games
+                        ON gamemodes.idGame = games.idGame
+                WHERE rooms.isEnabled = 1 AND rooms.idRoom = :idRoom
+                ORDER BY rooms.idRoom ASC",
+                ["idRoom" => $result[0]["idRoom"]]);
 
-            $room = $roomQuery[0];
-            
-            $roomObj = new Room(
-                $room["idRoom"], 
-                $room["title"], 
-                $room["description"], 
-                $room["maxMembers"], 
-                $room["dateCreation"], 
-                $room["idGame"], 
-                $room["nameGame"], 
-                $room["tag"], 
-                $room["idGamemode"], 
-                $room["nameGamemode"]);
+                $room = $roomQuery[0];
+                
+                $roomObj = new Room(
+                    $room["idRoom"], 
+                    $room["title"], 
+                    $room["description"], 
+                    $room["maxMembers"], 
+                    $room["dateCreation"], 
+                    $room["idGame"], 
+                    $room["nameGame"], 
+                    $room["tag"], 
+                    $room["idGamemode"], 
+                    $room["nameGamemode"]);
 
-            return $roomObj;
-        } else {
-            return NULL;
+                return $roomObj;
+            }
         }
+        return NULL;
         
     }
 

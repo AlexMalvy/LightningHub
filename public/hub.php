@@ -20,12 +20,12 @@
 
     <?php require_once(__DIR__."/../view/header_nav.php") ?>
     
-        <?php
+    <?php
     if (empty($_SESSION["user"])) {
         $_SESSION["user"] = NULL;
     }
 
-    // $_SESSION["user"] = 1;
+    $_SESSION["user"] = 7;
 
     $filteredGame = NULL;
     $filteredGamemode = NULL;
@@ -279,6 +279,10 @@
                             <?php endforeach; ?>
 
                         </div>
+                        
+                        <?php if(count($currentHub->allRoomsList) === 0): ?>
+                            <h2 class="text-center py-5">Les salons ouverts apparaîtrons ici.</h2>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -289,8 +293,10 @@
                     <div class="container-fluid py-3">
                         <div class="row row-cols-1 row-cols-lg-4 g-3">
 
+                            <?php $friendsRoomCounter = 0; ?>
                             <?php foreach($currentHub->allRoomsList as $room): ?>
                                 <?php if(count($room->friendList) > 0): ?>
+                                    <?php $friendsRoomCounter += 1; ?>
                                     <!-- Room -->
                                     <article class="col">
                                         <div class="card h-100">
@@ -354,6 +360,9 @@
                             <?php endforeach; ?>
 
                         </div>
+                        <?php if($friendsRoomCounter === 0): ?>
+                            <h2 class="text-center py-5">Les salons de vos amis apparaîtrons ici.</h2>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -500,6 +509,9 @@
                                                 </div>
                                             </article>
                                         <?php endforeach; ?>
+                                        <?php if(count($currentHub->connectedUserRoom->chat->allMessages) === 0): ?>
+                                            <h2 class="text-center py-5">Les messages du salons apparaîtront ici.</h2>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 

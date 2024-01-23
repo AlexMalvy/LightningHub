@@ -403,6 +403,10 @@ function messagesAjax() {
             <p>System : Soyez gentils.</p>
         </article>`;
 
+        if(data.roomChat.length === 0){
+            html += `<h2 class="text-center py-5">Les messages du salons apparaîtront ici.</h2>`
+        }
+
         if(data != []){
             if (lastAmountOfMessages != data.roomChat.length) {
                 data.roomChat.forEach(function(message){
