@@ -11,56 +11,54 @@ use PHPUnit\Framework\TestCase;
 class UserModelTest extends TestCase
 {
 
-    public function testSaveUser()
+    public function testSave()
     {
-        // Créez une instance de votre classe si nécessaire
+        // Créez une instance
         $user = new User();
 
         // Valeurs pour le nouvel utilisateur
         $user->setUserName('stephane');
         $user->setPassword('passwordtest');
-        $user->setEMail('skoenuguer@free.com');
+        $user->setEMail('skoeniguer@free.fr');
 
-        $result = $user->save();
-        dd($result);
+        $user = $user->save();
+
         // Assertions sur le résultat attendu
-        $this->assertIsInt($result, 'Expected user ID to be an integer or false');
-        $this->assertGreaterThan(0, $result, 'Expected user ID to be greater than 0 or false');
+        $this->assertIsInt($user, "L'enregistrement a été réalisé");
+
+        // Récupère l'id du dernièr enregistrment
+        $userId = DB::getDB()->lastInsertId();
 
         // Effectue une requête pour vérifier que l'utilisateur a été ajouté à la base de données
-        $userDatabase = DB::fetch("SELECT * FROM users WHERE idUser = :id", ['id' => $result]);
+        $userDatabase = DB::fetch("SELECT * FROM users WHERE idUser = :idUser", ['idUser' => $userId]);
+
 
         // Assertions sur l'utilisateur récupéré de la base de données
-        $this->assertCount(1, $userDatabase, 'Expected one user to be found in the database');
-        $this->assertEquals('testuser', $userDatabase[0]->username, 'utilisateur attendu pour correspondre');
+        $this->assertCount(1, $userDatabase, 'Un utilisateur a été trouvé dans la base de données');
+        $this->assertEquals('stephane', $userDatabase[0]['username'], 'le username correspond');
+
+        return $userId;
     }
 
 
-
-    public function testSaveMail()
+    /**
+     * @depends testSave
+     */
+    public function testSaveMail($userId)
     {
-        $user = new User();
 
-        // Valeurs pour le nouvel utilisateur
-        $user->setUserName('stephane');
-        $user->setPassword('passwordtest');
-        $user->setEMail('stephane@gmail.eu');
-
-        $result = $user->save();
-
-        // Méthode saveMail()
-        $result = USER::saveMail($result, 'updateMail@example.com');
+        // Mise à jour du champ mail
+        $newMail = 'update@mail.com';
+        $result = User::saveMail($userId, $newMail);
 
         // Assertions sur le résultat attendu
-        $this->assertTrue($result, 'Expected update to be successful');
+        $this->assertIsInt($result, 'La mise à jour du mail a été réalisé');
 
-        // Effectue une requête pour vérifier que l'e-mail a été mis à jour dans la base de données
-        $updatedUser = DB::fetch("SELECT * FROM Users WHERE idUser = :id", ['id' => $result]);
+        // Vérifie si le champ mail a été correctement mis à jour dans la base de données
+        $updatedUser = DB::fetch("SELECT * FROM users WHERE idUser = :id", ['id' => $userId]);
 
-        // Assertions sur l'utilisateur mis à jour dans la base de données
-        $this->assertCount(1, $updatedUser, 'Expected one user to be found in the database');
-        $this->assertEquals('newemail@example.com', $updatedUser[0]->mail, 'Expected email to be updated');
+        // Assertions sur le champ mail mis à jour
+        $this->assertEquals($newMail, $updatedUser[0]['mail'], 'Le champ mail correspond mis à jour');
     }
-
 
 }
