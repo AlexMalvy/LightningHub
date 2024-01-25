@@ -138,7 +138,7 @@ class GameController
      */
     public function store()
     {
-        if (isset($_POST['tag']) && $_POST['tag']>5) errors('coucou bg');
+        if (isset($_POST['tag']) && $_POST['tag']>5) errors('Mauvaise taille.');
 
         $idGame = $_POST['idgame'] ?? null;
 
