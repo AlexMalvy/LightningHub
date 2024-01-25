@@ -25,7 +25,7 @@
         $_SESSION["user"] = NULL;
     }
 
-    $_SESSION["user"] = 7;
+    // $_SESSION["user"] = 7;
 
     $filteredGame = NULL;
     $filteredGamemode = NULL;
