@@ -98,8 +98,8 @@ class DB {
         try {
             return new PDO(
             "mysql:host=localhost;port=3306;dbname=LightningHub",
-            "lightninghubadmin",
-            "lightninghubcorporation",
+            "lightninghub",
+            "6uj)z/.(@,3+1t4AA90d",
                 [
                     // Options
                     PDO::ATTR_PERSISTENT => true,
