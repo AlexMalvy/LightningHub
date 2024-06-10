@@ -77,7 +77,7 @@ class SocialsController
         $idUser2 = explode('#', $_POST['searchFriend'])[1];
 
         $user = DB::fetch(
-            "SELECT * FROM users WHERE idUser = :idUser2",
+            "SELECT * FROM Users WHERE idUser = :idUser2",
             ['idUser2' => $idUser2]
         );
         if ($user === false) {
@@ -90,7 +90,7 @@ class SocialsController
         }
 
         $test_exist = DB::fetch(
-            "SELECT * FROM isfriend".
+            "SELECT * FROM isFriend".
             " WHERE idUser1 = :myId and idUser2 = :idFriend".
             " or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idUser2]
@@ -152,7 +152,7 @@ class SocialsController
         }
         $myId = Auth::getSessionUserId();
         $social = DB::fetch(
-            "SELECT * FROM isfriend".
+            "SELECT * FROM isFriend".
             " WHERE idUser1 = :myId and idUser2 = :idFriend".
             " or idUser1 = :idFriend and idUser2 = :myId",
             ['myId' => $myId, 'idFriend' => $idFriend]
@@ -180,8 +180,8 @@ class SocialsController
         $friendsID = $this->getFriendsId();
         $friendsConnected = DB::fetch(
         // SQL
-            "SELECT * FROM users"
-            . " WHERE users.idUser IN (" . $friendsID . ")"
+            "SELECT * FROM Users"
+            . " WHERE Users.idUser IN (" . $friendsID . ")"
             . " AND TIMESTAMPDIFF(MINUTE, lastConnection, NOW()) <= 5"
             . " ORDER BY SignUpDate DESC",
 
@@ -205,8 +205,8 @@ class SocialsController
         $friendsID = $this->getFriendsId();
         $friendsDisconnected = DB::fetch(
         // SQL
-            "SELECT * FROM users"
-            . " WHERE users.idUser IN (" . $friendsID . ")"
+            "SELECT * FROM Users"
+            . " WHERE Users.idUser IN (" . $friendsID . ")"
             . " AND TIMESTAMPDIFF(MINUTE, lastConnection, NOW()) > 5"
             . " ORDER BY SignUpDate DESC",
 
@@ -231,9 +231,9 @@ class SocialsController
 
         $requests = DB::fetch(
         // SQL
-            "SELECT * FROM users"
-            . " INNER JOIN isfriend ON users.idUser = isfriend.idUser1"
-            . " WHERE isfriend.idUser2 = :user_id"
+            "SELECT * FROM Users"
+            . " INNER JOIN isFriend ON Users.idUser = isFriend.idUser1"
+            . " WHERE isFriend.idUser2 = :user_id"
             . " AND accepted = 0",
 
             // Params
@@ -258,8 +258,8 @@ class SocialsController
 
         $friendsId = DB::fetch(
         // SQL
-            "SELECT * FROM isfriend"
-            . " WHERE (isfriend.idUser1 = :user_id OR isfriend.idUser2 = :user_id)"
+            "SELECT * FROM isFriend"
+            . " WHERE (isFriend.idUser1 = :user_id OR isFriend.idUser2 = :user_id)"
             . " AND accepted = 1",
 
             // Params
@@ -293,8 +293,8 @@ class SocialsController
 
         $friendsId = DB::fetch(
         // SQL
-            "SELECT * FROM isfriend"
-            . " WHERE (isfriend.idUser1 = :user_id OR isfriend.idUser2 = :user_id)",
+            "SELECT * FROM isFriend"
+            . " WHERE (isFriend.idUser1 = :user_id OR isFriend.idUser2 = :user_id)",
 
             // Params
             [':user_id' => $userId],
@@ -327,8 +327,8 @@ class SocialsController
         $friendsID = $this->getFriendsId();
         $friends = DB::fetch(
         // SQL
-            "SELECT * FROM users"
-            . " WHERE users.idUser IN (" . $friendsID . ")",
+            "SELECT * FROM Users"
+            . " WHERE Users.idUser IN (" . $friendsID . ")",
         );
         if ($friends === false) {
             errors('Une erreur est survenue. Veuillez ré-essayer plus tard.');
@@ -349,9 +349,9 @@ class SocialsController
         $friendsId = $this->getFriendsAndRequestsId();
         $friends = DB::fetch(
         // SQL
-            "SELECT * FROM users"
-            . " WHERE users.idUser NOT IN (". $friendsId . ")"
-            . " AND users.idUser != :userId",
+            "SELECT * FROM Users"
+            . " WHERE Users.idUser NOT IN (". $friendsId . ")"
+            . " AND Users.idUser != :userId",
 
             // Params
             [':userId' => $userId],

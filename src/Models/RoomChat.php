@@ -9,18 +9,18 @@ class RoomChat
     public function __construct($roomId)
     {
         $messagesDB = DB::fetch("SELECT 
-        messages.idMessage, 
-        messages.timeMessage, 
-        messages.message, 
-        messages.isReported,
-        messages.idUser, 
+        Messages.idMessage, 
+        Messages.timeMessage, 
+        Messages.message, 
+        Messages.isReported,
+        Messages.idUser, 
         users.username, 
         users.profilePicture
-        FROM messages
+        FROM Messages
             INNER JOIN users
-            ON messages.idUser = users.idUser
-        WHERE messages.idRoom = :idRoom
-        ORDER BY messages.timeMessage ASC",
+            ON Messages.idUser = users.idUser
+        WHERE Messages.idRoom = :idRoom
+        ORDER BY Messages.timeMessage ASC",
         ["idRoom" => $roomId]);
 
         foreach ($messagesDB as $message) {
@@ -48,18 +48,18 @@ class RoomChat
         ["idUser" => $idUser]);
 
         $result = DB::fetch("SELECT 
-        messages.idMessage, 
-        messages.timeMessage, 
-        messages.message, 
-        messages.isReported,
-        messages.idUser, 
+        Messages.idMessage, 
+        Messages.timeMessage, 
+        Messages.message, 
+        Messages.isReported,
+        Messages.idUser, 
         users.username, 
         users.profilePicture
-        FROM messages
+        FROM Messages
             INNER JOIN users
-            ON messages.idUser = users.idUser
-        WHERE messages.idRoom = :idRoom
-        ORDER BY messages.timeMessage ASC",
+            ON Messages.idUser = users.idUser
+        WHERE Messages.idRoom = :idRoom
+        ORDER BY Messages.timeMessage ASC",
         ["idRoom" => $getRoomId[0]["idRoom"]]);
 
         print(json_encode(["roomChat" => $result]));

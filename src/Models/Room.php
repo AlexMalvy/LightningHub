@@ -59,12 +59,12 @@ class Room
      */
     protected function getRoomMembersConstruct()
     {
-        $this->members = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner
-        FROM rooms
-            INNER JOIN users
-            ON rooms.idRoom = users.idRoom
-        WHERE users.idRoom = :currentRoom
-        ORDER BY users.isRoomOwner DESC", ["currentRoom" => $this->roomId]);
+        $this->members = DB::fetch("SELECT Users.username, Users.idUser, Users.isRoomOwner
+        FROM Rooms
+            INNER JOIN Users
+            ON Rooms.idRoom = Users.idRoom
+        WHERE Users.idRoom = :currentRoom
+        ORDER BY Users.isRoomOwner DESC", ["currentRoom" => $this->roomId]);
 
         foreach ($this->members as $member) {
             if ($member["isRoomOwner"] === 1) {
@@ -79,12 +79,12 @@ class Room
      */
     public function getConnectedUserRoomMembers()
     {
-        $allMembers = DB::fetch("SELECT users.username, users.idUser, users.isRoomOwner, users.profilePicture
-        FROM rooms
-            INNER JOIN users
-            ON rooms.idRoom = users.idRoom
-        WHERE users.idRoom = :currentRoom
-        ORDER BY users.isRoomOwner DESC", ["currentRoom" => $this->roomId]);
+        $allMembers = DB::fetch("SELECT Users.username, Users.idUser, Users.isRoomOwner, Users.profilePicture
+        FROM Rooms
+            INNER JOIN Users
+            ON Rooms.idRoom = Users.idRoom
+        WHERE Users.idRoom = :currentRoom
+        ORDER BY Users.isRoomOwner DESC", ["currentRoom" => $this->roomId]);
 
         $this->members = [];
         foreach ($allMembers as $member) {
@@ -136,9 +136,9 @@ class Room
      */
     public static function getRoomMembersId(int $roomId) : array
     {
-        $roomMembers = DB::fetch("SELECT users.idUser
-        FROM users
-        WHERE users.idRoom = :currentRoom", 
+        $roomMembers = DB::fetch("SELECT Users.idUser
+        FROM Users
+        WHERE Users.idRoom = :currentRoom", 
         ["currentRoom" => $roomId]);
         return $roomMembers;
     }
@@ -149,9 +149,9 @@ class Room
     public static function checkUserOwnership(int $userId, int $roomId) : bool
     {
         // Get session user info
-        $result = \DB::fetch("SELECT users.isRoomOwner, users.idRoom
-        FROM users
-        WHERE users.idUser = :idUser",
+        $result = \DB::fetch("SELECT Users.isRoomOwner, Users.idRoom
+        FROM Users
+        WHERE Users.idUser = :idUser",
         ["idUser" => $userId]);
 
         // Check if 
@@ -169,7 +169,7 @@ class Room
      */
     public static function createNewRoom(int $idUser , string $title , string $description, int $maxMembers, int $idGamemode)
     {
-        DB::statement("INSERT INTO rooms (title, description, maxMembers, idGamemode)
+        DB::statement("INSERT INTO Rooms (title, description, maxMembers, idGamemode)
         VALUES
             (:title, :description, :maxMembers, :idGamemode);", 
             ["title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
@@ -189,9 +189,9 @@ class Room
      */
     public static function modifyRoom(int $idRoom , string $title , string $description, int $maxMembers, int $idGamemode)
     {
-        DB::statement("UPDATE rooms
+        DB::statement("UPDATE Rooms
         SET title = :title, description = :description, maxMembers = :maxMembers, idGamemode = :idGamemode
-        WHERE rooms.idRoom = :idRoom",
+        WHERE Rooms.idRoom = :idRoom",
         ["idRoom" => $idRoom, "title" => $title, "description" => $description, "maxMembers" => $maxMembers, "idGamemode" => $idGamemode]);
     }
 
@@ -204,21 +204,21 @@ class Room
 
         // Remove each user's room and ownership
         foreach ($roomMembers as $member) {
-            DB::statement("UPDATE users
-            SET users.isRoomOwner = 0, users.idRoom = NULL
-            WHERE users.idUser = :idUser",
+            DB::statement("UPDATE Users
+            SET Users.isRoomOwner = 0, Users.idRoom = NULL
+            WHERE Users.idUser = :idUser",
             ["idUser" => $member["idUser"]]);
         }
 
         // Delete requestToJoin the room from db
-        DB::statement("DELETE FROM requesttojoin
-        WHERE requesttojoin.idRoom = :idRoom",
+        DB::statement("DELETE FROM requestToJoin
+        WHERE requestToJoin.idRoom = :idRoom",
         ["idRoom" => $idRoom]);
 
         // Delete the room from db
-        DB::statement("UPDATE rooms
-        SET rooms.isEnabled = 0
-        WHERE rooms.idRoom = :idRoom",
+        DB::statement("UPDATE Rooms
+        SET Rooms.isEnabled = 0
+        WHERE Rooms.idRoom = :idRoom",
         ["idRoom" => $idRoom]);
     }
 
@@ -249,27 +249,27 @@ class Room
             }
 
             // Appoint the new room owner
-            DB::statement("UPDATE users
-            SET users.isRoomOwner = 1
-            WHERE users.idUser = :idUser",
+            DB::statement("UPDATE Users
+            SET Users.isRoomOwner = 1
+            WHERE Users.idUser = :idUser",
             ["idUser" => $newOwnerId]);
         }
         
         // Remove initial user from his room
         DB::statement("UPDATE Users
-        SET users.isRoomOwner = 0, users.idRoom = NULL
+        SET Users.isRoomOwner = 0, Users.idRoom = NULL
         WHERE idUser = :idUser", ["idUser" => $idUser]);
     }
     
     /**
      * Promote target user to room owner if connected user is room owner 
-     * and both users are in the same room
+     * and both Users are in the same room
      */
     public static function promoteToOwner(int $idUser, int $idTarget)
     {
         // Retrieve from DB room owner and soon-to-be room owner
-        $result = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
-        FROM users
+        $result = DB::fetch('SELECT Users.idUser, Users.isRoomOwner, Users.idRoom
+        FROM Users
         WHERE idUser = :idUser1 OR idUser = :idUser2',
         ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
@@ -277,16 +277,16 @@ class Room
             // Checks if user is the room owner
             if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) 
             or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
-                // Checks that both users are in the same room
+                // Checks that both Users are in the same room
                 if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
-                    DB::statement("UPDATE users
-                    SET users.isRoomOwner = 0
-                    WHERE users.idUser = :idUser",
+                    DB::statement("UPDATE Users
+                    SET Users.isRoomOwner = 0
+                    WHERE Users.idUser = :idUser",
                     ["idUser" => $idUser]);
 
-                    DB::statement("UPDATE users
-                    SET users.isRoomOwner = 1
-                    WHERE users.idUser = :idTarget",
+                    DB::statement("UPDATE Users
+                    SET Users.isRoomOwner = 1
+                    WHERE Users.idUser = :idTarget",
                     ["idTarget" => $idTarget]);
                 }
             }
@@ -299,8 +299,8 @@ class Room
     public static function kickFromRoom(int $idUser, int $idTarget)
     {
         // Retrieve from DB room owner and soon-to-be room owner
-        $result = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
-        FROM users
+        $result = DB::fetch('SELECT Users.idUser, Users.isRoomOwner, Users.idRoom
+        FROM Users
         WHERE idUser = :idUser1 OR idUser = :idUser2',
         ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
@@ -308,11 +308,11 @@ class Room
             // Checks if user is the room owner
             if (($result[0]["isRoomOwner"] and $result[0]["idUser"] == $idUser) 
             or ($result[1]["isRoomOwner"] and $result[1]["idUser"] == $idUser)) {
-                // Checks that both users are in the same room
+                // Checks that both Users are in the same room
                 if ($result[0]["idRoom"] === $result[1]["idRoom"]) {
-                    DB::statement("UPDATE users
-                    SET users.idRoom = NULL
-                    WHERE users.idUser = :idTarget",
+                    DB::statement("UPDATE Users
+                    SET Users.idRoom = NULL
+                    WHERE Users.idUser = :idTarget",
                     ["idTarget" => $idTarget]);
                 }
             }
@@ -324,13 +324,13 @@ class Room
      */
     public static function RequestToJoinRoom(int $idUser, int $idRoom)
     {
-        $result = DB::fetch("SELECT rooms.idRoom
-        FROM rooms
+        $result = DB::fetch("SELECT Rooms.idRoom
+        FROM Rooms
         WHERE idRoom = :idRoom",
         ["idRoom" => $idRoom]);
 
         if (count($result) === 1) {
-            DB::statement("INSERT INTO requesttojoin 
+            DB::statement("INSERT INTO requestToJoin 
             (idUser, idRoom)
             VALUES (:idUser, :idRoom)",
             ["idUser" => $idUser, "idRoom" => $idRoom]);
@@ -342,25 +342,25 @@ class Room
      */
     public static function cancelRequestToJoinRoom(int $idUser, int $idRoom)
     {
-        $result = DB::fetch("SELECT requesttojoin.idUser
-        FROM requesttojoin
-        WHERE requesttojoin.idUser = :idUser AND requesttojoin.idRoom = :idRoom",
+        $result = DB::fetch("SELECT requestToJoin.idUser
+        FROM requestToJoin
+        WHERE requestToJoin.idUser = :idUser AND requestToJoin.idRoom = :idRoom",
         ["idUser" => $idUser, "idRoom" => $idRoom]);
 
         if (count($result) === 1) {
-            DB::statement("DELETE FROM requesttojoin
-            WHERE requesttojoin.idUser = :idUser AND requesttojoin.idRoom = :idRoom",
+            DB::statement("DELETE FROM requestToJoin
+            WHERE requestToJoin.idUser = :idUser AND requestToJoin.idRoom = :idRoom",
             ["idUser" => $idUser, "idRoom" => $idRoom]);
         }
     }
 
     /**
-     * Cancel all request to join rooms for the target user
+     * Cancel all request to join Rooms for the target user
      */
     public static function cancelAllRequestToJoinRooms(int $idUser)
     {
-        DB::statement("DELETE FROM requesttojoin
-        WHERE requesttojoin.idUser = :idUser",
+        DB::statement("DELETE FROM requestToJoin
+        WHERE requestToJoin.idUser = :idUser",
         ["idUser" => $idUser]);
     }
     
@@ -370,8 +370,8 @@ class Room
     public static function acceptIntoRoom(int $idUser, int $idTarget, int $idRoom)
     {
         // Retrieve from DB room owner and target user
-        $usersResults = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
-        FROM users
+        $usersResults = DB::fetch('SELECT Users.idUser, Users.isRoomOwner, Users.idRoom
+        FROM Users
         WHERE idUser = :idUser1 OR idUser = :idUser2',
         ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
@@ -390,19 +390,19 @@ class Room
             return;
         }
         
-        // Get the number of user and max users of the room 
-        $roomResults = DB::fetch("SELECT COUNT(*) 'numberOfUsers', rooms.maxMembers
-        FROM users
-            INNER JOIN rooms
-            ON users.idRoom = rooms.idRoom
-        WHERE users.idRoom = :idRoom",
+        // Get the number of user and max Users of the room 
+        $roomResults = DB::fetch("SELECT COUNT(*) 'numberOfUsers', Rooms.maxMembers
+        FROM Users
+            INNER JOIN Rooms
+            ON Users.idRoom = Rooms.idRoom
+        WHERE Users.idRoom = :idRoom",
         ["idRoom" => $idRoom]);
 
         // Accept the user if room still has space
         if ($roomResults[0]["numberOfUsers"] < $roomResults[0]["maxMembers"]) {
-            DB::statement("UPDATE users
-            SET users.idRoom = :idRoom
-            WHERE users.idUser = :idTarget",
+            DB::statement("UPDATE Users
+            SET Users.idRoom = :idRoom
+            WHERE Users.idUser = :idTarget",
             ["idRoom" => $idRoom, "idTarget" => $idTarget]);
             self::cancelAllRequestToJoinRooms($idTarget);
         } else {
@@ -419,8 +419,8 @@ class Room
     public static function declineIntoRoom(int $idUser, int $idTarget, int $idRoom)
     {
         // Retrieve from DB room owner and target user
-        $usersResults = DB::fetch('SELECT users.idUser, users.isRoomOwner, users.idRoom
-        FROM users
+        $usersResults = DB::fetch('SELECT Users.idUser, Users.isRoomOwner, Users.idRoom
+        FROM Users
         WHERE idUser = :idUser1 OR idUser = :idUser2',
         ["idUser1" => $idUser, "idUser2" => $idTarget]);
 
@@ -440,8 +440,8 @@ class Room
         }
 
         // Accept the user if room still has space
-        DB::statement("DELETE FROM requesttojoin
-        WHERE requesttojoin.idRoom = :idRoom AND requesttojoin.idUser = :idTarget",
+        DB::statement("DELETE FROM requestToJoin
+        WHERE requestToJoin.idRoom = :idRoom AND requestToJoin.idUser = :idTarget",
         ["idRoom" => $idRoom, "idTarget" => $idTarget]);
 
     }

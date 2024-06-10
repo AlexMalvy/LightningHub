@@ -70,7 +70,7 @@ class User
         $hachedPassword = password_hash($this->password, PASSWORD_DEFAULT);
 
         return DB::statement(
-            "INSERT INTO users (username, password, mail)"
+            "INSERT INTO Users (username, password, mail)"
             ." VALUES (:userName, :password, :mail)",
             [
                 'userName' => $this->userName,
@@ -98,7 +98,7 @@ class User
             "UPDATE Users SET lastConnection = :lastConnection WHERE mail = :email",
             [
                 'lastConnection' => $this->lastConnection,
-                 'email' => $this->mail,
+                'email' => $this->mail,
             ],
         );
     }

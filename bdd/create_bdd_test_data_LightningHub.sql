@@ -296,7 +296,7 @@ INSERT INTO Moderations (description, duration, idBanType, idUser)
 VALUES
    ("Must be ban because I am the Law", 60*60*24*365, 3, 5);
 
-INSERT INTO requestToJoin (idUser, idRoom)
+INSERT INTO RequestToJoin (idUser, idRoom)
 VALUES
    (2, 1);
 

@@ -35,7 +35,7 @@ class PrivateMessageController
         date_default_timezone_set('Europe/Paris');
         // Create new private message
         $result = DB::statement(
-            "INSERT INTO sendprivatemessages(idUser1, idUser2, timeMessage, message, isReported)"
+            "INSERT INTO sendPrivateMessages(idUser1, idUser2, timeMessage, message, isReported)"
             ." VALUE(:idUser1, :idUser2, :timeMessage, :message, :isReported);",
             [
                 'idUser1' => $idUser1,
@@ -96,7 +96,7 @@ class PrivateMessageController
         }
 
         $pvMsg =  DB::fetch(
-            "SELECT * FROM sendprivatemessages".
+            "SELECT * FROM sendPrivateMessages".
             " WHERE timeMessage = :timeMessage".
             " AND (idUser1 = :idUser1 and idUser2 = :idUser2".
             " or idUser1 = :idUser2 and idUser2 = :idUser1)",
@@ -123,10 +123,10 @@ class PrivateMessageController
 
         $myMsgs = DB::fetch(
         // SQL
-            "SELECT * FROM sendprivatemessages"
-            . " INNER JOIN users ON users.idUser = sendprivatemessages.idUser1"
-            . " WHERE (sendprivatemessages.idUser1 = :user_id OR sendprivatemessages.idUser2 = :user_id)"
-            . " ORDER BY sendprivatemessages.timeMessage",
+            "SELECT * FROM sendPrivateMessages"
+            . " INNER JOIN users ON users.idUser = sendPrivateMessages.idUser1"
+            . " WHERE (sendPrivateMessages.idUser1 = :user_id OR sendPrivateMessages.idUser2 = :user_id)"
+            . " ORDER BY sendPrivateMessages.timeMessage",
 
             // Params
             [':user_id' => $userId],

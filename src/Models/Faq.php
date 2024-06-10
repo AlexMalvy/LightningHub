@@ -74,7 +74,7 @@ class Faq
     public function delete(): int|false
     {
         return DB::statement(
-            "DELETE FROM faq WHERE idFaq = :id",
+            "DELETE FROM Faq WHERE idFaq = :id",
             [
                 'id' =>$this->id,
             ],

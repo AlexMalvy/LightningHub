@@ -11,10 +11,10 @@ class Filters
      */
     public function __construct()
     {
-        $result = DB::fetch("SELECT games.idGame, games.nameGame, gamemodes.idGamemode, gamemodes.nameGamemode
-        FROM games
-            INNER JOIN gamemodes
-            ON games.idGame = gamemodes.idGame");
+        $result = DB::fetch("SELECT Games.idGame, Games.nameGame, Gamemodes.idGamemode, Gamemodes.nameGamemode
+        FROM Games
+            INNER JOIN Gamemodes
+            ON Games.idGame = Gamemodes.idGame");
 
         $previous = $result[0]["idGame"];
         $previousName = $result[0]["nameGame"];

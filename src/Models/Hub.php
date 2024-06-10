@@ -10,33 +10,33 @@ class Hub
     {
         $filtersString = "";
         if (!empty($gameName)) {
-            $filtersString .= " AND games.nameGame = '" . strip_tags($gameName)."'";
+            $filtersString .= " AND Games.nameGame = '" . strip_tags($gameName)."'";
         }
         if (!empty($gamemodeName)) {
-            $filtersString .= " AND gamemodes.nameGamemode = '" . strip_tags($gamemodeName)."'";
+            $filtersString .= " AND Gamemodes.nameGamemode = '" . strip_tags($gamemodeName)."'";
         }
         if (!empty($search)) {
-            $filtersString .= " AND (rooms.title LIKE '%" . strip_tags($search)."%' OR rooms.description LIKE '%".$search."%')";
+            $filtersString .= " AND (Rooms.title LIKE '%" . strip_tags($search)."%' OR Rooms.description LIKE '%".$search."%')";
         }
         
         $preparedQuery = "SELECT 
-        rooms.idRoom, 
-        rooms.title, 
-        rooms.description, 
-        rooms.maxMembers, 
-        rooms.dateCreation, 
-        games.idGame, 
-        games.nameGame, 
-        games.tag, 
-        gamemodes.idGamemode, 
-        gamemodes.nameGamemode
-        FROM rooms
-            INNER JOIN gamemodes
-            ON rooms.idGamemode = gamemodes.idGamemode
-                INNER JOIN games
-                ON gamemodes.idGame = games.idGame
-        WHERE rooms.isEnabled = 1 ".$filtersString
-        ." ORDER BY rooms.idRoom ASC";
+        Rooms.idRoom, 
+        Rooms.title, 
+        Rooms.description, 
+        Rooms.maxMembers, 
+        Rooms.dateCreation, 
+        Games.idGame, 
+        Games.nameGame, 
+        Games.tag, 
+        Gamemodes.idGamemode, 
+        Gamemodes.nameGamemode
+        FROM Rooms
+            INNER JOIN Gamemodes
+            ON Rooms.idGamemode = Gamemodes.idGamemode
+                INNER JOIN Games
+                ON Gamemodes.idGame = Games.idGame
+        WHERE Rooms.isEnabled = 1 ".$filtersString
+        ." ORDER BY Rooms.idRoom ASC";
 
         $roomQuery = DB::fetch($preparedQuery);
 
@@ -86,9 +86,9 @@ class Hub
      */
     protected function getFriendRooms(int $userId)
     {
-        $result = DB::fetch("SELECT isfriend.idUser1, isfriend.idUser2
-        FROM isfriend
-        WHERE isfriend.accepted = 1 AND (isfriend.idUser1 = :connectedUserId OR isfriend.idUser2 = :connectedUserId)", 
+        $result = DB::fetch("SELECT isFriend.idUser1, isFriend.idUser2
+        FROM isFriend
+        WHERE isFriend.accepted = 1 AND (isFriend.idUser1 = :connectedUserId OR isFriend.idUser2 = :connectedUserId)", 
         ["connectedUserId" => $userId]);
 
         $tempFriendList = [];
@@ -102,9 +102,9 @@ class Hub
 
         $tempFriendList = "'".implode("', '", $tempFriendList)."'";
 
-        $this->friendRoomsList = DB::fetch("SELECT users.idUser, users.username, users.idRoom
-        FROM users
-        WHERE users.idUser IN (".$tempFriendList.")");
+        $this->friendRoomsList = DB::fetch("SELECT Users.idUser, Users.username, Users.idRoom
+        FROM Users
+        WHERE Users.idUser IN (".$tempFriendList.")");
     }
 
     /**
@@ -112,31 +112,31 @@ class Hub
      */
     protected function getConnectedUserRoom(int $userId) : Room|NULL
     {
-        $result = DB::fetch("SELECT users.idRoom
-        FROM users
-        WHERE users.idUser = :idUser",
+        $result = DB::fetch("SELECT Users.idRoom
+        FROM Users
+        WHERE Users.idUser = :idUser",
         ["idUser" => $userId]);
 
         if (!empty($result)) {
             if ($result[0]["idRoom"] != NULL) {
                 $roomQuery = DB::fetch("SELECT 
-                rooms.idRoom, 
-                rooms.title, 
-                rooms.description, 
-                rooms.maxMembers, 
-                rooms.dateCreation, 
-                games.idGame, 
-                games.nameGame, 
-                games.tag, 
-                gamemodes.idGamemode, 
-                gamemodes.nameGamemode
-                FROM rooms
-                    INNER JOIN gamemodes
-                    ON rooms.idGamemode = gamemodes.idGamemode
-                        INNER JOIN games
-                        ON gamemodes.idGame = games.idGame
-                WHERE rooms.isEnabled = 1 AND rooms.idRoom = :idRoom
-                ORDER BY rooms.idRoom ASC",
+                Rooms.idRoom, 
+                Rooms.title, 
+                Rooms.description, 
+                Rooms.maxMembers, 
+                Rooms.dateCreation, 
+                Games.idGame, 
+                Games.nameGame, 
+                Games.tag, 
+                Gamemodes.idGamemode, 
+                Gamemodes.nameGamemode
+                FROM Rooms
+                    INNER JOIN Gamemodes
+                    ON Rooms.idGamemode = Gamemodes.idGamemode
+                        INNER JOIN Games
+                        ON Gamemodes.idGame = Games.idGame
+                WHERE Rooms.isEnabled = 1 AND Rooms.idRoom = :idRoom
+                ORDER BY Rooms.idRoom ASC",
                 ["idRoom" => $result[0]["idRoom"]]);
 
                 $room = $roomQuery[0];
@@ -164,9 +164,9 @@ class Hub
      * Get current user's list of requested to join rooms
      */
     protected function getPendingRoomList(int $userId) {
-        $allPendingRooms = DB::fetch("SELECT requesttojoin.idRoom
-        FROM requesttojoin
-        WHERE requesttojoin.idUser = :idUser",
+        $allPendingRooms = DB::fetch("SELECT requestToJoin.idRoom
+        FROM requestToJoin
+        WHERE requestToJoin.idUser = :idUser",
         ["idUser" => $userId]);
 
         $this->pendingRoomsIdList = [];
@@ -186,11 +186,11 @@ class Hub
      */
     protected function getRequestToJoinUserList(room $room)
     {
-        $this->usersRequestingToJoin = DB::fetch("SELECT users.idUser, users.username, requesttojoin.timeRequest
-        FROM requesttojoin
-            INNER JOIN users
-            ON requesttojoin.idUser = users.idUser
-        WHERE requesttojoin.idRoom = :idRoom",
+        $this->usersRequestingToJoin = DB::fetch("SELECT Users.idUser, Users.username, requestToJoin.timeRequest
+        FROM requestToJoin
+            INNER JOIN Users
+            ON requestToJoin.idUser = Users.idUser
+        WHERE requestToJoin.idRoom = :idRoom",
         ["idRoom" => $room->roomId]);
     }
     
@@ -199,17 +199,17 @@ class Hub
      */
     public static function requestToJoinRoomAjax(int $idUser)
     {
-        $getRoomId = DB::fetch("SELECT users.idRoom, users.isRoomOwner
-        FROM users
-        WHERE users.idUser = :idUser",
+        $getRoomId = DB::fetch("SELECT Users.idRoom, Users.isRoomOwner
+        FROM Users
+        WHERE Users.idUser = :idUser",
         ["idUser" => $idUser]);
 
         if ($getRoomId[0]["idRoom"] != NULL and $getRoomId[0]["isRoomOwner"]) {
-            $result = DB::fetch("SELECT users.idUser, users.username, requesttojoin.timeRequest, requesttojoin.idRoom
-            FROM requesttojoin
-                INNER JOIN users
-                ON requesttojoin.idUser = users.idUser
-            WHERE requesttojoin.idRoom = :idRoom",
+            $result = DB::fetch("SELECT Users.idUser, Users.username, requestToJoin.timeRequest, requestToJoin.idRoom
+            FROM requestToJoin
+                INNER JOIN Users
+                ON requestToJoin.idUser = Users.idUser
+            WHERE requestToJoin.idRoom = :idRoom",
             ["idRoom" => $getRoomId[0]["idRoom"]]);
 
             print(json_encode(["requests" => $result]));
@@ -222,11 +222,11 @@ class Hub
      */
     public static function joinedRoomAjax(int $idUser)
     {
-        $result = DB::fetch("SELECT users.idRoom, rooms.title
-        FROM users
-            INNER JOIN rooms
-            ON users.idRoom = rooms.idRoom
-        WHERE users.idUser = :idUser",
+        $result = DB::fetch("SELECT Users.idRoom, Rooms.title
+        FROM Users
+            INNER JOIN Rooms
+            ON Users.idRoom = Rooms.idRoom
+        WHERE Users.idUser = :idUser",
         ["idUser" => $idUser]);
 
         print(json_encode(["joined" => $result]));

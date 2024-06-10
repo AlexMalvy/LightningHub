@@ -6,7 +6,7 @@ use DB;
 
 class Games
 {
-    const TABLE_NAME = 'games';
+    const TABLE_NAME = 'Games';
     public int $idGame;
     public string $nameGame;
     public string $tag;
@@ -23,7 +23,7 @@ class Games
 
     public function __construct()
     {
-        $this->allGamesList = DB::fetch("SELECT * FROM games");
+        $this->allGamesList = DB::fetch("SELECT * FROM Games");
     }
 
     public function getOnlyXGames(int $amount) : array
@@ -95,20 +95,20 @@ class Games
     public function delete(): bool|int
     {
         DB::statement(
-            "DELETE FROM gamemodes".
+            "DELETE FROM Gamemodes".
             " WHERE idGame = :idGame",
             ['idGame' => $this->idGame],
         );
 
         return DB::statement(
-            "DELETE FROM games".
+            "DELETE FROM Games".
             " WHERE idGame = :idGame",
             ['idGame' => $this->idGame],
         );
     }
 
     public function getAllGamesModes() {
-        $gamesModes = DB::fetch("SELECT * FROM gamemodes WHERE idGame = $this->idGame");
+        $gamesModes = DB::fetch("SELECT * FROM Gamemodes WHERE idGame = $this->idGame");
         $res = [];
         foreach ($gamesModes as $gameMode) {
             $res[] = $gameMode;

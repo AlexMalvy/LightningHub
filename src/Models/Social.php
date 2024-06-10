@@ -8,7 +8,7 @@ use DB;
 
 class Social
 {
-    const TABLE_NAME = 'isfriend';
+    const TABLE_NAME = 'isFriend';
     protected ?int $idUser1;
     protected ?int $idUser2;
     protected ?int $accepted;
@@ -58,7 +58,7 @@ class Social
     {
         $myId = Auth::getSessionUserId();
         return DB::statement(
-            "DELETE FROM isfriend".
+            "DELETE FROM isFriend".
             " WHERE idUser1 = :idUser1 AND idUser2 = :idUser2".
             " OR idUser1 = :idUser2 AND idUser2 = :idUser1",
             ['idUser1' => $myId,

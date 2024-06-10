@@ -33,12 +33,12 @@ class RoomMessage
      */
     public static function sendMessage(int $idUser, string $message)
     {
-        $resultUserRoomCheck = DB::fetch("SELECT users.idRoom
-        FROM users
-        WHERE users.idUser = :idUser",
+        $resultUserRoomCheck = DB::fetch("SELECT Users.idRoom
+        FROM Users
+        WHERE Users.idUser = :idUser",
         ["idUser" => $idUser]);
 
-        DB::statement("INSERT INTO messages (message, idRoom, idUser)
+        DB::statement("INSERT INTO Messages (message, idRoom, idUser)
         VALUES (:message, :idRoom, :idUser)",
         ["message" => $message, "idRoom" => $resultUserRoomCheck[0]["idRoom"], "idUser" => $idUser]);
     }
@@ -48,14 +48,14 @@ class RoomMessage
      */
     public static function reportMessage(int $idUser, int $idMessage)
     {
-        $resultUserRoomCheck = DB::fetch("SELECT users.idRoom
-        FROM users
-        WHERE users.idUser = :idUser",
+        $resultUserRoomCheck = DB::fetch("SELECT Users.idRoom
+        FROM Users
+        WHERE Users.idUser = :idUser",
         ["idUser" => $idUser]);
 
-        $resultMessageRoomCheck = DB::fetch("SELECT messages.idRoom
-        FROM messages
-        WHERE messages.idMessage = :idMessage",
+        $resultMessageRoomCheck = DB::fetch("SELECT Messages.idRoom
+        FROM Messages
+        WHERE Messages.idMessage = :idMessage",
         ["idMessage" => $idMessage]);
 
         if ($resultUserRoomCheck[0]["idRoom"] !== $resultMessageRoomCheck[0]["idRoom"]) {
@@ -63,9 +63,9 @@ class RoomMessage
             return;
         }
 
-        DB::statement("UPDATE messages
-        SET messages.isReported = 1
-        WHERE messages.idMessage = :idMessage",
+        DB::statement("UPDATE Messages
+        SET Messages.isReported = 1
+        WHERE Messages.idMessage = :idMessage",
         ["idMessage" => $idMessage]);
     }
 }
