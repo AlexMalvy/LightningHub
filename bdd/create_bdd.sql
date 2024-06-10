@@ -211,10 +211,10 @@ ALTER TABLE sendPrivateMessages
    ADD CONSTRAINT privateMessage_user1_fk FOREIGN KEY (idUser1) REFERENCES Users (idUser),
    ADD CONSTRAINT privateMessage_user2_fk FOREIGN KEY (idUser2) REFERENCES Users (idUser);
 
-CREATE USER IF NOT EXISTS "lightninghubadmin"@"localhost"
-IDENTIFIED BY "lightninghubcorporation";
+CREATE USER IF NOT EXISTS "lightninghub"@"localhost"
+IDENTIFIED BY "6uj)z/.(@,3+1t4AA90d";
 
-GRANT ALL PRIVILEGES ON lightninghub.* TO "lightninghubadmin"@"localhost";
+GRANT ALL PRIVILEGES ON LightningHub.* TO "lightninghub"@"localhost";
 
 COMMIT;
 SET AUTOCOMMIT = 1;

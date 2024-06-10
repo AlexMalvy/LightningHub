@@ -97,7 +97,7 @@ class DB {
     {
         try {
             return new PDO(
-            "mysql:host=localhost;port=3306;dbname=lightninghub",
+            "mysql:host=localhost;port=3306;dbname=LightningHub",
             "lightninghubadmin",
             "lightninghubcorporation",
                 [
