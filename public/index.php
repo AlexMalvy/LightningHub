@@ -169,7 +169,7 @@
                                 <div class="card-body">
                                     <h3 class="card-title"><?php print($game["nameGame"]) ?></h3>
                                     <div class="card-text">
-                                        <p><?php print(mb_convert_encoding($game["descriptionShort"], "UTF-8")) ?></p>
+                                        <p><?php print(mb_detect_encoding($game["descriptionShort"])) ?></p>
                                     </div>
                                 </div>
 
