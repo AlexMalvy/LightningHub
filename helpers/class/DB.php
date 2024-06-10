@@ -102,6 +102,7 @@ class DB {
             "6uj)z/.(@,3+1t4AA90d",
                 [
                     // Options
+                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
                     PDO::ATTR_PERSISTENT => true,
                 ]
             );

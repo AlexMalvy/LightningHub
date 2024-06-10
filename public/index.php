@@ -101,7 +101,7 @@
                             <img src="<?php print($game["image"]) ?>" class="card-img-top" alt="images-<?php print($game["nameGame"]) ?>">
                             <div class="card-body px-0">
                                 <h3 class="card-title"><?php print($game["nameGame"]) ?></h3>
-                                <p class="card-text"><?php print(htmlspecialchars($game["description"], ENT_QUOTES, "UTF-8")) ?></p>
+                                <p class="card-text"><?php print($game["description"]) ?></p>
                                 <div class="d-flex justify-content-between">
 
                                     <!-- Join Team -->
