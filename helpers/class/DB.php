@@ -84,7 +84,7 @@ class DB {
                 throw new Exception(self::getDB()->errorInfo()[2] ?? 'Unknown error');
             }
 
-            return $fetchMode ? $req->fetchAll($fetchType) : $req->rowCount();
+            dd($fetchMode ? $req->fetchAll($fetchType) : $req->rowCount());
         } catch (Exception $e) {
             // TODO Write error message in a independent log file
             echo 'Erreur : '.$e->getMessage(); exit();
