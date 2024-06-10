@@ -169,7 +169,7 @@
                                 <div class="card-body">
                                     <h3 class="card-title"><?php print($game["nameGame"]) ?></h3>
                                     <div class="card-text">
-                                        <p><?php print($game["descriptionShort"]) ?></p>
+                                        <p><?php print(htmlspecialchars($game["descriptionShort"], ENT_QUOTES, "UTF-8")) ?></p>
                                     </div>
                                 </div>
 
