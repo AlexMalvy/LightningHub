@@ -115,7 +115,7 @@ class Faq
 
     public static function getAllFaqList(): array
     {
-        return self::$allFaqList = DB::fetch("SELECT * FROM faq");
+        return self::$allFaqList = DB::fetch("SELECT * FROM Faq");
     }
 
     public static function setAllFaqList(array $allFaqList): void
